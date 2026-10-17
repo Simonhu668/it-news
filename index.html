@@ -5,601 +5,634 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IT 资讯速览 · Simon 的每日聚合</title>
 <style>
-:root { --bg:#f6f8fa; --card:#fff; --ink:#1f2933; --mut:#6b7280; }
+:root {
+  --bg:#faf9f6; --bg-sunk:#f3f3ef; --surface:#ffffff;
+  --ink:#202a30; --ink-2:#303c42; --ink-3:#59656b; --ink-4:#8a949a;
+  --line:#e4e8e4; --line-soft:#ecefe9; --daybar:#f0f2ee;
+  --accent:#176b75; --hot:#b3402a;
+}
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink);
-  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
-header { background:#111827; color:#fff; padding:28px 20px 22px; }
-.wrap { max-width:860px; margin:0 auto; padding:0 16px; }
-header h1 { margin:0 0 6px; font-size:24px; }
-header p { margin:0; color:#9ca3af; font-size:13px; }
-.filters { position:sticky; top:0; z-index:5; background:var(--bg);
-  padding:12px 0; display:flex; gap:8px; flex-wrap:wrap; }
-.fbtn { border:1px solid #d1d5db; background:#fff; border-radius:999px;
-  padding:7px 14px; font-size:13px; cursor:pointer; }
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:760px; margin:0 auto; padding:0 18px; }
+header.mast { padding:34px 0 10px; }
+header.mast h1 { margin:0 0 6px; font-size:26px; font-weight:700; letter-spacing:.5px; }
+header.mast h1 .logo { display:inline-block; margin-right:8px; }
+header.mast p { margin:0; color:var(--ink-3); font-size:13px; }
+.filters { position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--bg) 92%, transparent);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  padding:12px 0; display:flex; gap:8px; flex-wrap:wrap; border-bottom:1px solid var(--line-soft); }
+.fbtn { border:1px solid var(--line); background:var(--surface); color:var(--ink-2);
+  border-radius:999px; padding:6px 13px; font-size:13px; cursor:pointer; }
 .fbtn b { font-weight:600; }
-.fbtn.active { background:#111827; color:#fff; border-color:#111827; }
-.card { background:var(--card); border-radius:12px; padding:18px 20px;
-  margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.08); }
-.meta { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.badge { color:#fff; font-size:12px; padding:2px 10px; border-radius:999px; }
-.stamp { color:var(--mut); font-size:12px; }
-.card h2 { margin:0 0 8px; font-size:17px; line-height:1.5; }
-.summary { margin:0 0 8px; font-size:14px; line-height:1.7; color:#374151; }
-.why { margin:0 0 6px; font-size:13px; line-height:1.6; color:#6b7280;
-  background:#f9fafb; border-left:3px solid #e5e7eb; padding:6px 10px; }
-.foot { margin-top:6px; }
-.src { font-size:13px; color:#1a73e8; text-decoration:none; }
-footer { text-align:center; color:var(--mut); font-size:12px; padding:26px 0 40px; }
-.hidden { display:none; }
+.fbtn.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+.day { margin:0 0 8px; }
+.daybar { display:flex; align-items:baseline; gap:10px; background:var(--daybar);
+  border-radius:8px; padding:9px 14px; margin:20px 0 4px; }
+.dayname { font-size:15px; font-weight:700; }
+.daycount { font-size:12px; color:var(--ink-3); }
+.row { padding:16px 2px 18px; border-bottom:1px solid var(--line-soft); }
+.row:last-child { border-bottom:none; }
+.rankline { display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+.rank { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; line-height:1; }
+.clock { font-size:15px; font-weight:600; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+.srcline { display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-bottom:7px; font-size:12.5px; color:var(--ink-3); }
+.srcline .dot { color:var(--ink-4); }
+.badge { font-size:11.5px; border:1px solid; border-radius:999px; padding:1px 9px; font-weight:600; }
+.title { margin:0 0 8px; font-size:17px; line-height:1.55; font-weight:650; }
+.summary { margin:0 0 8px; font-size:14px; line-height:1.75; color:var(--ink-2); }
+.why { margin:0 0 4px; font-size:13px; line-height:1.7; color:var(--ink-3); }
+.why-tag { display:inline-block; font-size:11px; font-weight:700; color:var(--accent);
+  border:1px solid var(--accent); border-radius:4px; padding:0 6px; margin-right:8px; vertical-align:1px; }
+.foot { margin-top:8px; }
+.src { font-size:13px; color:var(--accent); text-decoration:none; font-weight:500; }
+.src:hover { text-decoration:underline; }
+footer { text-align:center; color:var(--ink-4); font-size:12px; padding:28px 0 44px; }
+.hidden { display:none !important; }
+@media (max-width:520px) {
+  header.mast h1 { font-size:22px; }
+  .rank { font-size:19px; }
+  .title { font-size:16px; }
+}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <h1>📰 IT 资讯速览</h1>
-  <p>Simon 的每日 IT 聚合 · 必看 / AI落地 / 拓展 / 社区实战 · 按时间倒序</p>
-</div></header>
 <div class="wrap">
+  <header class="mast">
+    <h1><span class="logo">📰</span>IT 资讯速览</h1>
+    <p>Simon 的每日 IT 聚合 · 必看 / AI落地 / 拓展 / 社区实战 · 按时间倒序 · 每天 08:39 / 12:30 / 18:30 更新</p>
+  </header>
   <div class="filters" id="filters">
     <button class="fbtn active" data-f="all">全部 <b>69</b></button><button class="fbtn" data-f="必看">必看 <b>26</b></button><button class="fbtn" data-f="AI落地">AI落地 <b>15</b></button><button class="fbtn" data-f="拓展">拓展 <b>19</b></button><button class="fbtn" data-f="社区实战">社区实战 <b>9</b></button>
   </div>
-  <div id="list">
-    
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">supersimple365 · 10-17 18:31</span></div>
-      <h2>PowerPoint Copilot 新增「互动幻灯片」技能：听众可在 Teams 会议里自己点着看</h2>
-      <p class="summary">Copilot Premium 用户今天起可在 PowerPoint 用 Create Interactive Slide 技能生成可点击的 Summary/Timeline/Dashboard/Comparison 幻灯片，分享后对方无需 Copilot 许可也能点看。管理员零动作、无管理开关，幻灯片运行在沙盒视图（MC1461152）；Teams PowerPoint Live 里观众实时互动已可用，桌面端 10 月中下旬陆续推送。</p>
-      <p class="why">💡 M365 新功能实战类：做汇报、做培训材料时可直接用，互动看板比静态页更能讲清时间线和对比。</p>
-      <div class="foot"><a class="src" href="https://supersimple365.com/create-interactive-slides-in-powerpoint-with-copilot/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">kira-ai · 10-17 18:30</span></div>
-      <h2>Exchange 10 月安全更新分批指南：Windows 与 Exchange 补丁别装在同一个维护窗口</h2>
-      <p class="summary">Exchange 2019 的 10 月安全更新是 KB5128896（CU15 SU12）；社区（Borncity）报告 Windows Server 累积更新和 Exchange SU 装在同一批后，OWA 报 MapiExceptionMdbOffline 故障，重启只能临时恢复。建议分两个维护窗口：先打 Windows 更新、重启并验证 OWA/ECP/EWS，再打 Exchange SU；DAG 先从被动节点开始，每轮记录 KB 号，留好回退路径。</p>
-      <p class="why">💡 中午的 heise 条目说 Exchange 被打崩，这篇是第一篇英文实操分析，给出具体分批、验证、回退步骤，打补丁前照做能避坑。</p>
-      <div class="foot"><a class="src" href="https://kira-ai.de/blog/exchange-server-october-2026-security-updates-should-you-pause/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">中金在线 · 10-17 12:31</span></div>
-      <h2>京东工业工博会发布智采管家：核心采购岗位效率提升 70%</h2>
-      <p class="summary">10 月 12 日工博会发布面向中小企业的「智采管家」AI 应用：Excel 采购清单自动识别匹配、拍照识图找品、自然语言查订单状态、调取合同发票、跟踪售后工单，一个对话入口处理全流程采购事务。选型决策时长缩短近 39%，核心采购岗位效率提升 70%；已免费开放多端体验。</p>
-      <p class="why">💡 采购与物料主数据是制造企业的共性痛点：场景具体、数字硬，清单识别+BOM 解析的思路可直接对照他自己的 EBS 采购流程。</p>
-      <div class="foot"><a class="src" href="http://news.cnfol.com/chanyejingji/20261013/32395421.shtml" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">heise · 10-17 12:30</span></div>
-      <h2>heise：10 月 Windows Server 更新致部分 Exchange 服务器故障，OWA 受影响</h2>
-      <p class="summary">heise 10 月 16 日晚报道：给 Windows Server 打 10 月累积更新后，部分 Exchange 服务器出现故障，Outlook on the web（OWA）受影响，微软已确认问题。给跑 Exchange 的 Server 打补丁前先看这条，别把生产邮件打挂。</p>
-      <p class="why">💡 补丁打崩邮件服务是连环灾难：本月 Server 补丁和 Exchange 补丁要看在一起，打之前先确认机器上有没有 Exchange。</p>
-      <div class="foot"><a class="src" href="https://tsecurity.de/de/4278178/windows-server/october-updates-take-down-exchange-servers-heise-online/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">cybernetsec · 10-17 12:29</span></div>
-      <h2>CISA 增补 4 个在野利用漏洞：AhsayCBS 遭组合攻击，联邦机构修补截止今天</h2>
-      <p class="summary">10 月 14 日 CISA 把 4 个在野利用漏洞列入 KEV：Palo Alto PAN-OS 代码注入 CVE-2026-0322（CVSS 8.6）、Cisco Secure Email Gateway 相对路径穿越 CVE-2026-76519（CVSS 9.8）、AhsayCBS 认证缺陷 CVE-2026-105133 + 命令注入 CVE-2026-105134（组合利用装 webshell、挖矿机）。联邦机构修补截止日就是今天 10 月 17 日；有 AhsayCBS 备份服务器的先查版本并打补丁，Web 界面不要暴露公网。</p>
-      <p class="why">💡 AhsayCBS 正好是他这周要查的备份软件：备份服务器被拿下等于备份和业务数据一起被端，这是本时段最值得优先看的一条。</p>
-      <div class="foot"><a class="src" href="https://cyber.netsecops.io/articles/cisa-adds-four-exploited-vulnerabilities-to-kev-catalog-october-2026/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">reddit r/sysadmin · 10-17 08:47</span></div>
-      <h2>社区实战：KB5127648 打崩 Win11 25H2 的 RSAT，提权也受影响</h2>
-      <p class="summary">r/sysadmin 帖子（10 月 16 日，已标记解决）：10 月累积更新重启后，多家公司的 Win11 25H2 管理机上 RSAT 全套（ADUC、WSUS 等）失效、提权异常；楼主确认把相关注册表键设为 1 可恢复（评论认为与新的 Administrator Protection 功能有关，建议长期用 Server 2022 跳板机或 OpenRSAT 替代）。</p>
-      <p class="why">💡 AD 管理员的吃饭家伙被打崩：他自己用 RSAT，推补丁前先看这条再决定管理机节奏。</p>
-      <div class="foot"><a class="src" href="https://www.reddit.com/r/sysadmin/comments/1x7dfth/did_kb5127648_win_11_25h2_break_rsat_for_anyone/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">reddit r/sysadmin · 10-17 08:46</span></div>
-      <h2>社区实战：KB5127648 致 Win11 24H2 企业版关机误报“其他人仍在使用此电脑”</h2>
-      <p class="summary">r/sysadmin 帖子（10 月 17 日）：装完 10 月累积更新 KB5127648 后，Win11 24H2 企业版重启/关机出现误报的“Someone else is still using this PC”；卸载 KB 消失、重装复现。评论区指向 Fast Startup/混合睡眠是诱因，已有管理员用关闭快速启动解决，可先让用户忽略误报。</p>
-      <p class="why">💡 本月补丁的又一个用户侧扰民项，用户报障时先对上这条省排错时间。</p>
-      <div class="foot"><a class="src" href="https://www.reddit.com/r/sysadmin/comments/1x7sjge/kb5127648_causing_someone_else_is_still_using/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">微软文档 · 10-17 08:45</span></div>
-      <h2>Power BI Desktop 本月期限：2026 年 3 月及更早版本失去 OneDrive/SharePoint 存取分享</h2>
-      <p class="summary">微软官方通知：2026 年 3 月及更早的 Power BI Desktop 自 10 月起不再支持内置的 OneDrive/SharePoint 保存与分享；做报表的机器如果 Desktop 很久没升级，查一下版本号，不行就升到最新版，别等分享按钮失效才动手。</p>
-      <p class="why">💡 静默断供类变更：功能哪天消失不确定，提前把 Desktop 升上去最省事。</p>
-      <div class="foot"><a class="src" href="https://learn.microsoft.com/ms-my/power-bi/create-reports/desktop-sharepoint-save-share" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">fabric-community · 10-17 08:44</span></div>
-      <h2>Power BI 10 月更新：甘特图预览、Copilot 可带自定义视觉对象做报表</h2>
-      <p class="summary">Power BI 10 月功能更新：甘特图（预览）、下拉式列表切片器（预览）、个人书签保留列宽（GA）；Copilot 方面，用 Fabric skills 带自定义视觉对象生成报表已 GA，做汇报看板时可以直接要 Copilot 按公司的视觉规范出图。</p>
-      <p class="why">💡 他正学 Power BI，甘特图和书签列宽都是做项目/排产报表时马上能用的。</p>
-      <div class="foot"><a class="src" href="https://community.fabric.microsoft.com/blog/fbc_pbiupdatesblog/power-bi-october-2026-feature-summary/5374650" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">sify · 10-17 08:43</span></div>
-      <h2>日本进入“网络空间紧急状态”：云服务商 IDC Frontier 遭勒索，波及 495 家企业</h2>
-      <p class="summary">10 月 8 日软银旗下云服务商 IDC Frontier 遭勒索攻击，级联影响 495 家下游企业（JR 东日本约 167 万客户邮箱、Times Car 驾照照片外泄）；日本网络安全战略本部 10 月 9 日召开紧急会议定性为“网络空间紧急状态”并下达强制指令。提醒：审一遍自家依赖的云服务商和供应链单点。</p>
-      <p class="why">💡 供应链级联是真实发生的教训：攻陷一家供应商等于同时攻陷几百家客户。</p>
-      <div class="foot"><a class="src" href="https://www.sify.com/ai-analytics/japan-declares-cybersecurity-emergency-ai-cyberattacks-hit-14-million-people-and-495-businesses/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">新浪财经 · 10-17 08:42</span></div>
-      <h2>西域旷叶AI：千级 SKU 物料梳理从人工三周缩到几分钟</h2>
-      <p class="summary">工业品供应链服务商西域在工博会发布旷叶智采 AI 采购平台，AI 贯穿需求分析、寻源比价到履约全流程；其 AI 物料智控宝把过去人工三周才能完成的千级 SKU 物料梳理缩短到数分钟——物料一物多码正是 EBS 实施里的老大难，治理思路可直接对照。</p>
-      <p class="why">💡 采购与物料主数据是制造企业的共性痛点，场景具体、数字硬，EBS 环境可对照。</p>
-      <div class="foot"><a class="src" href="https://finance.sina.cn/stock/jdts/2026-10-16/detail-inivmazr8334894.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">webpronews · 10-17 08:41</span></div>
-      <h2>Copilot 10 月中下旬退出 Teams 聊天列表；10 月 25 日自动开启智能体插件上传</h2>
-      <p class="summary">M365 Copilot 改版：10 月中下旬起 Copilot 从 Teams 聊天列表消失，只留左侧导航栏入口，用户找不到入口先做通知；管理员侧要在 10 月 25 日前决定是否允许高级智能体/插件上传——到期不操作会自动开启，同时记得配好 FinOps for AI 的用量账。</p>
-      <p class="why">💡 用户入口迁移影响全员体验，权限开关有自动开启的截止日，两件都是管理员要主动做的。</p>
-      <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-gives-with-one-hand-takes-with-the-other-in-copilot-overhaul/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">webpronews · 10-17 08:40</span></div>
-      <h2>Windows 11 26H2 把设置备份改为默认开启，IT 需审计策略</h2>
-      <p class="summary">26H2 起 Windows 设置备份与还原改为默认开启，企业设备可能在没有明显提示的情况下开始把数据备份到云端；建议现在就到 Intune/MDM 里确认备份还原策略状态，决定是顺其自然还是显式关闭，别等合规审计时才发现。</p>
-      <p class="why">💡 行为变更静默生效，备份去向涉及数据边界，政策没对齐就是合规敞口。</p>
-      <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-flips-windows-settings-backup-to-default-on-in-26h2-forcing-it-teams-to-audit-policies/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">cisa · 10-17 08:39</span></div>
-      <h2>BeyondTrust 远程支持曝严重认证绕过漏洞，已确认在野利用</h2>
-      <p class="summary">CISA 10 月 16 日将 BeyondTrust Remote Support 的认证绕过漏洞 CVE-2026-102764 列入 KEV，攻击者正利用它拿初始访问、建持久化后横向移动；自建（self-hosted）设备需立即打 BT26-05-RS 补丁（24.3.1 以下版本要先升级才能打），同时限制管理界面只对内网可信 IP 开放。</p>
-      <p class="why">💡 远程支持工具是攻击者最爱的跳板，这类设备常挂公网，被拿下就等于内网钥匙。</p>
-      <div class="foot"><a class="src" href="https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-urges-patching-critical-vulnerability-beyondtrust-remote-support" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">infoobs/智通财经 · 10-16 18:37</span></div>
-      <h2>工信部发布工业 AI「产业导航图」：20 个细分领域、1000+ 可直接落地标准化场景</h2>
-      <p class="summary">10 月 15 日工信部发布「人工智能赋能新型工业化高价值场景」导航图，由多家权威科研院所与工业龙头企业联合、基于真实工业生产实践数据编制，覆盖石化、钢铁、汽车、消费电子等 20 个细分领域，收录超 1000 个可直接落地的标准化工业 AI 场景（研发仿真、智能排产、视觉质检、预测性维护、能耗优化、供应链匹配等）；给工厂找 AI 场景时可以按图索骥。</p>
-      <p class="why">💡 找 AI 场景的工具书：1000 个标准化场景按行业分好类，立项前先拿它对一遍场景清单。</p>
-      <div class="foot"><a class="src" href="https://www.infoobs.com/article/20261016/72008.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">windowsreport · 10-16 18:36</span></div>
-      <h2>ESU 正式终结：Exchange 2016/2019 与 Skype for Business 自 10 月 13 日起不再收到任何安全更新</h2>
-      <p class="summary">微软 10 月 13 日随补丁星期二结束了 Exchange 2016/2019 与 Skype for Business 2015/2019 的付费 ESU（Period 2）；此后这些版本不再收到任何补丁，新发现的漏洞也不会再被纳入 MSRC 评估；当前本地 Exchange/SfB 需要尽快安排迁移到 SE 或在线服务的时间表。</p>
-      <p class="why">💡 本地邮件/协作系统的断供节点：不再打补丁意味着暴露面只增不减，迁移排期要现在就提上日程。</p>
-      <div class="foot"><a class="src" href="https://windowsreport.com/microsoft-ends-security-updates-for-exchange-and-skype-for-business-servers/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">reddit r/sysadmin · 10-16 12:33</span></div>
-      <h2>社区实战：十月 Windows Server 更新致 Exchange SE OWA 报 MapiExceptionMdbOffline，微软已确认</h2>
-      <p class="summary">r/sysadmin 帖子（10 月 15 日晚）：10 月 Windows Server 更新（KB5126646/WS2025、KB5126655/WS2022、KB5126651/WS2019）会导致 Exchange SE 的 OWA 报 MapiExceptionMdbOffline（hr=0x80004005, ec=1142）、应用日志事件 ID 1006、邮件队列堆积——且不需要装 Exchange 安全更新就会触发；重启邮箱服务器只能缓解约 20–48 小时，多位管理员确认卸载 KB5126655 可持久解决。</p>
-      <p class="why">💡 邮件是他的核心系统；OWA 挂但 Outlook 表面正常，排查时先查这条能少走弯路。</p>
-      <div class="foot"><a class="src" href="https://www.reddit.com/r/sysadmin/comments/1x6pjz7/either_a_windows_update_or_the_exchange_se_update/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">上观新闻/新浪 · 10-16 12:32</span></div>
-      <h2>工博会 AI+制造：安波福部署 100 台具身智能机器人，宝钢故障处理小时级变分钟级</h2>
-      <p class="summary">第 26 届工博会（10.12–16）披露：安波福智能工厂部署 100 台具身智能机器人，覆盖 8 大生产工艺、33 类场景、46 个核心工位，现场数据反哺大模型迭代；宝钢通过“移动天工”平台编排 5 大类 83 场景，AI 质检、故障处理从小时级降到分钟级；中远海运重工设备效率提升超 20%、达智能制造能力成熟度三级。</p>
-      <p class="why">💡 制造业 AI 规模化落地的具体样本：场景、工位数、效率数字都硬，可对照产线思路。</p>
-      <div class="foot"><a class="src" href="https://finance.sina.cn/stock/jdts/2026-10-15/detail-inivhyai8061708.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">qpulse · 10-16 12:32</span></div>
-      <h2>Incransom 勒索哥斯达黎加 Coopecaja：Cavalier 窃密木马是初始入口</h2>
-      <p class="summary">10 月 15 日 Incransom 在泄漏站挂出 Coopecaja；HudsonRock 数据显示攻击前有 Cavalier 家族 infostealer 窃取了 354 个密码（含 24 个关键）、15 个 cookie，涉及 1 名员工、33 个用户和 4 个第三方人员凭证；教训：查员工/供应商终端的窃密软件和外泄凭证，MFA 要能防会话劫持。</p>
-      <p class="why">💡 勒索的初始入口越来越多是“买来的凭证”而非漏洞，补丁之外的防线。</p>
-      <div class="foot"><a class="src" href="https://qpulse.quasarcybertech.com/news/6877/incransom-ransomware-group-targets-coopecaja-following-cavalier-infostealer-infection" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">cisa · 10-16 12:31</span></div>
-      <h2>CISA 新增 KEV：Atlassian 多产品目录遍历 CVE-2026-21589 确认在野利用</h2>
-      <p class="summary">CISA 10 月 15 日将 Atlassian 多产品“文件/目录外部可访问”漏洞 CVE-2026-21589 列入 KEV（在野利用已确认）；公司内若用 Confluence/Jira，先查外网暴露面再打补丁，并按 KEV 期限落实。</p>
-      <p class="why">💡 KEV=在野利用确认；协作平台常挂外网，暴露面大。</p>
-      <div class="foot"><a class="src" href="https://www.cisa.gov/news-events/alerts/2026/10/15/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">techrepublic · 10-16 12:31</span></div>
-      <h2>Windows 11 管理员保护导致非管理员 RDP 失败（0xC000000D），微软已确认</h2>
-      <p class="summary">微软 10 月 14 日确认：在启用 Administrator protection 的企业托管 Windows 11 设备上，非管理员账户远程桌面会失败并报 0xC000000D，起因是 9 月 22 日预览更新 KB5124010 及后续更新；临时方案是禁用受影响主机的管理员保护（等于暂时降低安全基线，需权衡）。</p>
-      <p class="why">💡 安全基线和远程办公的直接冲突，补丁周有人报 RDP 连不上先对上这条。</p>
-      <div class="foot"><a class="src" href="https://www.techrepublic.com/article/news-windows-11-remote-desktop-failures/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">elevenforum · 10-16 08:52</span></div>
-      <h2>社区实战：10 月补丁封堵 NTLMv1，无 Credential Guard 设备 PEAP 可能断连</h2>
-      <p class="summary">10 月补丁开始默认封堵 NTLMv1 派生加密（Credential Guard 未启用的设备受影响），用 MS-CHAPv2/PEAP 的 Wi-Fi、以太网、VPN 单点登录可能连不上；排查先看认证方式，临时方案是注册表放行+审计（KB5066470），长期要迁到证书认证。</p>
-      <p class="why">💡 推补丁前先查无线/有线认证方式，比用户报障再查省半天。</p>
-      <div class="foot"><a class="src" href="https://www.elevenforum.com/t/manage-changes-to-ntlmv1-and-prevent-network-issues-in-windows-11-and-windows-server-2025.50172/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">egroup-us · 10-16 08:51</span></div>
-      <h2>M365 伴侣应用 12 月 16 日退役；OneDrive 企业存储新增按量付费</h2>
-      <p class="summary">M365 伴侣应用 Calendar/People/Files 将于 2026 年 12 月 16 日退役（功能走 Outlook/Teams）；OneDrive 企业版新增按用量付费的存储扩容选项，超配额账号可自动按量计费——配额吃紧的部门可以少买整包存储，但得盯住消费。</p>
-      <p class="why">💡 两个都是管理员要动手的小变更：应用退役做用户通知，存储计费做成本盯防。</p>
-      <div class="foot"><a class="src" href="https://egroup-us.com/tech-updates/2026-10/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">新浪 · 10-16 08:50</span></div>
-      <h2>工信部推 AI 中小企业创业支持计划：普惠算力+场景对接</h2>
-      <p class="summary">工信部印发《人工智能中小企业创业支持计划（2026-2028年）》，主打普惠算力、数据开放、场景对接，解决中小企业“用不起、不会转”；信通院数据：已用 AI 的企业中 45% 还在试点、23% 核心业务规模化、仅 4% 全流程深度嵌入。</p>
-      <p class="why">💡 政策风向标：中小企业 AI 的瓶颈被官方点名为算力成本和能力断层，立项申请可留意。</p>
-      <div class="foot"><a class="src" href="https://news.sina.cn/znl/2026-09-29/detail-initnwnf2959775.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">microsoft-news · 10-16 08:49</span></div>
-      <h2>Copilot 新计费细节：agentic 功能默认不可用，得管理员先配计费策略</h2>
-      <p class="summary">新 Copilot 计费拆成 USL（用户包月，覆盖日常 Chat/Office 内功能）+ UBB（按用量，Cowork/Code/Autopilot 等 agentic 功能耗 Copilot Credits）；关键细节：管理员不配置计费策略，UBB 功能默认不可用——想给同事开 agentic 功能先得把 FinOps for AI 的账算好。</p>
-      <p class="why">💡 上次只说了 11 月 2 日改按用量计费，这次是管理员视角的落地细节。</p>
-      <div class="foot"><a class="src" href="https://news.microsoft.com/source/asia/2026/09/28/microsoft-%E6%8E%A8%E5%87%BA%E5%85%A8%E6%96%B0copilot%E3%80%80%E6%90%AD%E8%BC%89home%E3%80%81code-%E5%8F%8A-autopilot/?lang=zh-hant" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">tech-insider · 10-16 08:48</span></div>
-      <h2>n0n Group 勒索 38 家海事企业：只偷数据不加密，赎金最高 1400 万美元</h2>
-      <p class="summary">9 月冒头的新勒索团伙 n0n Group 声称攻破 38 家海事/港口/物流企业，只偷数据不加密，开价每家 240 万–1400 万美元比特币，付款截止 10 月 19 日；纯数据窃取型勒索意味着没有“系统被锁”的明显信号，提醒复查 EDI/终端系统访问日志和第三方供应商连接。</p>
-      <p class="why">💡 新型勒索模式的预警：没有加密动作，传统“中毒了才发现”的思路会漏报。</p>
-      <div class="foot"><a class="src" href="https://tech-insider.org/n0n-group-ransomware-maritime-firms-2026/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">每经网 · 10-16 08:47</span></div>
-      <h2>年销 2000 万双袜子：义乌老板娘用 AI 取消美工岗，订单反增 20%</h2>
-      <p class="summary">义乌一位老板娘年销 2000 万双袜子，接入 AI 后主图/详情页/营销海报全由 AI 生成，直接取消美工岗；义乌已有近 3 万商户常态化用 AI，深度使用 AI 的商户订单增长 20% 以上。</p>
-      <p class="why">💡 “一人公司”式 AI 用法的极致案例：缺人缺技术的团队怎么把 AI 当员工用。</p>
-      <div class="foot"><a class="src" href="https://www.nbd.com.cn/articles/2026-09-30/4596303.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">工人日报 · 10-16 08:46</span></div>
-      <h2>AI 重塑广西传统工厂：328 个场景，效率+30%、成本-20%</h2>
-      <p class="summary">广西钢铁冷轧厂用 5G 机械手+AI 视觉接管钢卷拆捆/吊装/贴标等高危重复工序，大海粮油包装后端从 12 人减到 1 人值守；广西已打造 328 个“AI+制造”场景，重点企业生产效率提升 30% 以上、成本降低 20% 以上。</p>
-      <p class="why">💡 制造业 AI 落地的完整一线样本：场景具体、数字硬，产线改造思路可对照。</p>
-      <div class="foot"><a class="src" href="https://www.workercn.cn/papers/grrb/2026/10/13/7/news-1.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">cyberinsider · 10-16 08:45</span></div>
-      <h2>本月补丁顺带修了：AVD 黑屏、Always On VPN 卡连接、S2D 磁盘离线</h2>
-      <p class="summary">KB5127648 顺带修复了几个扰民问题：AVD/FSLogix 登录黑屏、Always On VPN 卡在 Connecting（KB5124008 引入）、存储空间直通虚拟磁盘无法上线；用户报 VPN 连不上或登录黑屏先查是否已装本月补丁，省一次排错。</p>
-      <p class="why">💡 和本周推补丁直接相关，用户报障时先对上这条能省排错时间。</p>
-      <div class="foot"><a class="src" href="https://cyberinsider.com/windows-11-october-updates-fix-zero-day-vpn-failures-and-black-screens/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">securityaffairs · 10-16 08:44</span></div>
-      <h2>KEV 修复期限提醒：今天 Windows Shell/Ivanti，明天 Palo Alto/Cisco/Ahsay</h2>
-      <p class="summary">CISA KEV 联邦修复期限：今天（10-16）是 Windows Shell CVE-2026-96951 和 Ivanti CVE-2026-104935 的最后期限；明天（10-17）轮到 Palo Alto PAN-OS、Juniper Secure Email Gateway、AhsayCBS 四个漏洞；到期前先确认补丁状态并查暴露面日志有无入侵痕迹。</p>
-      <p class="why">💡 KEV=已确认在野利用，期限日就是风险敞口的最后一天。</p>
-      <div class="foot"><a class="src" href="https://securityaffairs.com/201041/security/u-s-cisa-adds-palo-alto-networks-pan-os-ahsay-ahsaycbs-and-cisco-secure-email-gateway-flaws-to-its-known-exploited-vulnerabilities-catalog.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">techcommunity · 10-16 08:43</span></div>
-      <h2>Windows Autopatch 即日起可单独审批三类更新，补丁放行更细</h2>
-      <p class="summary">10 月 15 日起 Windows Autopatch 支持对月度安全更新、非安全更新、带外更新分别单独审批，并新增更新审批/适用性/安装进度报表；对他这种 2 人 IT 团队是补丁分批放行的现成工具，值得把本月补丁纳入 Autopatch 试点。</p>
-      <p class="why">💡 正好赶上本月大补丁日，分批审批能降低一次全推的风险。</p>
-      <div class="foot"><a class="src" href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-news-you-can-use-september-2026/4552395" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">cybersecuritynews · 10-16 08:42</span></div>
-      <h2>Entra ID 短信/语音登录 2027 年 2 月 1 日退役，passkey 强制接管</h2>
-      <p class="summary">微软将从 2027 年 2 月 1 日起停发 Entra ID 的 SMS/语音验证码，届时仅靠短信登录的账号会被拦截并强制注册 passkey，无退出选项；建议现在就用 Authentication methods 活动报告揪出依赖短信的账号（尤其一线/共用账号），提前迁到 passkey 或 FIDO2。</p>
-      <p class="why">💡 身份认证的大迁移，拖到截止日会变成全员登录故障。</p>
-      <div class="foot"><a class="src" href="https://cybersecuritynews.com/entra-id-sms-sign-in-retirement/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">windowsreport · 10-16 08:41</span></div>
-      <h2>M365 Targeted Release 2027 年 1 月退役，三档新发布偏好接替</h2>
-      <p class="summary">Targeted Release 将于 2027 年 1 月彻底退役，11 月起管理员不能再新增/移除/修改 Targeted Release 注册；替代方案是 Frontier（早期预览）、Standard（GA 即得）、Deferred（比 Standard 晚 30 天）。现在就可以把验证用户迁到新偏好，别等 11 月被锁死。</p>
-      <p class="why">💡 影响租户功能推送节奏的变更，11 月就动手不了了，得提前迁。</p>
-      <div class="foot"><a class="src" href="https://windowsreport.com/microsoft-365-targeted-release-is-going-away-in-2027/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">techtimes · 10-16 08:40</span></div>
-      <h2>服务器端高危三件套：Exchange、域控、QUIC 均被标高利用可能</h2>
-      <p class="summary">Exchange CVE-2026-70571（未认证 RCE，经服务端内容转换触发）、域控 AD DS CVE-2026-70229、QUIC CVE-2026-105016（CVSS 9.8）均被标为 Exploitation More Likely；有外网暴露的 Exchange 和域控优先安排补丁窗口。</p>
-      <p class="why">💡 域控和邮件服务器是他的核心资产，被标 Exploitation More Likely 就该排前面。</p>
-      <div class="foot"><a class="src" href="https://Www.techtimes.com/articles/329061/20261015/microsoft-patch-tuesday-october-2026-record-1413-cves-one-already-under-attack.htm" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">techtimes · 10-16 08:39</span></div>
-      <h2>Outlook 预览窗格惊现 5 个严重 RCE：看一眼邮件即可中招</h2>
-      <p class="summary">Outlook 本月有 5 个 CVSS 9.8 的严重 RCE（CVE-2026-70242 等），邮件只需在预览窗格渲染即可触发，无需打开邮件、无需点击、无需认证；建议把 Outlook 更新提到 Office 补丁最前面，今天内推完。</p>
-      <p class="why">💡 零点击+预览触发，攻击成本极低，邮件客户端是全员暴露面。</p>
-      <div class="foot"><a class="src" href="https://Www.techtimes.com/articles/329061/20261015/microsoft-patch-tuesday-october-2026-record-1413-cves-one-already-under-attack.htm" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">infotechlead · 10-15 18:34</span></div>
-      <h2>企业 AI 规模化八案例：GE Appliances 部署 800+ agent，缺货率降 25%</h2>
-      <p class="summary">盘点 8 家把 AI 从试点做成业务结果的企业：GE Appliances 在制造/物流/供应链部署 800+ agent，对接 Brilliant Factory 数据平台，班次总结从小时级变分钟级，缺货（backorder）减少 25%；Tata Steel 上了 300+ 专项 agent；Asurion 在美洲实现 70% 发票免触处理。IBM 调研顺带提醒：77% 企业 AI 采纳速度超过治理能力，85% 缺乏 AI 支出实时可见性。</p>
-      <p class="why">💡 制造/运营场景、可复制的“数据平台+对话式查询+agent”做法，且给了硬数字（25%、70%），符合“有具体场景、可复制、有效率数字”的选题口味。</p>
-      <div class="foot"><a class="src" href="https://infotechlead.com/artificial-intelligence/enterprise-ai-deployment-in-2026-eight-companies-turning-pilots-into-business-results-98871" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">techrepublic · 10-15 18:33</span></div>
-      <h2>微软给出 RDP 故障临时方案：关 Administrator protection 走传统审批模式</h2>
-      <p class="summary">开管理员保护的设备上非管理员用户 RDP 连接失败仍无永久修复，微软官方临时方案是经 Intune 或组策略把“用户账户控制：配置管理员批准模式类型”重置为传统 Admin Approval Mode（值为 1），重启后生效；微软建议仅对受影响主机操作，保留现有保护的其他设备不动，修复发布后再恢复。</p>
-      <p class="why">💡 今晨已收录该已知问题，这是新增的官方 workaround 细节：组策略路径和值都明确了，下次排错直接套用。</p>
-      <div class="foot"><a class="src" href="https://www.techrepublic.com/article/news-windows-11-remote-desktop-failures/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">thehackernews · 10-15 18:32</span></div>
-      <h2>备份软件 AhsayCBS 两漏洞被用来投 webshell 和挖矿，早前补丁不彻底</h2>
-      <p class="summary">CVE-2026-105133 与 CVE-2026-105134 组合可绕过认证执行任意命令，Huntress 观察到攻击者借此投放 webshell 和 XMRig 挖矿程序；8 月的 9.15.2.59 / 10.3.4.0 补丁确认未完全堵住，Ahsay 已发布新热补丁 10.3.4.45 / 9.15.2.70（打完需重启）；CISA 同步列入 KEV，10 月 17 日是联邦期限。</p>
-      <p class="why">💡 备份服务器往往放在可被访问的位置且权限高；下周正好是备份周末，打热补丁前先确认备份软件版本，避免“备份工具本身成为入口”。</p>
-      <div class="foot"><a class="src" href="http://thehackernews.com/2026/10/ahsaycbs-flaws-exploited-to-deploy-web.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">zubiqo · 10-15 18:31</span></div>
-      <h2>Palo Alto PAN-OS 管理界面零日 CVE-2026-0322 已在野利用</h2>
-      <p class="summary">CVSS 8.6，有网络访问权限的已认证攻击者可在 PA-Series / VM-Series / Panorama virtual / M-Series 上以 root 执行代码；PA 公布了 3 个攻击者 IP，Cloud NGFW 与 Prisma Access 不受影响；修复覆盖 PAN-OS 10.2/11.1/11.2/12.1/12.2 各分支（12.2.4 起修复），CISA 要求联邦机构 10 月 17 日前缓解；无可用替代方案，应把管理界面限制到可信内网 IP。</p>
-      <p class="why">💡 防火墙管理面被利用是典型边界失守；临时缓解措施只有收缩管理面访问，先查是否有管理口暴露在公网。</p>
-      <div class="foot"><a class="src" href="https://zubiqo.com/news/palo-alto-networks-patches-actively-exploited-pan-os-zero-day-flaw-cf5g30" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">cyber.hendryadrian.com · 10-15 18:30</span></div>
-      <h2>Cisco Secure Email Gateway 曝 CVE-2026-76519：在野利用、CVSS 9.8</h2>
-      <p class="summary">AMP 开启文件信誉且 Content Scanner Tools 低于 25.3.0.5525 时，精心构造的邮件附件可让未认证远程攻击者写任意系统文件并以 root 执行命令；Cisco 9 月 14 日已发布 AsyncOS 15.5.5-014 / 16.5.0-780 修复，CISA 10 月 14 日列入 KEV，联邦机构补丁期限 10 月 17 日。</p>
-      <p class="why">💡 邮件安全网关本身被当入口利用，属高权限边界设备；有 Cisco SEG 在外网收信的建议立即查版本并看防火墙/外网传输日志有无可疑痕迹。</p>
-      <div class="foot"><a class="src" href="https://cyber.hendryadrian.com/article/3287/cisco-warns-of-active-exploitation-of-critical-secure-email-gateway-flaw" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">网易 · 10-15 16:02</span></div>
-      <h2>美的：158 个场景规模化用工业智能体，2026 年目标节约 9 亿元</h2>
-      <p class="summary">美云智数从内部上万个智能体筛出 40+ 对外发布，已在 158 个核心场景规模化应用，覆盖研发、制造、供应链、品质、物流、财务、人力；产线 TPM/DMS/LOSS 智能体把每天的损失拆解到具体工序和岗位并给改善建议；总裁金江称方向是“AI-INSIDE”——表面还用原系统，背后由 AI 做决策支持。</p>
-      <p class="why">💡 制造业 AI 落地的标杆，“先补数字化短板再谈规模化”这句大实话值得记住。</p>
-      <div class="foot"><a class="src" href="https://www.163.com/dy/article/KJB9PC8B0519DDQ2.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">网易 · 10-15 16:01</span></div>
-      <h2>晶科能源：200 个 AI 账号“秒空”，CIO 说“现在靠算力扩张”</h2>
-      <p class="summary">晶科能源 4 月内部招募 AI 种子用户，原计划几十人结果 200 个 WorkBuddy 账号被抢空；两个多月后 95 人成深度用户，AI 进入财务、IT、知识产权、生产等场景；员工把成熟流程沉淀为 Skill 后可跨部门复用，上海家化已覆盖九大部门。</p>
-      <p class="why">💡 制造业 AI 落地的“内部推广”样本：先让种子用户跑通，再沉淀为组织资产。</p>
-      <div class="foot"><a class="src" href="https://www.163.com/dy/article/L8Q8O2G40511A502.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">新浪财经 · 10-15 16:01</span></div>
-      <h2>2 人内衣团队：秋冬素材准备从 4 个月压到 15 天</h2>
-      <p class="summary">Sandy 的团队只有 2 人、运营两个品牌，一个上新季要准备近 1 万张种草图；把第三方生图软件接入千问办公，由 Agent 批量出图和整理素材，秋冬素材周期从 4 个月缩到约 15 天；经营分析接进工作流后，单次数据分析从约 3 小时压到 1 小时内。</p>
-      <p class="why">💡 2 个人干出一个部门的活，素材和报表两类“重复劳动”正是 AI 最先吃掉的部分。</p>
-      <div class="foot"><a class="src" href="https://finance.sina.cn/2026-10-14/detail-iniveqvi7793034.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">新浪财经 · 10-15 16:00</span></div>
-      <h2>17 人咖啡小团队：AI 选品调研 Skill 让冷萃新品销量翻 10 倍</h2>
-      <p class="summary">捌比特咖啡团队仅 17 人、覆盖十余个电商平台，接入千问办公后搭建选品调研 Skill：AI 先找自家有流量低转化的产品、建竞品池补详情页；分析冷萃咖啡发现日晒处理法占比第一（团队原偏好水洗只排第三），据此调配方推新品，销量达过往同类 10 倍；经营周报、利润核算也接进工作流，还用 MCP 接入聚水潭 ERP 和生意参谋跨系统算各渠道净毛利。</p>
-      <p class="why">💡 小团队+多系统+具体数字，“缺人缺技术的小团队怎么用 AI”是原文原话，最值得细读的一篇。</p>
-      <div class="foot"><a class="src" href="https://finance.sina.cn/2026-10-14/detail-iniveqvi7793034.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">spiceworks · 10-15 12:35</span></div>
-      <h2>Spiceworks 社区：10 月补丁封堵 NTLMv1 加密，可能影响 PEAP 认证</h2>
-      <p class="summary">Spiceworks 管理员们实时跟踪 10 月补丁：除微软已确认的 RDP 错误 0xC000000D 外，新发现——本次补丁开始封堵 NTLMv1 派生加密，可能导致 MS-CHAPv2/PEAP 认证出问题，初步判断影响域环境中用 802.1x 的设备。</p>
-      <p class="why">💡 晨报已收 RDP 条目，NTLMv1/PEAP 是新增信息，推补丁前先查无线认证方式。</p>
-      <div class="foot"><a class="src" href="https://community.spiceworks.com/t/october-2026-patch-tuesday-here-we-go-again/1258742" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">elevenforum · 10-15 12:34</span></div>
-      <h2>10 月补丁日实战帖：Win11 26H2 装 KB5127694/KB5127648 失败，报错 0x800f0922</h2>
-      <p class="summary">用户 10 月 13 日报告 Win11 26H2（26300.9711）装 KB5127694 和 KB5127648 失败，回滚提示「Something didn&#x27;t go as planned」，报错 0x800f0922；已试过更新疑难解答（跑不起来）、DISM+sfc、开启 .NET 3.5/4.8，均未解决；版主建议终极方案是就地升级修复安装。</p>
-      <p class="why">💡 和本周推补丁直接相关，先记下这条排查链路，万一用户报装不上直接套用。</p>
-      <div class="foot"><a class="src" href="https://www.elevenforum.com/t/patch-tuesday-update-problem.50124/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">marketwire · 10-15 12:33</span></div>
-      <h2>Grid Dynamics 企业 agentic AI 规模化：90% 工程师本月完成 Anthropic/OpenAI 认证</h2>
-      <p class="summary">Grid Dynamics 宣布其 AI SDLC 平台已在北美大型零售商落地、向 500+ 工程师扩展 agent 编排；与 Anthropic、OpenAI 合作，目标 10 月底 90% 工程师完成双平台认证，押注生产级 agentic AI。</p>
-      <p class="why">💡 企业 AI 从试点到生产的又一个可量化落地样本。</p>
-      <div class="foot"><a class="src" href="https://marketwirenews.com/stock/gdyn/news/grid-dynamics-accelerates-enterprise-ai-native-trans-8128831930488709.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">IT之家 · 10-15 12:32</span></div>
-      <h2>Microsoft Defender 公共预览版登陆 Linux</h2>
-      <p class="summary">微软 10 月 14 日宣布 Defender 以公共预览形式登陆 Linux，支持 RHEL、CentOS、Ubuntu、Debian、SLES、Fedora、Oracle Linux，集成杀毒、EDR、漏洞管理、高级威胁搜寻；需 Defender P2 或 M365 E5/E7 订阅。</p>
-      <p class="why">💡 微软生态大动态：Linux 终端管理少一个盲区。</p>
-      <div class="foot"><a class="src" href="https://news.17173.com/content/10152026/100213969.shtml" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">dev.to · 10-15 12:31</span></div>
-      <h2>SAP S/4HANA 爆 CVSS 9.9 代码注入漏洞 CVE-2026-89107</h2>
-      <p class="summary">SAP 10 月 13 日披露，S/4HANA 财务替代/校验规则功能的脚本输入校验不严，持有对应业务权限的已认证用户可注入执行任意 ABAP 代码，CVSS 9.9，等同拿下整个系统；目前无公开 PoC、未入 KEV，正好是抢先打补丁的窗口。</p>
-      <p class="why">💡 ERP 级漏洞的排查思路通用：补丁+权限收紧双动作，可对照着看 EBS。</p>
-      <div class="foot"><a class="src" href="https://dev.to/iamfaizanakhtar/cve-2026-89107-sap-s4hana-code-injection-remote-code-execution-vulnerability-analysis--1alk" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">cisa · 10-15 12:30</span></div>
-      <h2>CISA 将 Ivanti Connect Secure 认证绕过漏洞列入 KEV</h2>
-      <p class="summary">CVE-2026-104935（Ivanti Connect Secure 认证绕过）随 Windows Shell 零日一起进入 CISA KEV，官方确认在野利用；如公司还有 Ivanti SSL VPN 网关挂在外网，优先复查补丁状态并查是否已被写入后门账户。</p>
-      <p class="why">💡 VPN 网关是真实被利用的攻击入口，KEV 入选=已被在野利用。</p>
-      <div class="foot"><a class="src" href="https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">Microsoft Learn Q&amp;A · 10-15 08:57</span></div>
-      <h2>OneDrive 取消链接后登录/同步失败的完整重连流程</h2>
-      <p class="summary">删 PreSignInSettingsConfig.json 清缓存登录态，%localappdata% 重置，遇 0x8004def7 先查存储空间是否满。</p>
-      <p class="why">💡 Tracy 那单“重装 rejoin 解决”的根因级解释，留作知识库。</p>
-      <div class="foot"><a class="src" href="https://learn.microsoft.com/en-us/answers/questions/5899079/onedrive-log-on-and-sync-issues" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">makeuseof · 10-15 08:56</span></div>
-      <h2>OneDrive 拖慢网速、冒出冲突副本？两个设置解决</h2>
-      <p class="summary">开“限制上传/下载速率”避免同步抢带宽；冲突副本多因两台设备同时编辑同一文件，养成等同步完成再关机、少同步文件夹可减少。</p>
-      <p class="why">💡 用户抱怨 OneDrive 卡时的标准答复，可直接转给同事。</p>
-      <div class="foot"><a class="src" href="https://www.makeuseof.com/onedrive-was-seriously-annoying-until-i-set-it-up-like-this/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="社区实战">
-      <div class="meta"><span class="badge" style="background:#e37400">社区实战</span>
-        <span class="stamp">Microsoft Tech Community · 10-15 08:55</span></div>
-      <h2>本地 OneDrive 无法同步？先查这 5 处（6 天前更新的实战帖）</h2>
-      <p class="summary">网页端正常但本地不同步，依次查：Intune/注册表策略是否锁了同步路径、目标文件夹是否 NTFS 本地盘、清理 %localappdata% 下 OneDrive 旧状态并删 HKCU 残留账户、检查 cldflt 驱动与杀软冲突。</p>
-      <p class="why">💡 昨天刚处理两单 OneDrive 问题，这套排查顺序下次直接套用。</p>
-      <div class="foot"><a class="src" href="https://techcommunity.microsoft.com/discussions/onedriveforbusiness/local-onedrive-does-not-seem-to-be-syncing/4563240" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">TechNews · 10-15 08:54</span></div>
-      <h2>九成企业 AI 投资仍未回本，Lowe&#x27;s AI 策略主管提六招管理之道</h2>
-      <p class="summary">MIT 报告称企业生成式 AI 投资 300-400 亿美元，仅约 5% 试点创造价值；作者提出六准则：识别“人力中间件”、以原则代规则、装“信任恒温器”、补齐上下文、例外管理等。</p>
-      <p class="why">💡 IT 管理者视角的 AI 治理框架，比技术新闻更值得细读。</p>
-      <div class="foot"><a class="src" href="https://finance.technews.tw/2026/10/15/6-guidelines-for-governing-ai/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">网易 · 10-15 08:53</span></div>
-      <h2>山东 AI+制造论坛：鲁南制药分享 AI 落地四阶段</h2>
-      <p class="summary">鲁南制药建成私有化大模型服务，推出桌面智能体、RPA、知识库及发酵工艺、临床试验等垂直智能体，对财务数据分析、合同审核等流程做智能化改造。</p>
-      <p class="why">💡 传统制造企业 AI 落地的完整路径（战略→算力→场景→架构），制造型企业 IT 可对照。</p>
-      <div class="foot"><a class="src" href="https://www.163.com/dy/article/L995SQCI0514CFC7.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="AI落地">
-      <div class="meta"><span class="badge" style="background:#1a73e8">AI落地</span>
-        <span class="stamp">凤凰网 · 10-15 08:52</span></div>
-      <h2>首个电商版 Agent 来了：AI 开店 7 天只花几百元 token 费</h2>
-      <p class="summary">千问办公电商版 10 月 14 日开启邀测，打通选品、素材、投放、数据分析全流程；商家实测开新店从 30 天缩到 7 天；电商用户占其付费用户超 20%。</p>
-      <p class="why">💡 企业级 Agent 深入垂直行业的完整数字案例，可参考其“统一入口+行业工具打通”思路。</p>
-      <div class="foot"><a class="src" href="https://feng.ifeng.com/c/8xEsrswgFJZ" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">新浪科技 · 10-15 08:51</span></div>
-      <h2>丹麦人口数据库被入侵，880 万条记录被窃，祸起 123456 密码</h2>
-      <p class="summary">IT 服务商弱密码，事发 12 天后才经异常账单发现；提醒定期做密码强度和账户审计。</p>
-      <p class="why">💡 弱密码单点风险的血淋淋案例。</p>
-      <div class="foot"><a class="src" href="https://k.sina.cn/article_7857201856_1d45362c001908qzng.html?from=tech" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">businesswire · 10-15 08:50</span></div>
-      <h2>NETSCOUT：上半年全球 DDoS 超 910 万次，1Tbps+ 攻击暴增 1286%</h2>
-      <p class="summary">攻击转向短频快、打应用层；有公网暴露服务建议复查防护预案。</p>
-      <p class="why">💡 公网服务防护的复查提醒。</p>
-      <div class="foot"><a class="src" href="https://www.businesswire.com/news/home/20261014590367/zh-HK" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">webpronews · 10-15 08:49</span></div>
-      <h2>微软 Fabric 在 GCC High 云 GA，Fabric IQ 上下文层打通 Copilot 与 Power BI</h2>
-      <p class="summary">Fabric 正变成企业 AI 数据底座，Power BI 学习路线顺势延伸正确。</p>
-      <p class="why">💡 和 Power BI 学习路线直接相关。</p>
-      <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-flips-on-data-access-after-guarding-silos-for-ai-agents/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">windowsreport · 10-15 08:48</span></div>
-      <h2>Copilot Notebooks 支持定时任务与 Office 文件编辑</h2>
-      <p class="summary">可定时生成晨会简报、周报，直接创建编辑 Word/Excel/PowerPoint；适合套用到运维周报。</p>
-      <p class="why">💡 运维周报自动化的现成工具。</p>
-      <div class="foot"><a class="src" href="https://windowsreport.com/copilot-notebooks-october-2026-update-adds-office-editing-ai-automations-interactive-reports/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">msspalert · 10-15 08:47</span></div>
-      <h2>11 月 2 日起 M365 Copilot Business 改默认按用量计费</h2>
-      <p class="summary">日常任务走订阅，agentic 任务耗 Copilot Credits；给同事配 Copilot 要盯成本。</p>
-      <p class="why">💡 涉及真金白银的计费变更。</p>
-      <div class="foot"><a class="src" href="https://www.msspalert.com/news/microsoft-shifts-copilot-business-licenses-to-usage-based-billing" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">webpronews · 10-15 08:46</span></div>
-      <h2>Copilot 大改版：Home / Code / Autopilot 三大支柱，Fabric IQ GA</h2>
-      <p class="summary">Code 可用自然语言生成内部小应用，Fabric IQ 可调用 2000 万+ Power BI 语义模型；低成本自动化机会，但先想清权限治理。</p>
-      <p class="why">💡 部门自动化的低成本切入点。</p>
-      <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-gives-with-one-hand-takes-with-the-other-in-copilot-overhaul/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">businesswire · 10-15 08:45</span></div>
-      <h2>Marvell、微软、Oracle 成立 OCP 工作组制定服务器级 HSM 规范</h2>
-      <p class="summary">目标密钥不出硬件边界、减少网络往返延迟；长期看本地 EBS 数据库加密思路可能受益。</p>
-      <p class="why">💡 云厂商密钥管理转向服务器端的信号。</p>
-      <div class="foot"><a class="src" href="https://www.businesswire.com/news/home/20261012067973/en/Marvell-Microsoft-and-Oracle-Establish-OCP-Working-Group-to-Standardize-Data-Center-Hardware-Security" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="拓展">
-      <div class="meta"><span class="badge" style="background:#188038">拓展</span>
-        <span class="stamp">analyticsinsight · 10-15 08:44</span></div>
-      <h2>微软推实验性 risk cohorts 漏洞分级</h2>
-      <p class="summary">不再只看 CVSS，按暴露面和部署场景分组，帮 IT 判断补丁优先级；可借鉴为补丁管理框架。</p>
-      <p class="why">💡 补丁优先级管理的现成框架。</p>
-      <div class="foot"><a class="src" href="https://www.analyticsinsight.net/news/microsoft-introduces-risk-cohorts-as-october-patch-tuesday-fixes-1411-flaws" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">techrepublic · 10-15 08:43</span></div>
-      <h2>微软补丁已知问题：开管理员保护的设备 RDP 可能失败</h2>
-      <p class="summary">10 月 14 日确认，非管理员用户远程桌面连接失败；近期推补丁后有人报连不上先查这个。</p>
-      <p class="why">💡 和推补丁的工作直接相关，能省排错时间。</p>
-      <div class="foot"><a class="src" href="https://www.techrepublic.com/article/news-microsoft-october-2026-patch-tuesday/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">中关村在线 · 10-15 08:42</span></div>
-      <h2>Windows 11 24H2 家庭版和专业版 10 月 14 日终止支持</h2>
-      <p class="summary">企业版/教育版延至 2027 年 10 月；盘点公司是否还有 24H2 家庭版/专业版设备，及时升级 25H2。</p>
-      <p class="why">💡 直接影响终端合规，得盘点。</p>
-      <div class="foot"><a class="src" href="https://news.zol.com.cn/1260/12603256.html" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">aicybr · 10-15 08:41</span></div>
-      <h2>Oracle 下一次季度 CPU 定在 10 月 20 日</h2>
-      <p class="summary">9 月 CSPU 共修复 673 个漏洞，EBS 占 159 个（19 个无需认证可远程利用）；建议把 10 月 20 日纳入变更计划，提前留测试窗口。</p>
-      <p class="why">💡 EBS 是日常 ERP，19 个可远程利用漏洞值得一次变更窗口。</p>
-      <div class="foot"><a class="src" href="https://aicybr.com/blog/oracle-september-2026-critical-security-patch-update" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">office-watch · 10-15 08:40</span></div>
-      <h2>本月 Office 共修复 173 个漏洞、26 个严重</h2>
-      <p class="summary">Excel 占 69 个，Outlook 有 5 个严重漏洞；建议 Outlook 优先更新（钓鱼邮件是恶意附件主渠道），Office 可观望一两周。</p>
-      <p class="why">💡 Outlook 是钓鱼附件主渠道，先更它最划算。</p>
-      <div class="foot"><a class="src" href="https://office-watch.com/2026/october-2026-patch-tuesday-office-critical-fixes/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-    <article class="card" data-cat="必看">
-      <div class="meta"><span class="badge" style="background:#d93025">必看</span>
-        <span class="stamp">webpronews · 10-15 08:39</span></div>
-      <h2>微软发布史上最大补丁日：10 月 13 日共修复 1413 个漏洞</h2>
-      <p class="summary">含 78 个严重漏洞和一个已被在野利用的 Windows Shell 零日 CVE-2026-96951（绕过 Mark of the Web），CISA 要求联邦机构 10 月 16 日前修复；补丁优先级排第一，优先给外网 Windows 服务器和客户端打补丁。</p>
-      <p class="why">💡 零日已在野利用，修复窗口只剩今天。</p>
-      <div class="foot"><a class="src" href="https://www.webpronews.com/microsofts-record-1413-flaws-patched-in-october-2026-expose-growing-security-burden/" target="_blank" rel="noopener">原文 ↗</a></div>
-    </article>
-  </div>
+  
+    <section class="day">
+      <div class="daybar"><span class="dayname">10月17日 周六</span><span class="daycount">14 条</span></div>
+      
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#b3402a">1.</span><span class="clock">18:31</span></div>
+        <div class="srcline"><span class="srcname">supersimple365</span><span class="dot">·</span><span class="stamp">10-17 18:31</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">PowerPoint Copilot 新增「互动幻灯片」技能：听众可在 Teams 会议里自己点着看</h2>
+        <p class="summary">Copilot Premium 用户今天起可在 PowerPoint 用 Create Interactive Slide 技能生成可点击的 Summary/Timeline/Dashboard/Comparison 幻灯片，分享后对方无需 Copilot 许可也能点看。管理员零动作、无管理开关，幻灯片运行在沙盒视图（MC1461152）；Teams PowerPoint Live 里观众实时互动已可用，桌面端 10 月中下旬陆续推送。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>M365 新功能实战类：做汇报、做培训材料时可直接用，互动看板比静态页更能讲清时间线和对比。</p>
+        <div class="foot"><a class="src" href="https://supersimple365.com/create-interactive-slides-in-powerpoint-with-copilot/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#a3642f">2.</span><span class="clock">18:30</span></div>
+        <div class="srcline"><span class="srcname">kira-ai</span><span class="dot">·</span><span class="stamp">10-17 18:30</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Exchange 10 月安全更新分批指南：Windows 与 Exchange 补丁别装在同一个维护窗口</h2>
+        <p class="summary">Exchange 2019 的 10 月安全更新是 KB5128896（CU15 SU12）；社区（Borncity）报告 Windows Server 累积更新和 Exchange SU 装在同一批后，OWA 报 MapiExceptionMdbOffline 故障，重启只能临时恢复。建议分两个维护窗口：先打 Windows 更新、重启并验证 OWA/ECP/EWS，再打 Exchange SU；DAG 先从被动节点开始，每轮记录 KB 号，留好回退路径。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>中午的 heise 条目说 Exchange 被打崩，这篇是第一篇英文实操分析，给出具体分批、验证、回退步骤，打补丁前照做能避坑。</p>
+        <div class="foot"><a class="src" href="https://kira-ai.de/blog/exchange-server-october-2026-security-updates-should-you-pause/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#96702e">3.</span><span class="clock">12:31</span></div>
+        <div class="srcline"><span class="srcname">中金在线</span><span class="dot">·</span><span class="stamp">10-17 12:31</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">京东工业工博会发布智采管家：核心采购岗位效率提升 70%</h2>
+        <p class="summary">10 月 12 日工博会发布面向中小企业的「智采管家」AI 应用：Excel 采购清单自动识别匹配、拍照识图找品、自然语言查订单状态、调取合同发票、跟踪售后工单，一个对话入口处理全流程采购事务。选型决策时长缩短近 39%，核心采购岗位效率提升 70%；已免费开放多端体验。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>采购与物料主数据是制造企业的共性痛点：场景具体、数字硬，清单识别+BOM 解析的思路可直接对照他自己的 EBS 采购流程。</p>
+        <div class="foot"><a class="src" href="http://news.cnfol.com/chanyejingji/20261013/32395421.shtml" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">4.</span><span class="clock">12:30</span></div>
+        <div class="srcline"><span class="srcname">heise</span><span class="dot">·</span><span class="stamp">10-17 12:30</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">heise：10 月 Windows Server 更新致部分 Exchange 服务器故障，OWA 受影响</h2>
+        <p class="summary">heise 10 月 16 日晚报道：给 Windows Server 打 10 月累积更新后，部分 Exchange 服务器出现故障，Outlook on the web（OWA）受影响，微软已确认问题。给跑 Exchange 的 Server 打补丁前先看这条，别把生产邮件打挂。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>补丁打崩邮件服务是连环灾难：本月 Server 补丁和 Exchange 补丁要看在一起，打之前先确认机器上有没有 Exchange。</p>
+        <div class="foot"><a class="src" href="https://tsecurity.de/de/4278178/windows-server/october-updates-take-down-exchange-servers-heise-online/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">5.</span><span class="clock">12:29</span></div>
+        <div class="srcline"><span class="srcname">cybernetsec</span><span class="dot">·</span><span class="stamp">10-17 12:29</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">CISA 增补 4 个在野利用漏洞：AhsayCBS 遭组合攻击，联邦机构修补截止今天</h2>
+        <p class="summary">10 月 14 日 CISA 把 4 个在野利用漏洞列入 KEV：Palo Alto PAN-OS 代码注入 CVE-2026-0322（CVSS 8.6）、Cisco Secure Email Gateway 相对路径穿越 CVE-2026-76519（CVSS 9.8）、AhsayCBS 认证缺陷 CVE-2026-105133 + 命令注入 CVE-2026-105134（组合利用装 webshell、挖矿机）。联邦机构修补截止日就是今天 10 月 17 日；有 AhsayCBS 备份服务器的先查版本并打补丁，Web 界面不要暴露公网。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>AhsayCBS 正好是他这周要查的备份软件：备份服务器被拿下等于备份和业务数据一起被端，这是本时段最值得优先看的一条。</p>
+        <div class="foot"><a class="src" href="https://cyber.netsecops.io/articles/cisa-adds-four-exploited-vulnerabilities-to-kev-catalog-october-2026/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">6.</span><span class="clock">08:47</span></div>
+        <div class="srcline"><span class="srcname">reddit r/sysadmin</span><span class="dot">·</span><span class="stamp">10-17 08:47</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">社区实战：KB5127648 打崩 Win11 25H2 的 RSAT，提权也受影响</h2>
+        <p class="summary">r/sysadmin 帖子（10 月 16 日，已标记解决）：10 月累积更新重启后，多家公司的 Win11 25H2 管理机上 RSAT 全套（ADUC、WSUS 等）失效、提权异常；楼主确认把相关注册表键设为 1 可恢复（评论认为与新的 Administrator Protection 功能有关，建议长期用 Server 2022 跳板机或 OpenRSAT 替代）。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>AD 管理员的吃饭家伙被打崩：他自己用 RSAT，推补丁前先看这条再决定管理机节奏。</p>
+        <div class="foot"><a class="src" href="https://www.reddit.com/r/sysadmin/comments/1x7dfth/did_kb5127648_win_11_25h2_break_rsat_for_anyone/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">7.</span><span class="clock">08:46</span></div>
+        <div class="srcline"><span class="srcname">reddit r/sysadmin</span><span class="dot">·</span><span class="stamp">10-17 08:46</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">社区实战：KB5127648 致 Win11 24H2 企业版关机误报“其他人仍在使用此电脑”</h2>
+        <p class="summary">r/sysadmin 帖子（10 月 17 日）：装完 10 月累积更新 KB5127648 后，Win11 24H2 企业版重启/关机出现误报的“Someone else is still using this PC”；卸载 KB 消失、重装复现。评论区指向 Fast Startup/混合睡眠是诱因，已有管理员用关闭快速启动解决，可先让用户忽略误报。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>本月补丁的又一个用户侧扰民项，用户报障时先对上这条省排错时间。</p>
+        <div class="foot"><a class="src" href="https://www.reddit.com/r/sysadmin/comments/1x7sjge/kb5127648_causing_someone_else_is_still_using/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">8.</span><span class="clock">08:45</span></div>
+        <div class="srcline"><span class="srcname">微软文档</span><span class="dot">·</span><span class="stamp">10-17 08:45</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Power BI Desktop 本月期限：2026 年 3 月及更早版本失去 OneDrive/SharePoint 存取分享</h2>
+        <p class="summary">微软官方通知：2026 年 3 月及更早的 Power BI Desktop 自 10 月起不再支持内置的 OneDrive/SharePoint 保存与分享；做报表的机器如果 Desktop 很久没升级，查一下版本号，不行就升到最新版，别等分享按钮失效才动手。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>静默断供类变更：功能哪天消失不确定，提前把 Desktop 升上去最省事。</p>
+        <div class="foot"><a class="src" href="https://learn.microsoft.com/ms-my/power-bi/create-reports/desktop-sharepoint-save-share" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">9.</span><span class="clock">08:44</span></div>
+        <div class="srcline"><span class="srcname">fabric-community</span><span class="dot">·</span><span class="stamp">10-17 08:44</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Power BI 10 月更新：甘特图预览、Copilot 可带自定义视觉对象做报表</h2>
+        <p class="summary">Power BI 10 月功能更新：甘特图（预览）、下拉式列表切片器（预览）、个人书签保留列宽（GA）；Copilot 方面，用 Fabric skills 带自定义视觉对象生成报表已 GA，做汇报看板时可以直接要 Copilot 按公司的视觉规范出图。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>他正学 Power BI，甘特图和书签列宽都是做项目/排产报表时马上能用的。</p>
+        <div class="foot"><a class="src" href="https://community.fabric.microsoft.com/blog/fbc_pbiupdatesblog/power-bi-october-2026-feature-summary/5374650" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">10.</span><span class="clock">08:43</span></div>
+        <div class="srcline"><span class="srcname">sify</span><span class="dot">·</span><span class="stamp">10-17 08:43</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">日本进入“网络空间紧急状态”：云服务商 IDC Frontier 遭勒索，波及 495 家企业</h2>
+        <p class="summary">10 月 8 日软银旗下云服务商 IDC Frontier 遭勒索攻击，级联影响 495 家下游企业（JR 东日本约 167 万客户邮箱、Times Car 驾照照片外泄）；日本网络安全战略本部 10 月 9 日召开紧急会议定性为“网络空间紧急状态”并下达强制指令。提醒：审一遍自家依赖的云服务商和供应链单点。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>供应链级联是真实发生的教训：攻陷一家供应商等于同时攻陷几百家客户。</p>
+        <div class="foot"><a class="src" href="https://www.sify.com/ai-analytics/japan-declares-cybersecurity-emergency-ai-cyberattacks-hit-14-million-people-and-495-businesses/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">11.</span><span class="clock">08:42</span></div>
+        <div class="srcline"><span class="srcname">新浪财经</span><span class="dot">·</span><span class="stamp">10-17 08:42</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">西域旷叶AI：千级 SKU 物料梳理从人工三周缩到几分钟</h2>
+        <p class="summary">工业品供应链服务商西域在工博会发布旷叶智采 AI 采购平台，AI 贯穿需求分析、寻源比价到履约全流程；其 AI 物料智控宝把过去人工三周才能完成的千级 SKU 物料梳理缩短到数分钟——物料一物多码正是 EBS 实施里的老大难，治理思路可直接对照。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>采购与物料主数据是制造企业的共性痛点，场景具体、数字硬，EBS 环境可对照。</p>
+        <div class="foot"><a class="src" href="https://finance.sina.cn/stock/jdts/2026-10-16/detail-inivmazr8334894.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">12.</span><span class="clock">08:41</span></div>
+        <div class="srcline"><span class="srcname">webpronews</span><span class="dot">·</span><span class="stamp">10-17 08:41</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Copilot 10 月中下旬退出 Teams 聊天列表；10 月 25 日自动开启智能体插件上传</h2>
+        <p class="summary">M365 Copilot 改版：10 月中下旬起 Copilot 从 Teams 聊天列表消失，只留左侧导航栏入口，用户找不到入口先做通知；管理员侧要在 10 月 25 日前决定是否允许高级智能体/插件上传——到期不操作会自动开启，同时记得配好 FinOps for AI 的用量账。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>用户入口迁移影响全员体验，权限开关有自动开启的截止日，两件都是管理员要主动做的。</p>
+        <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-gives-with-one-hand-takes-with-the-other-in-copilot-overhaul/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">13.</span><span class="clock">08:40</span></div>
+        <div class="srcline"><span class="srcname">webpronews</span><span class="dot">·</span><span class="stamp">10-17 08:40</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Windows 11 26H2 把设置备份改为默认开启，IT 需审计策略</h2>
+        <p class="summary">26H2 起 Windows 设置备份与还原改为默认开启，企业设备可能在没有明显提示的情况下开始把数据备份到云端；建议现在就到 Intune/MDM 里确认备份还原策略状态，决定是顺其自然还是显式关闭，别等合规审计时才发现。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>行为变更静默生效，备份去向涉及数据边界，政策没对齐就是合规敞口。</p>
+        <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-flips-windows-settings-backup-to-default-on-in-26h2-forcing-it-teams-to-audit-policies/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">14.</span><span class="clock">08:39</span></div>
+        <div class="srcline"><span class="srcname">cisa</span><span class="dot">·</span><span class="stamp">10-17 08:39</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">BeyondTrust 远程支持曝严重认证绕过漏洞，已确认在野利用</h2>
+        <p class="summary">CISA 10 月 16 日将 BeyondTrust Remote Support 的认证绕过漏洞 CVE-2026-102764 列入 KEV，攻击者正利用它拿初始访问、建持久化后横向移动；自建（self-hosted）设备需立即打 BT26-05-RS 补丁（24.3.1 以下版本要先升级才能打），同时限制管理界面只对内网可信 IP 开放。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>远程支持工具是攻击者最爱的跳板，这类设备常挂公网，被拿下就等于内网钥匙。</p>
+        <div class="foot"><a class="src" href="https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-urges-patching-critical-vulnerability-beyondtrust-remote-support" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+    </section>
+    <section class="day">
+      <div class="daybar"><span class="dayname">10月16日 周五</span><span class="daycount">21 条</span></div>
+      
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#b3402a">1.</span><span class="clock">18:37</span></div>
+        <div class="srcline"><span class="srcname">infoobs/智通财经</span><span class="dot">·</span><span class="stamp">10-16 18:37</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">工信部发布工业 AI「产业导航图」：20 个细分领域、1000+ 可直接落地标准化场景</h2>
+        <p class="summary">10 月 15 日工信部发布「人工智能赋能新型工业化高价值场景」导航图，由多家权威科研院所与工业龙头企业联合、基于真实工业生产实践数据编制，覆盖石化、钢铁、汽车、消费电子等 20 个细分领域，收录超 1000 个可直接落地的标准化工业 AI 场景（研发仿真、智能排产、视觉质检、预测性维护、能耗优化、供应链匹配等）；给工厂找 AI 场景时可以按图索骥。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>找 AI 场景的工具书：1000 个标准化场景按行业分好类，立项前先拿它对一遍场景清单。</p>
+        <div class="foot"><a class="src" href="https://www.infoobs.com/article/20261016/72008.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#a3642f">2.</span><span class="clock">18:36</span></div>
+        <div class="srcline"><span class="srcname">windowsreport</span><span class="dot">·</span><span class="stamp">10-16 18:36</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">ESU 正式终结：Exchange 2016/2019 与 Skype for Business 自 10 月 13 日起不再收到任何安全更新</h2>
+        <p class="summary">微软 10 月 13 日随补丁星期二结束了 Exchange 2016/2019 与 Skype for Business 2015/2019 的付费 ESU（Period 2）；此后这些版本不再收到任何补丁，新发现的漏洞也不会再被纳入 MSRC 评估；当前本地 Exchange/SfB 需要尽快安排迁移到 SE 或在线服务的时间表。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>本地邮件/协作系统的断供节点：不再打补丁意味着暴露面只增不减，迁移排期要现在就提上日程。</p>
+        <div class="foot"><a class="src" href="https://windowsreport.com/microsoft-ends-security-updates-for-exchange-and-skype-for-business-servers/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#96702e">3.</span><span class="clock">12:33</span></div>
+        <div class="srcline"><span class="srcname">reddit r/sysadmin</span><span class="dot">·</span><span class="stamp">10-16 12:33</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">社区实战：十月 Windows Server 更新致 Exchange SE OWA 报 MapiExceptionMdbOffline，微软已确认</h2>
+        <p class="summary">r/sysadmin 帖子（10 月 15 日晚）：10 月 Windows Server 更新（KB5126646/WS2025、KB5126655/WS2022、KB5126651/WS2019）会导致 Exchange SE 的 OWA 报 MapiExceptionMdbOffline（hr=0x80004005, ec=1142）、应用日志事件 ID 1006、邮件队列堆积——且不需要装 Exchange 安全更新就会触发；重启邮箱服务器只能缓解约 20–48 小时，多位管理员确认卸载 KB5126655 可持久解决。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>邮件是他的核心系统；OWA 挂但 Outlook 表面正常，排查时先查这条能少走弯路。</p>
+        <div class="foot"><a class="src" href="https://www.reddit.com/r/sysadmin/comments/1x6pjz7/either_a_windows_update_or_the_exchange_se_update/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">4.</span><span class="clock">12:32</span></div>
+        <div class="srcline"><span class="srcname">上观新闻/新浪</span><span class="dot">·</span><span class="stamp">10-16 12:32</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">工博会 AI+制造：安波福部署 100 台具身智能机器人，宝钢故障处理小时级变分钟级</h2>
+        <p class="summary">第 26 届工博会（10.12–16）披露：安波福智能工厂部署 100 台具身智能机器人，覆盖 8 大生产工艺、33 类场景、46 个核心工位，现场数据反哺大模型迭代；宝钢通过“移动天工”平台编排 5 大类 83 场景，AI 质检、故障处理从小时级降到分钟级；中远海运重工设备效率提升超 20%、达智能制造能力成熟度三级。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>制造业 AI 规模化落地的具体样本：场景、工位数、效率数字都硬，可对照产线思路。</p>
+        <div class="foot"><a class="src" href="https://finance.sina.cn/stock/jdts/2026-10-15/detail-inivhyai8061708.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">5.</span><span class="clock">12:32</span></div>
+        <div class="srcline"><span class="srcname">qpulse</span><span class="dot">·</span><span class="stamp">10-16 12:32</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Incransom 勒索哥斯达黎加 Coopecaja：Cavalier 窃密木马是初始入口</h2>
+        <p class="summary">10 月 15 日 Incransom 在泄漏站挂出 Coopecaja；HudsonRock 数据显示攻击前有 Cavalier 家族 infostealer 窃取了 354 个密码（含 24 个关键）、15 个 cookie，涉及 1 名员工、33 个用户和 4 个第三方人员凭证；教训：查员工/供应商终端的窃密软件和外泄凭证，MFA 要能防会话劫持。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>勒索的初始入口越来越多是“买来的凭证”而非漏洞，补丁之外的防线。</p>
+        <div class="foot"><a class="src" href="https://qpulse.quasarcybertech.com/news/6877/incransom-ransomware-group-targets-coopecaja-following-cavalier-infostealer-infection" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">6.</span><span class="clock">12:31</span></div>
+        <div class="srcline"><span class="srcname">cisa</span><span class="dot">·</span><span class="stamp">10-16 12:31</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">CISA 新增 KEV：Atlassian 多产品目录遍历 CVE-2026-21589 确认在野利用</h2>
+        <p class="summary">CISA 10 月 15 日将 Atlassian 多产品“文件/目录外部可访问”漏洞 CVE-2026-21589 列入 KEV（在野利用已确认）；公司内若用 Confluence/Jira，先查外网暴露面再打补丁，并按 KEV 期限落实。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>KEV=在野利用确认；协作平台常挂外网，暴露面大。</p>
+        <div class="foot"><a class="src" href="https://www.cisa.gov/news-events/alerts/2026/10/15/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">7.</span><span class="clock">12:31</span></div>
+        <div class="srcline"><span class="srcname">techrepublic</span><span class="dot">·</span><span class="stamp">10-16 12:31</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Windows 11 管理员保护导致非管理员 RDP 失败（0xC000000D），微软已确认</h2>
+        <p class="summary">微软 10 月 14 日确认：在启用 Administrator protection 的企业托管 Windows 11 设备上，非管理员账户远程桌面会失败并报 0xC000000D，起因是 9 月 22 日预览更新 KB5124010 及后续更新；临时方案是禁用受影响主机的管理员保护（等于暂时降低安全基线，需权衡）。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>安全基线和远程办公的直接冲突，补丁周有人报 RDP 连不上先对上这条。</p>
+        <div class="foot"><a class="src" href="https://www.techrepublic.com/article/news-windows-11-remote-desktop-failures/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">8.</span><span class="clock">08:52</span></div>
+        <div class="srcline"><span class="srcname">elevenforum</span><span class="dot">·</span><span class="stamp">10-16 08:52</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">社区实战：10 月补丁封堵 NTLMv1，无 Credential Guard 设备 PEAP 可能断连</h2>
+        <p class="summary">10 月补丁开始默认封堵 NTLMv1 派生加密（Credential Guard 未启用的设备受影响），用 MS-CHAPv2/PEAP 的 Wi-Fi、以太网、VPN 单点登录可能连不上；排查先看认证方式，临时方案是注册表放行+审计（KB5066470），长期要迁到证书认证。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>推补丁前先查无线/有线认证方式，比用户报障再查省半天。</p>
+        <div class="foot"><a class="src" href="https://www.elevenforum.com/t/manage-changes-to-ntlmv1-and-prevent-network-issues-in-windows-11-and-windows-server-2025.50172/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">9.</span><span class="clock">08:51</span></div>
+        <div class="srcline"><span class="srcname">egroup-us</span><span class="dot">·</span><span class="stamp">10-16 08:51</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">M365 伴侣应用 12 月 16 日退役；OneDrive 企业存储新增按量付费</h2>
+        <p class="summary">M365 伴侣应用 Calendar/People/Files 将于 2026 年 12 月 16 日退役（功能走 Outlook/Teams）；OneDrive 企业版新增按用量付费的存储扩容选项，超配额账号可自动按量计费——配额吃紧的部门可以少买整包存储，但得盯住消费。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>两个都是管理员要动手的小变更：应用退役做用户通知，存储计费做成本盯防。</p>
+        <div class="foot"><a class="src" href="https://egroup-us.com/tech-updates/2026-10/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">10.</span><span class="clock">08:50</span></div>
+        <div class="srcline"><span class="srcname">新浪</span><span class="dot">·</span><span class="stamp">10-16 08:50</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">工信部推 AI 中小企业创业支持计划：普惠算力+场景对接</h2>
+        <p class="summary">工信部印发《人工智能中小企业创业支持计划（2026-2028年）》，主打普惠算力、数据开放、场景对接，解决中小企业“用不起、不会转”；信通院数据：已用 AI 的企业中 45% 还在试点、23% 核心业务规模化、仅 4% 全流程深度嵌入。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>政策风向标：中小企业 AI 的瓶颈被官方点名为算力成本和能力断层，立项申请可留意。</p>
+        <div class="foot"><a class="src" href="https://news.sina.cn/znl/2026-09-29/detail-initnwnf2959775.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">11.</span><span class="clock">08:49</span></div>
+        <div class="srcline"><span class="srcname">microsoft-news</span><span class="dot">·</span><span class="stamp">10-16 08:49</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Copilot 新计费细节：agentic 功能默认不可用，得管理员先配计费策略</h2>
+        <p class="summary">新 Copilot 计费拆成 USL（用户包月，覆盖日常 Chat/Office 内功能）+ UBB（按用量，Cowork/Code/Autopilot 等 agentic 功能耗 Copilot Credits）；关键细节：管理员不配置计费策略，UBB 功能默认不可用——想给同事开 agentic 功能先得把 FinOps for AI 的账算好。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>上次只说了 11 月 2 日改按用量计费，这次是管理员视角的落地细节。</p>
+        <div class="foot"><a class="src" href="https://news.microsoft.com/source/asia/2026/09/28/microsoft-%E6%8E%A8%E5%87%BA%E5%85%A8%E6%96%B0copilot%E3%80%80%E6%90%AD%E8%BC%89home%E3%80%81code-%E5%8F%8A-autopilot/?lang=zh-hant" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">12.</span><span class="clock">08:48</span></div>
+        <div class="srcline"><span class="srcname">tech-insider</span><span class="dot">·</span><span class="stamp">10-16 08:48</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">n0n Group 勒索 38 家海事企业：只偷数据不加密，赎金最高 1400 万美元</h2>
+        <p class="summary">9 月冒头的新勒索团伙 n0n Group 声称攻破 38 家海事/港口/物流企业，只偷数据不加密，开价每家 240 万–1400 万美元比特币，付款截止 10 月 19 日；纯数据窃取型勒索意味着没有“系统被锁”的明显信号，提醒复查 EDI/终端系统访问日志和第三方供应商连接。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>新型勒索模式的预警：没有加密动作，传统“中毒了才发现”的思路会漏报。</p>
+        <div class="foot"><a class="src" href="https://tech-insider.org/n0n-group-ransomware-maritime-firms-2026/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">13.</span><span class="clock">08:47</span></div>
+        <div class="srcline"><span class="srcname">每经网</span><span class="dot">·</span><span class="stamp">10-16 08:47</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">年销 2000 万双袜子：义乌老板娘用 AI 取消美工岗，订单反增 20%</h2>
+        <p class="summary">义乌一位老板娘年销 2000 万双袜子，接入 AI 后主图/详情页/营销海报全由 AI 生成，直接取消美工岗；义乌已有近 3 万商户常态化用 AI，深度使用 AI 的商户订单增长 20% 以上。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>“一人公司”式 AI 用法的极致案例：缺人缺技术的团队怎么把 AI 当员工用。</p>
+        <div class="foot"><a class="src" href="https://www.nbd.com.cn/articles/2026-09-30/4596303.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">14.</span><span class="clock">08:46</span></div>
+        <div class="srcline"><span class="srcname">工人日报</span><span class="dot">·</span><span class="stamp">10-16 08:46</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">AI 重塑广西传统工厂：328 个场景，效率+30%、成本-20%</h2>
+        <p class="summary">广西钢铁冷轧厂用 5G 机械手+AI 视觉接管钢卷拆捆/吊装/贴标等高危重复工序，大海粮油包装后端从 12 人减到 1 人值守；广西已打造 328 个“AI+制造”场景，重点企业生产效率提升 30% 以上、成本降低 20% 以上。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>制造业 AI 落地的完整一线样本：场景具体、数字硬，产线改造思路可对照。</p>
+        <div class="foot"><a class="src" href="https://www.workercn.cn/papers/grrb/2026/10/13/7/news-1.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">15.</span><span class="clock">08:45</span></div>
+        <div class="srcline"><span class="srcname">cyberinsider</span><span class="dot">·</span><span class="stamp">10-16 08:45</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">本月补丁顺带修了：AVD 黑屏、Always On VPN 卡连接、S2D 磁盘离线</h2>
+        <p class="summary">KB5127648 顺带修复了几个扰民问题：AVD/FSLogix 登录黑屏、Always On VPN 卡在 Connecting（KB5124008 引入）、存储空间直通虚拟磁盘无法上线；用户报 VPN 连不上或登录黑屏先查是否已装本月补丁，省一次排错。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>和本周推补丁直接相关，用户报障时先对上这条能省排错时间。</p>
+        <div class="foot"><a class="src" href="https://cyberinsider.com/windows-11-october-updates-fix-zero-day-vpn-failures-and-black-screens/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">16.</span><span class="clock">08:44</span></div>
+        <div class="srcline"><span class="srcname">securityaffairs</span><span class="dot">·</span><span class="stamp">10-16 08:44</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">KEV 修复期限提醒：今天 Windows Shell/Ivanti，明天 Palo Alto/Cisco/Ahsay</h2>
+        <p class="summary">CISA KEV 联邦修复期限：今天（10-16）是 Windows Shell CVE-2026-96951 和 Ivanti CVE-2026-104935 的最后期限；明天（10-17）轮到 Palo Alto PAN-OS、Juniper Secure Email Gateway、AhsayCBS 四个漏洞；到期前先确认补丁状态并查暴露面日志有无入侵痕迹。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>KEV=已确认在野利用，期限日就是风险敞口的最后一天。</p>
+        <div class="foot"><a class="src" href="https://securityaffairs.com/201041/security/u-s-cisa-adds-palo-alto-networks-pan-os-ahsay-ahsaycbs-and-cisco-secure-email-gateway-flaws-to-its-known-exploited-vulnerabilities-catalog.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">17.</span><span class="clock">08:43</span></div>
+        <div class="srcline"><span class="srcname">techcommunity</span><span class="dot">·</span><span class="stamp">10-16 08:43</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Windows Autopatch 即日起可单独审批三类更新，补丁放行更细</h2>
+        <p class="summary">10 月 15 日起 Windows Autopatch 支持对月度安全更新、非安全更新、带外更新分别单独审批，并新增更新审批/适用性/安装进度报表；对他这种 2 人 IT 团队是补丁分批放行的现成工具，值得把本月补丁纳入 Autopatch 试点。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>正好赶上本月大补丁日，分批审批能降低一次全推的风险。</p>
+        <div class="foot"><a class="src" href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-news-you-can-use-september-2026/4552395" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">18.</span><span class="clock">08:42</span></div>
+        <div class="srcline"><span class="srcname">cybersecuritynews</span><span class="dot">·</span><span class="stamp">10-16 08:42</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Entra ID 短信/语音登录 2027 年 2 月 1 日退役，passkey 强制接管</h2>
+        <p class="summary">微软将从 2027 年 2 月 1 日起停发 Entra ID 的 SMS/语音验证码，届时仅靠短信登录的账号会被拦截并强制注册 passkey，无退出选项；建议现在就用 Authentication methods 活动报告揪出依赖短信的账号（尤其一线/共用账号），提前迁到 passkey 或 FIDO2。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>身份认证的大迁移，拖到截止日会变成全员登录故障。</p>
+        <div class="foot"><a class="src" href="https://cybersecuritynews.com/entra-id-sms-sign-in-retirement/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">19.</span><span class="clock">08:41</span></div>
+        <div class="srcline"><span class="srcname">windowsreport</span><span class="dot">·</span><span class="stamp">10-16 08:41</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">M365 Targeted Release 2027 年 1 月退役，三档新发布偏好接替</h2>
+        <p class="summary">Targeted Release 将于 2027 年 1 月彻底退役，11 月起管理员不能再新增/移除/修改 Targeted Release 注册；替代方案是 Frontier（早期预览）、Standard（GA 即得）、Deferred（比 Standard 晚 30 天）。现在就可以把验证用户迁到新偏好，别等 11 月被锁死。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>影响租户功能推送节奏的变更，11 月就动手不了了，得提前迁。</p>
+        <div class="foot"><a class="src" href="https://windowsreport.com/microsoft-365-targeted-release-is-going-away-in-2027/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">20.</span><span class="clock">08:40</span></div>
+        <div class="srcline"><span class="srcname">techtimes</span><span class="dot">·</span><span class="stamp">10-16 08:40</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">服务器端高危三件套：Exchange、域控、QUIC 均被标高利用可能</h2>
+        <p class="summary">Exchange CVE-2026-70571（未认证 RCE，经服务端内容转换触发）、域控 AD DS CVE-2026-70229、QUIC CVE-2026-105016（CVSS 9.8）均被标为 Exploitation More Likely；有外网暴露的 Exchange 和域控优先安排补丁窗口。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>域控和邮件服务器是他的核心资产，被标 Exploitation More Likely 就该排前面。</p>
+        <div class="foot"><a class="src" href="https://Www.techtimes.com/articles/329061/20261015/microsoft-patch-tuesday-october-2026-record-1413-cves-one-already-under-attack.htm" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">21.</span><span class="clock">08:39</span></div>
+        <div class="srcline"><span class="srcname">techtimes</span><span class="dot">·</span><span class="stamp">10-16 08:39</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Outlook 预览窗格惊现 5 个严重 RCE：看一眼邮件即可中招</h2>
+        <p class="summary">Outlook 本月有 5 个 CVSS 9.8 的严重 RCE（CVE-2026-70242 等），邮件只需在预览窗格渲染即可触发，无需打开邮件、无需点击、无需认证；建议把 Outlook 更新提到 Office 补丁最前面，今天内推完。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>零点击+预览触发，攻击成本极低，邮件客户端是全员暴露面。</p>
+        <div class="foot"><a class="src" href="https://Www.techtimes.com/articles/329061/20261015/microsoft-patch-tuesday-october-2026-record-1413-cves-one-already-under-attack.htm" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+    </section>
+    <section class="day">
+      <div class="daybar"><span class="dayname">10月15日 周四</span><span class="daycount">34 条</span></div>
+      
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#b3402a">1.</span><span class="clock">18:34</span></div>
+        <div class="srcline"><span class="srcname">infotechlead</span><span class="dot">·</span><span class="stamp">10-15 18:34</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">企业 AI 规模化八案例：GE Appliances 部署 800+ agent，缺货率降 25%</h2>
+        <p class="summary">盘点 8 家把 AI 从试点做成业务结果的企业：GE Appliances 在制造/物流/供应链部署 800+ agent，对接 Brilliant Factory 数据平台，班次总结从小时级变分钟级，缺货（backorder）减少 25%；Tata Steel 上了 300+ 专项 agent；Asurion 在美洲实现 70% 发票免触处理。IBM 调研顺带提醒：77% 企业 AI 采纳速度超过治理能力，85% 缺乏 AI 支出实时可见性。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>制造/运营场景、可复制的“数据平台+对话式查询+agent”做法，且给了硬数字（25%、70%），符合“有具体场景、可复制、有效率数字”的选题口味。</p>
+        <div class="foot"><a class="src" href="https://infotechlead.com/artificial-intelligence/enterprise-ai-deployment-in-2026-eight-companies-turning-pilots-into-business-results-98871" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#a3642f">2.</span><span class="clock">18:33</span></div>
+        <div class="srcline"><span class="srcname">techrepublic</span><span class="dot">·</span><span class="stamp">10-15 18:33</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">微软给出 RDP 故障临时方案：关 Administrator protection 走传统审批模式</h2>
+        <p class="summary">开管理员保护的设备上非管理员用户 RDP 连接失败仍无永久修复，微软官方临时方案是经 Intune 或组策略把“用户账户控制：配置管理员批准模式类型”重置为传统 Admin Approval Mode（值为 1），重启后生效；微软建议仅对受影响主机操作，保留现有保护的其他设备不动，修复发布后再恢复。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>今晨已收录该已知问题，这是新增的官方 workaround 细节：组策略路径和值都明确了，下次排错直接套用。</p>
+        <div class="foot"><a class="src" href="https://www.techrepublic.com/article/news-windows-11-remote-desktop-failures/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#96702e">3.</span><span class="clock">18:32</span></div>
+        <div class="srcline"><span class="srcname">thehackernews</span><span class="dot">·</span><span class="stamp">10-15 18:32</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">备份软件 AhsayCBS 两漏洞被用来投 webshell 和挖矿，早前补丁不彻底</h2>
+        <p class="summary">CVE-2026-105133 与 CVE-2026-105134 组合可绕过认证执行任意命令，Huntress 观察到攻击者借此投放 webshell 和 XMRig 挖矿程序；8 月的 9.15.2.59 / 10.3.4.0 补丁确认未完全堵住，Ahsay 已发布新热补丁 10.3.4.45 / 9.15.2.70（打完需重启）；CISA 同步列入 KEV，10 月 17 日是联邦期限。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>备份服务器往往放在可被访问的位置且权限高；下周正好是备份周末，打热补丁前先确认备份软件版本，避免“备份工具本身成为入口”。</p>
+        <div class="foot"><a class="src" href="http://thehackernews.com/2026/10/ahsaycbs-flaws-exploited-to-deploy-web.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">4.</span><span class="clock">18:31</span></div>
+        <div class="srcline"><span class="srcname">zubiqo</span><span class="dot">·</span><span class="stamp">10-15 18:31</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Palo Alto PAN-OS 管理界面零日 CVE-2026-0322 已在野利用</h2>
+        <p class="summary">CVSS 8.6，有网络访问权限的已认证攻击者可在 PA-Series / VM-Series / Panorama virtual / M-Series 上以 root 执行代码；PA 公布了 3 个攻击者 IP，Cloud NGFW 与 Prisma Access 不受影响；修复覆盖 PAN-OS 10.2/11.1/11.2/12.1/12.2 各分支（12.2.4 起修复），CISA 要求联邦机构 10 月 17 日前缓解；无可用替代方案，应把管理界面限制到可信内网 IP。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>防火墙管理面被利用是典型边界失守；临时缓解措施只有收缩管理面访问，先查是否有管理口暴露在公网。</p>
+        <div class="foot"><a class="src" href="https://zubiqo.com/news/palo-alto-networks-patches-actively-exploited-pan-os-zero-day-flaw-cf5g30" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">5.</span><span class="clock">18:30</span></div>
+        <div class="srcline"><span class="srcname">cyber.hendryadrian.com</span><span class="dot">·</span><span class="stamp">10-15 18:30</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Cisco Secure Email Gateway 曝 CVE-2026-76519：在野利用、CVSS 9.8</h2>
+        <p class="summary">AMP 开启文件信誉且 Content Scanner Tools 低于 25.3.0.5525 时，精心构造的邮件附件可让未认证远程攻击者写任意系统文件并以 root 执行命令；Cisco 9 月 14 日已发布 AsyncOS 15.5.5-014 / 16.5.0-780 修复，CISA 10 月 14 日列入 KEV，联邦机构补丁期限 10 月 17 日。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>邮件安全网关本身被当入口利用，属高权限边界设备；有 Cisco SEG 在外网收信的建议立即查版本并看防火墙/外网传输日志有无可疑痕迹。</p>
+        <div class="foot"><a class="src" href="https://cyber.hendryadrian.com/article/3287/cisco-warns-of-active-exploitation-of-critical-secure-email-gateway-flaw" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">6.</span><span class="clock">16:02</span></div>
+        <div class="srcline"><span class="srcname">网易</span><span class="dot">·</span><span class="stamp">10-15 16:02</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">美的：158 个场景规模化用工业智能体，2026 年目标节约 9 亿元</h2>
+        <p class="summary">美云智数从内部上万个智能体筛出 40+ 对外发布，已在 158 个核心场景规模化应用，覆盖研发、制造、供应链、品质、物流、财务、人力；产线 TPM/DMS/LOSS 智能体把每天的损失拆解到具体工序和岗位并给改善建议；总裁金江称方向是“AI-INSIDE”——表面还用原系统，背后由 AI 做决策支持。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>制造业 AI 落地的标杆，“先补数字化短板再谈规模化”这句大实话值得记住。</p>
+        <div class="foot"><a class="src" href="https://www.163.com/dy/article/KJB9PC8B0519DDQ2.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">7.</span><span class="clock">16:01</span></div>
+        <div class="srcline"><span class="srcname">网易</span><span class="dot">·</span><span class="stamp">10-15 16:01</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">晶科能源：200 个 AI 账号“秒空”，CIO 说“现在靠算力扩张”</h2>
+        <p class="summary">晶科能源 4 月内部招募 AI 种子用户，原计划几十人结果 200 个 WorkBuddy 账号被抢空；两个多月后 95 人成深度用户，AI 进入财务、IT、知识产权、生产等场景；员工把成熟流程沉淀为 Skill 后可跨部门复用，上海家化已覆盖九大部门。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>制造业 AI 落地的“内部推广”样本：先让种子用户跑通，再沉淀为组织资产。</p>
+        <div class="foot"><a class="src" href="https://www.163.com/dy/article/L8Q8O2G40511A502.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">8.</span><span class="clock">16:01</span></div>
+        <div class="srcline"><span class="srcname">新浪财经</span><span class="dot">·</span><span class="stamp">10-15 16:01</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">2 人内衣团队：秋冬素材准备从 4 个月压到 15 天</h2>
+        <p class="summary">Sandy 的团队只有 2 人、运营两个品牌，一个上新季要准备近 1 万张种草图；把第三方生图软件接入千问办公，由 Agent 批量出图和整理素材，秋冬素材周期从 4 个月缩到约 15 天；经营分析接进工作流后，单次数据分析从约 3 小时压到 1 小时内。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>2 个人干出一个部门的活，素材和报表两类“重复劳动”正是 AI 最先吃掉的部分。</p>
+        <div class="foot"><a class="src" href="https://finance.sina.cn/2026-10-14/detail-iniveqvi7793034.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">9.</span><span class="clock">16:00</span></div>
+        <div class="srcline"><span class="srcname">新浪财经</span><span class="dot">·</span><span class="stamp">10-15 16:00</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">17 人咖啡小团队：AI 选品调研 Skill 让冷萃新品销量翻 10 倍</h2>
+        <p class="summary">捌比特咖啡团队仅 17 人、覆盖十余个电商平台，接入千问办公后搭建选品调研 Skill：AI 先找自家有流量低转化的产品、建竞品池补详情页；分析冷萃咖啡发现日晒处理法占比第一（团队原偏好水洗只排第三），据此调配方推新品，销量达过往同类 10 倍；经营周报、利润核算也接进工作流，还用 MCP 接入聚水潭 ERP 和生意参谋跨系统算各渠道净毛利。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>小团队+多系统+具体数字，“缺人缺技术的小团队怎么用 AI”是原文原话，最值得细读的一篇。</p>
+        <div class="foot"><a class="src" href="https://finance.sina.cn/2026-10-14/detail-iniveqvi7793034.d.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">10.</span><span class="clock">12:35</span></div>
+        <div class="srcline"><span class="srcname">spiceworks</span><span class="dot">·</span><span class="stamp">10-15 12:35</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">Spiceworks 社区：10 月补丁封堵 NTLMv1 加密，可能影响 PEAP 认证</h2>
+        <p class="summary">Spiceworks 管理员们实时跟踪 10 月补丁：除微软已确认的 RDP 错误 0xC000000D 外，新发现——本次补丁开始封堵 NTLMv1 派生加密，可能导致 MS-CHAPv2/PEAP 认证出问题，初步判断影响域环境中用 802.1x 的设备。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>晨报已收 RDP 条目，NTLMv1/PEAP 是新增信息，推补丁前先查无线认证方式。</p>
+        <div class="foot"><a class="src" href="https://community.spiceworks.com/t/october-2026-patch-tuesday-here-we-go-again/1258742" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">11.</span><span class="clock">12:34</span></div>
+        <div class="srcline"><span class="srcname">elevenforum</span><span class="dot">·</span><span class="stamp">10-15 12:34</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">10 月补丁日实战帖：Win11 26H2 装 KB5127694/KB5127648 失败，报错 0x800f0922</h2>
+        <p class="summary">用户 10 月 13 日报告 Win11 26H2（26300.9711）装 KB5127694 和 KB5127648 失败，回滚提示「Something didn&#x27;t go as planned」，报错 0x800f0922；已试过更新疑难解答（跑不起来）、DISM+sfc、开启 .NET 3.5/4.8，均未解决；版主建议终极方案是就地升级修复安装。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>和本周推补丁直接相关，先记下这条排查链路，万一用户报装不上直接套用。</p>
+        <div class="foot"><a class="src" href="https://www.elevenforum.com/t/patch-tuesday-update-problem.50124/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">12.</span><span class="clock">12:33</span></div>
+        <div class="srcline"><span class="srcname">marketwire</span><span class="dot">·</span><span class="stamp">10-15 12:33</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">Grid Dynamics 企业 agentic AI 规模化：90% 工程师本月完成 Anthropic/OpenAI 认证</h2>
+        <p class="summary">Grid Dynamics 宣布其 AI SDLC 平台已在北美大型零售商落地、向 500+ 工程师扩展 agent 编排；与 Anthropic、OpenAI 合作，目标 10 月底 90% 工程师完成双平台认证，押注生产级 agentic AI。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>企业 AI 从试点到生产的又一个可量化落地样本。</p>
+        <div class="foot"><a class="src" href="https://marketwirenews.com/stock/gdyn/news/grid-dynamics-accelerates-enterprise-ai-native-trans-8128831930488709.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">13.</span><span class="clock">12:32</span></div>
+        <div class="srcline"><span class="srcname">IT之家</span><span class="dot">·</span><span class="stamp">10-15 12:32</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Microsoft Defender 公共预览版登陆 Linux</h2>
+        <p class="summary">微软 10 月 14 日宣布 Defender 以公共预览形式登陆 Linux，支持 RHEL、CentOS、Ubuntu、Debian、SLES、Fedora、Oracle Linux，集成杀毒、EDR、漏洞管理、高级威胁搜寻；需 Defender P2 或 M365 E5/E7 订阅。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>微软生态大动态：Linux 终端管理少一个盲区。</p>
+        <div class="foot"><a class="src" href="https://news.17173.com/content/10152026/100213969.shtml" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">14.</span><span class="clock">12:31</span></div>
+        <div class="srcline"><span class="srcname">dev.to</span><span class="dot">·</span><span class="stamp">10-15 12:31</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">SAP S/4HANA 爆 CVSS 9.9 代码注入漏洞 CVE-2026-89107</h2>
+        <p class="summary">SAP 10 月 13 日披露，S/4HANA 财务替代/校验规则功能的脚本输入校验不严，持有对应业务权限的已认证用户可注入执行任意 ABAP 代码，CVSS 9.9，等同拿下整个系统；目前无公开 PoC、未入 KEV，正好是抢先打补丁的窗口。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>ERP 级漏洞的排查思路通用：补丁+权限收紧双动作，可对照着看 EBS。</p>
+        <div class="foot"><a class="src" href="https://dev.to/iamfaizanakhtar/cve-2026-89107-sap-s4hana-code-injection-remote-code-execution-vulnerability-analysis--1alk" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">15.</span><span class="clock">12:30</span></div>
+        <div class="srcline"><span class="srcname">cisa</span><span class="dot">·</span><span class="stamp">10-15 12:30</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">CISA 将 Ivanti Connect Secure 认证绕过漏洞列入 KEV</h2>
+        <p class="summary">CVE-2026-104935（Ivanti Connect Secure 认证绕过）随 Windows Shell 零日一起进入 CISA KEV，官方确认在野利用；如公司还有 Ivanti SSL VPN 网关挂在外网，优先复查补丁状态并查是否已被写入后门账户。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>VPN 网关是真实被利用的攻击入口，KEV 入选=已被在野利用。</p>
+        <div class="foot"><a class="src" href="https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">16.</span><span class="clock">08:57</span></div>
+        <div class="srcline"><span class="srcname">Microsoft Learn Q&amp;A</span><span class="dot">·</span><span class="stamp">10-15 08:57</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">OneDrive 取消链接后登录/同步失败的完整重连流程</h2>
+        <p class="summary">删 PreSignInSettingsConfig.json 清缓存登录态，%localappdata% 重置，遇 0x8004def7 先查存储空间是否满。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>Tracy 那单“重装 rejoin 解决”的根因级解释，留作知识库。</p>
+        <div class="foot"><a class="src" href="https://learn.microsoft.com/en-us/answers/questions/5899079/onedrive-log-on-and-sync-issues" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">17.</span><span class="clock">08:56</span></div>
+        <div class="srcline"><span class="srcname">makeuseof</span><span class="dot">·</span><span class="stamp">10-15 08:56</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">OneDrive 拖慢网速、冒出冲突副本？两个设置解决</h2>
+        <p class="summary">开“限制上传/下载速率”避免同步抢带宽；冲突副本多因两台设备同时编辑同一文件，养成等同步完成再关机、少同步文件夹可减少。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>用户抱怨 OneDrive 卡时的标准答复，可直接转给同事。</p>
+        <div class="foot"><a class="src" href="https://www.makeuseof.com/onedrive-was-seriously-annoying-until-i-set-it-up-like-this/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="社区实战">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">18.</span><span class="clock">08:55</span></div>
+        <div class="srcline"><span class="srcname">Microsoft Tech Community</span><span class="dot">·</span><span class="stamp">10-15 08:55</span><span class="badge" style="color:#b8873a;border-color:#b8873a">社区实战</span></div>
+        <h2 class="title">本地 OneDrive 无法同步？先查这 5 处（6 天前更新的实战帖）</h2>
+        <p class="summary">网页端正常但本地不同步，依次查：Intune/注册表策略是否锁了同步路径、目标文件夹是否 NTFS 本地盘、清理 %localappdata% 下 OneDrive 旧状态并删 HKCU 残留账户、检查 cldflt 驱动与杀软冲突。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>昨天刚处理两单 OneDrive 问题，这套排查顺序下次直接套用。</p>
+        <div class="foot"><a class="src" href="https://techcommunity.microsoft.com/discussions/onedriveforbusiness/local-onedrive-does-not-seem-to-be-syncing/4563240" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">19.</span><span class="clock">08:54</span></div>
+        <div class="srcline"><span class="srcname">TechNews</span><span class="dot">·</span><span class="stamp">10-15 08:54</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">九成企业 AI 投资仍未回本，Lowe&#x27;s AI 策略主管提六招管理之道</h2>
+        <p class="summary">MIT 报告称企业生成式 AI 投资 300-400 亿美元，仅约 5% 试点创造价值；作者提出六准则：识别“人力中间件”、以原则代规则、装“信任恒温器”、补齐上下文、例外管理等。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>IT 管理者视角的 AI 治理框架，比技术新闻更值得细读。</p>
+        <div class="foot"><a class="src" href="https://finance.technews.tw/2026/10/15/6-guidelines-for-governing-ai/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">20.</span><span class="clock">08:53</span></div>
+        <div class="srcline"><span class="srcname">网易</span><span class="dot">·</span><span class="stamp">10-15 08:53</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">山东 AI+制造论坛：鲁南制药分享 AI 落地四阶段</h2>
+        <p class="summary">鲁南制药建成私有化大模型服务，推出桌面智能体、RPA、知识库及发酵工艺、临床试验等垂直智能体，对财务数据分析、合同审核等流程做智能化改造。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>传统制造企业 AI 落地的完整路径（战略→算力→场景→架构），制造型企业 IT 可对照。</p>
+        <div class="foot"><a class="src" href="https://www.163.com/dy/article/L995SQCI0514CFC7.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="AI落地">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">21.</span><span class="clock">08:52</span></div>
+        <div class="srcline"><span class="srcname">凤凰网</span><span class="dot">·</span><span class="stamp">10-15 08:52</span><span class="badge" style="color:#176b75;border-color:#176b75">AI落地</span></div>
+        <h2 class="title">首个电商版 Agent 来了：AI 开店 7 天只花几百元 token 费</h2>
+        <p class="summary">千问办公电商版 10 月 14 日开启邀测，打通选品、素材、投放、数据分析全流程；商家实测开新店从 30 天缩到 7 天；电商用户占其付费用户超 20%。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>企业级 Agent 深入垂直行业的完整数字案例，可参考其“统一入口+行业工具打通”思路。</p>
+        <div class="foot"><a class="src" href="https://feng.ifeng.com/c/8xEsrswgFJZ" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">22.</span><span class="clock">08:51</span></div>
+        <div class="srcline"><span class="srcname">新浪科技</span><span class="dot">·</span><span class="stamp">10-15 08:51</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">丹麦人口数据库被入侵，880 万条记录被窃，祸起 123456 密码</h2>
+        <p class="summary">IT 服务商弱密码，事发 12 天后才经异常账单发现；提醒定期做密码强度和账户审计。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>弱密码单点风险的血淋淋案例。</p>
+        <div class="foot"><a class="src" href="https://k.sina.cn/article_7857201856_1d45362c001908qzng.html?from=tech" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">23.</span><span class="clock">08:50</span></div>
+        <div class="srcline"><span class="srcname">businesswire</span><span class="dot">·</span><span class="stamp">10-15 08:50</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">NETSCOUT：上半年全球 DDoS 超 910 万次，1Tbps+ 攻击暴增 1286%</h2>
+        <p class="summary">攻击转向短频快、打应用层；有公网暴露服务建议复查防护预案。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>公网服务防护的复查提醒。</p>
+        <div class="foot"><a class="src" href="https://www.businesswire.com/news/home/20261014590367/zh-HK" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">24.</span><span class="clock">08:49</span></div>
+        <div class="srcline"><span class="srcname">webpronews</span><span class="dot">·</span><span class="stamp">10-15 08:49</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">微软 Fabric 在 GCC High 云 GA，Fabric IQ 上下文层打通 Copilot 与 Power BI</h2>
+        <p class="summary">Fabric 正变成企业 AI 数据底座，Power BI 学习路线顺势延伸正确。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>和 Power BI 学习路线直接相关。</p>
+        <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-flips-on-data-access-after-guarding-silos-for-ai-agents/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">25.</span><span class="clock">08:48</span></div>
+        <div class="srcline"><span class="srcname">windowsreport</span><span class="dot">·</span><span class="stamp">10-15 08:48</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Copilot Notebooks 支持定时任务与 Office 文件编辑</h2>
+        <p class="summary">可定时生成晨会简报、周报，直接创建编辑 Word/Excel/PowerPoint；适合套用到运维周报。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>运维周报自动化的现成工具。</p>
+        <div class="foot"><a class="src" href="https://windowsreport.com/copilot-notebooks-october-2026-update-adds-office-editing-ai-automations-interactive-reports/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">26.</span><span class="clock">08:47</span></div>
+        <div class="srcline"><span class="srcname">msspalert</span><span class="dot">·</span><span class="stamp">10-15 08:47</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">11 月 2 日起 M365 Copilot Business 改默认按用量计费</h2>
+        <p class="summary">日常任务走订阅，agentic 任务耗 Copilot Credits；给同事配 Copilot 要盯成本。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>涉及真金白银的计费变更。</p>
+        <div class="foot"><a class="src" href="https://www.msspalert.com/news/microsoft-shifts-copilot-business-licenses-to-usage-based-billing" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">27.</span><span class="clock">08:46</span></div>
+        <div class="srcline"><span class="srcname">webpronews</span><span class="dot">·</span><span class="stamp">10-15 08:46</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Copilot 大改版：Home / Code / Autopilot 三大支柱，Fabric IQ GA</h2>
+        <p class="summary">Code 可用自然语言生成内部小应用，Fabric IQ 可调用 2000 万+ Power BI 语义模型；低成本自动化机会，但先想清权限治理。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>部门自动化的低成本切入点。</p>
+        <div class="foot"><a class="src" href="https://www.webpronews.com/microsoft-gives-with-one-hand-takes-with-the-other-in-copilot-overhaul/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">28.</span><span class="clock">08:45</span></div>
+        <div class="srcline"><span class="srcname">businesswire</span><span class="dot">·</span><span class="stamp">10-15 08:45</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">Marvell、微软、Oracle 成立 OCP 工作组制定服务器级 HSM 规范</h2>
+        <p class="summary">目标密钥不出硬件边界、减少网络往返延迟；长期看本地 EBS 数据库加密思路可能受益。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>云厂商密钥管理转向服务器端的信号。</p>
+        <div class="foot"><a class="src" href="https://www.businesswire.com/news/home/20261012067973/en/Marvell-Microsoft-and-Oracle-Establish-OCP-Working-Group-to-Standardize-Data-Center-Hardware-Security" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="拓展">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">29.</span><span class="clock">08:44</span></div>
+        <div class="srcline"><span class="srcname">analyticsinsight</span><span class="dot">·</span><span class="stamp">10-15 08:44</span><span class="badge" style="color:#2f7d5c;border-color:#2f7d5c">拓展</span></div>
+        <h2 class="title">微软推实验性 risk cohorts 漏洞分级</h2>
+        <p class="summary">不再只看 CVSS，按暴露面和部署场景分组，帮 IT 判断补丁优先级；可借鉴为补丁管理框架。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>补丁优先级管理的现成框架。</p>
+        <div class="foot"><a class="src" href="https://www.analyticsinsight.net/news/microsoft-introduces-risk-cohorts-as-october-patch-tuesday-fixes-1411-flaws" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">30.</span><span class="clock">08:43</span></div>
+        <div class="srcline"><span class="srcname">techrepublic</span><span class="dot">·</span><span class="stamp">10-15 08:43</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">微软补丁已知问题：开管理员保护的设备 RDP 可能失败</h2>
+        <p class="summary">10 月 14 日确认，非管理员用户远程桌面连接失败；近期推补丁后有人报连不上先查这个。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>和推补丁的工作直接相关，能省排错时间。</p>
+        <div class="foot"><a class="src" href="https://www.techrepublic.com/article/news-microsoft-october-2026-patch-tuesday/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">31.</span><span class="clock">08:42</span></div>
+        <div class="srcline"><span class="srcname">中关村在线</span><span class="dot">·</span><span class="stamp">10-15 08:42</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Windows 11 24H2 家庭版和专业版 10 月 14 日终止支持</h2>
+        <p class="summary">企业版/教育版延至 2027 年 10 月；盘点公司是否还有 24H2 家庭版/专业版设备，及时升级 25H2。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>直接影响终端合规，得盘点。</p>
+        <div class="foot"><a class="src" href="https://news.zol.com.cn/1260/12603256.html" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">32.</span><span class="clock">08:41</span></div>
+        <div class="srcline"><span class="srcname">aicybr</span><span class="dot">·</span><span class="stamp">10-15 08:41</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">Oracle 下一次季度 CPU 定在 10 月 20 日</h2>
+        <p class="summary">9 月 CSPU 共修复 673 个漏洞，EBS 占 159 个（19 个无需认证可远程利用）；建议把 10 月 20 日纳入变更计划，提前留测试窗口。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>EBS 是日常 ERP，19 个可远程利用漏洞值得一次变更窗口。</p>
+        <div class="foot"><a class="src" href="https://aicybr.com/blog/oracle-september-2026-critical-security-patch-update" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">33.</span><span class="clock">08:40</span></div>
+        <div class="srcline"><span class="srcname">office-watch</span><span class="dot">·</span><span class="stamp">10-15 08:40</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">本月 Office 共修复 173 个漏洞、26 个严重</h2>
+        <p class="summary">Excel 占 69 个，Outlook 有 5 个严重漏洞；建议 Outlook 优先更新（钓鱼邮件是恶意附件主渠道），Office 可观望一两周。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>Outlook 是钓鱼附件主渠道，先更它最划算。</p>
+        <div class="foot"><a class="src" href="https://office-watch.com/2026/october-2026-patch-tuesday-office-critical-fixes/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+      <div class="row" data-cat="必看">
+        <div class="rankline"><span class="rank" style="color:#9aa3ab">34.</span><span class="clock">08:39</span></div>
+        <div class="srcline"><span class="srcname">webpronews</span><span class="dot">·</span><span class="stamp">10-15 08:39</span><span class="badge" style="color:#b3402a;border-color:#b3402a">必看</span></div>
+        <h2 class="title">微软发布史上最大补丁日：10 月 13 日共修复 1413 个漏洞</h2>
+        <p class="summary">含 78 个严重漏洞和一个已被在野利用的 Windows Shell 零日 CVE-2026-96951（绕过 Mark of the Web），CISA 要求联邦机构 10 月 16 日前修复；补丁优先级排第一，优先给外网 Windows 服务器和客户端打补丁。</p>
+        <p class="why"><span class="why-tag">推荐理由</span>零日已在野利用，修复窗口只剩今天。</p>
+        <div class="foot"><a class="src" href="https://www.webpronews.com/microsofts-record-1413-flaws-patched-in-october-2026-expose-growing-security-burden/" target="_blank" rel="noopener">原文 ↗</a></div>
+      </div>
+    </section>
+  <footer>共 69 条 · 自动生成于 2026-10-17 22:10</footer>
 </div>
-<footer>共 69 条 · 页面自动生成于 2026-10-17 22:03 · 数据来源：每日 IT 资讯速览</footer>
 <script>
 document.getElementById('filters').addEventListener('click', e => {
   const btn = e.target.closest('.fbtn');
@@ -607,8 +640,12 @@ document.getElementById('filters').addEventListener('click', e => {
   document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const f = btn.dataset.f;
-  document.querySelectorAll('.card').forEach(c => {
+  document.querySelectorAll('.row').forEach(c => {
     c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f);
+  });
+  document.querySelectorAll('.day').forEach(d => {
+    const vis = d.querySelectorAll('.row:not(.hidden)').length;
+    d.classList.toggle('hidden', vis === 0);
   });
 });
 </script>
