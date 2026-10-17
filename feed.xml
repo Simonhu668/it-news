@@ -3,7 +3,7 @@
 <title>IT 资讯速览</title>
 <link>https://simonhu668.github.io/it-news/</link>
 <description>Simon 的每日 IT 聚合：安全与运维、Microsoft 365、AI 应用、行业动态。</description>
-<lastBuildDate>Sun, 18 Oct 2026 01:24:52 +0800</lastBuildDate>
+<lastBuildDate>Sun, 18 Oct 2026 01:27:25 +0800</lastBuildDate>
 <item><title>PowerPoint Copilot 新增「互动幻灯片」技能：听众可在 Teams 会议里自己点着看</title><link>https://simonhu668.github.io/it-news/items/ff0ca3de5d.html</link><description>Copilot Premium 用户 10 月 17 日起可在 PowerPoint 用 Create Interactive Slide 技能生成可点击的 Summary/Timeline/Dashboard/Comparison 幻灯片，分享后对方无需 Copilot 许可也能点看。管理员零动作、无管理开关，幻灯片运行在沙盒视图（MC1461152）；Teams PowerPoint Live 里观众实时互动已可用，桌面端 10 月中下旬陆续推送。 推荐理由：M365 新功能实战类：做汇报、做培训材料时可直接用，互动看板比静态页更能讲清时间线和对比。</description></item>
 <item><title>Exchange 10 月安全更新分批指南：Windows 与 Exchange 补丁别装在同一个维护窗口</title><link>https://simonhu668.github.io/it-news/items/fee9cb9faa.html</link><description>Exchange 2019 的 10 月安全更新是 KB5128896（CU15 SU12）；社区（Borncity）报告 Windows Server 累积更新和 Exchange SU 装在同一批后，OWA 报 MapiExceptionMdbOffline 故障，重启只能临时恢复。建议分两个维护窗口：先打 Windows 更新、重启并验证 OWA/ECP/EWS，再打 Exchange SU；DAG 先从被动节点开始，每轮记录 KB 号，留好回退路径。 推荐理由：中午的 heise 条目说 Exchange 被打崩，这篇是第一篇英文实操分析，给出具体分批、验证、回退步骤，打补丁前照做能避坑。</description></item>
 <item><title>京东工业工博会发布智采管家：核心采购岗位效率提升 70%</title><link>https://simonhu668.github.io/it-news/items/23af31780b.html</link><description>10 月 12 日工博会发布面向中小企业的「智采管家」AI 应用：Excel 采购清单自动识别匹配、拍照识图找品、自然语言查订单状态、调取合同发票、跟踪售后工单，一个对话入口处理全流程采购事务。选型决策时长缩短近 39%，核心采购岗位效率提升 70%；已免费开放多端体验。 推荐理由：采购与物料主数据是制造企业的共性痛点：清单识别+BOM 解析的思路可对照 ERP 采购流程复用。</description></item>
