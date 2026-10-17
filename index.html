@@ -104,7 +104,7 @@ body { margin:0; background:var(--bg); color:var(--ink);
 .dayhead .wday { font-size:13px; color:var(--ink-4); }
 .dayhead .dcount { margin-left:auto; font-size:12.5px; color:var(--ink-4); }
 .dayhead .dcount b { color:var(--ink-3); font-variant-numeric:tabular-nums; }
-.dayhead .chev { font-size:12px; color:var(--ink-4); transition:transform .2s; }
+.dayhead .chev { display:inline-block; font-size:12px; color:var(--ink-4); transition:transform .2s; }
 .day.collapsed .dayhead .chev { transform:rotate(-90deg); }
 .day.collapsed .tlist { display:none; }
 
@@ -184,7 +184,7 @@ footer.pagefoot { text-align:center; color:var(--ink-4); font-size:12px; padding
   <div class="main">
     <div class="content">
       <header class="mast">
-        <div class="mast-row"><h1 id="viewname">全部资讯</h1><span class="upd">更新于 10-17 22:36</span></div>
+        <div class="mast-row"><h1 id="viewname">全部资讯</h1><span class="upd">更新于 10-17 22:45</span></div>
         <p class="mast-sub">Simon 的每日 IT 聚合 · 按时间倒序</p>
       </header>
 
@@ -1430,7 +1430,7 @@ footer.pagefoot { text-align:center; color:var(--ink-4); font-size:12px; padding
         <button id="clearbtn" type="button">清空筛选</button>
       </div>
 
-      <footer class="pagefoot">共 69 条 · 自动生成于 10-17 22:36</footer>
+      <footer class="pagefoot">共 69 条 · 自动生成于 10-17 22:45</footer>
     </div>
   </div>
 </div>
@@ -1536,11 +1536,20 @@ const totop = document.getElementById('totop');
 addEventListener('scroll', () => totop.classList.toggle('show', scrollY > innerHeight * 1.2), { passive: true });
 totop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
-// hide 展开 when nothing is clamped
+// hide 展开 when nothing is actually truncated:
+// -webkit-line-clamp keeps scrollHeight equal to the clamped height,
+// so measure against a temporarily unclamped copy instead
 document.querySelectorAll('.card').forEach(card => {
-  const s = card.querySelector('.summary');
   const btn = card.querySelector('.xbtn');
-  if (s && btn && s.scrollHeight <= s.clientHeight + 2) btn.style.display = 'none';
+  if (!btn) return;
+  let truncated = false;
+  card.querySelectorAll('.summary, .why').forEach(el => {
+    el.classList.add('open');
+    const full = el.scrollHeight;
+    el.classList.remove('open');
+    if (full > el.clientHeight + 2) truncated = true;
+  });
+  if (!truncated) btn.style.display = 'none';
 });
 
 readHash();
