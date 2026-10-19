@@ -157,6 +157,14 @@ a { color:var(--accent); }
   margin:0 0 12px; transition:box-shadow .2s var(--ease), border-color .2s; }
 @media (min-width:760px) { .card { margin-left:16px; } }
 .card:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); }
+.card-main { display:flex; gap:14px; align-items:flex-start; }
+.card-text { flex:1; min-width:0; }
+.thumb { width:132px; height:88px; object-fit:cover; border-radius:8px; flex-shrink:0; border:1px solid var(--line); display:block; }
+.thumb-link { flex-shrink:0; }
+@media (max-width:640px) { .thumb { width:96px; height:64px; } }
+.d-hero { margin:0 0 18px; }
+.d-hero img { width:100%; max-height:420px; object-fit:cover; border-radius:12px; border:1px solid var(--line); display:block; }
+.d-hero figcaption { font-size:12px; color:var(--ink-4); margin-top:6px; }
 .chead { display:flex; align-items:center; gap:7px; flex-wrap:wrap;
   font-size:12.5px; color:var(--ink-4); margin-bottom:8px; }
 .ttag { font-size:11px; font-weight:600; border-radius:999px; padding:2px 10px; }

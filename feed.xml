@@ -3,7 +3,7 @@
 <title>IT 资讯速览</title>
 <link>https://simonhu668.github.io/it-news/</link>
 <description>Simon 的每日 IT 聚合：安全与运维、Microsoft 365、AI 应用、行业动态。</description>
-<lastBuildDate>Mon, 19 Oct 2026 21:15:58 +0800</lastBuildDate>
+<lastBuildDate>Mon, 19 Oct 2026 21:20:46 +0800</lastBuildDate>
 <item><title>食品制造商把 40 多个自动化迁到 Power Platform：建 Command Center 集中管控</title><link>https://simonhu668.github.io/it-news/items/4d1c4e1adb.html</link><description>年销 90 亿美元、14000 人、12 家工厂的食品制造商，把原有自动化平台的 40 多个生产自动化全部迁到 Power Platform（Automate + Apps + Dataverse + BI），并建 Command Center 做集中管理，应对原平台许可贵、黑盒难管、难扩展的问题。 推荐理由：与自动化平台选型、流程集中管控有关。值得带走一个判断原则：迁移前先建集中管理面，不然几十个流散着跑早晚失控。适用条件：已有多个自动化、考虑平台整合的组织；单点小自动化的组织可只看思路。</description></item>
 <item><title>Duratech 制造质检全流程：Power Apps 录入 + Automate 编排 + BI 呈现</title><link>https://simonhu668.github.io/it-news/items/036aa82f3a.html</link><description>模型驱动 Power App 连 Azure SQL 存批次记录，PCF 条码组件扫码录入质检发现；Power Automate 编排多步流——提缺陷自动建 Planner 任务、通知质量负责人、回写 Dynamics 365 状态；Power BI 同库出高管看板，质量事故关闭时间降 30%。 推荐理由：与制造现场系统协同、质量流程数字化有关。值得带走一套标准三件套：App 录入 → 流编排 → BI 呈现。适用条件：有质检、巡检类现场数据采集需求的制造组织；数字为厂商口径。</description></item>
 <item><title>Cemex 用 Copilot Studio 做 HR 智能体 Consult HR：PoC→试点→生产三段上线</title><link>https://simonhu668.github.io/it-news/items/eb73e379b6.html</link><description>4 万员工的建材巨头 Cemex 在 Teams 里用 Copilot Studio 建 HR 智能体，回答福利政策、办行政手续；2025 年 11 月 PoC、25 人试点，2026 年 1 月生产上线覆盖 800 人。 推荐理由：与 Copilot Studio 智能体落地、Agent 权限治理有关。值得带走三段式上线节奏：PoC→小试点→生产，别一上来全员。适用条件：考虑在 Teams 里放智能体的组织；注意数据权限与审计。</description></item>
