@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日小技巧</title>
+<style>
+:root {
+  --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --accent:#176b75; --accent-ink:#145f68;
+  --amber:#a5761a; --amber-bg:#faf0d7; --code-bg:#f3f3ef;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --surface:#1e2528; --ink:#e9edee; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --accent:#4fb3bd; --accent-ink:#7ccdd4;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --code-bg:#232a2e;
+  }
+}
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 18px 80px; }
+.back { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+h1 { font-size:26px; margin:0 0 8px; }
+.sub { color:var(--ink-4); font-size:14px; margin-bottom:26px; }
+h2 { font-size:19px; margin:30px 0 12px; padding-top:8px; border-top:1px solid var(--line-soft); }
+h3 { font-size:16px; margin:18px 0 8px; }
+.code, code { font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--code-bg);
+  padding:2px 8px; border-radius:6px; font-size:13.5px; color:var(--accent-ink); }
+pre { background:var(--code-bg); border-radius:10px; padding:14px 16px; font-size:13.5px;
+  line-height:1.7; overflow-x:auto; white-space:pre-wrap; }
+.card { background:var(--surface); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 16px; margin:12px 0; }
+.card p, .card li { font-size:14.5px; line-height:1.7; color:var(--ink-3); }
+.card ul, .card ol { margin:6px 0 2px; padding-left:20px; }
+.day { background:var(--surface); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 16px; margin:12px 0; }
+.day .dh { font-size:17px; font-weight:700; margin-bottom:8px; }
+.day .dh .today { background:var(--amber-bg); color:var(--amber); font-size:12px;
+  border-radius:12px; padding:2px 10px; margin-left:8px; }
+.word { margin:7px 0; font-size:15px; line-height:1.65; }
+.word .w { font-weight:700; }
+.word .ph { color:var(--ink-4); font-size:13px; }
+.word .pos { color:var(--accent-ink); font-size:13px; }
+.word .cn { font-weight:700; }
+.word .ex { color:var(--ink-4); font-size:13.5px; }
+.newtag { background:var(--amber-bg); color:var(--amber); font-size:11px; border-radius:8px;
+  padding:1px 7px; margin-left:6px; }
+table { width:100%; border-collapse:collapse; font-size:14px; margin:10px 0; background:var(--surface);
+  border-radius:10px; overflow:hidden; border:1px solid var(--line-soft); }
+th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line-soft); }
+th { background:var(--code-bg); }
+.tip { color:var(--ink-4); font-size:13px; margin-top:26px; border-top:1px solid var(--line-soft); padding-top:12px; }
+a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
+<h1>每日小技巧</h1>
+<div class="sub">每天 1–3 条中英双语办公提效技巧，轮换 EBS / Outlook / Excel / Teams / SharePoint / Windows，最新在前。</div>
+<div class="day" id="tips-2026-10-20"><div class="dh">💡 2026-10-20</div><p>💡 每日小技巧 · 10月20日</p>
+<p>今天 3 条：Oracle EBS、Outlook、Excel。</p>
+<p>① EBS 提交报表后，别干等——去「查看我的请求」看跑完没有</p>
+<ul>
+<li>点菜单 视图(View) → 请求(Requests)，或直接进「请求」职责</li>
+<li>列表里每个请求都有状态：待定(Pending)、运行中(Running)、已完成(Completed)</li>
+<li>状态变成 Completed 后，点「查看输出(View Output)」直接看报表，或下载保存</li>
+</ul>
+<p>📌 English: EBS: check your report status in &quot;View Requests&quot;</p>
+<ul>
+<li>Go to View → Requests (or open the &quot;Requests&quot; responsibility)</li>
+<li>Each request shows its status: Pending, Running, or Completed</li>
+<li>When it says Completed, click &quot;View Output&quot; to read or download the report</li>
+</ul>
+<p>② Outlook 让重要发件人的邮件自动标色，一眼就能看见</p>
+<ul>
+<li>视图(View) → 当前视图设置(View Settings) → 条件格式(Conditional Formatting)</li>
+<li>点「添加」，给它起个名字，选「条件(Condition)」设发件人（比如老板的邮箱）</li>
+<li>选「字体(Font)」挑个醒目颜色（红色/橙色），确定 —— 他的邮件以后都带颜色进收件箱</li>
+</ul>
+<p>📌 English: Outlook: auto-color emails from key senders</p>
+<ul>
+<li>Go to View → View Settings → Conditional Formatting</li>
+<li>Click &quot;Add&quot;, name it, then set &quot;Condition&quot; to the sender (e.g. your manager&#x27;s address)</li>
+<li>Pick a bright &quot;Font&quot; color (red/orange) and confirm — their emails will stand out in your inbox</li>
+</ul>
+<p>③ Excel 表格太长，下滑后表头就没了？冻结窗格</p>
+<ul>
+<li>选中表头下面第一行的任一单元格（比如第 2 行 A 列）</li>
+<li>视图(View) → 冻结窗格(Freeze Panes) → 冻结拆分窗格(Freeze Panes)</li>
+<li>现在上下滚动，表头永远留在顶部；取消时再点一次「取消冻结窗格」即可</li>
+</ul>
+<p>📌 English: Excel: freeze the header row so it stays visible</p>
+<ul>
+<li>Select any cell in the first row below your headers (e.g. row 2)</li>
+<li>Go to View → Freeze Panes → Freeze Panes</li>
+<li>Scroll freely — the headers stay pinned at the top; click &quot;Unfreeze Panes&quot; to undo</li>
+</ul></div>
+<div class="day" id="tips-2026-10-19"><div class="dh">💡 2026-10-19</div><p>💡 每日小技巧 · 10月19日</p>
+<p>今天 3 条：Oracle EBS、Excel、Teams。</p>
+<p>① EBS 通知中心：待审批单据一眼看清、一键处理</p>
+<ul>
+<li>切到职责「通知」(Notifications)，或打开首页工作清单(Worklist)</li>
+<li>「未结事项」(Open Notifications)里列着所有等你处理的事：审批单、待确认事项</li>
+<li>点开一条通知，单据信息、批准/拒绝按钮都在里面，不用再逐个模块翻找</li>
+</ul>
+<p>📌 English: EBS Notifications: see and approve pending items in one place</p>
+<ul>
+<li>Go to the &quot;Notifications&quot; responsibility, or open the Worklist on the home page</li>
+<li>&quot;Open Notifications&quot; lists everything waiting on you: approvals, confirmations</li>
+<li>Click a notification to view details and Approve/Reject inside it — no hunting through modules</li>
+</ul>
+<p>② Excel 筛选后复制，只复制看得见的行</p>
+<ul>
+<li>筛选完选中数据区域，按 Alt + ;（只选中可见单元格）</li>
+<li>Ctrl+C 复制，再粘贴 —— 隐藏掉的行不会被带过去</li>
+<li>不用再&quot;先取消筛选、复制完再重筛&quot;了</li>
+</ul>
+<p>📌 English: Excel: copy only visible cells after filtering</p>
+<ul>
+<li>After filtering, select the range and press Alt + ;</li>
+<li>Ctrl+C and paste — the hidden rows won&#x27;t come along</li>
+<li>No more unfiltering just to copy, then re-filtering</li>
+</ul>
+<p>③ Teams 置顶常联系的对话，不被新消息淹没</p>
+<ul>
+<li>在聊天列表里，右键一个对话 → 固定(Pin)</li>
+<li>置顶的对话一直排在最上面，重要群聊再也不会找不着</li>
+<li>最多可固定 15 个：把常用同事、频道对话置顶，随手可点</li>
+</ul>
+<p>📌 English: Teams: pin chats you use every day</p>
+<ul>
+<li>In the chat list, right-click a conversation → Pin</li>
+<li>Pinned chats stay at the top, never buried by new messages</li>
+<li>Pin up to 15 — keep your go-to people and channel chats one click away</li>
+</ul></div>
+<div class="day" id="tips-2026-10-18"><div class="dh">💡 2026-10-18</div><p>💡 每日小技巧 · 10月18日</p>
+<p><b>Tip 1 · Oracle EBS｜给单据挂上附件，截图、报价单不再散落微信</b></p>
+<ol>
+<li>打开任意表单（采购订单、请购单、工单……），点工具栏的 <b>📎 回形针图标</b>（Attachments）。</li>
+<li>在附件窗口点 <b>新增</b>，选 <b>文件</b> 类型，上传截图、PDF、报价单。</li>
+<li>保存后图标变彩色，说明附件已挂上；以后谁打开这张单都能看到这份文件。</li>
+<p>*English: Attach documents to any EBS record. ① Open a form (PO, PR, work order…) and click the 📎 Attachments icon on the toolbar. ② Click Add, choose File, and upload your screenshot or PDF. ③ Save — the icon turns colored, and anyone opening this record can see the file.*</p>
+</ol>
+<p><b>Tip 2 · Outlook｜建一条规则，固定发件人的邮件自动归档</b></p>
+<ol>
+<li>右键点一封该发件人的邮件 → <b>规则</b> → <b>创建规则</b>。</li>
+<li>勾选 <b>来自[发件人]</b>，再勾选 <b>将项目移动到文件夹</b>，选好目标文件夹。</li>
+<li>点确定，以后这个发件人的邮件都会自动归档，不再淹没收件箱。</li>
+<p>*English: Auto-file emails from one sender with a rule. ① Right-click an email from that sender → Rules → Create Rule. ② Tick From [sender], tick Move the item to folder, and pick the destination folder. ③ Confirm — future emails from this sender file themselves, keeping your inbox clear.*</p>
+</ol>
+<p><b>Tip 3 · SharePoint/OneDrive｜发链接前先设权限，避免&quot;谁都能看&quot;</b></p>
+<ol>
+<li>右键文件 → <b>共享</b>，先别急着复制链接。</li>
+<li>点链接旁的 <b>权限设置</b>（小齿轮/铅笔图标），改成 <b>特定人员可访问</b>，再选 <b>仅查看</b> 还是 <b>可编辑</b>。</li>
+<li>复制链接发出；收件人用自己的账号打开，转发给别人也打不开。</li>
+<p>*English: Set link permissions before sharing. ① Right-click the file → Share — don&#x27;t copy the link just yet. ② Click the permission settings next to the link, switch to Specific people, and choose Can view or Can edit. ③ Copy and send the link; recipients open it with their own account, and forwarding it won&#x27;t grant access to anyone else.*</p>
+</ol></div>
+<div class="day" id="tips-2026-10-17"><div class="dh">💡 2026-10-17</div><p>💡 每日小技巧 · 10月17日</p>
+<p><b>1️⃣ Oracle EBS：查询条件里用 &quot;..&quot;，一次查出某段时间或某个编号区间</b><br>想查&quot;10 月份的所有订单&quot;？不用一条条翻，范围查询一次搞定。</p>
+<ol>
+<li>打开查询表单，按 F11 进入查询模式</li>
+<li>在日期或编号字段里输入 起始值..结束值，例如 01-OCT-2026..31-OCT-2026（查整个 10 月），或 10001..10999（查一段订单号）</li>
+<li>按 Ctrl+F11 执行查询，结果自动限定在区间内</li>
+<li>注意：日期格式要跟系统一致（看已有记录里日期怎么写就怎么写）</li>
+</ol>
+<p>*English: Use &quot;..&quot; for date/number ranges in Oracle EBS queries*<br>*1. Open the form and press F11 to enter query mode*<br>*2. In a date or number field, type start..end — e.g. 01-OCT-2026..31-OCT-2026 (all of October), or 10001..10999 (a range of order numbers)*<br>*3. Press Ctrl+F11 to run the query — results are limited to your range*<br>*4. Tip: match the date format your system uses (copy the style you see on existing records)*</p>
+<p><b>2️⃣ Outlook：Ctrl+Del 一键&quot;忽略&quot;无用的长邮件串</b><br>被抄送进几十封来回回复的邮件串？不用一条条删，也不用再被打扰。</p>
+<ol>
+<li>选中那个邮件串，按 Ctrl+Del（或右键 → 忽略）</li>
+<li>整个邮件串移到&quot;已删除邮件&quot;，这个串以后的新回复也会自动归入已删除</li>
+<li>只影响你自己，别人不受影响</li>
+<li>误忽略了？去&quot;已删除邮件&quot;找到它，右键 → &quot;停止忽略&quot;即可恢复</li>
+</ol>
+<p>*English: Mute a noisy email thread with Ignore (Ctrl+Del)*<br>*1. Select the thread and press Ctrl+Del (or right-click → Ignore)*<br>*2. The whole thread moves to Deleted Items — future replies in that thread go there automatically*<br>*3. It only affects you; other recipients are untouched*<br>*4. Ignored by mistake? Find it in Deleted Items, right-click → Stop Ignoring*</p>
+<p><b>3️⃣ Windows：Win+←/→ 一秒分屏，两个窗口并排看</b><br>对照数据、边看邮件边写文档时，来回切换窗口太费劲？分屏一次摆好。</p>
+<ol>
+<li>选中一个窗口，按 Win+← 贴到左半屏（Win+→ 贴右半屏）</li>
+<li>另一侧会自动列出其他打开的窗口，点一个就并排显示</li>
+<li>想换边？再按一次 Win+←/→ 即可调整</li>
+<li>顺手记住：Win+↑ 最大化，Win+↓ 还原或最小化</li>
+</ol>
+<p>*English: Snap windows side by side with Win+←/→*<br>*1. With a window active, press Win+← to snap it to the left half (Win+→ for the right half)*<br>*2. Thumbnails of your other open windows appear — click one to fill the other half*<br>*3. Press Win+←/→ again to switch sides*<br>*4. Bonus: Win+↑ maximizes, Win+↓ restores or minimizes*</p></div>
+<div class="day" id="tips-2026-10-16"><div class="dh">💡 2026-10-16</div><p>💡 每日小技巧 · 10月16日</p>
+<p><b>1️⃣ Oracle EBS：把常用查询条件存成个人文件夹，不用每天重新输</b><br>每天都要查同样的东西（比如未结订单、本月报销单）？条件设好存起来，一次设置天天用。</p>
+<ol>
+<li>打开对应表单（如采购订单查询），按 F11 进入查询模式，输入你常用的查询条件</li>
+<li>按 Ctrl+F11 执行查询，确认结果正确</li>
+<li>点菜单栏 Organize（组织）→ New Folder（新建文件夹），起个名（如&quot;我的未结订单&quot;），保存</li>
+<li>以后打开表单 → Organize → 点你的文件夹，查询条件自动填好，再按 Ctrl+F11 即可</li>
+</ol>
+<p>*English: Save frequent Oracle EBS queries as a personal folder*<br>*1. Open a form (e.g. Purchase Order Inquiry), press F11 to enter query mode, type your usual criteria*<br>*2. Press Ctrl+F11 to run the query and check the results*<br>*3. Click Organize → New Folder, name it (e.g. &quot;My open orders&quot;), save*<br>*4. Next time: open the form → Organize → pick your folder, criteria fill in automatically, press Ctrl+F11*</p>
+<p><b>2️⃣ Excel：Ctrl+E 快速填充，拆分/合并数据一秒搞定</b><br>手动敲了几十行&quot;拆姓名&quot;？告诉 Excel 一次，它全学会。</p>
+<ol>
+<li>在旁边列手动输入第一个想要的结果（比如从&quot;张三-销售部&quot;里只写&quot;张三&quot;）</li>
+<li>按回车，再按 Ctrl+E，Excel 按你的规律自动填满整列</li>
+<li>合并也行：A 列姓、B 列名，在 C 列写出完整姓名后按 Ctrl+E，自动合并</li>
+<li>注意：规律要明确，填充后快速扫一眼有没有错位</li>
+</ol>
+<p>*English: Flash Fill (Ctrl+E) — split or merge data in one second*<br>*1. Type the first result you want in the next column (e.g. type &quot;张三&quot; from &quot;张三-销售部&quot;)*<br>*2. Press Enter, then Ctrl+E — Excel fills the whole column following your pattern*<br>*3. Works for merging too: family name in A, given name in B, type the full name in C, press Ctrl+E*<br>*4. Note: the pattern must be clear — quickly scan the results for mistakes*</p>
+<p><b>3️⃣ Teams：搜索框用 from: 和 in:，精准找到人和文件</b><br>在几百条消息里翻找？Teams 搜索框支持&quot;搜索指令&quot;。</p>
+<ol>
+<li>在顶部搜索框输入 from:张三，快速找到他发过的所有消息和文件</li>
+<li>输入 in:项目组名，只在该团队的频道里搜索</li>
+<li>可以组合：from:财务 in:采购群 has:files，只找带附件的消息</li>
+<li>搜索后用左侧的日期/类型筛选，定位更快</li>
+</ol>
+<p>*English: Search Teams like a pro with from: and in:*<br>*1. In the Teams search bar, type from:Alex to find all messages and files from Alex*<br>*2. Type in:ProjectTeam to search only within that team&#x27;s channels*<br>*3. Combine them — from:Finance in:Procurement has:files finds messages with attachments only*<br>*4. Use the date/type filters on the left to narrow results faster*</p></div>
+<div class="day" id="tips-2026-10-15"><div class="dh">💡 2026-10-15</div><p>💡 每日小技巧 · 10月15日</p>
+<p><b>① Oracle EBS：单据被谁改过？用&quot;记录历史&quot;一键查</b></p>
+<ol>
+<li>打开要查的单据/记录（比如一张请购单、一条客户信息）。</li>
+<li>点顶部菜单&quot;帮助 → 记录历史记录&quot;。</li>
+<li>弹出的窗口直接显示：创建人、创建时间、最后更新人、最后更新时间——不用再到处问&quot;这是谁改的&quot;。</li>
+</ol>
+<p>EN: Oracle EBS – Who Touched This Record? Check &quot;Record History&quot;</p>
+<ol>
+<li>Open the record you want to check (e.g. a requisition or a customer record).</li>
+<li>In the top menu, click Help → Record History.</li>
+<li>A pop-up shows Created By, Creation Date, Last Updated By and Last Update Date — no more asking around about who changed it.</li>
+</ol>
+<p><b>② Excel：条件格式自动标红超期日期</b></p>
+<ol>
+<li>选中日期那一列 → 开始选项卡 → 条件格式 → 新建规则。</li>
+<li>选择&quot;使用公式确定要设置格式的单元格&quot;，输入 <span class="code">=A2&lt;TODAY()</span>（A2 换成你首个日期单元格）。</li>
+<li>点&quot;格式&quot;设红色填充 → 确定。过了今天还没完成的日期自动变红，一眼看到。</li>
+</ol>
+<p>EN: Excel – Auto-Highlight Overdue Dates</p>
+<ol>
+<li>Select the date column → Home tab → Conditional Formatting → New Rule.</li>
+<li>Choose &quot;Use a formula to determine which cells to format&quot;, enter <span class="code">=A2&lt;TODAY()</span> (replace A2 with your first date cell).</li>
+<li>Click Format → red fill → OK. Dates past today turn red automatically — overdue items at a glance.</li>
+</ol>
+<p><b>③ Windows：Win+Tab 虚拟桌面，多任务不乱套</b></p>
+<ol>
+<li>按 Win+Tab 打开任务视图，点顶部&quot;+ 新建桌面&quot;。</li>
+<li>把邮件、ERP、报表分别拖到不同桌面——查数时不再被微信/邮件窗口盖住。</li>
+<li>按 Ctrl+Win+←/→ 在桌面之间快速切换。</li>
+</ol>
+<p>EN: Windows – Virtual Desktops via Win+Tab</p>
+<ol>
+<li>Press Win+Tab to open Task View, click &quot;+ New desktop&quot; at the top.</li>
+<li>Drag mail, ERP and reports onto separate desktops — no more digging through stacked windows.</li>
+<li>Press Ctrl+Win+←/→ to switch between desktops quickly.</li>
+</ol></div>
+<div class="day" id="tips-2026-10-14"><div class="dh">💡 2026-10-14</div><p>💡 每日小技巧 · 10月14日</p>
+<p><b>① Oracle EBS：F11 查询时用 % 做模糊搜索</b></p>
+<ol>
+<li>按 F11 进入查询模式，在查询条件里输入 <span class="code">张%</span>（名字以&quot;张&quot;开头）或 <span class="code">%ECN%</span>（包含&quot;ECN&quot;）。</li>
+<li>按 Ctrl+F11 执行查询——再也不用记住完整的单据号或客户名。</li>
+</ol>
+<p>EN: Oracle EBS – Fuzzy Search with %</p>
+<ol>
+<li>Press F11 to enter query mode, then type <span class="code">张%</span> (starts with 张) or <span class="code">%ECN%</span> (contains ECN) in any field.</li>
+<li>Press Ctrl+F11 to run the query — no need to remember exact order numbers or customer names.</li>
+</ol>
+<p><b>② Outlook：发错邮件，10 秒内撤回</b></p>
+<ol>
+<li>设置 → 邮件 → 撤消发送，滑块拖到 10 秒（最长 10 秒）。</li>
+<li>发错后点左下角&quot;撤消&quot;，邮件会回到草稿箱。</li>
+<p>（注：真正的&quot;召回&quot;仅限公司内部邮箱且对方未读时才有效。）</p>
+</ol>
+<p>EN: Outlook – Undo a Mistaken Send (up to 10 Seconds)</p>
+<ol>
+<li>Settings → Mail → Undo send, drag the slider to 10 seconds.</li>
+<li>After sending by mistake, click &quot;Undo&quot; at the bottom-left — the message returns to Drafts.</li>
+<p>(Note: a full &quot;recall&quot; only works on internal mailboxes where the recipient hasn&#x27;t read it.)</p>
+</ol>
+<p><b>③ OneDrive：出差前把文件设为&quot;始终保留在此设备上&quot;</b></p>
+<ol>
+<li>在文件资源管理器中右键 OneDrive 文件/文件夹。</li>
+<li>选择&quot;始终保留在此设备上&quot;——无网也能打开。</li>
+<li>省空间的话反向选&quot;释放空间&quot;，只留云端。</li>
+</ol>
+<p>EN: OneDrive – Keep Files Offline Before a Trip</p>
+<ol>
+<li>In File Explorer, right-click a OneDrive file or folder.</li>
+<li>Choose &quot;Always keep on this device&quot; — it stays available offline.</li>
+<li>To save disk space later, right-click and choose &quot;Free up space&quot; to keep it cloud-only.</li>
+</ol></div>
+<div class="day" id="tips-2026-10-13"><div class="dh">💡 2026-10-13</div><h2>2026-10-13 · 每日小技巧</h2>
+<p>💡 每日小技巧 · 10月13日</p>
+<p><b>① Oracle EBS：点一下列头，查询结果按金额/日期一秒排好序</b></p>
+<ol>
+<li>在 EBS 表单的查询结果列表里，直接点任意列的列头（如「金额」「发票日期」），结果立刻按该列排序；</li>
+<li>再点一次切换升序/降序，比如最大金额排在最前面；</li>
+<li>不用导出到 Excel 也能看清最大单据、最早到期的是哪一条。</li>
+</ol>
+<p>💬 English: Sort EBS results with one click on the column header</p>
+<ol>
+<li>In any EBS query results table, click a column header (e.g., &quot;Amount&quot;, &quot;Invoice Date&quot;) to sort by that column instantly;</li>
+<li>Click again to toggle ascending / descending — e.g., largest amounts on top;</li>
+<li>Spot the biggest invoice or the earliest due date without exporting to Excel.</li>
+</ol>
+<p><b>② Teams：重要消息点「保存」，稍后处理不丢失</b></p>
+<ol>
+<li>把鼠标悬停在某条消息上，点击右侧 ⋯ →「保存此消息」；</li>
+<li>点击顶部头像 →「保存的消息」，所有收藏都在这里，一键跳转回原对话；</li>
+<li>需要行动的消息先保存再处理，代替&quot;看到就回&quot;的慌张节奏。</li>
+</ol>
+<p>💬 English: Save important Teams messages for later</p>
+<ol>
+<li>Hover over a message, click the ⋯ menu → &quot;Save this message&quot;;</li>
+<li>Click your profile picture → &quot;Saved&quot; to see everything you&#x27;ve saved, and jump back to the original conversation;</li>
+<li>Save now, act later — no more panicked replies just to avoid losing track.</li>
+</ol>
+<p><b>③ Windows：Win+Shift+S 截图 + Win+V 找回刚复制的内容</b></p>
+<ol>
+<li>按 Win+Shift+S 屏幕变暗，框选任意区域截图，截图自动进入剪贴板；</li>
+<li>直接 Ctrl+V 粘贴到 Teams/Outlook/Word 里发给同事；</li>
+<li>复制的东西不小心被覆盖了？按 Win+V 打开剪贴板历史，找回之前复制过的文本和图片。</li>
+</ol>
+<p>💬 English: Snip with Win+Shift+S, recover clipboard with Win+V</p>
+<ol>
+<li>Press Win+Shift+S, drag to select any screen area — the snip goes straight to your clipboard;</li>
+<li>Paste with Ctrl+V into Teams, Outlook, or Word and send it;</li>
+<li>Accidentally overwrote what you copied? Press Win+V to open clipboard history and get back earlier text and images.</li>
+</ol></div>
+<div class="day" id="tips-2026-10-12"><div class="dh">💡 2026-10-12</div><h2>2026-10-12 · 每日小技巧</h2>
+<p>💡 每日小技巧 · 10月12日</p>
+<p><b>① Oracle EBS：用查询快捷键，10 秒找到想要的单据</b></p>
+<ol>
+<li>打开任意 EBS 表单（如采购订单查询、应付发票），按 F11 进入「查询模式」，字段会变成可输入的蓝色；</li>
+<li>在需要筛选的字段里直接输入条件，比如供应商名称、单据编号或日期范围；</li>
+<li>按 Ctrl+F11 执行查询，符合条件的结果立刻列出来，不用一页页翻。</li>
+</ol>
+<p>💬 English: Find any EBS document in seconds with query shortcuts</p>
+<ol>
+<li>In any EBS form (e.g., PO Inquiry, AP Invoices), press F11 to enter Query Mode — the fields turn blue and editable;</li>
+<li>Type your criteria directly into the fields, e.g., supplier name, document number, or a date range;</li>
+<li>Press Ctrl+F11 to run the query — matching records appear instantly, no paging through results.</li>
+</ol>
+<p><b>② Outlook：设置「快速步骤」，重复的邮件处理一键完成</b></p>
+<ol>
+<li>「开始」选项卡 →「快速步骤」组 → 点击「新建快速步骤」；</li>
+<li>选择「移动到文件夹」，起个名字（如「转待办」），指定目标文件夹，并配一个快捷键（如 Ctrl+Shift+1）；</li>
+<li>以后选中邮件按一下快捷键，一秒归档，比拖拽快得多。</li>
+</ol>
+<p>💬 English: One-click filing with Outlook Quick Steps</p>
+<ol>
+<li>Home tab → Quick Steps group → click &quot;Create New&quot; Quick Step;</li>
+<li>Choose &quot;Move to folder&quot;, give it a name (e.g., &quot;To Do&quot;), pick the target folder, and assign a shortcut (e.g., Ctrl+Shift+1);</li>
+<li>Select an email and hit the shortcut to file it instantly — much faster than drag-and-drop.</li>
+</ol></div>
+<div class="tip">页面由学习材料自动生成，随课程更新同步。</div>
+</div>
+</body>
+</html>
