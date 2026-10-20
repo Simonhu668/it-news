@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBS 程序短码速查：见码猜意</title>
+<style>
+:root {
+  --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --accent:#176b75; --accent-ink:#145f68;
+  --amber:#a5761a; --amber-bg:#faf0d7; --code-bg:#f3f3ef;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --surface:#1e2528; --ink:#e9edee; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --accent:#4fb3bd; --accent-ink:#7ccdd4;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --code-bg:#232a2e;
+  }
+}
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 18px 80px; }
+.back { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+h1 { font-size:26px; margin:0 0 8px; }
+.sub { color:var(--ink-4); font-size:14px; margin-bottom:26px; }
+h2 { font-size:19px; margin:34px 0 12px; padding-top:8px; border-top:1px solid var(--line-soft); }
+.code { font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:var(--code-bg); padding:2px 8px; border-radius:6px; font-size:15px; color:var(--accent-ink); font-weight:700; }
+.card { background:var(--surface); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 16px; margin:12px 0; }
+.card .title { font-size:17px; font-weight:700; margin-bottom:6px; }
+.card .en { color:var(--ink-4); font-size:13px; margin-left:8px; font-weight:400; }
+.parts { list-style:none; margin:8px 0 4px; padding:0; }
+.parts li { margin:5px 0; font-size:14.5px; line-height:1.6; }
+.parts b { font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--amber-bg);
+  color:var(--amber); border-radius:5px; padding:1px 7px; margin-right:6px; font-size:13.5px; }
+.verdict { margin-top:8px; font-size:14.5px; color:var(--ink-3); }
+.rule { background:var(--surface); border-left:4px solid var(--accent); border-radius:0 10px 10px 0;
+  padding:12px 16px; margin:12px 0; font-size:15px; }
+.rule b { display:block; margin-bottom:4px; }
+table { width:100%; border-collapse:collapse; font-size:14px; margin:10px 0; background:var(--surface);
+  border-radius:10px; overflow:hidden; border:1px solid var(--line-soft); }
+th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line-soft); }
+th { background:var(--code-bg); }
+td .code { font-size:13.5px; }
+.tip { color:var(--ink-4); font-size:13px; margin-top:26px; border-top:1px solid var(--line-soft); padding-top:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
+<h1>EBS 程序短码速查：见码猜意</h1>
+<div class="sub">Oracle EBS（现 Oracle ERP）并发程序短码的浓缩风格：模块前缀 + 业务动作缩写 + 对象缩写。早期系统字段长度有限，程序员习惯把英文单词砍头去尾拼在一起。学会拆解，不用死记硬背。</div>
+
+<h2>拆解三步法</h2>
+<div class="rule"><b>1. 看前缀定模块</b>前 2–3 个字母几乎总是模块：<span class="code">WI</span> 生产、<span class="code">INV</span> 库存、<span class="code">PO</span> 采购、<span class="code">GL</span> 总账、<span class="code">RA</span> 应收。前缀对了，用途就猜对一半。</div>
+<div class="rule"><b>2. 辅音串里塞元音，还原动词</b><span class="code">MST</span>→Master、<span class="code">DEPR</span>→Depreciation、<span class="code">PUR</span>→Purge、<span class="code">BG</span>→Background。去元音是核心技巧。</div>
+<div class="rule"><b>3. 看后缀判角色</b><span class="code">MST</span> 主程序、<span class="code">BG</span> 后台进程、<span class="code">TP</span> 事务处理器、<span class="code">PDF/RTF</span> 报表输出。带 BG/TP 的多是"系统在背后默默干活"的，出问题先查它们跑没跑。</div>
+
+<h2>模块前缀速查</h2>
+<table>
+<tr><th>前缀</th><th>模块</th><th>前缀</th><th>模块</th></tr>
+<tr><td><span class="code">GL</span></td><td>总账 General Ledger</td><td><span class="code">AP</span></td><td>应付 Payables</td></tr>
+<tr><td><span class="code">AR/RA</span></td><td>应收 Receivables</td><td><span class="code">PO</span></td><td>采购 Purchasing</td></tr>
+<tr><td><span class="code">INV</span></td><td>库存 Inventory</td><td><span class="code">WI</span></td><td>在制生产 WIP</td></tr>
+<tr><td><span class="code">BOM</span></td><td>物料清单</td><td><span class="code">FA</span></td><td>固定资产 Fixed Assets</td></tr>
+<tr><td><span class="code">ENG</span></td><td>工程 Engineering</td><td><span class="code">MRP</span></td><td>物料需求计划</td></tr>
+<tr><td><span class="code">CE</span></td><td>现金管理</td><td><span class="code">FND</span></td><td>应用基础层（全系统通用）</td></tr>
+</table>
+
+<h2>经典短码拆解</h2>
+
+<div class="card">
+<div class="title"><span class="code">WIPDJM</span><span class="en">Discrete Job Mass Load - 离散工单批量加载</span></div>
+<ul class="parts">
+<li><b>WI</b><b>W</b>ork <b>I</b>n Process（WIP 生产模块）</li>
+<li><b>DJ</b><b>D</b>iscrete <b>J</b>obs（离散工单）</li>
+<li><b>M</b><b>M</b>ass（批量导入或处理）</li>
+</ul>
+<div class="verdict">生产模块的离散工单批量加载程序。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">WIPPUR</span><span class="en">WIP Purge - 生产历史数据清理</span></div>
+<ul class="parts">
+<li><b>WI</b><b>W</b>ork <b>I</b>n Process（WIP 生产模块）</li>
+<li><b>PUR</b><b>Pur</b>ge（清理、清除）</li>
+</ul>
+<div class="verdict">生产模块的历史数据清理程序。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">WICDOL</span><span class="en">创建离散/最终装配工单</span></div>
+<ul class="parts">
+<li><b>WI</b><b>W</b>ork <b>I</b>n Process（WIP 生产模块）</li>
+<li><b>C</b><b>C</b>reate（创建）</li>
+<li><b>DO</b><b>D</b>iscrete <b>O</b>rders（离散工单）</li>
+<li><b>L</b><b>L</b>ine / Load（按订单行或成批加载）</li>
+</ul>
+<div class="verdict">WI（生产）+ C（创建）+ DO（离散工单）= 创建离散工单的程序。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">WICDCL</span><span class="en">关闭离散工单</span></div>
+<ul class="parts">
+<li><b>WI</b><b>W</b>ork <b>I</b>n Process（WIP 生产模块）</li>
+<li><b>CD</b><b>C</b>lose <b>D</b>iscrete（关闭离散）</li>
+<li><b>CL</b><b>Cl</b>ose（关闭）</li>
+</ul>
+<div class="verdict">关闭离散工单的程序。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">OEOI</span><span class="en">Order Import - 销售订单导入</span></div>
+<ul class="parts">
+<li><b>OE</b><b>O</b>rder <b>E</b>ntry（订单管理模块的早期旧称）</li>
+<li><b>OI</b><b>O</b>rder <b>I</b>mport（订单导入）</li>
+</ul>
+<div class="verdict">订单模块的订单导入接口程序。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">INCOIN</span><span class="en">Item Import - 物料导入</span></div>
+<ul class="parts">
+<li><b>IN</b><b>In</b>ventory（库存模块，早期短前缀）</li>
+<li><b>COIN</b>不是缩写，是"硬币"——物料就是钱，导入物料 = 往系统里塞钱</li>
+</ul>
+<div class="verdict">物料导不进来时，IT 支持第一个查的就是它。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">RVCTP</span><span class="en">Receiving Transaction Processor - 接收事务处理</span></div>
+<ul class="parts">
+<li><b>RVC</b><b>R</b>ecei<b>v</b>in<b>g</b>（接收，砍元音留骨架）</li>
+<li><b>TP</b><b>T</b>ransaction <b>P</b>rocessor（事务处理器）</li>
+</ul>
+<div class="verdict">采购收货入库的后台处理器。仓库说"收了货系统没库存"，十有八九是它卡住了。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">RAXMST</span><span class="en">AutoInvoice Master Program - 应收自动开票主程序</span></div>
+<ul class="parts">
+<li><b>RA</b><b>R</b>eceivables <b>A</b>pplication（应收模块内部前缀，所以 AR 的程序很多是 RA 开头）</li>
+<li><b>MST</b><b>M</b>a<b>st</b>er（主程序，去元音截断）</li>
+</ul>
+<div class="verdict">把订单/发运数据批量转成发票的主程序，通常还带一个子程序配合跑。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">FNDWFBG</span><span class="en">Workflow Background Process - 工作流后台进程</span></div>
+<ul class="parts">
+<li><b>FND</b><b>F</b>ou<b>nd</b>ation（应用基础层，全系统通用）</li>
+<li><b>WF</b><b>W</b>ork<b>f</b>low（工作流）</li>
+<li><b>BG</b><b>B</b>ack<b>g</b>round（后台）</li>
+</ul>
+<div class="verdict">审批流卡住、通知发不出去，先看这个进程有没有在跑——EBS 排障的头号熟面孔。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">GLPPOS</span><span class="en">Posting - 总账过账</span></div>
+<ul class="parts">
+<li><b>GL</b><b>G</b>eneral <b>L</b>edger（总账）</li>
+<li><b>POS</b><b>Pos</b>ting（过账，截前三字母）</li>
+</ul>
+<div class="verdict">财务月结把日记账过到余额，就靠它；月结慢、过账报错都是查它。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">POXPOPDF</span><span class="en">Printed Purchase Order Report - 采购订单打印</span></div>
+<ul class="parts">
+<li><b>PO</b><b>P</b>urchase <b>O</b>rder（采购）</li>
+<li><b>PO</b><b>P</b>urchase <b>O</b>rder（打印对象）</li>
+<li><b>PDF</b>输出格式就是 PDF</li>
+</ul>
+<div class="verdict">结尾带 PDF/RTF 的，基本都是"生成某种格式文件"的报表程序——这个规律跨模块通用。</div>
+</div>
+
+<div class="card">
+<div class="title"><span class="code">FADEPR</span><span class="en">Depreciation Run - 折旧运行</span></div>
+<ul class="parts">
+<li><b>FA</b><b>F</b>ixed <b>A</b>ssets（固定资产）</li>
+<li><b>DEPR</b><b>Depr</b>eciation（折旧，去元音）</li>
+</ul>
+<div class="verdict">固定资产月结跑折旧的程序。</div>
+</div>
+
+<div class="tip">整理说明：短码拆解为记忆技巧服务，部分程序名以各自 EBS 环境的并发程序定义为准。内容会随工作需要持续补充。</div>
+</div>
+</body>
+</html>
