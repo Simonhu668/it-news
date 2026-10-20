@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copilot Notebooks 应用场景与实用技巧</title>
+<style>
+:root {
+  --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --accent:#176b75; --accent-ink:#145f68;
+  --amber:#a5761a; --amber-bg:#faf0d7; --code-bg:#f3f3ef; --green:#2f7d4f; --green-bg:#e7f3ec;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --surface:#1e2528; --ink:#e9edee; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --accent:#4fb3bd; --accent-ink:#7ccdd4;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --code-bg:#232a2e; --green:#7cc79a; --green-bg:#1d3527;
+  }
+}
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 18px 80px; }
+.back { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+h1 { font-size:26px; margin:0 0 8px; }
+.sub { color:var(--ink-4); font-size:14px; margin-bottom:26px; }
+h2 { font-size:19px; margin:34px 0 12px; padding-top:8px; border-top:1px solid var(--line-soft); }
+.code { font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--code-bg);
+  padding:2px 8px; border-radius:6px; font-size:14px; color:var(--accent-ink); }
+.card { background:var(--surface); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 16px; margin:12px 0; }
+.card .title { font-size:16.5px; font-weight:700; margin-bottom:6px; }
+.card p, .card li { font-size:14.5px; line-height:1.7; color:var(--ink-3); }
+.card ul { margin:6px 0 2px; padding-left:20px; }
+.badge { display:inline-block; font-size:12px; border-radius:20px; padding:2px 10px; margin-left:8px; vertical-align:middle; }
+.ok { background:var(--green-bg); color:var(--green); }
+.soon { background:var(--amber-bg); color:var(--amber); }
+.rule { background:var(--surface); border-left:4px solid var(--accent); border-radius:0 10px 10px 0;
+  padding:12px 16px; margin:12px 0; font-size:15px; }
+.rule b { display:block; margin-bottom:4px; }
+pre { background:var(--code-bg); border-radius:10px; padding:14px 16px; font-size:13.5px;
+  line-height:1.7; overflow-x:auto; white-space:pre-wrap; }
+table { width:100%; border-collapse:collapse; font-size:14px; margin:10px 0; background:var(--surface);
+  border-radius:10px; overflow:hidden; border:1px solid var(--line-soft); }
+th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line-soft); }
+th { background:var(--code-bg); }
+.tip { color:var(--ink-4); font-size:13px; margin-top:26px; border-top:1px solid var(--line-soft); padding-top:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
+<h1>Copilot Notebooks 应用场景与实用技巧</h1>
+<div class="sub">把散落的文档、邮件、会议纪要聚到一个 notebook 里，让 Copilot 基于这些内容干活：汇总、写周报、整理知识库。以下按 2026 年 10 月更新整理，并如实标注哪些今天能用、哪些还在路上。</div>
+
+<h2>先说清楚：今天能用什么</h2>
+<div class="card">
+<div class="title">任务委派 + Office 直接编辑 + 模型选择 <span class="badge ok">Frontier 预览可用</span></div>
+<p>在 notebook 对话里让 Copilot 自己整理 references、跨文档汇总；直接在 notebook 里创建/编辑 Word、Excel、PowerPoint；可手动选模型（深度思考）。想第一批用，把 Copilot 应用 → 设置 → 发布偏好切到 <span class="code">Frontier</span>；求稳等 <span class="code">Standard</span>，多等几周。</p>
+</div>
+<div class="card">
+<div class="title">定时自动化（每周五自动出周报那种）<span class="badge soon">未来几周到来</span></div>
+<p>官方口径仍是"coming in the next few weeks"（2026-10-12 报道）。别现在就按它排工作流——先做下面的手动试点，功能一到直接复用同一个提示词。</p>
+</div>
+<div class="card">
+<div class="title">计费提醒</div>
+<p>定时自动化属于 agentic 功能，走 UBB 按量计费，<b>管理员不配计费策略就默认关闭</b>。先在测试账号配好策略跑一周看账单，再决定推不推给同事。</p>
+</div>
+
+<h2>四个接地气的应用场景</h2>
+<div class="card">
+<div class="title">1. 运维周报：一句话变 Word</div>
+<ul>
+<li>建 "IT 运维周报" notebook，把本周运维日志、工单记录、问题跟进表拖进 references。</li>
+<li>提示词示例：<span class="code">汇总本周运维工作，按"已完成 / 进行中 / 阻塞"三类列出事项，标出复发项和未闭环项，每项一句话说明影响，阻塞项给出下一步动作和负责人，语气给非 IT 经理看，少术语，输出 Word。</span></li>
+<li>手动跑一次验证质量 → 定时功能上线后设每周五 16:00 自动跑，前两周人工核对一次。</li>
+</ul>
+</div>
+<div class="card">
+<div class="title">2. 两人团队的共享知识库</div>
+<ul>
+<li>notebook 右上角 Share，输入同事邮箱邀请——她能进来一起加 references（她的运维日报直接上传文件）。</li>
+<li>许可证分档：你有 M365 Copilot premium（300 引用）；免费版（Copilot Chat 档）也能用，上限 50 引用，且只能加"标准来源"（上传 Word/Excel/PDF、Pages、外链），SharePoint/OneDrive/Teams 内部链接是 premium 专属——她的日报用上传，别给 OneDrive 链接。</li>
+<li>注意：共享 notebook 会顺带给她里面引用文件的访问权限；但各自的 Copilot 对话记录是私密的，互不可见。</li>
+</ul>
+</div>
+<div class="card">
+<div class="title">3. 会议纪要 → 待办清单</div>
+<ul>
+<li>把会议纪要、聊天记录扔进 notebook：<span class="code">从本周会议纪要里提取所有待办事项，按负责人分组，标出有明确截止日期的，输出表格。</span></li>
+<li>配合"仅 Notebook"范围，避免掺入不相关的邮件和网页内容。</li>
+</ul>
+</div>
+<div class="card">
+<div class="title">4. 项目资料包：新人/交接一页纸</div>
+<ul>
+<li>一个项目一个 notebook：计划、会议纪要、关键邮件、问题清单全放进去。</li>
+<li>Gillian 接手或交接时问 Copilot：<span class="code">用 notebook 里的资料，给新人写一份一页纸的项目现状说明：背景、当前进度、未解决问题、下周三件事。</span></li>
+</ul>
+</div>
+
+<h2>实用技巧</h2>
+<div class="rule"><b>先手动跑一次，再谈自动化</b>任何提示词先手动跑一遍看输出质量，满意了再设定时。质量不行就改提示词，别指望定时能修好它。</div>
+<div class="rule"><b>范围先选"仅 Notebook"</b>默认范围可能掺入 Work 和 web 内容做"发散"，做周报、纪要这类要严谨输出时，先用"仅 Notebook"保证答案只来自你的 references。</div>
+<div class="rule"><b>引用只放本周的</b>免费版 50 引用、premium 300 引用都是有上限的。周报 notebook 只放本周材料，旧的归档出去，别让 notebook 变成垃圾场。</div>
+<div class="rule"><b>敏感内容别进 references</b>密码、账号、薪资别放。周报只放事项和结论。</div>
+<div class="rule"><b>Frontier 是预览通道</b>输出先人工核对再发，别直发经理群；功能可能变，重要流程别完全押宝在预览功能上。</div>
+
+<h2>许可证与引用上限速查</h2>
+<table>
+<tr><th>版本</th><th>引用上限</th><th>可用来源</th></tr>
+<tr><td>M365 Copilot（付费）</td><td>300（用于 grounding）</td><td>全部：上传文件、SharePoint/OneDrive/Teams 内部链接、外链</td></tr>
+<tr><td>Copilot Chat（免费档）</td><td>50</td><td>标准来源：上传 Word/Excel/PDF、Pages、图片、音频、外链</td></tr>
+</table>
+
+<div class="tip">资料来源：Microsoft TechCommunity《What's New in Notebooks | October 2026》、WindowsReport 10 月更新报道、Microsoft Support 官方文档；可用性核对：2026-10-20，定时自动化仍为"未来几周"到来。</div>
+</div>
+</body>
+</html>
