@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBS 快捷键速查：键盘代替鼠标</title>
+<style>
+:root {
+  --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --accent:#176b75; --accent-ink:#145f68;
+  --amber:#a5761a; --amber-bg:#faf0d7; --code-bg:#f3f3ef;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --surface:#1e2528; --ink:#e9edee; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --accent:#4fb3bd; --accent-ink:#7ccdd4;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --code-bg:#232a2e;
+  }
+}
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:920px; margin:0 auto; padding:28px 18px 80px; }
+.back { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+h1 { font-size:26px; margin:0 0 8px; }
+.sub { color:var(--ink-4); font-size:14px; margin-bottom:26px; line-height:1.7; }
+h2 { font-size:19px; margin:38px 0 6px; padding-top:10px; border-top:1px solid var(--line-soft); }
+h2 .count { color:var(--ink-4); font-size:13px; font-weight:400; margin-left:8px; }
+.starter { background:var(--surface); border-left:4px solid var(--accent); border-radius:0 12px 12px 0;
+  padding:16px 18px; margin:18px 0 8px; }
+.starter b { display:block; margin-bottom:10px; font-size:15px; }
+.starter .row { display:flex; flex-wrap:wrap; gap:10px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px; }
+@media (max-width:640px) { .grid { grid-template-columns:1fr; } }
+.card { background:var(--surface); border:1px solid var(--line-soft); border-radius:12px;
+  padding:18px 20px; }
+.key { display:inline-block; font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:var(--amber-bg); color:var(--amber); border-radius:8px; padding:5px 14px;
+  font-size:19px; font-weight:700; margin-bottom:10px; }
+.name { font-size:16.5px; font-weight:700; }
+.name .en { color:var(--ink-4); font-size:12.5px; font-weight:400; margin-left:8px; }
+.use { margin-top:8px; font-size:14px; line-height:1.7; color:var(--ink-3); }
+.tip { color:var(--ink-4); font-size:13px; margin-top:30px; border-top:1px solid var(--line-soft); padding-top:12px; line-height:1.8; }
+.tip a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
+<h1>EBS 快捷键速查：键盘代替鼠标</h1>
+<div class="sub">Oracle EBS 表单操作的完整快捷键。打开方式：帮助菜单 → 键盘帮助，或直接按 Ctrl+K。键位以各自 EBS 环境的帮助菜单为准，不同版本个别键可能有差异。</div>
+
+<div class="starter"><b>先学这 5 个（每天排错都用得上）</b>
+<div class="row">
+<span class="key">Ctrl+L</span><span class="key">F11</span><span class="key">Ctrl+F11</span><span class="key">Ctrl+S</span><span class="key">Shift+F1</span>
+</div></div>
+
+<h2>查询<span class="count">5 个</span></h2>
+<div class="grid">
+<div class="card"><span class="key">F11</span><div class="name">进入查询<span class="en">Enter Query</span></div><div class="use">表单变成"可输查询条件"状态。用户说"找不到那张单"，让他 F11，在单号栏输入单号，再 Ctrl+F11。</div></div>
+<div class="card"><span class="key">Ctrl+F11</span><div class="name">执行查询<span class="en">Execute Query</span></div><div class="use">配合 F11 把结果查出来。查询前记得先 F7 清掉旧条件。</div></div>
+<div class="card"><span class="key">F12</span><div class="name">只计数不查明细<span class="en">Count Query</span></div><div class="use">先判断"这次查询会回来多少条"。用户说"查半天没结果"，先 F12 看量级；数据核对时快速验证"应该有 N 条"。</div></div>
+<div class="card"><span class="key">F7</span><div class="name">清空当前块<span class="en">Clear Block</span></div><div class="use">取消查询条件或块内录入。查完一轮想换条件，先 F7 清掉旧的再 F11。</div></div>
+<div class="card"><span class="key">Ctrl+L</span><div class="name">值列表<span class="en">List of Values</span></div><div class="use">在当前字段上打开可选值清单。输代码前先 Ctrl+L 看一眼有哪些合法值，比输错了再改快得多。</div></div>
+</div>
+
+<h2>录入与保存<span class="count">9 个</span></h2>
+<div class="grid">
+<div class="card"><span class="key">Ctrl+S</span><div class="name">保存提交<span class="en">Commit</span></div><div class="use">任何录入或修改后按它。注意：直接点窗口 X 关闭是不保存的，修改会丢。</div></div>
+<div class="card"><span class="key">Ctrl+↓</span><div class="name">新增记录<span class="en">Insert Record</span></div><div class="use">在多行块里加一条空记录，不用去点工具栏的"+"。</div></div>
+<div class="card"><span class="key">Ctrl+↑</span><div class="name">删除当前记录<span class="en">Delete Record</span></div><div class="use">删错行的订单行、申请行。有些交易有业务校验不让删，会直接报错。</div></div>
+<div class="card"><span class="key">F5</span><div class="name">清空当前字段<span class="en">Clear Field</span></div><div class="use">输错一个字段，一键清空，不用按着 Backspace 删半天。</div></div>
+<div class="card"><span class="key">F6</span><div class="name">清空当前记录<span class="en">Clear Record</span></div><div class="use">新增一行输到一半发现选错行了，F6 整行重来。</div></div>
+<div class="card"><span class="key">F8</span><div class="name">清空整个表单<span class="en">Clear Form</span></div><div class="use">回滚所有未保存的修改，回到刚打开的状态。表单改乱了又不想保存时用——按之前先确认，未保存的东西会丢。</div></div>
+<div class="card"><span class="key">Shift+F5</span><div class="name">复制上一条的字段值<span class="en">Duplicate Field</span></div><div class="use">连续录入多行、某个字段值相同（如同一成本中心），一下复制，不用重敲。</div></div>
+<div class="card"><span class="key">Shift+F6</span><div class="name">复制上一条整行<span class="en">Duplicate Record</span></div><div class="use">新增一行和上一行大部分相同（如订单多行），复制后只改差异字段。</div></div>
+<div class="card"><span class="key">Ctrl+E</span><div class="name">字段编辑器<span class="en">Edit</span></div><div class="use">长文本（说明、备注）在小框里看不清，打开大文本框编辑。</div></div>
+</div>
+
+<h2>导航<span class="count">8 个</span></h2>
+<div class="grid">
+<div class="card"><span class="key">Tab</span><div class="name">下一个字段<span class="en">Next Field</span></div><div class="use">顺序跳到下一个可输入字段。配合 Shift+Tab 往回跳。</div></div>
+<div class="card"><span class="key">Shift+Tab</span><div class="name">上一个字段<span class="en">Previous Field</span></div><div class="use">回到上一个字段改刚输错的值。</div></div>
+<div class="card"><span class="key">↓</span><div class="name">下一条记录<span class="en">Next Record</span></div><div class="use">在多行块里逐条下翻核对数据。</div></div>
+<div class="card"><span class="key">↑</span><div class="name">上一条记录<span class="en">Previous Record</span></div><div class="use">逐条上翻核对。</div></div>
+<div class="card"><span class="key">Shift+F8</span><div class="name">下一批记录<span class="en">Next Set of Records</span></div><div class="use">查询结果太多一屏看不完，往后翻页。</div></div>
+<div class="card"><span class="key">Shift+PageUp</span><div class="name">上一个块<span class="en">Previous Block</span></div><div class="use">块之间跳转（订单行回到订单头），不用鼠标点。</div></div>
+<div class="card"><span class="key">Shift+PageDown</span><div class="name">下一个块<span class="en">Next Block</span></div><div class="use">订单头输完跳到订单行继续输。</div></div>
+<div class="card"><span class="key">PageUp / PageDown</span><div class="name">块内上下滚动<span class="en">Scroll Up / Scroll Down</span></div><div class="use">行太多时滚动查看，不改变当前记录位置。</div></div>
+</div>
+
+<h2>查看与帮助<span class="count">6 个</span></h2>
+<div class="grid">
+<div class="card"><span class="key">Shift+Ctrl+F8</span><div class="name">动作值列表<span class="en">Actions LOV</span></div><div class="use">打开当前字段的可选动作。字段旁没有图标但你想看有哪些可选时用。</div></div>
+<div class="card"><span class="key">F1</span><div class="name">本表单可跑的报表<span class="en">Blitz Report List</span></div><div class="use">用户问"这个界面能出什么报表"，F1 直接看清单，不用去翻菜单。</div></div>
+<div class="card"><span class="key">Ctrl+B</span><div class="name">块菜单<span class="en">Block Menu</span></div><div class="use">弹出当前块的操作菜单。不记得某个块级操作在哪，Ctrl+B 直接看。</div></div>
+<div class="card"><span class="key">Shift+F1</span><div class="name">显示完整报错<span class="en">Display Error</span></div><div class="use">状态栏一闪而过的报错没看清，用它把完整信息调出来。排错时让用户把这个完整文本发你。</div></div>
+<div class="card"><span class="key">Ctrl+P</span><div class="name">打印<span class="en">Print</span></div><div class="use">打印当前报表或界面。</div></div>
+<div class="card"><span class="key">Ctrl+K</span><div class="name">快捷键帮助<span class="en">Show Keys</span></div><div class="use">打开快捷键对照表（就是这份清单的来源）。忘了键位时现查。</div></div>
+</div>
+
+<div class="tip">练习建议：先死磕"先学这 5 个"。练法——打开销售订单：F11 输单号 → Ctrl+F11 查出来 → F12 看计数 → 改个备注 Ctrl+S 保存 → 故意输错个字段 Shift+F1 看报错，5 分钟一轮。录入那几个（Shift+F5 / Shift+F6 / F5 / F6）下次集中录数据时练。<br>相关学习：<a href="ebs-shortcodes.html">EBS 程序短码速查</a> · <a href="ebs-accounting-flexfield.html">EBS 会计键操作指南</a></div>
+</div>
+</body>
+</html>
