@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBS 会计键（Accounting Flexfield）操作指南</title>
+<style>
+:root {
+  --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --accent:#176b75; --accent-ink:#145f68;
+  --amber:#a5761a; --amber-bg:#faf0d7; --code-bg:#f3f3ef;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --surface:#1e2528; --ink:#e9edee; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --accent:#4fb3bd; --accent-ink:#7ccdd4;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --code-bg:#232a2e;
+  }
+}
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 18px 80px; }
+.back { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+h1 { font-size:26px; margin:0 0 8px; }
+.sub { color:var(--ink-4); font-size:14px; margin-bottom:26px; }
+h2 { font-size:19px; margin:34px 0 12px; padding-top:8px; border-top:1px solid var(--line-soft); }
+.code { font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:var(--code-bg); padding:2px 8px; border-radius:6px; font-size:15px; color:var(--accent-ink); font-weight:700; }
+.card { background:var(--surface); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 16px; margin:12px 0; }
+.card .title { font-size:17px; font-weight:700; margin-bottom:6px; }
+.parts { list-style:none; margin:8px 0 4px; padding:0; }
+.parts li { margin:5px 0; font-size:14.5px; line-height:1.6; }
+.parts b { font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--amber-bg);
+  color:var(--amber); border-radius:5px; padding:1px 7px; margin-right:6px; font-size:13.5px; }
+.rule { background:var(--surface); border-left:4px solid var(--accent); border-radius:0 10px 10px 0;
+  padding:12px 16px; margin:12px 0; font-size:15px; }
+.rule b { display:block; margin-bottom:4px; }
+.scenario { background:var(--surface); border:1px dashed var(--line); border-radius:10px;
+  padding:12px 16px; margin:12px 0; font-size:14.5px; color:var(--ink-3); }
+.scenario b { display:block; margin-bottom:4px; color:var(--ink); }
+.tip { color:var(--ink-4); font-size:13px; margin-top:26px; border-top:1px solid var(--line-soft); padding-top:12px; }
+.tip a { color:var(--accent); text-decoration:none; }
+ol.steps { margin:8px 0 4px; padding-left:22px; }
+ol.steps li { margin:8px 0; font-size:14.5px; line-height:1.65; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
+<h1>EBS 会计键（Accounting Flexfield）操作指南</h1>
+<div class="sub">给 Application Manager 的实操手册。会计键是 EBS 财务的"地基"——动它之前，先看懂这五节。</div>
+
+<h2>1. 会计键是什么</h2>
+<div class="rule"><b>一套"科目编码规则"</b>会计键就是会计弹性域（Accounting Flexfield）。它由几个段（Segment）组成，比如公司段、成本中心段、科目段；每段取一个值，拼起来就是一个完整的科目组合。每个组合在总账里有一个唯一的数字 ID，叫 <span class="code">CCID</span>（Code Combination ID）。记住：凭证行、日记账行存的都是 CCID，那一长串"101-2001-600101"只是给人看的。</div>
+<div class="scenario"><b>场景</b>财务让你"查一下 101-2001-600101 今年的余额"——先按段翻出它的 CCID，再去余额表按 CCID 查；拿着段文本直接去捞，又慢又容易错。</div>
+
+<h2>2. 段、值集、值：三层结构</h2>
+<ul class="parts">
+<li><b>段</b>编码的一节；每段挂一个值集（Value Set），值集决定这段"允许填什么、怎么校验"</li>
+<li><b>Independent</b>独立验证：固定白名单</li>
+<li><b>Dependent</b>相关验证：父子联动</li>
+<li><b>Table</b>表验证：从表里动态取</li>
+</ul>
+<div class="rule"><b>值在哪维护</b>GL 超级用户 → 设置 → 财务 → 弹性域 → 密钥 → 段值。运维铁律：只加值，不加段——加一段是改会计科目表结构，影响全账套。</div>
+<div class="scenario"><b>场景</b>业务说"成本中心要加两个"——这是加值，半小时搞定；但如果他说"要加一段产品线"，那是改结构，先拉上财务做影响评估。</div>
+
+<h2>3. 两条硬卡控</h2>
+<div class="rule"><b>第一条：交叉验证规则（Cross-Validation Rule）</b>管"哪些段值组合不许存在"。违反的组合，保存、过账时直接被拦下。加规则：System Administrator → 设置 → 财务 → 弹性域 → 键 → 规则（先确认会计科目表结构上已勾选"交叉验证"：设置 → 财务 → 弹性域 → 键 → 段，解冻→勾选→冻结→编译），先在测试环境验证再上生产。</div>
+<div class="rule"><b>第二条：安全规则（Security Rule）</b>管"谁能用哪些段值"。同一套科目，不同职责能用的段值范围可以不同。两者的分工要记牢：交叉验证是全局的"能不能存在"，安全规则是按职责的"谁能用"。</div>
+<div class="scenario"><b>场景</b>别争"科目归谁管"：写一条交叉验证规则让错误组合根本进不了系统，再配安全规则让各部门只能用自己的段值——标准落地成系统硬规则。</div>
+
+<h2>4. 动态插入（Dynamic Inserts）</h2>
+<div class="rule"><b>一个开关</b>会计弹性域有个开关"允许动态插入"。开了：用到新科目组合时，系统自动建 CCID；关了：必须先手工建好组合，否则保存就报错。运维建议：生产环境关掉——新组合先审批再建，防止科目体系失控；测试环境可以开着省事。动态插入关了之后，新组合只能从科目组合表单手工建：GL Superuser → 设置 → 科目 → 组合。</div>
+<div class="scenario"><b>场景</b>月结前发现有人在生产环境随手拼了个新组合还过了账——先查动态插入是不是开着；开着的话，这就是科目失控的入口，关掉它。</div>
+
+<h2>5. 常见操作清单</h2>
+<ul class="parts">
+<li><b>查科目组合</b>按段去 <span class="code">GL_CODE_COMBINATIONS</span> 翻 CCID（只读 SQL，join 余额表都用它）</li>
+<li><b>加段值</b>GL 超级用户 → 设置 → 财务 → 弹性域 → 密钥 → 段值，按值集类型维护</li>
+<li><b>开关会计期间</b>Open and Close Periods：Open → Closed 是月结动作；Permanently Closed 是年结后才点的，点了回不来</li>
+</ul>
+<div class="rule"><b>排错四步</b>
+<ol class="steps">
+<li>段值在不在值集里（LOV 选不到先查值集类型）</li>
+<li>是不是被交叉验证拦了——报错是某条规则的<b>自定义错误消息</b>（去"键 → 规则"表单对一下），不是 APP-FND-00668</li>
+<li>新组合 + 动态插入关了 → 报错"组合不存在"，去科目组合表单（设置 → 科目 → 组合）手工建</li>
+<li>出现 <b>APP-FND-00668</b>（"定义弹性域的数据可能不一致"）→ 查的是<b>定义</b>不是数据：段/值集改完有没有冻结+编译，段限定词全不全（常伴随 APP-FND-00992）</li>
+</ol>
+</div>
+<div class="scenario"><b>场景</b>用户新建科目组合保存报错，别先找开发——按上面四步走，九成是段值、规则、动态插入、定义编译四者之一。</div>
+
+<div class="tip">相关学习：<a href="ebs-shortcodes.html">EBS 程序短码速查：见码猜意</a>。整理说明：菜单路径为 R12 口径，部分标签以各自 EBS 环境的实际界面为准；内容会随工作需要持续补充。</div>
+</div>
+</body>
+</html>
