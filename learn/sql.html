@@ -68,6 +68,12 @@ a { color:var(--accent); }
 <li>查询 2（查补丁）：SELECT patch_name, creation_date FROM (SELECT patch_name, creation_date FROM ad_applied_patches ORDER BY creation_date DESC) WHERE ROWNUM &lt;= 5;</li>
 <li>查询 3（查职责）：SELECT r.responsibility_name FROM fnd_user u, fnd_user_resp_groups g, fnd_responsibility_tl r WHERE u.user_name = USER AND u.user_id = g.user_id AND g.responsibility_id = r.responsibility_id AND r.language = USERENV(&#x27;LANG&#x27;) AND SYSDATE BETWEEN g.start_date AND NVL(g.end_date, SYSDATE);</li>
 </ul>
+<h3>第 1 课（2026-10-23）· WHERE 过滤</h3>
+<ul>
+<li>知识点：WHERE 给查询加过滤条件，只留下满足条件的行；字符串用单引号，且区分大小写</li>
+<li>查询：SELECT user_name, description FROM fnd_user WHERE user_name = &#x27;SYSADMIN&#x27;;</li>
+<li>练习：把 &#x27;SYSADMIN&#x27; 换成自己的登录名（或 USER() 查到的当前用户），看返回几行</li>
+</ul>
 <div class="tip">页面由学习材料自动生成，随课程更新同步。</div>
 </div>
 </body>
