@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBS 财务管理</title>
+<style>
+:root {
+  --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --accent:#176b75; --accent-ink:#145f68;
+  --amber:#a5761a; --amber-bg:#faf0d7; --code-bg:#f3f3ef;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --surface:#1e2528; --ink:#e9edee; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --accent:#4fb3bd; --accent-ink:#7ccdd4;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --code-bg:#232a2e;
+  }
+}
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 18px 80px; }
+.back { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+h1 { font-size:26px; margin:0 0 8px; }
+.sub { color:var(--ink-4); font-size:14px; margin-bottom:26px; }
+h2 { font-size:19px; margin:30px 0 12px; padding-top:8px; border-top:1px solid var(--line-soft); }
+h3 { font-size:16px; margin:18px 0 8px; }
+.code, code { font-family:ui-monospace,Menlo,Consolas,monospace; background:var(--code-bg);
+  padding:2px 8px; border-radius:6px; font-size:13.5px; color:var(--accent-ink); }
+pre { background:var(--code-bg); border-radius:10px; padding:14px 16px; font-size:13.5px;
+  line-height:1.7; overflow-x:auto; white-space:pre-wrap; }
+.card { background:var(--surface); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 16px; margin:12px 0; }
+.card p, .card li { font-size:14.5px; line-height:1.7; color:var(--ink-3); }
+.card ul, .card ol { margin:6px 0 2px; padding-left:20px; }
+.day { background:var(--surface); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 16px; margin:12px 0; }
+.day .dh { font-size:17px; font-weight:700; margin-bottom:8px; }
+.day .dh .today { background:var(--amber-bg); color:var(--amber); font-size:12px;
+  border-radius:12px; padding:2px 10px; margin-left:8px; }
+.word { margin:7px 0; font-size:15px; line-height:1.65; }
+.word .w { font-weight:700; }
+.word .ph { color:var(--ink-4); font-size:13px; }
+.word .pos { color:var(--accent-ink); font-size:13px; }
+.word .cn { font-weight:700; }
+.word .ex { color:var(--ink-4); font-size:13.5px; }
+.newtag { background:var(--amber-bg); color:var(--amber); font-size:11px; border-radius:8px;
+  padding:1px 7px; margin-left:6px; }
+table { width:100%; border-collapse:collapse; font-size:14px; margin:10px 0; background:var(--surface);
+  border-radius:10px; overflow:hidden; border:1px solid var(--line-soft); }
+th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line-soft); }
+th { background:var(--code-bg); }
+.tip { color:var(--ink-4); font-size:13px; margin-top:26px; border-top:1px solid var(--line-soft); padding-top:12px; }
+a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
+<h1>EBS 财务管理</h1>
+<div class="sub">EBS 大类下的财务管理模块：给非财务专业的 IT 人员补财务的课——系统里的财务逻辑讲成人话，每天一条。</div>
+
+<h2>深度文章</h2>
+<div class="card"><div class="title" style="font-size:16.5px;font-weight:700"><a href="ebs-accounting-flexfield.html">会计键（Accounting Flexfield）操作指南</a></div>
+<p>这个模块的地基：段与值集、交叉验证与安全规则两条硬卡控、动态插入、排错四步。先读这篇，再看下面的每日知识会顺很多。</p></div>
+<h2>每日财务知识（给 IT 人）</h2>
+<div class="day"><div class="dh">💰 2026-10-23 · 借贷记账：借和贷不是&quot;借钱&quot;和&quot;贷钱&quot;<span class="today">今日</span></div><p><b>一句话</b>：借（Debit）和贷（Credit）只是记账的左右两边；每笔分录借方合计必须等于贷方合计，这是会计的铁律。</p>
+<p><b>为什么 IT 要懂</b>：看 GL 分录、查余额、排&quot;过账不平&quot;全靠它。用户说&quot;这笔账记反了&quot;，你要能判断是哪边多了、哪边少了。</p>
+<p><b>在 EBS 里</b>：规则口诀——资产、费用增加记借方；负债、权益、收入增加记贷方。举例：现金买设备，现金（资产）减少记贷方，设备（资产）增加记借方，资产总额没变、形态变了。GL 日记账行就是借贷两列（<span class="code">GL_JE_LINES</span> 的 accounted_dr / accounted_cr）；子账（AP/AR/FA）过账到 GL 时自动生成平衡分录，借贷不平的分录根本过不了账——真遇到&quot;不平&quot;，多半是外币折算的四舍五入差，先查币种和汇率。</p></div>
+<div class="day"><div class="dh">💰 2026-10-22 · 会计期间与月结：关账之后为什么记不进去</div><p><b>一句话</b>：会计期间是财务的&quot;月份闸口&quot;——期间 Open 才能记账，Closed 之后谁也不能再往里面写，改账只能记到下一期做调整。</p>
+<p><b>为什么 IT 要懂</b>：用户月底说&quot;凭证记不进去了&quot;，九成是期间关了、或者新期间没人开。月结时各模块要按顺序关（先子账后总账），顺序乱了会对不上账，这类问题最后都会找到 IT。</p>
+<p><b>在 EBS 里</b>：期间状态有 Open / Closed / Permanently Closed（术语库 Day 28）；关账前要跑完子账过账、处理完未清项。Permanently Closed 点了就回不来，只有年结后才点——看到用户想点它，先拦一下。</p></div>
+<div class="day"><div class="dh">💰 2026-10-21 · 三单匹配：对不上，AP 就不付款</div><p><b>一句话</b>：采购订单（PO）、收货单、供应商发票三者对上（品名、数量、价格在容差内），应付账款才付款——这是防多付、错付的核心内控。</p>
+<p><b>为什么 IT 要懂</b>：用户抱怨&quot;发票录不进、款付不出去&quot;，十有八九是匹配没过：收货没做、数量对不上、价格差异超了容差。排错先查这三样，比翻系统快。</p>
+<p><b>在 EBS 里</b>：AP 发票校验时做匹配（两单/三单/四单，差别在要不要加收货和验收）；匹配不上的发票会被 Hold（挂起），付款程序直接跳过它。排查顺序：PO 状态 → 收货事务做没做 → 发票价与 PO 价的差异和容差设置。</p></div>
+<div class="tip">页面由学习材料自动生成，随课程更新同步。</div>
+</div>
+</body>
+</html>
