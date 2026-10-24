@@ -65,6 +65,9 @@ a { color:var(--accent); }
 <div class="card"><div class="title" style="font-size:16.5px;font-weight:700"><a href="ebs-accounting-flexfield.html">会计键（Accounting Flexfield）操作指南</a></div>
 <p>这个模块的地基：段与值集、交叉验证与安全规则两条硬卡控、动态插入、排错四步。先读这篇，再看下面的每日知识会顺很多。</p></div>
 <h2>每日财务知识（给 IT 人）</h2>
+<div class="day"><div class="dh">💰 2026-10-24 · 应付账款（AP）：供应商的发票还没付，就是欠外人的钱<span class="today">今日</span></div><p><b>一句话</b>：应付账款（AP, Accounts Payable）就是&quot;我们欠供应商的钱&quot;——发票收到了、货或服务也有了，但款还没付出去；和 AR 是镜像：AR 管&quot;收钱&quot;，AP 管&quot;付钱&quot;。</p>
+<p><b>为什么 IT 要懂</b>：最容易被误解的是&quot;付过款就等于账结清了&quot;——付款只是付了钱，发票还要 Validation（校验）和匹配确认，状态不走完，这笔账在系统里仍然是&quot;欠着&quot;。用户找你通常是三句话：&quot;款已经付了，账龄表里怎么还在？&quot;&quot;这笔发票为什么一直付不出去？&quot;&quot;对账时供应商说没收到款。&quot;排错先查发票状态：发票录入 → 校验（Validation）→ 匹配（Matching）→ 付款（Payment），卡在哪一步就对症。</p>
+<p><b>在 EBS 里</b>：对应 AP 模块。发票录在&quot;Invoices&quot;，校验和付款审批走完后才能进付款批次；匹配不过的发票会被 Hold（挂起），付款程序直接跳过——这是&quot;录了发票却付不出去&quot;的最常见原因。另外注意三单匹配（三单对上才付款，见 2026-10-21 条）和期间状态：AP 期间关了，发票就记不进去了，要先确认期间 Open。</p></div>
 <div class="day"><div class="dh">💰 2026-10-23 · 应收账款（AR）：发票开出去，钱还没收回来</div><p><b>一句话</b>：应收账款（AR, Accounts Receivable）就是&quot;客户欠我们的钱&quot;——货发了、发票开了，但钱还没到账，这笔钱在账上叫应收款。</p>
 <p><b>为什么 IT 要懂</b>：最容易被误解的是&quot;账上有钱不等于有钱&quot;——AR 余额高不代表现金多，它代表收账风险。用户找你通常是三句话：&quot;客户说付了，系统里怎么还是未收？&quot;&quot;账龄分析表跑出来对不上&quot;&quot;收款怎么核销不掉&quot;。排错先分清两步：收款到底有没有录入系统；录入了，核销（Apply）有没有做对到对应的发票上。</p>
 <p><b>在 EBS 里</b>：对应 AR 模块——发票开在&quot;Transactions&quot;，收款录在&quot;Receipts&quot;，核销靠 Applications；月末关账要&quot;收款核销完 → 跑应收过账 → 关 AR 期间&quot;。注意：收款和核销是两步，客户付款进账只是第一步，没核销发票就不&quot;销账&quot;——这是最常见的&quot;用户以为做完了、系统还没做完&quot;的坑。</p></div>
