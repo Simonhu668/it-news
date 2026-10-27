@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBS 库存交易类型速查：22 个中英对照</title>
+<style>
+:root {
+  --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --accent:#176b75; --accent-ink:#145f68;
+  --amber:#a5761a; --amber-bg:#faf0d7; --code-bg:#f3f3ef;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --surface:#1e2528; --ink:#e9edee; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --accent:#4fb3bd; --accent-ink:#7ccdd4;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --code-bg:#232a2e;
+  }
+}
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.wrap { max-width:920px; margin:0 auto; padding:28px 18px 80px; }
+.back { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+h1 { font-size:26px; margin:0 0 8px; }
+.sub { color:var(--ink-4); font-size:14px; margin-bottom:26px; line-height:1.7; }
+h2 { font-size:19px; margin:38px 0 6px; padding-top:10px; border-top:1px solid var(--line-soft); }
+h2 .count { color:var(--ink-4); font-size:13px; font-weight:400; margin-left:8px; }
+.starter { background:var(--surface); border-left:4px solid var(--accent); border-radius:0 12px 12px 0;
+  padding:16px 18px; margin:18px 0 8px; }
+.starter b { display:block; margin-bottom:10px; font-size:15px; }
+.starter .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px; }
+@media (max-width:640px) { .grid { grid-template-columns:1fr; } }
+.card { background:var(--surface); border:1px solid var(--line-soft); border-radius:12px;
+  padding:18px 20px; }
+.key { display:inline-block; font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:var(--amber-bg); color:var(--amber); border-radius:8px; padding:5px 14px;
+  font-size:16px; font-weight:700; margin-bottom:10px; }
+.dir { float:right; font-size:12px; color:var(--accent-ink); border:1px solid var(--line);
+  border-radius:999px; padding:3px 10px; }
+.name { font-size:16.5px; font-weight:700; }
+.use { margin-top:8px; font-size:14px; line-height:1.7; color:var(--ink-3); }
+.tip { color:var(--ink-4); font-size:13px; margin-top:30px; border-top:1px solid var(--line-soft); padding-top:12px; line-height:1.8; }
+.tip a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
+<h1>EBS 库存交易类型速查：22 个中英对照</h1>
+<div class="sub">Oracle EBS 库存模块的标准交易类型（Transaction Type）。在库存交易查询里看到一串英文类型名，先在这里对上中文和业务场景：这笔交易是出库、入库，还是组织之间在搬。按业务流分五组，一次列全。</div>
+
+<div class="starter"><b>先拆缩写：名字里反复出现的 5 个短词</b>
+<div class="row">
+<span class="key">Int = Internal 内部</span><span class="key">Intr = Intransit 在途</span><span class="key">Rcpt = Receipt 接收</span><span class="key">Xfer = Transfer 转移</span><span class="key">Org = Organization 组织</span>
+</div></div>
+
+<h2>生产（WIP）<span class="count">4 个</span></h2>
+<div class="grid">
+<div class="card"><span class="dir">出库</span><span class="key">WIP Issue</span><div class="name">生产发料</div><div class="use">生产工单领用原材料：物料从子库存发出，计入工单消耗。</div></div>
+<div class="card"><span class="dir">入库</span><span class="key">WIP Return</span><div class="name">生产退料</div><div class="use">工单没用完的物料退回子库存，是发料的逆操作。</div></div>
+<div class="card"><span class="dir">入库</span><span class="key">WIP Completion</span><div class="name">完工入库</div><div class="use">工单完工，成品从工单接收回子库存。</div></div>
+<div class="card"><span class="dir">出库</span><span class="key">WIP Completion Return</span><div class="name">完工退回</div><div class="use">已完工入库的成品退回工单，是完工入库的逆操作。</div></div>
+</div>
+
+<h2>销售与退货<span class="count">3 个</span></h2>
+<div class="grid">
+<div class="card"><span class="dir">转移</span><span class="key">Sales Order Pick</span><div class="name">销售订单挑库</div><div class="use">发运前挑库：把物料从存储子库存移到暂存子库存，等发运确认。</div></div>
+<div class="card"><span class="dir">出库</span><span class="key">Sales Order Issue</span><div class="name">销售订单发货出库</div><div class="use">销售订单发运确认时产生，物料正式出库、库存减少。</div></div>
+<div class="card"><span class="dir">入库</span><span class="key">RMA Receipt</span><div class="name">客户退货接收</div><div class="use">客户退货（RMA）到达后接收回库存。</div></div>
+</div>
+
+<h2>采购<span class="count">2 个</span></h2>
+<div class="grid">
+<div class="card"><span class="dir">入库</span><span class="key">PO Receipt</span><div class="name">采购接收</div><div class="use">采购订单到货接收，物料进入接收流程。</div></div>
+<div class="card"><span class="dir">出库</span><span class="key">Return to Vendor</span><div class="name">退货给供应商</div><div class="use">已接收的物料退回供应商（RTV）。</div></div>
+</div>
+
+<h2>内部订单 / 内部请购<span class="count">5 个</span></h2>
+<div class="grid">
+<div class="card"><span class="dir">转移</span><span class="key">Internal Order Pick</span><div class="name">内部订单挑库</div><div class="use">内部订单发运前挑库：物料先移入暂存子库存。</div></div>
+<div class="card"><span class="dir">发运</span><span class="key">Int Order Intr Ship</span><div class="name">内部订单在途发运</div><div class="use">内部订单发运：物料离开来源组织、进入在途，目标组织收货后销在途。</div></div>
+<div class="card"><span class="dir">发运</span><span class="key">Int Order Direct Ship</span><div class="name">内部订单直接组织间发运</div><div class="use">内部订单直接从来源组织发到目标组织，不走在途库存。</div></div>
+<div class="card"><span class="dir">入库</span><span class="key">Int Req Intr Rcpt</span><div class="name">内部请购在途接收</div><div class="use">内部请购的在途物料到达目标组织，接收销在途。</div></div>
+<div class="card"><span class="dir">入库</span><span class="key">Int Req Direct Org Xfer</span><div class="name">内部请购直接组织间接收</div><div class="use">内部请购通过组织间直接转移到达目标组织并接收，不经在途。</div></div>
+</div>
+
+<h2>库存内部调拨与杂项<span class="count">8 个</span></h2>
+<div class="grid">
+<div class="card"><span class="dir">转移</span><span class="key">Subinventory Transfer</span><div class="name">子库存转移</div><div class="use">同一组织内，物料在子库存之间调拨，总量不变。</div></div>
+<div class="card"><span class="dir">转移</span><span class="key">Direct Org Transfer</span><div class="name">组织间直接转移</div><div class="use">两个组织之间直接转移物料，不走在途，一步到位。</div></div>
+<div class="card"><span class="dir">转移</span><span class="key">Move Order Transfer</span><div class="name">搬运单转移</div><div class="use">按搬运单（Move Order）把物料从源子库存移到目标子库存。</div></div>
+<div class="card"><span class="dir">出库</span><span class="key">Miscellaneous Issue</span><div class="name">杂项出库</div><div class="use">不挂单据的手工出库：盘亏调整、无工单领用等都走它。</div></div>
+<div class="card"><span class="dir">入库</span><span class="key">Miscellaneous Receipt</span><div class="name">杂项入库</div><div class="use">不挂单据的手工入库：盘盈调整等走它。和杂项出库是一对。</div></div>
+<div class="card"><span class="dir">出库</span><span class="key">Account Alias Issue</span><div class="name">账户别名出库</div><div class="use">以账户别名作为出库去向，费用归集到别名对应的账户。</div></div>
+<div class="card"><span class="dir">入库</span><span class="key">Account Alias Receipt</span><div class="name">账户别名入库</div><div class="use">以账户别名作为入库来源的杂项入库。</div></div>
+<div class="card"><span class="dir">拆包</span><span class="key">Container Unpack</span><div class="name">容器拆包</div><div class="use">把容器（LPN）里的物料拆出来，改按散件管理。</div></div>
+</div>
+
+<div class="tip">读法：先看方向再看单据——Issue 是出、Receipt/Return/Completion 多为入、Transfer/Pick 是搬位置不改变总量；名字带 Intr（在途）的，都是"发运、收货"两笔成对出现，只看到一笔，就是在途还没销。注：Int Req Direct Org Xfer 字面是"直接组织间转移"，本页中文按接收方视角译作"接收"。<br>相关学习：<a href="ebs-shortcodes.html">EBS 程序短码速查</a> · <a href="ebs-shortcuts.html">EBS 快捷键速查</a> · <a href="ebs-finance.html">EBS 财务管理</a></div>
+</div>
+</body>
+</html>
