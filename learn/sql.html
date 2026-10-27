@@ -74,6 +74,12 @@ a { color:var(--accent); }
 <li>查询：SELECT user_name, description FROM fnd_user WHERE user_name = &#x27;SYSADMIN&#x27;;</li>
 <li>练习：把 &#x27;SYSADMIN&#x27; 换成自己的登录名（或 USER() 查到的当前用户），看返回几行</li>
 </ul>
+<h3>第 2 课（2026-10-27）· JOIN 多表连接</h3>
+<ul>
+<li>知识点：JOIN 按匹配的键把两张表拼成一张结果；ON 后面写两张表相等的字段，一行对不上就不会出现在结果里</li>
+<li>查询：SELECT u.user_name, r.responsibility_name, g.start_date FROM fnd_user u JOIN fnd_user_resp_groups g ON u.user_id = g.user_id JOIN fnd_responsibility_tl r ON g.responsibility_id = r.responsibility_id WHERE u.user_name = USER AND r.language = USERENV(&#x27;LANG&#x27;) AND SYSDATE BETWEEN g.start_date AND NVL(g.end_date, SYSDATE);</li>
+<li>练习：数一数返回几行，对照 EBS 登录后可选的职责数量是否一致，贴结果或截图</li>
+</ul>
 <div class="tip">页面由学习材料自动生成，随课程更新同步。</div>
 </div>
 </body>
