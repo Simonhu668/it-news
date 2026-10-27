@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EBS 库存交易类型速查：22 个中英对照</title>
+<title>EBS 库存交易类型速查：常用 22 个与标准 47 个中英对照</title>
 <style>
 :root {
   --bg:#faf9f6; --surface:#ffffff; --ink:#202a30; --ink-3:#444e55; --ink-4:#7d888e;
@@ -35,12 +35,26 @@ h2 .count { color:var(--ink-4); font-size:13px; font-weight:400; margin-left:8px
 .card { background:var(--surface); border:1px solid var(--line-soft); border-radius:12px;
   padding:18px 20px; }
 .key { display:inline-block; font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  background:var(--amber-bg); color:var(--amber); border-radius:8px; padding:5px 14px;
-  font-size:16px; font-weight:700; margin-bottom:10px; }
+  background:var(--amber-bg); color:var(--amber); border-radius:8px; padding:5px 12px;
+  font-size:15.5px; font-weight:700; margin-bottom:10px; }
 .dir { float:right; font-size:12px; color:var(--accent-ink); border:1px solid var(--line);
   border-radius:999px; padding:3px 10px; }
 .name { font-size:16.5px; font-weight:700; }
 .use { margin-top:8px; font-size:14px; line-height:1.7; color:var(--ink-3); }
+.src { margin-top:8px; font-size:13px; color:var(--ink-4); }
+.tblwrap { overflow-x:auto; margin-top:14px; border:1px solid var(--line-soft);
+  border-radius:12px; background:var(--surface); }
+table { border-collapse:collapse; width:100%; font-size:13.5px; }
+th, td { text-align:left; padding:9px 14px; border-bottom:1px solid var(--line-soft);
+  vertical-align:top; line-height:1.6; }
+th { color:var(--ink-4); font-weight:600; white-space:nowrap; }
+tr:last-child td { border-bottom:none; }
+td.en { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:13px; white-space:nowrap; }
+pre { background:var(--code-bg); border-radius:12px; padding:16px 18px; overflow-x:auto;
+  font-size:12.5px; line-height:1.65; }
+details { margin-top:14px; }
+summary { cursor:pointer; font-size:14.5px; font-weight:600; color:var(--accent-ink); }
 .tip { color:var(--ink-4); font-size:13px; margin-top:30px; border-top:1px solid var(--line-soft); padding-top:12px; line-height:1.8; }
 .tip a { color:var(--accent); text-decoration:none; }
 </style>
@@ -48,57 +62,62 @@ h2 .count { color:var(--ink-4); font-size:13px; font-weight:400; margin-left:8px
 <body>
 <div class="wrap">
 <a class="back" href="https://simonhu668.github.io/it-news/">← 返回 IT 资讯速览</a>
-<h1>EBS 库存交易类型速查：22 个中英对照</h1>
-<div class="sub">Oracle EBS 库存模块的标准交易类型（Transaction Type）。在库存交易查询里看到一串英文类型名，先在这里对上中文和业务场景：这笔交易是出库、入库，还是组织之间在搬。按业务流分五组，一次列全。</div>
+<h1>EBS 库存交易类型速查</h1>
+<div class="sub">帮助看懂库存事务记录（Material Transactions）里的英文事务类型：先给日常最常见的 22 个（带一句话说明和常见来源单据），再给 EBS 常见标准事务类型的完整 47 个，外加事务来源类型 13 个、事务动作 17 个。英文是 Oracle 原文；中文为翻译草稿，不是 Oracle 官方中文，用词待确认。库存方向从本组织看：入库 = 增加，出库 = 减少，库内转移 = 同组织内换位置、总量不变，组织间转移 = 从一个组织到另一个组织。</div>
 
 <div class="starter"><b>先拆缩写：名字里反复出现的 5 个短词</b>
 <div class="row">
 <span class="key">Int = Internal 内部</span><span class="key">Intr = Intransit 在途</span><span class="key">Rcpt = Receipt 接收</span><span class="key">Xfer = Transfer 转移</span><span class="key">Org = Organization 组织</span>
 </div></div>
 
-<h2>生产（WIP）<span class="count">4 个</span></h2>
-<div class="grid">
-<div class="card"><span class="dir">出库</span><span class="key">WIP Issue</span><div class="name">生产发料</div><div class="use">生产工单领用原材料：物料从子库存发出，计入工单消耗。</div></div>
-<div class="card"><span class="dir">入库</span><span class="key">WIP Return</span><div class="name">生产退料</div><div class="use">工单没用完的物料退回子库存，是发料的逆操作。</div></div>
-<div class="card"><span class="dir">入库</span><span class="key">WIP Completion</span><div class="name">完工入库</div><div class="use">工单完工，成品从工单接收回子库存。</div></div>
-<div class="card"><span class="dir">出库</span><span class="key">WIP Completion Return</span><div class="name">完工退回</div><div class="use">已完工入库的成品退回工单，是完工入库的逆操作。</div></div>
-</div>
+<h2>生产（WIP）<span class="count">4 个</span></h2><div class="grid"><div class="card"><span class="dir">出库</span><span class="key">WIP Issue</span><div class="name">生产发料</div><div class="use">把物料从仓库发到生产工单，供生产消耗。</div><div class="src">常见来源单据：离散工单（WIP）</div></div><div class="card"><span class="dir">入库</span><span class="key">WIP Return</span><div class="name">生产退料</div><div class="use">发给工单但没用完的物料退回仓库。</div><div class="src">常见来源单据：离散工单（WIP）</div></div><div class="card"><span class="dir">入库</span><span class="key">WIP Completion</span><div class="name">完工入库</div><div class="use">工单完工的成品或半成品入库。</div><div class="src">常见来源单据：离散工单（WIP）</div></div><div class="card"><span class="dir">出库（退回工单）</span><span class="key">WIP Completion Return</span><div class="name">完工退回</div><div class="use">已完工入库的产品退回工单。</div><div class="src">常见来源单据：离散工单（WIP）</div></div></div>
+<h2>销售与退货<span class="count">3 个</span></h2><div class="grid"><div class="card"><span class="dir">库内转移</span><span class="key">Sales Order Pick</span><div class="name">销售订单挑库</div><div class="use">发货前把货从存储子库存挑到发运暂存区，货还在本组织。</div><div class="src">常见来源单据：销售订单（挑库）</div></div><div class="card"><span class="dir">出库</span><span class="key">Sales order issue</span><div class="name">销售订单发货出库</div><div class="use">发运确认后货物离开本组织，库存减少。</div><div class="src">常见来源单据：销售订单（发运确认）</div></div><div class="card"><span class="dir">入库</span><span class="key">RMA Receipt</span><div class="name">客户退货接收</div><div class="use">按退货授权（RMA）接收客户退回的货物。</div><div class="src">常见来源单据：退货订单（RMA）</div></div></div>
+<h2>采购<span class="count">2 个</span></h2><div class="grid"><div class="card"><span class="dir">入库</span><span class="key">PO Receipt</span><div class="name">采购接收</div><div class="use">按采购订单收货入库。</div><div class="src">常见来源单据：采购订单</div></div><div class="card"><span class="dir">出库</span><span class="key">Return to Vendor</span><div class="name">退货给供应商</div><div class="use">已接收的物料退回供应商。</div><div class="src">常见来源单据：采购订单</div></div></div>
+<h2>内部订单 / 内部请购<span class="count">5 个</span></h2><div class="grid"><div class="card"><span class="dir">库内转移</span><span class="key">Internal Order Pick</span><div class="name">内部订单挑库</div><div class="use">公司内部调拨订单发货前，挑库到暂存区。</div><div class="src">常见来源单据：内部销售订单</div></div><div class="card"><span class="dir">出库（进入在途）</span><span class="key">Int Order Intr Ship</span><div class="name">内部订单在途发运</div><div class="use">发货组织发出内部调拨货物，货物进入在途。</div><div class="src">常见来源单据：内部销售订单</div></div><div class="card"><span class="dir">出库</span><span class="key">Int Order Direct Ship</span><div class="name">内部订单直接组织间发运</div><div class="use">不经在途、直接从发货组织转出的内部调拨（发货方一侧）。</div><div class="src">常见来源单据：内部销售订单</div></div><div class="card"><span class="dir">入库</span><span class="key">Int Req Intr Rcpt</span><div class="name">内部请购在途接收</div><div class="use">收货组织接收经在途运来的内部调拨货物。</div><div class="src">常见来源单据：内部请购单</div></div><div class="card"><span class="dir">入库</span><span class="key">Int Req Direct Org Xfer</span><div class="name">内部请购直接组织间接收</div><div class="use">不经在途、直接进入收货组织的内部调拨（收货方一侧）。</div><div class="src">常见来源单据：内部请购单</div></div></div>
+<h2>库存内部调拨与杂项<span class="count">8 个</span></h2><div class="grid"><div class="card"><span class="dir">库内转移</span><span class="key">Subinventory Transfer</span><div class="name">子库存转移</div><div class="use">同一组织内从一个子库存/库位移到另一个，总量不变。</div><div class="src">常见来源单据：手工转移</div></div><div class="card"><span class="dir">组织间转移</span><span class="key">Direct Org Transfer</span><div class="name">组织间直接转移</div><div class="use">不走内部订单，手工把库存直接从一个组织转到另一个组织。</div><div class="src">常见来源单据：手工</div></div><div class="card"><span class="dir">库内转移</span><span class="key">Move Order Transfer</span><div class="name">搬运单转移</div><div class="use">按搬运单在组织内移库（如补货）。</div><div class="src">常见来源单据：搬运单</div></div><div class="card"><span class="dir">出库</span><span class="key">Miscellaneous issue</span><div class="name">杂项出库</div><div class="use">不对应业务单据的手工出库（如报废、样品、领用），计入指定科目。</div><div class="src">常见来源单据：手工（杂项事务）</div></div><div class="card"><span class="dir">入库</span><span class="key">Miscellaneous receipt</span><div class="name">杂项入库</div><div class="use">不对应业务单据的手工入库（如盘盈、样品退回）。</div><div class="src">常见来源单据：手工（杂项事务）</div></div><div class="card"><span class="dir">出库</span><span class="key">Account alias issue</span><div class="name">账户别名出库</div><div class="use">用预设的“账户别名”（科目快捷码）做的杂项出库。</div><div class="src">常见来源单据：手工（账户别名）</div></div><div class="card"><span class="dir">入库</span><span class="key">Account alias receipt</span><div class="name">账户别名入库</div><div class="use">用账户别名做的杂项入库。</div><div class="src">常见来源单据：手工（账户别名）</div></div><div class="card"><span class="dir">数量不变</span><span class="key">Container Unpack</span><div class="name">容器拆包</div><div class="use">把物料从 LPN/容器中拆出，库存总量不变。</div><div class="src">常见来源单据：LPN/容器</div></div></div>
 
-<h2>销售与退货<span class="count">3 个</span></h2>
-<div class="grid">
-<div class="card"><span class="dir">转移</span><span class="key">Sales Order Pick</span><div class="name">销售订单挑库</div><div class="use">发运前挑库：把物料从存储子库存移到暂存子库存，等发运确认。</div></div>
-<div class="card"><span class="dir">出库</span><span class="key">Sales Order Issue</span><div class="name">销售订单发货出库</div><div class="use">销售订单发运确认时产生，物料正式出库、库存减少。</div></div>
-<div class="card"><span class="dir">入库</span><span class="key">RMA Receipt</span><div class="name">客户退货接收</div><div class="use">客户退货（RMA）到达后接收回库存。</div></div>
-</div>
+<h2>EBS 常见标准事务类型<span class="count">47 个全表</span></h2>
+<div class="tblwrap"><table><thead><tr><th>Oracle 原文</th><th>中文</th><th>库存方向</th><th>一句话说明</th></tr></thead><tbody><tr><td class="en">Account alias issue</td><td>账户别名出库</td><td>出库</td><td>用预设的“账户别名”（科目快捷码）做的杂项出库。</td></tr><tr><td class="en">Account alias receipt</td><td>账户别名入库</td><td>入库</td><td>用账户别名做的杂项入库。</td></tr><tr><td class="en">Container Unpack</td><td>容器拆包</td><td>数量不变</td><td>把物料从 LPN/容器中拆出，库存总量不变。</td></tr><tr><td class="en">Direct Org Transfer</td><td>组织间直接转移</td><td>组织间转移</td><td>不走内部订单，手工把库存直接从一个组织转到另一个组织。</td></tr><tr><td class="en">Int Order Direct Ship</td><td>内部订单直接组织间发运</td><td>出库</td><td>不经在途、直接从发货组织转出的内部调拨（发货方一侧）。</td></tr><tr><td class="en">Int Order Intr Ship</td><td>内部订单在途发运</td><td>出库（进入在途）</td><td>发货组织发出内部调拨货物，货物进入在途。</td></tr><tr><td class="en">Int Req Direct Org Xfer</td><td>内部请购直接组织间接收</td><td>入库</td><td>不经在途、直接进入收货组织的内部调拨（收货方一侧）。</td></tr><tr><td class="en">Int Req Intr Rcpt</td><td>内部请购在途接收</td><td>入库</td><td>收货组织接收经在途运来的内部调拨货物。</td></tr><tr><td class="en">Internal Order Pick</td><td>内部订单挑库</td><td>库内转移</td><td>公司内部调拨订单发货前，挑库到暂存区。</td></tr><tr><td class="en">Miscellaneous issue</td><td>杂项出库</td><td>出库</td><td>不对应业务单据的手工出库（如报废、样品、领用），计入指定科目。</td></tr><tr><td class="en">Miscellaneous receipt</td><td>杂项入库</td><td>入库</td><td>不对应业务单据的手工入库（如盘盈、样品退回）。</td></tr><tr><td class="en">Move Order Transfer</td><td>搬运单转移</td><td>库内转移</td><td>按搬运单在组织内移库（如补货）。</td></tr><tr><td class="en">PO Receipt</td><td>采购接收</td><td>入库</td><td>按采购订单收货入库。</td></tr><tr><td class="en">Return to Vendor</td><td>退货给供应商</td><td>出库</td><td>已接收的物料退回供应商。</td></tr><tr><td class="en">RMA Receipt</td><td>客户退货接收</td><td>入库</td><td>按退货授权（RMA）接收客户退回的货物。</td></tr><tr><td class="en">Sales order issue</td><td>销售订单发货出库</td><td>出库</td><td>发运确认后货物离开本组织，库存减少。</td></tr><tr><td class="en">Sales Order Pick</td><td>销售订单挑库</td><td>库内转移</td><td>发货前把货从存储子库存挑到发运暂存区，货还在本组织。</td></tr><tr><td class="en">Subinventory Transfer</td><td>子库存转移</td><td>库内转移</td><td>同一组织内从一个子库存/库位移到另一个，总量不变。</td></tr><tr><td class="en">WIP Completion</td><td>完工入库</td><td>入库</td><td>工单完工的成品或半成品入库。</td></tr><tr><td class="en">WIP Completion Return</td><td>完工退回</td><td>出库（退回工单）</td><td>已完工入库的产品退回工单。</td></tr><tr><td class="en">WIP Issue</td><td>生产发料</td><td>出库</td><td>把物料从仓库发到生产工单，供生产消耗。</td></tr><tr><td class="en">WIP Return</td><td>生产退料</td><td>入库</td><td>发给工单但没用完的物料退回仓库。</td></tr><tr><td class="en">Account issue</td><td>科目出库</td><td>出库</td><td>直接指定总账科目的手工出库。</td></tr><tr><td class="en">Account receipt</td><td>科目入库</td><td>入库</td><td>直接指定总账科目的手工入库。</td></tr><tr><td class="en">Average cost update</td><td>平均成本更新</td><td>数量不变（只改成本）</td><td>调整平均成本组织的物料成本。</td></tr><tr><td class="en">Container Pack</td><td>容器装箱</td><td>数量不变</td><td>把物料装入 LPN/容器。</td></tr><tr><td class="en">Container Split</td><td>容器拆分</td><td>数量不变</td><td>把一个 LPN/容器拆成多个。</td></tr><tr><td class="en">Cost Group Transfer</td><td>成本组转移</td><td>数量不变</td><td>库存在成本组之间转移。</td></tr><tr><td class="en">Cycle Count Adjust</td><td>循环盘点调整</td><td>调整（盘盈/盘亏）</td><td>循环盘点后按差异调整库存。</td></tr><tr><td class="en">Int Req Rcpt Adjust</td><td>内部请购接收调整</td><td>调整</td><td>更正内部请购接收的数量。</td></tr><tr><td class="en">Intransit Receipt</td><td>在途接收（组织间）</td><td>入库</td><td>不走内部订单的组织间在途转移，收货方一侧。</td></tr><tr><td class="en">Intransit Shipment</td><td>在途发运（组织间）</td><td>出库（进入在途）</td><td>不走内部订单的组织间在途转移，发货方一侧。</td></tr><tr><td class="en">Lot Merge</td><td>批次合并</td><td>数量不变</td><td>把多个批次合并成一个。</td></tr><tr><td class="en">Lot Split</td><td>批次拆分</td><td>数量不变</td><td>把一个批次拆成多个批次。</td></tr><tr><td class="en">Lot Translate</td><td>批次转换</td><td>数量不变</td><td>更改批次号或批次所属物料。</td></tr><tr><td class="en">Move Order Issue</td><td>搬运单出库</td><td>出库</td><td>按搬运单领用出库（如部门领料）。</td></tr><tr><td class="en">Physical Inv Adjust</td><td>实地盘点调整</td><td>调整（盘盈/盘亏）</td><td>全面实地盘点后按差异调整库存。</td></tr><tr><td class="en">PO Rcpt Adjust</td><td>采购接收调整</td><td>调整</td><td>更正采购接收的数量。</td></tr><tr><td class="en">Project Borrow</td><td>项目借用</td><td>库内转移</td><td>项目制造中，一个项目向另一个项目借用库存。</td></tr><tr><td class="en">Project Payback</td><td>项目归还</td><td>库内转移</td><td>归还向其它项目借用的库存。</td></tr><tr><td class="en">Project Transfer</td><td>项目转移</td><td>库内转移</td><td>库存在项目之间转移。</td></tr><tr><td class="en">RMA Return</td><td>RMA 退回客户</td><td>出库</td><td>把按 RMA 收回的货物再退给客户。</td></tr><tr><td class="en">Shipment Rcpt Adjust</td><td>在途接收调整</td><td>调整</td><td>更正组织间在途接收的数量。</td></tr><tr><td class="en">Standard cost update</td><td>标准成本更新</td><td>数量不变（只改成本）</td><td>更新物料标准成本，产生成本差异。</td></tr><tr><td class="en">WIP Assembly Scrap</td><td>工单装配件报废</td><td>数量不变</td><td>在工单上报废装配件，不影响仓库库存。</td></tr><tr><td class="en">WIP Negative Issue</td><td>生产负数发料</td><td>入库</td><td>以负数发料，把工单多出的物料（如副产品）收回仓库。</td></tr><tr><td class="en">WIP Negative Return</td><td>生产负数退料</td><td>出库</td><td>冲回负数发料。</td></tr></tbody></table></div>
 
-<h2>采购<span class="count">2 个</span></h2>
-<div class="grid">
-<div class="card"><span class="dir">入库</span><span class="key">PO Receipt</span><div class="name">采购接收</div><div class="use">采购订单到货接收，物料进入接收流程。</div></div>
-<div class="card"><span class="dir">出库</span><span class="key">Return to Vendor</span><div class="name">退货给供应商</div><div class="use">已接收的物料退回供应商（RTV）。</div></div>
-</div>
+<h2>事务来源类型（Source Type）<span class="count">13 个</span></h2>
+<div class="sub" style="margin-bottom:0">事务记录上的"来源"字段：这笔事务是从哪类单据来的。先认来源，再认类型，排错时方向不容易反。</div>
+<div class="tblwrap"><table><thead><tr><th>Oracle 原文</th><th>中文</th><th>产生哪些事务</th></tr></thead><tbody><tr><td class="en">Purchase order</td><td>采购订单</td><td>采购接收、退货给供应商、接收调整。</td></tr><tr><td class="en">Sales order</td><td>销售订单</td><td>销售挑库、销售发货出库。</td></tr><tr><td class="en">Internal order</td><td>内部订单</td><td>公司内部调拨的发货方一侧（挑库、发运）。</td></tr><tr><td class="en">Internal requisition</td><td>内部请购</td><td>公司内部调拨的收货方一侧（接收）。</td></tr><tr><td class="en">Job or Schedule</td><td>工单 / 生产计划</td><td>生产发料、退料、完工入库、完工退回。</td></tr><tr><td class="en">Move order</td><td>搬运单</td><td>搬运单转移、搬运单出库。</td></tr><tr><td class="en">Account</td><td>科目</td><td>直接指定总账科目的手工出入库。</td></tr><tr><td class="en">Account alias</td><td>账户别名</td><td>用科目快捷码做的手工出入库。</td></tr><tr><td class="en">Inventory</td><td>库存（通用）</td><td>杂项出入库、子库存转移等没有专门单据的事务。</td></tr><tr><td class="en">RMA</td><td>退货授权</td><td>客户退货接收、RMA 退回。</td></tr><tr><td class="en">Cycle Count</td><td>循环盘点</td><td>循环盘点调整。</td></tr><tr><td class="en">Physical Inventory</td><td>实地盘点</td><td>实地盘点调整。</td></tr><tr><td class="en">Standard cost update</td><td>标准成本更新</td><td>标准成本更新。</td></tr></tbody></table></div>
 
-<h2>内部订单 / 内部请购<span class="count">5 个</span></h2>
-<div class="grid">
-<div class="card"><span class="dir">转移</span><span class="key">Internal Order Pick</span><div class="name">内部订单挑库</div><div class="use">内部订单发运前挑库：物料先移入暂存子库存。</div></div>
-<div class="card"><span class="dir">发运</span><span class="key">Int Order Intr Ship</span><div class="name">内部订单在途发运</div><div class="use">内部订单发运：物料离开来源组织、进入在途，目标组织收货后销在途。</div></div>
-<div class="card"><span class="dir">发运</span><span class="key">Int Order Direct Ship</span><div class="name">内部订单直接组织间发运</div><div class="use">内部订单直接从来源组织发到目标组织，不走在途库存。</div></div>
-<div class="card"><span class="dir">入库</span><span class="key">Int Req Intr Rcpt</span><div class="name">内部请购在途接收</div><div class="use">内部请购的在途物料到达目标组织，接收销在途。</div></div>
-<div class="card"><span class="dir">入库</span><span class="key">Int Req Direct Org Xfer</span><div class="name">内部请购直接组织间接收</div><div class="use">内部请购通过组织间直接转移到达目标组织并接收，不经在途。</div></div>
-</div>
+<h2>事务动作（Action）<span class="count">17 个</span></h2>
+<div class="sub" style="margin-bottom:0">事务类型背后的底层动作：多个事务类型可以共用同一个动作。看懂动作，就知道这笔记录到底对库存做了什么。</div>
+<div class="tblwrap"><table><thead><tr><th>Oracle 原文</th><th>中文</th><th>库存方向</th><th>对应的常见事务类型</th></tr></thead><tbody><tr><td class="en">Issue from stores</td><td>从仓库发出</td><td>出库</td><td>WIP Issue、Sales order issue、Miscellaneous issue、Return to Vendor、Account alias issue</td></tr><tr><td class="en">Receipt into stores</td><td>收入仓库</td><td>入库</td><td>PO Receipt、WIP Return、Miscellaneous receipt、RMA Receipt、Account alias receipt</td></tr><tr><td class="en">Subinventory transfer</td><td>子库存转移</td><td>库内转移</td><td>Subinventory Transfer、Move Order Transfer</td></tr><tr><td class="en">Staging transfer</td><td>暂存转移（挑库）</td><td>库内转移</td><td>Sales Order Pick、Internal Order Pick</td></tr><tr><td class="en">Direct organization transfer</td><td>组织间直接转移</td><td>组织间转移</td><td>Direct Org Transfer、Int Order Direct Ship、Int Req Direct Org Xfer</td></tr><tr><td class="en">Intransit shipment</td><td>在途发运</td><td>出库（进入在途）</td><td>Int Order Intr Ship</td></tr><tr><td class="en">Intransit receipt</td><td>在途接收</td><td>入库</td><td>Int Req Intr Rcpt</td></tr><tr><td class="en">Assembly completion</td><td>装配件完工</td><td>入库</td><td>WIP Completion</td></tr><tr><td class="en">Assembly return</td><td>装配件退回</td><td>出库（退回工单）</td><td>WIP Completion Return</td></tr><tr><td class="en">Negative component issue</td><td>负数组件发料</td><td>入库</td><td>WIP Negative Issue</td></tr><tr><td class="en">Negative component return</td><td>负数组件退料</td><td>出库</td><td>WIP Negative Return</td></tr><tr><td class="en">WIP assembly scrap</td><td>工单装配件报废</td><td>数量不变</td><td>WIP Assembly Scrap</td></tr><tr><td class="en">Cycle count adjustment</td><td>循环盘点调整</td><td>调整</td><td>Cycle Count Adjust</td></tr><tr><td class="en">Physical inventory adjustment</td><td>实地盘点调整</td><td>调整</td><td>Physical Inv Adjust</td></tr><tr><td class="en">Delivery adjustments</td><td>接收调整</td><td>调整</td><td>PO Rcpt Adjust、Int Req Rcpt Adjust、Shipment Rcpt Adjust</td></tr><tr><td class="en">Cost update</td><td>成本更新</td><td>数量不变（只改成本）</td><td>Average cost update、Standard cost update</td></tr><tr><td class="en">Container unpack</td><td>容器拆包</td><td>数量不变</td><td>Container Unpack</td></tr></tbody></table></div>
 
-<h2>库存内部调拨与杂项<span class="count">8 个</span></h2>
-<div class="grid">
-<div class="card"><span class="dir">转移</span><span class="key">Subinventory Transfer</span><div class="name">子库存转移</div><div class="use">同一组织内，物料在子库存之间调拨，总量不变。</div></div>
-<div class="card"><span class="dir">转移</span><span class="key">Direct Org Transfer</span><div class="name">组织间直接转移</div><div class="use">两个组织之间直接转移物料，不走在途，一步到位。</div></div>
-<div class="card"><span class="dir">转移</span><span class="key">Move Order Transfer</span><div class="name">搬运单转移</div><div class="use">按搬运单（Move Order）把物料从源子库存移到目标子库存。</div></div>
-<div class="card"><span class="dir">出库</span><span class="key">Miscellaneous Issue</span><div class="name">杂项出库</div><div class="use">不挂单据的手工出库：盘亏调整、无工单领用等都走它。</div></div>
-<div class="card"><span class="dir">入库</span><span class="key">Miscellaneous Receipt</span><div class="name">杂项入库</div><div class="use">不挂单据的手工入库：盘盈调整等走它。和杂项出库是一对。</div></div>
-<div class="card"><span class="dir">出库</span><span class="key">Account Alias Issue</span><div class="name">账户别名出库</div><div class="use">以账户别名作为出库去向，费用归集到别名对应的账户。</div></div>
-<div class="card"><span class="dir">入库</span><span class="key">Account Alias Receipt</span><div class="name">账户别名入库</div><div class="use">以账户别名作为入库来源的杂项入库。</div></div>
-<div class="card"><span class="dir">拆包</span><span class="key">Container Unpack</span><div class="name">容器拆包</div><div class="use">把容器（LPN）里的物料拆出来，改按散件管理。</div></div>
-</div>
+<h2>想要完整清单时</h2>
+<div class="sub" style="margin-bottom:0">本页的标准类型按 EBS 标准知识整理，名称拼写可能与实际系统略有差异；各系统如有自定义事务类型，这里不会包含。要拿到某个系统里的全部事务类型（含编号、自定义类型、停用日期），可以把下面这条只读 SQL 交 IT 评审后在本地执行（只有 SELECT，无任何修改操作）：</div>
+<details><summary>只读 SQL：导出全部库存事务类型</summary>
+<pre>-- 导出系统里全部库存事务类型（含自定义类型、停用日期）
+-- 只读 SELECT，无 DDL/DML；评审后在本地用 SQLcl 执行
+SET SQLFORMAT csv
+SET FEEDBACK OFF
+SPOOL transaction_type_meanings_YYYYMMDD.csv
 
-<div class="tip">读法：先看方向再看单据——Issue 是出、Receipt/Return/Completion 多为入、Transfer/Pick 是搬位置不改变总量；名字带 Intr（在途）的，都是"发运、收货"两笔成对出现，只看到一笔，就是在途还没销。注：Int Req Direct Org Xfer 字面是"直接组织间转移"，本页中文按接收方视角译作"接收"。<br>相关学习：<a href="ebs-shortcodes.html">EBS 程序短码速查</a> · <a href="ebs-shortcuts.html">EBS 快捷键速查</a> · <a href="ebs-finance.html">EBS 财务管理</a></div>
+SELECT mtt.TRANSACTION_TYPE_ID,
+       mtt.TRANSACTION_TYPE_NAME,
+       mtt.DESCRIPTION,
+       mtt.TRANSACTION_SOURCE_TYPE_ID,
+       mtst.TRANSACTION_SOURCE_TYPE_NAME,
+       mtt.TRANSACTION_ACTION_ID,
+       ml.MEANING AS TRANSACTION_ACTION_MEANING,
+       mtt.USER_DEFINED_FLAG,
+       mtt.DISABLE_DATE
+  FROM MTL_TRANSACTION_TYPES mtt
+  LEFT JOIN MTL_TXN_SOURCE_TYPES mtst
+    ON mtst.TRANSACTION_SOURCE_TYPE_ID = mtt.TRANSACTION_SOURCE_TYPE_ID
+  LEFT JOIN MFG_LOOKUPS ml
+    ON ml.LOOKUP_TYPE = &#x27;MTL_TRANSACTION_ACTION&#x27;
+   AND ml.LOOKUP_CODE = mtt.TRANSACTION_ACTION_ID
+ ORDER BY mtt.TRANSACTION_TYPE_ID
+;
+
+SPOOL OFF
+EXIT</pre></details>
+
+<div class="tip">读法：先看方向再看单据——Issue 是出、Receipt / Return / Completion 多为入、Transfer / Pick 是搬位置不改变总量；名字带 Intr（在途）的，都是"发运、收货"两笔成对出现，只看到一笔，就是在途还没销。注：Int Req Direct Org Xfer 字面是"直接组织间转移"，本页中文按接收方视角译作"接收"。<br>相关学习：<a href="ebs-shortcodes.html">EBS 程序短码速查</a> · <a href="ebs-shortcuts.html">EBS 快捷键速查</a> · <a href="ebs-finance.html">EBS 财务管理</a></div>
 </div>
 </body>
 </html>
