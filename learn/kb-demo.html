@@ -80,6 +80,12 @@ body { margin:0; background:#f3f2f1; color:#242424;
 .howto .step p { margin:8px 0 0; font-size:13.5px; line-height:1.65; color:#605e5c; }
 .foot { margin-top:34px; font-size:12.5px; color:#8a8886; line-height:1.7; }
 .foot a { color:#0f6cbd; }
+.verbar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; background:#fff;
+  border:1px solid #e1dfdd; border-radius:6px; padding:10px 14px; margin-top:16px; }
+.verbar .vb-t { font-size:13px; color:#605e5c; font-weight:600; margin-right:2px; }
+.verbar a { font-size:13px; color:#323130; text-decoration:none; border:1px solid #c8c6c4;
+  border-radius:16px; padding:6px 13px; }
+.verbar a.on { background:#242424; border-color:#242424; color:#fff; font-weight:600; }
 @media (max-width:640px){ .titlearea{padding:24px 18px} .samplebody,.sampleby{padding-left:18px;padding-right:18px} }
 </style>
 </head>
@@ -87,6 +93,7 @@ body { margin:0; background:#f3f2f1; color:#242424;
 <div class="suitebar"><span class="waffle">▦</span><span class="brand">Microsoft 365</span><span class="mocksearch">搜索文件、页面、人员…（正式版由 Microsoft Search 提供）</span><span class="avatar">SH</span></div>
 <div class="sitehead"><div class="sitelogo">IT</div><div class="sitename">ECN IT Tips &amp; Knowledge</div><nav class="sitenav"><span class="on">首页</span><span>页面库</span><span>目录 Lists</span><span>Loop 投票</span><span>← <a href="https://simonhu668.github.io/it-news/" style="color:#0f6cbd">回资讯站</a></span></nav></div>
 <div class="canvas">
+<div class="verbar"><span class="vb-t">样式评审 · 共 4 版</span><a class="on" href="kb-demo.html">V1 卡片墙</a><a href="kb-demo2.html">V2 目录树</a><a href="kb-demo3.html">V3 模块门户</a><a href="kb-demo4.html">V4 多视图</a></div>
 <div class="titlearea"><div class="kicker">ECN DIGITAL TOOLS AND KNOWLEDGE SHARING</div><h1>每日小技巧知识库</h1><p>一条技巧 = 一个 SharePoint 页面：标题区、作者与日期、正文、分类元数据齐全，可被 Teams 顶部搜索和 Copilot 直接检索引用。下面是按这个样子做的可操作 Demo，数据就是现在真实的全部技巧。</p></div>
 <div class="stats"><div class="stat"><b>65</b><span>技巧页面（条）</span></div><div class="stat"><b>22</b><span>发布天数</span></div><div class="stat"><b>4</b><span>分类</span></div><div class="stat"><b>2026-11-02</b><span>最近更新</span></div></div>
 <div class="callout"><b>这是样式 Demo</b>，放在资讯站「学习」区供评审，不是真的 SharePoint。评审就看三点：① 卡片墙按分类逛，顺不顺手；② 下面「打开一条是什么样」的单页排版，能否替代现在读简报的体验；③ 搜索框输个关键词（如「公式」「附件」）试试过滤——正式版对应 Microsoft Search 全文检索。觉得合适，租户里就照这个结构建站、改流自动建页。</div>
