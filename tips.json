@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-03",
+   "idx": 3,
+   "title": "OneDrive：看一眼文件旁的小图标，就知道它到底有没有同步好",
+   "tag": "OneDrive",
+   "topic": "看一眼文件旁的小图标，就知道它到底有没有同步好",
+   "category": "Microsoft 365",
+   "module": "文件协作（OneDrive / SharePoint）",
+   "guid": "d35f62f7a1c953cca1eba01eb690356d",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-03",
+   "html": "<p><b>OneDrive：看一眼文件旁的小图标，就知道它到底有没有同步好</b></p><p>文件旁边的小图标就是同步状态，不用打开文件也能判断：</p>\n<ol>\n<li>打开文件资源管理器里的 OneDrive 文件夹，看每个文件旁边的图标。</li>\n<li>绿色对勾表示已同步到云端，在别的设备上也能打开；云朵图标表示只在云端、还没下载到本机，双击才会下载。</li>\n<li>两个旋转箭头表示正在同步中，稍等一下再打开；红色叉号表示同步出错，点任务栏的 OneDrive 图标能看到是哪一个文件出了问题。</li>\n<li>出门前、关机前先确认重要文件是绿色对勾，而不是云朵或红叉，就不会到了客户现场才发现文件打不开。</li>\n</ol>\n<p><b>English — OneDrive: Read the little icon beside a file to tell whether it has synced</b></p>\n<ol>\n<li>Open your OneDrive folder in File Explorer and look at the icon beside each file.</li>\n<li>A green tick means the file is synced to the cloud and available on other devices; a cloud icon means it is online-only and will download when you double-click it.</li>\n<li>Two rotating arrows mean it is still syncing — wait a moment before opening it; a red cross means a sync error, and clicking the OneDrive icon in the taskbar shows which file failed.</li>\n<li>Before leaving the office or shutting down, check that important files show a green tick — not a cloud or a red cross — so they open when you need them elsewhere.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-03",
+   "idx": 2,
+   "title": "Outlook：休假前设好自动回复，邮件就不会石沉大海",
+   "tag": "Outlook",
+   "topic": "休假前设好自动回复，邮件就不会石沉大海",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "fa5cc540049c665b932688d541619c8c",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-03",
+   "html": "<p><b>Outlook：休假前设好自动回复，邮件就不会石沉大海</b></p><p>请假、出差前花半分钟设一次，找你的人立刻知道你什么时候回来、该找谁：</p>\n<ol>\n<li>打开 Outlook，点左上角「文件（File）」→「自动回复（Automatic Replies）」。</li>\n<li>选择「发送自动回复」，分别填好内部和外部的回复内容，写清休假时间和紧急联系人。</li>\n<li>勾选「仅在以下时间段内发送」，设好开始和结束日期，到期自动停止，不用回来再关。</li>\n<li>点「确定」保存；休假回来后，Outlook 会提醒你自动回复已关闭，不用担心忘关。</li>\n</ol>\n<p><b>English — Outlook: Set an automatic reply before leave, so no email goes unanswered</b></p>\n<ol>\n<li>In Outlook, click &quot;File&quot; → &quot;Automatic Replies&quot;.</li>\n<li>Select &quot;Send automatic replies&quot; and write separate messages for inside and outside the organisation, stating your leave dates and who to contact urgently.</li>\n<li>Tick &quot;Only send during this time range&quot; and set the start and end dates — it stops by itself when you return.</li>\n<li>Click &quot;OK&quot; to save; when you are back, Outlook will remind you the automatic reply is off, so you won&#x27;t forget to turn it off.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-03",
+   "idx": 1,
+   "title": "EBS：查之前先数一数，几万条结果就不会一下子卡住窗口",
+   "tag": "EBS",
+   "topic": "查之前先数一数，几万条结果就不会一下子卡住窗口",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "80b4a474e1b857addc0ee78fef16ad18",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-03",
+   "html": "<p><b>EBS：查之前先数一数，几万条结果就不会一下子卡住窗口</b></p><p>查询条件太宽时直接执行，系统可能一次拉出几万行、窗口半天不动。先数条数，再决定要不要收紧条件：</p>\n<ol>\n<li>在要查的表单里按 <b>F11</b> 进入查询模式，填好查询条件（比如日期、单据号）。</li>\n<li>先不要按 Ctrl+F11，点菜单栏的「查询（Query）」→「统计匹配记录数（Count Matching Records）」。</li>\n<li>弹出的数字就是符合条件的记录条数：几十、几百条可以直接执行；上万条就先加条件收紧范围。</li>\n<li>条数合理后，再按 <b>Ctrl+F11</b> 执行查询，结果很快就出来了。</li>\n</ol>\n<p><b>English — EBS: Count matching records before you run a query, so a huge result set won&#x27;t freeze your window</b></p>\n<ol>\n<li>In the form, press <b>F11</b> to enter query mode and fill in your criteria (e.g. date, document number).</li>\n<li>Before pressing Ctrl+F11, go to the &quot;Query&quot; menu and choose &quot;Count Matching Records&quot;.</li>\n<li>The number shown is how many records match: a few dozen or hundred is fine to run; tens of thousands means you should narrow the criteria first.</li>\n<li>Once the count looks reasonable, press <b>Ctrl+F11</b> to run the query — the results will come back quickly.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-02",
    "idx": 3,
    "title": "Teams：开会时按 Ctrl+Shift+O，一键开关摄像头",
