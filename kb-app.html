@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECN IT Tips &amp; Knowledge — 知识库（飞书式目录）</title>
+<!--
+  ECN IT 知识库 · 飞书文档式阅读应用（单文件版）
+  数据源：kb-index.json（默认读资讯站 tips.json，可用 ?src=<索引JSON地址> 覆盖）。
+  租户内部署时，把索引 JSON 放在 SharePoint 文档库，由 Power Automate 流维护，
+  本页地址填进 Teams 的 Website 标签页或 SPFx 壳中即可。
+  索引条目字段：title / topic / category / module / date / html（正文HTML）/ link（原页地址）/ guid
+-->
+<style>
+* { box-sizing:border-box; }
+body { margin:0; background:#fff; color:#1f2329;
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+.fs-wrap { max-width:1320px; margin:0 auto; padding:0 14px 60px; }
+.fs-head { display:flex; align-items:center; gap:12px; padding:14px 4px 10px;
+  border-bottom:1px solid #dee0e3; position:sticky; top:0; background:#fff; z-index:5; }
+.fs-logo { width:34px; height:34px; border-radius:8px; background:#3370ff; color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:17px; flex:none; }
+.fs-title { font-size:16.5px; font-weight:600; }
+.fs-sub { font-size:12px; color:#8f959e; }
+.fs-toggle { margin-left:auto; border:1px solid #dee0e3; background:#fff; border-radius:6px;
+  padding:7px 13px; font-size:13px; cursor:pointer; font-family:inherit; flex:none; }
+.fs-toggle:hover { background:#f2f3f5; }
+.fs-layout { display:flex; align-items:stretch; min-height:70vh; }
+.fs-side { width:300px; flex:none; border-right:1px solid #dee0e3; padding:14px 10px 20px 2px;
+  overflow-y:auto; max-height:calc(100vh - 130px); position:sticky; top:64px; }
+.fs-layout.closed .fs-side { display:none; }
+.fs-sidehead { display:flex; align-items:center; gap:8px; padding:2px 8px 10px; }
+.fs-sidehead b { font-size:13px; color:#646a73; letter-spacing:.05em; }
+.fs-sidehead button { margin-left:auto; border:0; background:none; font-size:12.5px;
+  color:#3370ff; cursor:pointer; font-family:inherit; padding:2px 4px; }
+.fs-search { display:flex; align-items:center; gap:7px; background:#f2f3f5; border-radius:6px;
+  padding:7px 10px; margin:0 4px 12px; }
+.fs-search input { border:0; outline:0; background:transparent; flex:1; font-size:13.5px;
+  font-family:inherit; color:#1f2329; min-width:0; }
+.fs-ghead, .fs-mhead { display:flex; align-items:center; gap:6px; width:100%; background:none;
+  border:0; font:inherit; text-align:left; cursor:pointer; border-radius:6px; color:#1f2329; }
+.fs-ghead { font-size:14px; font-weight:600; padding:7px 8px; margin-top:6px; }
+.fs-mhead { font-size:13.5px; font-weight:500; padding:6px 8px 6px 22px; color:#37352f; }
+.fs-ghead:hover, .fs-mhead:hover, .fs-item:hover { background:#f2f3f5; }
+.fs-chev { font-size:10px; color:#8f959e; transition:transform .15s; flex:none; width:12px; }
+.fs-chev.off { transform:rotate(-90deg); }
+.fs-n { margin-left:auto; font-size:11.5px; color:#8f959e; flex:none; }
+.fs-dot { width:8px; height:8px; border-radius:50%; flex:none; }
+.fs-items { padding-left:34px; }
+.fs-item { display:block; width:100%; background:none; border:0; font:inherit; font-size:13px;
+  text-align:left; cursor:pointer; padding:5.5px 8px; border-radius:6px; color:#42464d;
+  line-height:1.45; }
+.fs-item.on { background:#e9effe; color:#245bdb; font-weight:600; }
+.fs-home { font-weight:600; color:#1f2329; margin-bottom:4px; }
+.fs-main { flex:1; min-width:0; padding:26px 42px 40px; max-width:880px; margin:0 auto; width:100%; }
+.fs-crumb { font-size:13px; color:#8f959e; margin-bottom:10px; }
+.fs-doc h1 { font-size:27px; line-height:1.35; margin:0 0 12px; }
+.fs-meta { display:flex; gap:9px; align-items:center; flex-wrap:wrap; font-size:13px;
+  color:#646a73; border-bottom:1px solid #eff0f1; padding-bottom:16px; margin-bottom:18px; }
+.fs-meta .avatar { width:26px; height:26px; border-radius:50%; background:#3370ff; color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; }
+.fs-chip { background:#f2f3f5; border-radius:11px; padding:2.5px 10px; font-size:12px; color:#42464d; }
+.fs-body { font-size:15px; line-height:1.85; }
+.fs-body p { margin:9px 0; }
+.fs-body ul, .fs-body ol { margin:6px 0; padding-left:22px; }
+.fs-body code { font-family:ui-monospace,Menlo,Consolas,monospace; background:#f2f3f5;
+  padding:2px 7px; border-radius:5px; font-size:13.5px; color:#245bdb; }
+.fs-body a { color:#245bdb; }
+.fs-openorig { display:inline-block; margin-top:22px; font-size:13.5px; color:#245bdb;
+  text-decoration:none; border:1px solid #dee0e3; border-radius:6px; padding:8px 14px; }
+.fs-openorig:hover { background:#f2f3f5; }
+.fs-nav { display:flex; gap:12px; margin-top:34px; border-top:1px solid #eff0f1; padding-top:18px; }
+.fs-nav button { flex:1; border:1px solid #dee0e3; background:#fff; border-radius:8px;
+  padding:11px 14px; font:inherit; font-size:13.5px; cursor:pointer; text-align:left; }
+.fs-nav button:hover { background:#f2f3f5; }
+.fs-nav button small { display:block; color:#8f959e; font-size:12px; margin-bottom:3px; }
+.fs-nav button:disabled { opacity:.35; cursor:default; }
+.fs-nav .nx { text-align:right; }
+.fs-empty { padding:40px 0; color:#8f959e; font-size:14px; text-align:center; display:none; }
+.fs-status { padding:60px 0; text-align:center; color:#8f959e; font-size:14.5px; line-height:1.8; }
+.fs-status b { color:#1f2329; }
+@media (max-width:820px){
+  .fs-layout{flex-direction:column} .fs-side{width:100%; position:static; max-height:none;
+    border-right:0; border-bottom:1px solid #dee0e3}
+  .fs-main{padding:20px 8px 30px}
+}
+</style>
+</head>
+<body>
+<div class="fs-wrap">
+<div class="fs-head"><div class="fs-logo">📘</div>
+<div><div class="fs-title">ECN IT Tips &amp; Knowledge</div>
+<div class="fs-sub" id="fsSrc">飞书文档式知识库 · 正在加载索引…</div></div>
+<button class="fs-toggle" id="fsToggleSide">☰ 收起目录</button></div>
+<div class="fs-layout" id="fsLayout">
+<aside class="fs-side">
+<div class="fs-sidehead"><b>目录</b><button id="fsFoldAll">全部收起</button></div>
+<div class="fs-search">🔍<input id="fsq" type="text" placeholder="搜索目录…"><span class="fs-n" id="fsCnt"></span></div>
+<div id="fsTree"></div>
+<div class="fs-empty" id="fsEmpty">没有匹配的条目</div>
+</aside>
+<main class="fs-main">
+<div id="fsDoc"><div class="fs-status">正在加载知识库索引…</div></div>
+<div class="fs-nav"><button id="fsPrev" disabled><small>上一篇</small><span></span></button><button class="nx" id="fsNext" disabled><small>下一篇</small><span></span></button></div>
+</main>
+</div>
+</div>
+<script>
+var CATS = [
+  ["Oracle EBS", "#a4262c", "Oracle EBS R12 操作与排障"],
+  ["Office 365", "#0f6cbd", "Excel / Word / PPT / Outlook"],
+  ["Microsoft 365", "#5c2e91", "Teams / SharePoint / OneDrive / Loop / Copilot"],
+  ["Windows", "#0078d4", "Windows 系统与快捷操作"]
+];
+var MOD_ORDER = {
+  "Oracle EBS": ["查询与筛选", "报表与请求", "表单录入与维护", "审批与通知", "导航与帮助"],
+  "Office 365": ["Excel", "Outlook"],
+  "Microsoft 365": ["Teams 协作", "文件协作（OneDrive / SharePoint）"],
+  "Windows": ["窗口与桌面管理", "截图与剪贴板", "快捷操作"]
+};
+var COLOR = {}; CATS.forEach(function(c){ COLOR[c[0]] = c[1]; });
+var params = new URLSearchParams(location.search);
+var SRC = params.get("src") || "https://simonhu668.github.io/it-news/tips.json";
+var ITEMS = [], ORDER = [], curId = null;
+
+function esc(s){ var d = document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; }
+function plain(htmlText, n){
+  var d = document.createElement("div"); d.innerHTML = htmlText || "";
+  var t = (d.textContent || "").replace(/\s+/g, " ").trim();
+  return t.slice(0, n || 400);
+}
+function grouped(items){
+  var out = [];
+  CATS.forEach(function(c){
+    var cat = c[0], ctips = items.filter(function(t){ return t.category === cat; });
+    if (!ctips.length) return;
+    var mods = [], seen = {};
+    (MOD_ORDER[cat] || []).forEach(function(m){
+      var mt = ctips.filter(function(t){ return t.module === m; });
+      if (mt.length){ mods.push([m, mt]); seen[m] = 1; }
+    });
+    ctips.forEach(function(t){
+      if (!seen[t.module]){
+        var mt = ctips.filter(function(x){ return x.module === t.module; });
+        mods.push([t.module, mt]); seen[t.module] = 1;
+      }
+    });
+    out.push([cat, c[1], c[2], mods]);
+  });
+  items.forEach(function(t){
+    if (!COLOR[t.category]){
+      var existing = out.filter(function(g){ return g[0] === t.category; })[0];
+      if (!existing){ existing = [t.category, "#646a73", "", []]; out.push(existing); }
+      var mm = existing[3].filter(function(x){ return x[0] === t.module; })[0];
+      if (!mm){ mm = [t.module, []]; existing[3].push(mm); }
+      mm[1].push(t);
+    }
+  });
+  return out;
+}
+function buildTree(items){
+  var tree = document.getElementById("fsTree"), html = "";
+  html += '<button class="fs-item fs-home on" data-doc="doc-home" data-text="知识库首页 home">🏠 知识库首页</button>';
+  grouped(items).forEach(function(g){
+    var cat = g[0], col = g[1], mods = g[3];
+    var total = mods.reduce(function(a, m){ return a + m[1].length; }, 0);
+    html += '<div class="fs-group"><button class="fs-ghead"><span class="fs-chev">▾</span>'
+      + '<span class="fs-dot" style="background:' + col + '"></span>' + esc(cat)
+      + '<span class="fs-n">' + total + '</span></button><div class="fs-gbody">';
+    mods.forEach(function(m){
+      html += '<div class="fs-mod"><button class="fs-mhead"><span class="fs-chev">▾</span>'
+        + esc(m[0]) + '<span class="fs-n">' + m[1].length + '</span></button>'
+        + '<div class="fs-mbody"><div class="fs-items">';
+      m[1].forEach(function(t){
+        var text = (t.title + " " + (t.topic || "") + " " + t.category + " " + t.module + " " + plain(t.html)).toLowerCase();
+        html += '<button class="fs-item" data-doc="doc-' + esc(t.guid) + '" data-text="' + esc(text) + '">'
+          + esc(t.topic || t.title) + '</button>';
+        ORDER.push(t);
+      });
+      html += '</div></div></div>';
+    });
+    html += '</div></div>';
+  });
+  tree.innerHTML = html;
+  document.getElementById("fsCnt").textContent = "显示 " + items.length + " 条";
+}
+function homeDoc(items){
+  var latest = items.length ? items[0].date : "";
+  return '<article class="fs-doc"><div class="fs-crumb">知识库 / 首页</div>'
+    + '<h1>ECN IT Tips &amp; Knowledge 知识库</h1>'
+    + '<div class="fs-meta"><span class="avatar">SH</span><span>Simon Hu</span><span>·</span>'
+    + '<span>最近更新 ' + esc(latest) + '</span><span class="fs-chip">共 ' + items.length + ' 条</span>'
+    + '<span class="fs-chip">4 分类 · 12 模块</span></div>'
+    + '<div class="fs-body"><p><b>飞书文档式阅读</b>：左边是可收缩的目录树（分类 → 模块 → 条目），'
+    + '点箭头逐级收起，整个侧栏也能一键收起；右边是文档阅读区，点条目即在右侧打开全文。</p>'
+    + '<p>目录上方搜索框可按标题和正文过滤；文末上一篇/下一篇可连续阅读。</p>'
+    + '<p>本页数据来自知识库索引（kb-index.json），条目更新后刷新即可看到最新内容。</p></div></article>';
+}
+function renderDoc(t){
+  return '<article class="fs-doc"><div class="fs-crumb">' + esc(t.category) + ' / ' + esc(t.module) + '</div>'
+    + '<h1>' + esc(t.title) + '</h1>'
+    + '<div class="fs-meta"><span class="avatar">SH</span><span>Simon Hu</span><span>·</span><span>' + esc(t.date) + '</span>'
+    + '<span class="fs-chip">' + esc(t.category) + '</span><span class="fs-chip">' + esc(t.module) + '</span></div>'
+    + '<div class="fs-body">' + (t.html || '<p>（暂无正文）</p>') + '</div>'
+    + (t.link ? '<a class="fs-openorig" href="' + esc(t.link) + '" target="_blank" rel="noopener">打开原页面 ↗</a>' : '')
+    + '</article>';
+}
+function itemBtns(){ return [].slice.call(document.querySelectorAll('.fs-item[data-doc]')); }
+function selectDoc(id){
+  var btns = itemBtns();
+  btns.forEach(function(b){ b.classList.toggle('on', b.dataset.doc === id); });
+  curId = id;
+  var main = document.getElementById("fsDoc");
+  if (id === "doc-home"){ main.innerHTML = homeDoc(ITEMS); }
+  else {
+    var guid = id.slice(4);
+    var t = ITEMS.filter(function(x){ return String(x.guid) === guid; })[0];
+    main.innerHTML = t ? renderDoc(t) : '<div class="fs-status">条目不存在。</div>';
+  }
+  var idx = btns.findIndex(function(b){ return b.dataset.doc === id; });
+  var pv = document.getElementById("fsPrev"), nx = document.getElementById("fsNext");
+  pv.disabled = idx <= 0; nx.disabled = idx < 0 || idx >= btns.length - 1;
+  pv.querySelector("span").textContent = idx > 0 ? btns[idx - 1].textContent.trim() : "";
+  nx.querySelector("span").textContent = (idx > -1 && idx < btns.length - 1) ? btns[idx + 1].textContent.trim() : "";
+  if (idx > -1){
+    var it = btns[idx], g = it.closest(".fs-group"), m = it.closest(".fs-mod");
+    if (g) g.querySelector(".fs-gbody").style.display = "";
+    if (m) m.querySelector(".fs-mbody").style.display = "";
+    it.scrollIntoView({ block: "nearest" });
+  }
+  window.scrollTo({ top: 0 });
+}
+function bindUI(){
+  itemBtns().forEach(function(b){ b.addEventListener("click", function(){ selectDoc(b.dataset.doc); }); });
+  document.querySelectorAll(".fs-ghead").forEach(function(h){ h.addEventListener("click", function(){
+    var body = h.parentElement.querySelector(".fs-gbody"), off = body.style.display === "none";
+    body.style.display = off ? "" : "none";
+    h.querySelector(".fs-chev").classList.toggle("off", !off);
+  }); });
+  document.querySelectorAll(".fs-mhead").forEach(function(h){ h.addEventListener("click", function(){
+    var body = h.parentElement.querySelector(".fs-mbody"), off = body.style.display === "none";
+    body.style.display = off ? "" : "none";
+    h.querySelector(".fs-chev").classList.toggle("off", !off);
+  }); });
+  var allOpen = true;
+  document.getElementById("fsFoldAll").addEventListener("click", function(){
+    allOpen = !allOpen;
+    document.querySelectorAll(".fs-gbody,.fs-mbody").forEach(function(b){ b.style.display = allOpen ? "" : "none"; });
+    document.querySelectorAll(".fs-ghead .fs-chev,.fs-mhead .fs-chev").forEach(function(c){ c.classList.toggle("off", !allOpen); });
+    this.textContent = allOpen ? "全部收起" : "全部展开";
+  });
+  document.getElementById("fsToggleSide").addEventListener("click", function(){
+    var lay = document.getElementById("fsLayout");
+    lay.classList.toggle("closed");
+    this.textContent = lay.classList.contains("closed") ? "☰ 展开目录" : "☰ 收起目录";
+  });
+  document.getElementById("fsPrev").addEventListener("click", function(){
+    var btns = itemBtns(), i = btns.findIndex(function(b){ return b.dataset.doc === curId; });
+    if (i > 0) selectDoc(btns[i - 1].dataset.doc);
+  });
+  document.getElementById("fsNext").addEventListener("click", function(){
+    var btns = itemBtns(), i = btns.findIndex(function(b){ return b.dataset.doc === curId; });
+    if (i > -1 && i < btns.length - 1) selectDoc(btns[i + 1].dataset.doc);
+  });
+  document.getElementById("fsq").addEventListener("input", function(){
+    var s = (this.value || "").toLowerCase(), n = 0, btns = itemBtns();
+    btns.forEach(function(b){
+      if (b.dataset.doc === "doc-home"){ b.style.display = ""; return; }
+      var ok = !s || (b.dataset.text || "").indexOf(s) > -1;
+      b.style.display = ok ? "" : "none"; if (ok) n++;
+    });
+    document.querySelectorAll(".fs-mod").forEach(function(m){
+      var any = false;
+      m.querySelectorAll(".fs-item").forEach(function(b){ if (b.style.display !== "none") any = true; });
+      m.style.display = any ? "" : "none";
+      if (s && any) m.querySelector(".fs-mbody").style.display = "";
+    });
+    document.querySelectorAll(".fs-group").forEach(function(g){
+      var any = false;
+      g.querySelectorAll(".fs-item").forEach(function(b){ if (b.style.display !== "none") any = true; });
+      g.style.display = any ? "" : "none";
+      if (s && any) g.querySelector(".fs-gbody").style.display = "";
+    });
+    document.getElementById("fsCnt").textContent = "显示 " + n + " 条";
+    document.getElementById("fsEmpty").style.display = n ? "none" : "block";
+  });
+}
+fetch(SRC, { credentials: "include" })
+  .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(function(data){
+    ITEMS = (data.items || data || []);
+    ITEMS.sort(function(a, b){ return (b.date || "").localeCompare(a.date || "") || ((b.idx || 0) - (a.idx || 0)); });
+    document.getElementById("fsSrc").textContent = "飞书文档式知识库 · 索引 " + ITEMS.length + " 条 · 数据源 " + SRC;
+    buildTree(ITEMS);
+    bindUI();
+    selectDoc("doc-home");
+  })
+  .catch(function(e){
+    document.getElementById("fsSrc").textContent = "索引加载失败";
+    document.getElementById("fsDoc").innerHTML = '<div class="fs-status"><b>知识库索引加载失败</b><br>'
+      + '数据源：' + esc(SRC) + '<br>错误：' + esc(e.message) + '<br>'
+      + '请确认索引 JSON 已发布且本页可访问；或用 kb-app.html?src=&lt;索引地址&gt; 指定数据源。</div>';
+  });
+</script>
+</body>
+</html>
