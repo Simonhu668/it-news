@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-04",
+   "idx": 3,
+   "title": "Excel：选中一列数字，右下角状态栏立刻告诉你合计和平均值",
+   "tag": "Excel",
+   "topic": "选中一列数字，右下角状态栏立刻告诉你合计和平均值",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "5c8999b50da3b93532c02eeeb6cb2d7c",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-04",
+   "html": "<p><b>Excel：选中一列数字，右下角状态栏立刻告诉你合计和平均值</b></p><p>临时想算个总数，不用现写公式——选中数据，看一眼窗口右下角就够了：</p>\n<ol>\n<li>用鼠标选中要算的那一列数字（或任意一片连续区域）。</li>\n<li>看 Excel 窗口右下角的状态栏，会直接显示「平均值、计数、求和」三个数。</li>\n<li>只想要其中一项？在状态栏上点右键，勾选或取消「平均值」「计数」「求和」等项目。</li>\n<li>如果还要把结果放进表格，点一下那个数字对应的单元格，再按 <b>Alt+=</b> 一键求和填入。</li>\n</ol>\n<p><b>English — Excel: Select a column of numbers and the status bar instantly shows the total and average — no formula needed</b></p>\n<ol>\n<li>Select the column of numbers (or any block of cells) you want to total.</li>\n<li>Look at the status bar at the bottom right of the Excel window — it shows &quot;Average, Count, Sum&quot; right away.</li>\n<li>Want only some of these? Right-click the status bar and tick or untick items such as Average, Count, or Sum.</li>\n<li>To put the result into the sheet as well, click the cell below the numbers and press <b>Alt+=</b> to insert the sum in one keystroke.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-04",
+   "idx": 2,
+   "title": "Teams：会议里放视频前，先勾上\"包含电脑声音\"，对方才听得到",
+   "tag": "Teams",
+   "topic": "会议里放视频前，先勾上\"包含电脑声音\"，对方才听得到",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "9c9d0904adccd81d9b727eb990577661",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-04",
+   "html": "<p><b>Teams：会议里放视频前，先勾上&quot;包含电脑声音&quot;，对方才听得到</b></p><p>共享屏幕放视频时，对方常说&quot;有画面没声音&quot;——因为默认只共享画面，不共享电脑的声音：</p>\n<ol>\n<li>会议中点「共享（Share）」，先不要急着选窗口。</li>\n<li>在共享面板上方找到并勾选「包含电脑声音（Include computer sound）」。</li>\n<li>再选择要共享的窗口或屏幕，开始播放视频。</li>\n<li>播完后点「停止共享」，下次不放视频时不用勾这一项，正常共享就行。</li>\n</ol>\n<p><b>English — Teams: Tick &quot;Include computer sound&quot; before playing a video in a meeting, or others will see it but not hear it</b></p>\n<ol>\n<li>In the meeting, click &quot;Share&quot; — but don&#x27;t pick a window just yet.</li>\n<li>At the top of the sharing panel, tick &quot;Include computer sound&quot;.</li>\n<li>Then choose the window or screen to share and start playing the video.</li>\n<li>When you finish, click &quot;Stop sharing&quot;; when you are not playing a video, you can leave the box unticked and share normally.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-04",
+   "idx": 1,
+   "title": "EBS：查询条件留空就是\"不限\"，只填你知道的那几项就行",
+   "tag": "EBS",
+   "topic": "查询条件留空就是\"不限\"，只填你知道的那几项就行",
+   "category": "Oracle EBS",
+   "module": "查询与筛选",
+   "guid": "eb200488592554462528953284731ad5",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-04",
+   "html": "<p><b>EBS：查询条件留空就是&quot;不限&quot;，只填你知道的那几项就行</b></p><p>很多人查单据时觉得每个格子都得填，其实不用——空着的字段系统就当作不限制，这样查得更快：</p>\n<ol>\n<li>在要查的表单里按 <b>F11</b> 进入查询模式。</li>\n<li>只填你确定的条件，比如单据号、供应商名或日期，拿不准的字段直接留空。</li>\n<li>按 <b>Ctrl+F11</b> 执行查询，系统只按你填了的条件筛选。</li>\n<li>结果太多时再按 F11 补一个条件收紧范围；结果太少时反过来，把某个条件清空再查一次。</li>\n</ol>\n<p><b>English — EBS: Leave a query field blank and it means &quot;no limit&quot; — fill in only what you know</b></p>\n<ol>\n<li>In the form, press <b>F11</b> to enter query mode.</li>\n<li>Fill in only the criteria you are sure about, such as the document number, supplier name, or date, and leave the fields you are unsure about blank.</li>\n<li>Press <b>Ctrl+F11</b> to run the query — the system filters only on the fields you filled in.</li>\n<li>If there are too many results, press F11 again and add one more criterion to narrow it down; if there are too few, clear one criterion and run it again.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-03",
    "idx": 3,
    "title": "OneDrive：看一眼文件旁的小图标，就知道它到底有没有同步好",
