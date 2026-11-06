@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-06",
+   "idx": 3,
+   "title": "Teams：聊天里想换行不发送，按 Shift+Enter 就行",
+   "tag": "Teams",
+   "topic": "聊天里想换行不发送，按 Shift+Enter 就行",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "8dbed0e68885b45fb9e24ade68c6097e",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-06",
+   "html": "<p><b>Teams：聊天里想换行不发送，按 Shift+Enter 就行</b></p><p>在 Teams 里打一段话，想分两行写清楚——直接按回车会立刻发出去，半句话就跑出去了：</p>\n<ol>\n<li>在消息输入框里打完第一行，按 <b>Shift+Enter</b>，光标换到下一行，消息还没发送。</li>\n<li>继续打第二行，需要几行就按几次 Shift+Enter，分段写完再按 <b>Enter</b> 一次发送。</li>\n<li>不小心按了 Enter 已经发出去？把鼠标移到那条消息上，点 <b>··· → 编辑消息</b> 还能改。</li>\n<li>记住这个小区别：<b>Enter 是发送，Shift+Enter 才是换行</b>——写长消息、贴多行内容时都用得上。</li>\n</ol>\n<p><b>English — Teams: Want a new line without sending? Press Shift+Enter</b></p>\n<ol>\n<li>In the message box, type your first line, then press <b>Shift+Enter</b> — the cursor moves to a new line and nothing is sent yet.</li>\n<li>Keep typing; press Shift+Enter as many times as you need for more lines, then press <b>Enter</b> once to send the whole message.</li>\n<li>Sent it too early by mistake? Hover over the message, click <b>··· → Edit message</b> to fix it.</li>\n<li>Remember the difference: <b>Enter sends, Shift+Enter is a new line</b> — useful for any long message or multi-line text.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-06",
+   "idx": 2,
+   "title": "Excel：按 Ctrl+Shift+L，一键给表格加上或关掉自动筛选",
+   "tag": "Excel",
+   "topic": "按 Ctrl+Shift+L，一键给表格加上或关掉自动筛选",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "e976a749686d8bf9832855ffb590dde5",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-06",
+   "html": "<p><b>Excel：按 Ctrl+Shift+L，一键给表格加上或关掉自动筛选</b></p><p>手里一张几百行的数据表，想只看某个部门、某个状态的行——不用一格格找，先打开自动筛选：</p>\n<ol>\n<li>点一下表格里的任意一个单元格（表头那一行最好）。</li>\n<li>按 <b>Ctrl+Shift+L</b>，每个列标题旁边立刻出现一个小漏斗（筛选箭头），自动筛选就打开了。</li>\n<li>点任意列的小漏斗，勾掉不想看的选项，只留想看的——表格马上只显示符合条件的行。</li>\n<li>再按一次 <b>Ctrl+Shift+L</b>，筛选就关掉了，表格恢复显示全部数据。</li>\n</ol>\n<p><b>English — Excel: Press Ctrl+Shift+L to turn AutoFilter on or off in one step</b></p>\n<ol>\n<li>Click any cell inside your table (the header row is best).</li>\n<li>Press <b>Ctrl+Shift+L</b> — a small funnel (filter arrow) appears next to every column header, and AutoFilter is on.</li>\n<li>Click the funnel on any column, uncheck what you don&#x27;t want to see, and the table instantly shows only the matching rows.</li>\n<li>Press <b>Ctrl+Shift+L</b> again to switch the filter off and bring back all the data.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-06",
+   "idx": 1,
+   "title": "EBS：多行列表里翻记录不用鼠标点，按 ↓ 到下一条、↑ 回上一条",
+   "tag": "EBS",
+   "topic": "多行列表里翻记录不用鼠标点，按 ↓ 到下一条、↑ 回上一条",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "718a3a705bf10bd45510daa8c291d66c",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-06",
+   "html": "<p><b>EBS：多行列表里翻记录不用鼠标点，按 ↓ 到下一条、↑ 回上一条</b></p><p>查采购订单行、查库存明细时，屏幕上一次列出好多条记录——想一条条往下看，不用每次都拿鼠标点：</p>\n<ol>\n<li>先用鼠标点一下列表里的任意一条记录，让光标落在多行区域里。</li>\n<li>按键盘上的 <b>↓ 方向键</b>，光标就移到下一条记录；按 <b>↑ 方向键</b>，回到上一条。</li>\n<li>想快速翻到列表末尾或开头？按住 ↓ 一直按到底，或者配合 <b>Page Down / Page Up</b> 一页一页翻。</li>\n<li>这个办法在所有带多行列表的 EBS 表单里都通用——查单据行、查报表结果时都顺手。</li>\n</ol>\n<p><b>English — EBS: Browse multi-row lists without the mouse — press ↓ for the next record, ↑ for the previous one</b></p>\n<ol>\n<li>Click any record in the list first, so your cursor is inside the multi-row area.</li>\n<li>Press the <b>Down arrow</b> key to move to the next record; press the <b>Up arrow</b> key to go back to the previous one.</li>\n<li>To move quickly to the end or the start of the list, keep pressing ↓, or use <b>Page Down / Page Up</b> to move one page at a time.</li>\n<li>This works in every EBS form with a multi-row list — handy for order lines, inventory details, or any search results.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-05",
    "idx": 3,
    "title": "Windows：电脑卡住了，先按 Ctrl+Shift+Esc 直接打开任务管理器看是谁在拖慢速度",
