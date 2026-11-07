@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-07",
+   "idx": 3,
+   "title": "Teams：没空回的消息先「标记为未读」，稍后不会忘",
+   "tag": "Teams",
+   "topic": "没空回的消息先「标记为未读」，稍后不会忘",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "665700174574baf0515f91d21ab71390",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07",
+   "html": "<p><b>Teams：没空回的消息先「标记为未读」，稍后不会忘</b></p><p>正忙的时候瞥见一条 Teams 消息，读了却没空回——一转身就忘了：</p>\n<ol>\n<li>在消息上点右键（手机上长按），选 <b>标记为未读</b>（Mark as unread）。</li>\n<li>这条对话马上在列表里变回粗体、带上未读标记，看起来就像还没读过。</li>\n<li>等你有空了，顺着未读标记找回来再认真回复，不会漏掉。</li>\n<li>小提醒：只是标记给你自己看，对方不会收到任何通知，不用担心显得失礼。</li>\n</ol>\n<p><b>English — Teams: No time to reply? &quot;Mark as unread&quot; so you won&#x27;t forget it</b></p>\n<ol>\n<li>Right-click the message (long-press on mobile) and choose <b>Mark as unread</b>.</li>\n<li>The conversation jumps back to bold with an unread badge in your list, as if you never read it.</li>\n<li>When you have time, follow the unread badge back and reply properly — nothing slips through.</li>\n<li>Note: this only marks it for you — the other person gets no notification, so there&#x27;s nothing awkward about it.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-07",
+   "idx": 2,
+   "title": "Outlook：常用搜索存成「搜索文件夹」，一点就直达",
+   "tag": "Outlook",
+   "topic": "常用搜索存成「搜索文件夹」，一点就直达",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "4048fcb33a2ad57a1d26a40fdb4c0907",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07",
+   "html": "<p><b>Outlook：常用搜索存成「搜索文件夹」，一点就直达</b></p><p>每天都要查同一类邮件——比如某个人的未读邮件、带附件的邮件——每次在搜索框里重打一遍很麻烦：</p>\n<ol>\n<li>在左侧文件夹列表的 <b>搜索文件夹</b>（Search Folders）上点右键，选 <b>新建搜索文件夹</b>。</li>\n<li>挑一个现成的条件（比如「未读邮件」「来自某人的邮件」），或者选 <b>创建自定义搜索文件夹</b> 自己定条件。</li>\n<li>起个名字（比如「未读的重要邮件」），点确定——它就出现在文件夹列表里，像普通文件夹一样。</li>\n<li>以后想查这类邮件，直接点这个文件夹，结果实时更新，不用再打搜索词。</li>\n</ol>\n<p><b>English — Outlook: Save a frequent search as a &quot;Search Folder&quot; for one-click access</b></p>\n<ol>\n<li>In the folder list, right-click <b>Search Folders</b> and choose <b>New Search Folder</b>.</li>\n<li>Pick a ready-made condition (e.g. &quot;Unread mail&quot;, &quot;Mail from a specific person&quot;), or choose <b>Create a custom Search Folder</b> to set your own criteria.</li>\n<li>Give it a name (e.g. &quot;Unread important mail&quot;) and click OK — it appears in the folder list like a normal folder.</li>\n<li>From now on, just click that folder to see the matching mail — results update automatically, no need to retype the search.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-07",
+   "idx": 1,
+   "title": "EBS：报表跑错参数别重填，点「重新提交」参数全保留",
+   "tag": "EBS",
+   "topic": "报表跑错参数别重填，点「重新提交」参数全保留",
+   "category": "Oracle EBS",
+   "module": "报表与请求",
+   "guid": "ed5b94479b7874f993d69957de7ecb47",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07",
+   "html": "<p><b>EBS：报表跑错参数别重填，点「重新提交」参数全保留</b></p><p>提交报表时发现参数填错了一个数、选错了一个期间——不用关掉重头再填一遍：</p>\n<ol>\n<li>打开 <b>查看我的请求</b>（View Requests），找到刚才跑的那条请求，点一下选中它。</li>\n<li>点工具栏上的 <b>重新提交请求</b>（Resubmit Request），系统会重新打开提交窗口。</li>\n<li>里面的参数和上次一模一样——只改错的那一项，其他的都不用动。</li>\n<li>点提交就行。跑错参数、想换个期间再跑一次，都用这个办法，省得逐项重填。</li>\n</ol>\n<p><b>English — EBS: Wrong parameter in a report? Use &quot;Resubmit Request&quot; instead of starting over</b></p>\n<ol>\n<li>Open <b>View Requests</b> and click the request you just ran to select it.</li>\n<li>Click <b>Resubmit Request</b> on the toolbar — the submit window opens again.</li>\n<li>All the parameters are exactly as before — just fix the one that was wrong and leave the rest untouched.</li>\n<li>Submit again. Use this whenever a parameter was wrong or you want to re-run the same report for a different period — no need to re-enter everything.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-06",
    "idx": 3,
    "title": "Teams：聊天里想换行不发送，按 Shift+Enter 就行",

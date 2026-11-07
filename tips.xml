@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Teams：聊天里想换行不发送，按 Shift+Enter 就行</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-06</link><guid isPermaLink="false">8dbed0e68885b45fb9e24ade68c6097e</guid><pubDate>Fri, 06 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：聊天里想换行不发送，按 Shift+Enter 就行</b></p><p>在 Teams 里打一段话，想分两行写清楚——直接按回车会立刻发出去，半句话就跑出去了：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Teams：没空回的消息先「标记为未读」，稍后不会忘</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07</link><guid isPermaLink="false">665700174574baf0515f91d21ab71390</guid><pubDate>Sat, 07 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：没空回的消息先「标记为未读」，稍后不会忘</b></p><p>正忙的时候瞥见一条 Teams 消息，读了却没空回——一转身就忘了：</p>
+<ol>
+<li>在消息上点右键（手机上长按），选 <b>标记为未读</b>（Mark as unread）。</li>
+<li>这条对话马上在列表里变回粗体、带上未读标记，看起来就像还没读过。</li>
+<li>等你有空了，顺着未读标记找回来再认真回复，不会漏掉。</li>
+<li>小提醒：只是标记给你自己看，对方不会收到任何通知，不用担心显得失礼。</li>
+</ol>
+<p><b>English — Teams: No time to reply? &quot;Mark as unread&quot; so you won&#x27;t forget it</b></p>
+<ol>
+<li>Right-click the message (long-press on mobile) and choose <b>Mark as unread</b>.</li>
+<li>The conversation jumps back to bold with an unread badge in your list, as if you never read it.</li>
+<li>When you have time, follow the unread badge back and reply properly — nothing slips through.</li>
+<li>Note: this only marks it for you — the other person gets no notification, so there&#x27;s nothing awkward about it.</li>
+</ol>]]></description></item>
+<item><title>Outlook：常用搜索存成「搜索文件夹」，一点就直达</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07</link><guid isPermaLink="false">4048fcb33a2ad57a1d26a40fdb4c0907</guid><pubDate>Sat, 07 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：常用搜索存成「搜索文件夹」，一点就直达</b></p><p>每天都要查同一类邮件——比如某个人的未读邮件、带附件的邮件——每次在搜索框里重打一遍很麻烦：</p>
+<ol>
+<li>在左侧文件夹列表的 <b>搜索文件夹</b>（Search Folders）上点右键，选 <b>新建搜索文件夹</b>。</li>
+<li>挑一个现成的条件（比如「未读邮件」「来自某人的邮件」），或者选 <b>创建自定义搜索文件夹</b> 自己定条件。</li>
+<li>起个名字（比如「未读的重要邮件」），点确定——它就出现在文件夹列表里，像普通文件夹一样。</li>
+<li>以后想查这类邮件，直接点这个文件夹，结果实时更新，不用再打搜索词。</li>
+</ol>
+<p><b>English — Outlook: Save a frequent search as a &quot;Search Folder&quot; for one-click access</b></p>
+<ol>
+<li>In the folder list, right-click <b>Search Folders</b> and choose <b>New Search Folder</b>.</li>
+<li>Pick a ready-made condition (e.g. &quot;Unread mail&quot;, &quot;Mail from a specific person&quot;), or choose <b>Create a custom Search Folder</b> to set your own criteria.</li>
+<li>Give it a name (e.g. &quot;Unread important mail&quot;) and click OK — it appears in the folder list like a normal folder.</li>
+<li>From now on, just click that folder to see the matching mail — results update automatically, no need to retype the search.</li>
+</ol>]]></description></item>
+<item><title>EBS：报表跑错参数别重填，点「重新提交」参数全保留</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07</link><guid isPermaLink="false">ed5b94479b7874f993d69957de7ecb47</guid><pubDate>Sat, 07 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>报表与请求</category><description><![CDATA[<p><b>EBS：报表跑错参数别重填，点「重新提交」参数全保留</b></p><p>提交报表时发现参数填错了一个数、选错了一个期间——不用关掉重头再填一遍：</p>
+<ol>
+<li>打开 <b>查看我的请求</b>（View Requests），找到刚才跑的那条请求，点一下选中它。</li>
+<li>点工具栏上的 <b>重新提交请求</b>（Resubmit Request），系统会重新打开提交窗口。</li>
+<li>里面的参数和上次一模一样——只改错的那一项，其他的都不用动。</li>
+<li>点提交就行。跑错参数、想换个期间再跑一次，都用这个办法，省得逐项重填。</li>
+</ol>
+<p><b>English — EBS: Wrong parameter in a report? Use &quot;Resubmit Request&quot; instead of starting over</b></p>
+<ol>
+<li>Open <b>View Requests</b> and click the request you just ran to select it.</li>
+<li>Click <b>Resubmit Request</b> on the toolbar — the submit window opens again.</li>
+<li>All the parameters are exactly as before — just fix the one that was wrong and leave the rest untouched.</li>
+<li>Submit again. Use this whenever a parameter was wrong or you want to re-run the same report for a different period — no need to re-enter everything.</li>
+</ol>]]></description></item>
+<item><title>Teams：聊天里想换行不发送，按 Shift+Enter 就行</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-06</link><guid isPermaLink="false">8dbed0e68885b45fb9e24ade68c6097e</guid><pubDate>Fri, 06 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：聊天里想换行不发送，按 Shift+Enter 就行</b></p><p>在 Teams 里打一段话，想分两行写清楚——直接按回车会立刻发出去，半句话就跑出去了：</p>
 <ol>
 <li>在消息输入框里打完第一行，按 <b>Shift+Enter</b>，光标换到下一行，消息还没发送。</li>
 <li>继续打第二行，需要几行就按几次 Shift+Enter，分段写完再按 <b>Enter</b> 一次发送。</li>
