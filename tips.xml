@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Teams：没空回的消息先「标记为未读」，稍后不会忘</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07</link><guid isPermaLink="false">665700174574baf0515f91d21ab71390</guid><pubDate>Sat, 07 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：没空回的消息先「标记为未读」，稍后不会忘</b></p><p>正忙的时候瞥见一条 Teams 消息，读了却没空回——一转身就忘了：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：Ctrl+D 向下填充，公式和格式一步复制到位</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-08</link><guid isPermaLink="false">5551711fcf07e50d8a81e13a8a427a19</guid><pubDate>Sun, 08 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：Ctrl+D 向下填充，公式和格式一步复制到位</b></p><p>同一列要重复填公式或格式——比如每行都要算小计、标同一颜色——不用一行行复制粘贴：</p>
+<ol>
+<li>先在最上面那一格做好公式或格式。</li>
+<li>选中这一格，再往下选中所有要填的空格（可以按住 Shift 点选）。</li>
+<li>按 <b>Ctrl+D</b>，上面的内容立刻向下填满，公式里的相对引用还会自动顺延。</li>
+<li>想往右填也一样：选中一行后按 <b>Ctrl+R</b>，向右填充。</li>
+</ol>
+<p><b>English — Excel: Ctrl+D fills down — copy a formula or format in one step</b></p>
+<ol>
+<li>Set up the formula or formatting in the top cell first.</li>
+<li>Select that cell plus all the blank cells below it (hold Shift and click to extend the selection).</li>
+<li>Press <b>Ctrl+D</b> — everything fills down at once, and relative references in formulas adjust automatically.</li>
+<li>To fill to the right instead, select a row and press <b>Ctrl+R</b>.</li>
+</ol>]]></description></item>
+<item><title>Outlook：Ctrl+1 / Ctrl+2 / Ctrl+3 秒切邮件、日历、联系人</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-08</link><guid isPermaLink="false">73846908a31a781ba22e918ea5e878e4</guid><pubDate>Sun, 08 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：Ctrl+1 / Ctrl+2 / Ctrl+3 秒切邮件、日历、联系人</b></p><p>查完邮件想看日历、找个联系人，不用再去点左下角的小图标：</p>
+<ol>
+<li>按 <b>Ctrl+1</b>，立刻回到邮件视图。</li>
+<li>按 <b>Ctrl+2</b>，直接切换到日历，看今天的日程。</li>
+<li>按 <b>Ctrl+3</b>，打开联系人（人员），找同事的邮箱和电话。</li>
+<li>三个键记住就行，邮件、日历、联系人之间来回切，一秒都不用等。</li>
+</ol>
+<p><b>English — Outlook: Ctrl+1 / Ctrl+2 / Ctrl+3 to switch between Mail, Calendar and People</b></p>
+<ol>
+<li>Press <b>Ctrl+1</b> to jump straight back to Mail.</li>
+<li>Press <b>Ctrl+2</b> to switch to Calendar and see today&#x27;s schedule.</li>
+<li>Press <b>Ctrl+3</b> to open People (contacts) and find a colleague&#x27;s email or phone number.</li>
+<li>Just remember these three keys — switching between Mail, Calendar and People takes about a second.</li>
+</ol>]]></description></item>
+<item><title>EBS：日期不用翻日历，直接敲 08-NOV-2026</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-08</link><guid isPermaLink="false">1ce3ddb0e6bdb83b6c6218cec1ca051d</guid><pubDate>Sun, 08 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>导航与帮助</category><description><![CDATA[<p><b>EBS：日期不用翻日历，直接敲 08-NOV-2026</b></p><p>在 EBS 里填日期，点开日历一页页翻月份很慢——其实可以直接打字：</p>
+<ol>
+<li>把光标点进日期字段，先把里面的旧日期删掉。</li>
+<li>直接敲 <span class="code">08-NOV-2026</span>，格式是「日 - 英文月份缩写 - 四位年份」。</li>
+<li>按一下 Tab，系统会自动把它规范成标准日期格式。</li>
+<li>月份缩写要记住：JAN 一月、FEB 二月、MAR 三月、APR 四月、MAY 五月、JUN 六月、JUL 七月、AUG 八月、SEP 九月、OCT 十月、NOV 十一月、DEC 十二月。</li>
+</ol>
+<p><b>English — EBS: Type dates as 08-NOV-2026 instead of picking from the calendar</b></p>
+<ol>
+<li>Click into the date field and clear any old date first.</li>
+<li>Just type <span class="code">08-NOV-2026</span> — the format is day, English month abbreviation, four-digit year.</li>
+<li>Press Tab and the system formats it into a standard date automatically.</li>
+<li>Month abbreviations to remember: JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC.</li>
+</ol>]]></description></item>
+<item><title>Teams：没空回的消息先「标记为未读」，稍后不会忘</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-07</link><guid isPermaLink="false">665700174574baf0515f91d21ab71390</guid><pubDate>Sat, 07 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：没空回的消息先「标记为未读」，稍后不会忘</b></p><p>正忙的时候瞥见一条 Teams 消息，读了却没空回——一转身就忘了：</p>
 <ol>
 <li>在消息上点右键（手机上长按），选 <b>标记为未读</b>（Mark as unread）。</li>
 <li>这条对话马上在列表里变回粗体、带上未读标记，看起来就像还没读过。</li>
