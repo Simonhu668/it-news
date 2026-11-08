@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code“不再询问”把口令写进项目文件：1,122 份公开 GitHub 副本含真实凭据 · IT 资讯速览</title>
+<meta name="description" content="Apiiro 11 月 5 日发布研究（The Hacker News 11 月 7 日报道）：Claude Code 的“允许且不再询问”选项会把含口令或密钥的完整命令以明文保存到项目文件 .claude/settings.local.j…">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IT 资讯速览">
+<meta property="og:title" content="Claude Code“不再询问”把口令写进项目文件：1,122 份公开 GitHub 副本含真实凭据 · IT 资讯速览">
+<meta property="og:description" content="Apiiro 11 月 5 日发布研究（The Hacker News 11 月 7 日报道）：Claude Code 的“允许且不再询问”选项会把含口令或密钥的完整命令以明文保存到项目文件 .claude/settings.local.j…">
+<meta property="og:url" content="https://simonhu668.github.io/it-news/items/255b6523b4.html">
+<link rel="alternate" type="application/rss+xml" title="IT 资讯速览" href="../feed.xml">
+<style>
+:root {
+  --bg:#faf9f6; --bg-sunk:#f3f3ef; --surface:#ffffff; --sidebar:#fdfdfb;
+  --ink:#202a30; --ink-2:#303c42; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --line-strong:#d1d9d5;
+  --accent:#176b75; --accent-ink:#145f68; --note:#4c6468;
+  --amber:#a5761a; --amber-bg:#faf0d7; --mark:#fff3bf;
+  --shadow-card:0 1px 2px #202a3006;
+  --shadow-card-hover:0 3px 12px #202a300e;
+  --ease:cubic-bezier(.1,.7,.2,1);
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --bg-sunk:#1c2224; --surface:#1e2528; --sidebar:#191f22;
+    --ink:#e9edee; --ink-2:#c9d2d5; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --line-strong:#3a4449;
+    --accent:#4fb3bd; --accent-ink:#7ccdd4; --note:#9db8ba;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --mark:#5c4a12;
+    --shadow-card:0 1px 2px #00000040;
+    --shadow-card-hover:0 3px 12px #00000055;
+  }
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); }
+/* ---------- shell: sidebar + full-width content ---------- */
+.shell { display:flex; align-items:stretch; min-height:100dvh; }
+.sidebar { display:none; }
+@media (min-width:1024px) {
+  .sidebar { display:flex; flex-direction:column; position:sticky; top:0; height:100dvh;
+    width:200px; flex-shrink:0; background:var(--sidebar);
+    border-right:1px solid var(--line); padding:24px 12px 14px; }
+}
+.wordmark { display:flex; align-items:center; gap:8px; height:50px; padding:0 4px; margin-bottom:14px;
+  font-size:17px; font-weight:800; letter-spacing:.5px; }
+.wordmark a { color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:8px; }
+.wordmark .wm-icon { font-size:22px; }
+.navsec { font-size:11px; color:var(--ink-4); padding:14px 10px 4px; }
+.sidelink { display:flex; align-items:center; gap:8px; width:100%; height:40px;
+  padding:0 10px; border:0; border-radius:8px; background:transparent; cursor:pointer;
+  font-size:13px; font-weight:500; color:var(--ink-3); transition:background .15s,color .15s;
+  text-decoration:none; font-family:inherit; }
+.sidelink:hover { background:var(--bg-sunk); color:var(--ink); }
+.sidelink .sicon { display:flex; width:22px; justify-content:center; flex-shrink:0; }
+.sidelink .slabel { flex:1; text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidelink .scount { font-size:11.5px; color:var(--ink-4); font-variant-numeric:tabular-nums; }
+.sidelink.active { background:color-mix(in srgb, var(--accent) 10%, transparent);
+  font-weight:600; color:var(--ink); }
+.sidelink.active .sicon { color:var(--accent); }
+.sidelink.active .scount { color:var(--accent-ink); font-weight:600; }
+.sidefoot { margin-top:auto; padding:10px 4px 0; font-size:11px; line-height:1.8; color:var(--ink-4);
+  border-top:1px solid var(--line-soft); }
+.main { flex:1; min-width:0; }
+.content { max-width:1560px; padding:26px 40px 0; margin:0 auto; }
+@media (max-width:640px) { .content { padding:20px 16px 0; } }
+.mast-row { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.mast h1 { margin:0; font-size:24px; font-weight:700; letter-spacing:-.01em; }
+.upd { font-size:12.5px; color:var(--ink-4); }
+.mast-sub { margin:6px 0 0; color:var(--ink-3); font-size:13px; }
+.toolbar { margin-top:16px; display:flex; flex-direction:column; gap:10px; }
+.toolrow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.vbtn, .pbtn { border:1px solid var(--line); background:var(--surface); color:var(--ink-2);
+  border-radius:999px; padding:6px 14px; font-size:13px; cursor:pointer; white-space:nowrap; }
+.vbtn b, .pbtn b { font-weight:600; }
+.vbtn.active, .pbtn.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+.search { margin-left:auto; position:relative; }
+.search input { width:230px; max-width:100%; height:34px; border:1px solid var(--line);
+  border-radius:999px; background:var(--surface); padding:0 14px 0 34px; font-size:13px;
+  color:var(--ink); outline:none; }
+.search input:focus { border-color:var(--accent); }
+.search .sico { position:absolute; left:11px; top:50%; transform:translateY(-50%);
+  color:var(--ink-4); display:flex; pointer-events:none; }
+@media (min-width:1024px) {
+  #viewrow .vbtn { display:none; }
+  #topicrow { display:none; }
+}
+@media (max-width:640px) {
+  .search { margin-left:0; width:100%; }
+  .search input { width:100%; }
+  .toolrow.topics { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }
+}
+.spots { margin-top:18px; }
+.spothead { display:flex; align-items:baseline; gap:8px; padding:4px 2px 10px; }
+.spothead h2 { margin:0; font-size:16px; font-weight:700; }
+.spothead .ssub { font-size:12px; color:var(--ink-4); }
+.spotgrid { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
+@media (max-width:1100px) { .spotgrid { grid-template-columns:1fr; } }
+.psec { margin-top:18px; }
+.psec-h { display:flex; align-items:baseline; gap:10px; margin:0 0 10px; }
+.psec-h h2 { font-size:17px; margin:0; }
+.psec-h .ssub { color:var(--ink-3); font-size:12.5px; }
+.pgrid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+@media (max-width:1100px) { .pgrid2 { grid-template-columns:1fr; } }
+.plist { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:4px 14px; }
+.prow { display:flex; gap:8px; align-items:baseline; padding:9px 0; border-bottom:1px dashed var(--line); font-size:13.5px; }
+.prow:last-child { border-bottom:none; }
+.prow a { color:var(--ink); text-decoration:none; }
+.prow a:hover { text-decoration:underline; }
+.prow .pno { color:var(--ink-3); font-size:12px; min-width:16px; }
+.pempty { color:var(--ink-2); font-size:13.5px; background:var(--surface); border:1px dashed var(--line); border-radius:12px; padding:14px 16px; }
+.ptag { font-size:11px; padding:1px 7px; border-radius:20px; white-space:nowrap; }
+.toolrow.purposes { margin-top:8px; }
+.spot { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:14px 16px;
+  transition:box-shadow .2s var(--ease), border-color .2s, transform .2s var(--ease); }
+.spot:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); transform:translateY(-1px); }
+.spot-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.spot-no { font-size:13px; font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; }
+.spot-title { margin:0 0 8px; font-size:15.5px; font-weight:650; line-height:1.5;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.spot-title a { color:var(--ink); text-decoration:none; }
+.spot-title a:hover { color:var(--accent); }
+.spot-why { margin:0; font-size:12.5px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.dayhead { display:flex; align-items:center; gap:8px; width:100%; background:none; border:0;
+  padding:22px 2px 10px; cursor:pointer; font-family:inherit; text-align:left; color:var(--ink); }
+.dayhead time { font-size:18px; font-weight:600; }
+.dayhead .wday { font-size:13px; color:var(--ink-4); }
+.dayhead .dcount { font-size:12.5px; color:var(--ink-4); }
+.dayhead .dcount b { color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.dayhead .dlink { margin-left:auto; font-size:12.5px; color:var(--accent); text-decoration:none; }
+.dayhead .chev { display:inline-block; font-size:12px; color:var(--ink-4); transition:transform .2s; }
+.day.collapsed .dayhead .chev { transform:rotate(-90deg); }
+.day.collapsed .tlist { display:none; }
+.tlist { display:flex; flex-direction:column; }
+.titem { display:flex; gap:0; position:relative; }
+.trail { display:none; }
+@media (min-width:760px) {
+  .trail { display:flex; flex-direction:column; align-items:center; width:64px; flex-shrink:0;
+    padding-top:20px; position:relative; }
+  .ttime { font-size:12.5px; color:var(--ink-3); font-variant-numeric:tabular-nums; font-weight:500; }
+  .tdot { width:7px; height:7px; border-radius:50%; background:var(--accent); margin-top:7px;
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent); }
+  .titem::before { content:""; position:absolute; left:31.5px; top:0; bottom:0;
+    width:1px; background:var(--line-soft); }
+  .titem:first-child::before { top:26px; }
+  .titem:last-child::before { bottom:auto; height:30px; }
+}
+.card { flex:1; min-width:0; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow-card); padding:16px 20px;
+  margin:0 0 12px; transition:box-shadow .2s var(--ease), border-color .2s; }
+@media (min-width:760px) { .card { margin-left:16px; } }
+.card:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); }
+.card-main { display:flex; gap:14px; align-items:flex-start; }
+.card-text { flex:1; min-width:0; }
+.thumb { width:132px; height:88px; object-fit:cover; border-radius:8px; flex-shrink:0; border:1px solid var(--line); display:block; }
+.thumb-link { flex-shrink:0; }
+@media (max-width:640px) { .thumb { width:96px; height:64px; } }
+.d-hero { margin:0 0 18px; }
+.d-hero img { width:100%; max-height:420px; object-fit:cover; border-radius:12px; border:1px solid var(--line); display:block; }
+.d-hero figcaption { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.chead { display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:8px; }
+.ttag { font-size:11px; font-weight:600; border-radius:999px; padding:2px 10px; }
+.sev { font-size:11px; font-weight:700; border-radius:999px; padding:2px 10px; white-space:nowrap; }
+.fbadge { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-bg);
+  border-radius:4px; padding:2px 7px; }
+.mtime { margin-left:auto; font-variant-numeric:tabular-nums; }
+@media (min-width:760px) { .mtime { display:none; } }
+.title { margin:0; font-size:17px; font-weight:600; line-height:1.55;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.title a { color:var(--ink); text-decoration:none; }
+.title a:hover { color:var(--accent); }
+.summary { margin:8px 0 0; font-size:14.5px; line-height:1.65; color:var(--ink-3);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.summary.open { display:block; }
+.cfoot { margin-top:10px; border-top:1px solid var(--line-soft); padding-top:10px; }
+.why { margin:0; font-size:13px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.why.open { display:block; }
+.whylabel { font-weight:600; }
+.cactions { display:flex; align-items:center; gap:14px; margin-top:8px; }
+.src { font-size:13px; color:var(--accent); text-decoration:none; font-weight:500; }
+.src:hover { text-decoration:underline; }
+.plink { font-size:13px; color:var(--ink-4); text-decoration:none; }
+.plink:hover { color:var(--accent); }
+.xbtn { border:0; background:none; padding:0; font-size:13px; color:var(--ink-4);
+  cursor:pointer; font-family:inherit; }
+.xbtn:hover { color:var(--accent); }
+mark { background:var(--mark); border-radius:2px; padding:0 1px; color:inherit; }
+.empty { display:none; text-align:center; padding:56px 20px; color:var(--ink-3); }
+.empty.show { display:block; }
+.empty p { margin:0 0 14px; font-size:14px; }
+.empty button { border:1px solid var(--line-strong); background:var(--surface); color:var(--ink);
+  border-radius:999px; padding:8px 20px; font-size:13px; cursor:pointer; }
+.empty button:hover { border-color:var(--ink); }
+footer.pagefoot { text-align:center; color:var(--ink-4); font-size:12px; line-height:1.9; padding:30px 0 46px; }
+.hidden { display:none !important; }
+.totop { position:fixed; right:24px; bottom:24px; z-index:30; display:none;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer;
+  box-shadow:0 4px 12px #1c27330f; align-items:center; justify-content:center;
+  transition:opacity .2s, transform .2s; opacity:0; pointer-events:none; transform:translateY(8px); }
+.totop.show { opacity:1; pointer-events:auto; transform:none; }
+@media (min-width:1024px) { .totop { display:flex; } }
+/* ---------- detail page ---------- */
+.d-shell { display:grid; grid-template-columns:230px minmax(0,1fr) 290px; gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1150px) { .d-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .d-side-l, .d-side-r { order:2; } .d-center { order:1; } }
+.d-card { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:16px 18px; margin-bottom:14px; }
+.d-card h4 { margin:0 0 10px; font-size:13px; font-weight:700; color:var(--ink-2); }
+.d-card .krow { display:flex; justify-content:space-between; gap:8px; font-size:13px;
+  padding:7px 0; border-top:1px solid var(--line-soft); color:var(--ink-3); }
+.d-card .krow:first-of-type { border-top:0; }
+.d-card .krow .k { color:var(--ink-4); flex-shrink:0; }
+.d-card .krow .v { text-align:right; word-break:break-all; }
+.d-toc a { display:block; font-size:13.5px; color:var(--ink-3); text-decoration:none;
+  padding:7px 0; border-top:1px solid var(--line-soft); }
+.d-toc a:first-child { border-top:0; }
+.d-toc a:hover { color:var(--accent); }
+.d-sticky { position:sticky; top:24px; }
+.d-topbar { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.d-back { font-size:14px; color:var(--ink-3); text-decoration:none; }
+.d-back:hover { color:var(--accent); }
+.d-open { margin-left:auto; font-size:13.5px; font-weight:600; color:var(--accent);
+  border:1px solid var(--line-strong); background:var(--surface); border-radius:999px;
+  padding:8px 18px; text-decoration:none; }
+.d-open:hover { border-color:var(--accent); }
+.d-title { margin:0 0 10px; font-size:30px; font-weight:750; line-height:1.4; letter-spacing:-.01em; }
+@media (max-width:640px) { .d-title { font-size:22px; } }
+.d-sub { margin:0 0 14px; font-size:15px; color:var(--ink-4); line-height:1.6; }
+.d-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:13px;
+  color:var(--ink-4); margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--line-soft); }
+.tabs { display:flex; gap:0; border-bottom:2px solid var(--line); margin-bottom:6px; }
+.tab { border:0; background:none; font-size:14.5px; font-weight:600; color:var(--ink-4);
+  padding:10px 20px; cursor:pointer; font-family:inherit; border-bottom:2px solid transparent;
+  margin-bottom:-2px; }
+.tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+.tabpane { display:none; padding:18px 2px; }
+.tabpane.active { display:block; }
+.body-label { font-size:12.5px; color:var(--ink-4); margin:0 0 12px; }
+.body-label b { color:var(--accent); }
+.tbody p { font-size:16px; line-height:1.9; color:var(--ink-2); margin:0 0 16px; }
+.d-abstract { background:var(--bg-sunk); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 18px; font-size:14.5px; line-height:1.75; color:var(--ink-3); margin-bottom:14px; }
+.d-note { font-size:13px; color:var(--ink-4); background:var(--surface);
+  border:1px dashed var(--line-strong); border-radius:10px; padding:12px 16px; margin-bottom:14px; }
+.d-tags { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+.d-tag { font-size:12.5px; color:var(--ink-3); background:var(--bg-sunk);
+  border:1px solid var(--line-soft); border-radius:999px; padding:4px 14px; }
+.d-srcline { font-size:13px; color:var(--ink-4); border-top:1px solid var(--line-soft);
+  padding-top:14px; margin-top:8px; }
+.d-sec { margin-top:26px; }
+.d-sec h3 { font-size:17px; font-weight:700; margin:0 0 12px; }
+.rel-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
+@media (max-width:760px) { .rel-grid { grid-template-columns:1fr; } }
+.rel { background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:12px 16px; box-shadow:var(--shadow-card); }
+.rel:hover { border-color:var(--line-strong); }
+.rel .r-meta { font-size:12px; color:var(--ink-4); margin-bottom:6px; }
+.rel .r-title { margin:0; font-size:14px; font-weight:600; line-height:1.5; }
+.rel .r-title a { color:var(--ink); text-decoration:none; }
+.rel .r-title a:hover { color:var(--accent); }
+.why-card .why-full { font-size:14px; line-height:1.75; color:var(--ink-2); margin:0; }
+/* ---------- daily page ---------- */
+.r-shell { display:grid; grid-template-columns:230px minmax(0,1fr); gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1024px) { .r-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .r-arch { display:none; } }
+.r-arch .arch-item { display:flex; gap:10px; align-items:baseline; padding:9px 4px;
+  border-top:1px solid var(--line-soft); text-decoration:none; }
+.r-arch .arch-item:first-of-type { border-top:0; }
+.r-arch .arch-day { font-size:20px; font-weight:800; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+.r-arch .arch-t { font-size:12.5px; color:var(--ink-3); line-height:1.5; }
+.r-arch .arch-item.cur .arch-day { color:var(--accent); }
+.r-mast { text-align:left; border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:6px; }
+.r-mast .r-kicker { font-size:13px; color:var(--ink-4); letter-spacing:2px; }
+.r-mast h1 { margin:6px 0 10px; font-size:44px; font-weight:850; letter-spacing:-.02em; }
+.r-mast h1 .r-accent { color:var(--accent); }
+.r-mast .r-date { font-size:14px; color:var(--ink-3); }
+.r-stats { display:flex; gap:26px; align-items:center; padding:14px 2px; font-size:14px; color:var(--ink-3); }
+.r-stats b { font-size:20px; color:var(--ink); font-variant-numeric:tabular-nums; margin-right:4px; }
+.r-stats .r-time { margin-left:auto; font-size:12.5px; color:var(--ink-4); }
+.r-sec-label { display:flex; align-items:center; gap:10px; margin:26px 0 14px; }
+.r-sec-label::before { content:""; width:22px; height:3px; background:var(--accent); border-radius:2px; }
+.r-sec-label h2 { margin:0; font-size:17px; font-weight:700; }
+.r-headline { background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:22px 26px; box-shadow:var(--shadow-card); }
+.r-headline .r-hl-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:10px; }
+.r-headline h3 { margin:0 0 10px; font-size:22px; font-weight:700; line-height:1.45; }
+.r-headline h3 a { color:var(--ink); text-decoration:none; }
+.r-headline h3 a:hover { color:var(--accent); }
+.r-headline p { margin:0 0 12px; font-size:15px; line-height:1.75; color:var(--ink-3); }
+.r-points { display:flex; flex-direction:column; gap:10px; }
+.r-point { display:flex; gap:14px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:14px 18px; box-shadow:var(--shadow-card); align-items:flex-start; }
+.r-point .r-no { font-size:20px; font-weight:850; color:var(--accent); font-variant-numeric:tabular-nums; }
+.r-point h4 { margin:0 0 6px; font-size:15.5px; font-weight:650; line-height:1.5; }
+.r-point h4 a { color:var(--ink); text-decoration:none; }
+.r-point h4 a:hover { color:var(--accent); }
+.r-point p { margin:0; font-size:13.5px; color:var(--ink-3); line-height:1.65; }
+.r-point .r-pmeta { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.r-board { display:flex; flex-direction:column; gap:18px; }
+.r-topic-sec h3 { margin:0 0 10px; font-size:15px; font-weight:700; display:flex; gap:8px; align-items:center; }
+.r-topic-sec h3 .cnt { font-size:12px; color:var(--ink-4); font-weight:500; }
+.r-item { display:flex; gap:12px; padding:11px 2px; border-top:1px solid var(--line-soft); align-items:baseline; }
+.r-item .r-t { font-size:12.5px; color:var(--ink-4); font-variant-numeric:tabular-nums;
+  flex-shrink:0; width:44px; }
+.r-item .r-b { min-width:0; }
+.r-item .r-b h4 { margin:0 0 4px; font-size:14.5px; font-weight:600; line-height:1.5; }
+.r-item .r-b h4 a { color:var(--ink); text-decoration:none; }
+.r-item .r-b h4 a:hover { color:var(--accent); }
+.r-item .r-b p { margin:0; font-size:13px; color:var(--ink-3); line-height:1.6;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.r-item .r-b .r-s { font-size:12px; color:var(--ink-4); margin-top:3px; }
+</style>
+</head>
+<body><div class="shell"><aside class="sidebar" aria-label="主导航"><div class="wordmark"><a href="../index.html"><span class="wm-icon">📰</span>IT 资讯速览</a></div><nav><div class="navsec">内容</div><a class="sidelink" href="../index.html" data-v="all"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">全部资讯</span><span class="scount">277</span></a><a class="sidelink" href="../index.html#v=featured" data-v="featured"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">精选</span><span class="scount">43</span></a><div class="navsec">日报</div><a class="sidelink" href="../archive.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">日期归档 · 日/周/月/年</span><span class="scount">25 天</span></a><div class="navsec">学习</div><a class="sidelink" href="../learn/ebs-shortcodes.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 短码速查</span></a><a class="sidelink" href="../learn/ebs-finance.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 财务管理</span></a><a class="sidelink" href="../learn/ebs-shortcuts.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 快捷键</span></a><a class="sidelink" href="../learn/ebs-inventory-types.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 库存交易类型</span></a><a class="sidelink" href="../learn/copilot-notebooks-tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Copilot Notebooks 技巧</span></a><a class="sidelink" href="../learn/words.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">背单词</span></a><a class="sidelink" href="../learn/tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">每日技巧</span></a><a class="sidelink" href="../learn/kb-demo.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">知识库 Demo</span></a><a class="sidelink" href="../learn/sql.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">SQL 小课</span></a><a class="sidelink" href="../learn/reading.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">每日精读</span></a><a class="sidelink" href="../learn/itil.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">ITIL 4</span></a><a class="sidelink" href="../learn/powerbi.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Power BI</span></a><div class="navsec">用途</div><a class="sidelink" href="../index.html#p=今日需判断" data-p="今日需判断"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">今日需判断</span><span class="scount">113</span></a><a class="sidelink" href="../index.html#p=近期需计划" data-p="近期需计划"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">近期需计划</span><span class="scount">56</span></a><a class="sidelink" href="../index.html#p=本周学一项" data-p="本周学一项"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">本周学一项</span><span class="scount">30</span></a><a class="sidelink" href="../index.html#p=项目参考" data-p="项目参考"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">项目参考</span><span class="scount">25</span></a><a class="sidelink" href="../index.html#p=行业视野" data-p="行业视野"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业视野</span><span class="scount">53</span></a><div class="navsec">主题</div><a class="sidelink" href="../index.html#t=安全与运维" data-t="安全与运维"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">安全与运维</span><span class="scount">133</span></a><a class="sidelink" href="../index.html#t=Microsoft 365" data-t="Microsoft 365"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Microsoft 365</span><span class="scount">79</span></a><a class="sidelink" href="../index.html#t=AI应用" data-t="AI应用"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">AI应用</span><span class="scount">37</span></a><a class="sidelink" href="../index.html#t=行业动态" data-t="行业动态"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业动态</span><span class="scount">28</span></a></nav></aside><div class="main"><div class="d-shell" id="d-body"><div class="d-side-l"><div class="d-sticky"><div class="d-card"><h4>来源</h4><div class="krow"><span class="k">媒体</span><span class="v">thehackernews</span></div><div class="krow"><span class="k">域名</span><span class="v">thehackernews.com</span></div><div class="krow"><span class="k">类型</span><span class="v">媒体报道</span></div><div class="krow"><span class="k">发布时间</span><span class="v">2026-11-07</span></div><div class="krow"><span class="k">收录时间</span><span class="v">11-08 18:30</span></div></div><div class="d-card"><h4>本文目录</h4><nav class="d-toc"><a href="#d-body">正文</a><a href="#d-why">推荐理由</a><a href="#d-related">相关新闻</a></nav></div></div></div><div class="d-center"><div class="d-topbar"><a class="d-back" href="../index.html">← 返回全部资讯</a><a class="d-open" href="https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html" target="_blank" rel="noopener">打开原文 ↗</a></div><h1 class="d-title">Claude Code“不再询问”把口令写进项目文件：1,122 份公开 GitHub 副本含真实凭据</h1><p class="d-sub">Apiiro 11 月 5 日发布研究（The Hacker News 11 月 7 日报道）：Claude Code 的“允许且不再询问”选项会把含口令或密钥的完整命令以明文保存到项目文件 .claude/settings.local.j…</p><div class="d-meta"><span>thehackernews</span><span>·</span><span>媒体报道</span><span class="ttag" style="color:#8a6414;background:#8a64141a">AI应用</span><span class="ptag" style="color:#c0392b;background:#c0392b1a">今日需判断</span><span style="margin-left:auto">收录 11-08 18:30</span></div><div class="tabs" role="tablist"><button class="tab active" data-tab="zh" role="tab">中文</button><button class="tab" data-tab="en" role="tab">原文</button></div><div class="tabpane active" id="pane-zh"><p class="body-label">正文 · <b>AI 翻译</b></p><div class="tbody"><p>开发人员在 Claude Code 里批准命令时输入的口令与 API 密钥，正躺在公开 GitHub 仓库里任人读取。用户选择“允许且不再询问”后，Anthropic 的 AI 编程助手会把命令逐字保存到项目设置文件，其中包括口令。软件安全公司 Apiiro 11 月 5 日表示，1,122 份该文件的公开副本至少含有一个凭据，但未验证其中是否仍有效；研究人员本周早些时候通知的一家公司确认其密钥当时有效。该文件是 .claude/settings.local.json。删除它并不能消除泄露，因为旧版本仍留在 git 历史与仓库分支中。研究人员的建议是先轮换：更换该文件曾经保存过的每一个口令、令牌与密钥，然后再清理。Claude Code 默认在运行大多数 shell 命令前先征求确认。用户选择“允许且不再询问”后，它会按权限文档的说明，把一条允许规则保存到项目内的 .claude/settings.local.json，后续会话中匹配的命令不再询问。规则只覆盖提示中给出的内容，有时是一个模式（如 npm test *），有时是一条确切命令；是确切命令时，其中输入的任何口令或令牌都会以明文一并保存。研究人员在公开文件中发现了仍带凭据的已保存命令，并在最新模型 Opus 5.5 与 Fable 5.1 上复现了该行为。Claude Code 会尝试让该文件不进入 git：首次在 git 仓库中写入该文件时，它会把文件加入用户的全局 git 排除规则，该台电脑上的 Git 随后会在所有仓库中忽略它。但这种保护只留在单个用户的单台电脑 git 设置里，对已经提交的文件不起作用。Claude Code 从不把文件加入项目自身的 .gitignore，保护也就不会随项目传播。在研究人员追踪的 1,105 个仓库中，539 个仓库里有一条把 Claude 列为共同作者的提交修改了该文件，研究人员据此认为 Claude 经常会自行提交该文件。Apiiro 搜索公开 GitHub 发现，该文件共有 104,185 份副本，分布在 103,617 个仓库中；约 1.1%（1,122 份）含至少一个凭据，共 1,379 个不同凭据。凭据的判定标准是符合已知密钥格式，或口令、令牌与公开服务器地址相邻，并经 AI 复核同意。研究人员未说明是否有人使用过这些凭据。超过三分之一的凭据可直接打开数据库，包括 379 个数据库口令；其他包括 43 个公开服务器的 SSH 登录、42 个 GitHub、GitLab 与 npm 令牌、23 个 AWS 密钥。这些文件的所有者中包括 63 个组织，多为各规模的软件公司；最严重的案例包括一家数据库厂商自己的管理级云密钥与一个医疗记录应用数据库的属主口令。截至 11 月 2 日，每个含凭据的文件仍在所在仓库的默认分支上，其中一半在仓库中至少已存在 217 天。该文件的旧版本在 509 个仓库中还含有 734 个当前副本中没有的凭据；分支进一步扩散了这些文件，74 个仓库的 211 个分支带有与原仓库相同的凭据。团队有意提交的共享文件 .claude/settings.json 的 76,011 份副本中，298 份也含有凭据，多在允许规则内；加上旧版本与已保存的智能体聊天记录，总计 1,994 个仓库中有 2,539 个凭据。在研究人员比对文档的 16 款编程智能体中，Claude Code 是唯一被确认默认把完整批准命令保存到项目文件的。研究人员给开发人员的建议是：搜索组织 GitHub 中的 .claude/settings.local.json 与 .claude/settings.json，并检查各仓库的 git 历史，即使文件已被删除；先轮换这些文件曾经保存过的全部口令、令牌与密钥，再清理；用 git rm --cached .claude/settings.local.json 停止跟踪本地文件，并加入仓库自身的 .gitignore；在自己的电脑上打开该文件，删除其中每一条含凭据的规则；不要把凭据放进命令，改用凭据管理器提供的变量（如 $DB_URL）引用，让保存的规则只含变量名；批准模式（如 Bash(npm run:*)）而非单条命令。未上传到 GitHub 的副本同样重要：该文件是项目文件夹里的普通 JSON，也可能留在 npm 包、Docker 镜像、zip 压缩包或同步文件夹中。恶意软件此前已在开发人员电脑上搜寻凭据：2025 年 9 月，Shai-Hulud 蠕虫在受感染电脑上运行 TruffleHog 凭据扫描器，该扫描器标记了超过一半的此类文件。常见凭据扫描器会漏掉其中许多文件。研究人员对全部 104,185 份副本运行 gitleaks 与 TruffleHog（未做验证步骤）：1,122 份含真实凭据的文件中，gitleaks 标记 564 份，TruffleHog 标记 643 份，215 份两者均未标记。多数漏检是命令内输入的口令：扫描器寻找已知密钥格式，而 PGPASSWORD=、sshpass -p 或 mysql -p 之后的口令看起来只是普通命令行里的普通词。研究人员给安全团队的建议是：把 .claude/、.cursor/、.gemini/、.specstory/ 等智能体文件夹与智能体记忆文件当作与 .env 文件一样的凭据载体，在笔记本电脑与仓库中同等对待；加入提交前与 CI 凭据扫描，包括 git 历史，并确保扫描器能发现命令内的口令，而不仅是已知密钥格式；把 .claude/settings.local.json 加入组织的 .gitignore 模板；优先检查与公开服务器配对的凭据，因为这些凭据直接给出访问权限。Claude Code 用户此前已报告过该行为：2025 年 8 月 11 日提交的一则缺陷报告称，含 API 密钥与令牌的已批准命令被逐字存入 settings.local.json；自动化机器人在 60 天无活动后于 2026 年 1 月 3 日以“不计划处理”关闭了该报告。截至报道当日，研究人员引用的四则相关报告均已被同一机器人关闭，最近一则在前一天关闭，Anthropic 均未回复。</p></div></div><div class="tabpane" id="pane-en"><p class="body-label">原文</p><div class="tbody"><p>Passwords and API keys that developers typed into commands they approved in Claude Code are sitting in public GitHub repositories, where anyone can read them. When a user selects &quot;Yes, and don&#x27;t ask again,&quot; Anthropic&#x27;s AI coding assistant can save the command, word-for-word, including the secret, in a project settings file. Software security company Apiiro said yesterday that 1,122 public copies of that file hold at least one secret, though it did not test whether any still work. One company the researchers notified earlier this week confirmed its key had been live. The file is .claude/settings.local.json. Removing it from a project does not undo the leak, because older versions stay in git history and in forks of the repository. The researchers&#x27; advice is to rotate first: change every password, token, and key the file has ever held, then clean up. By default, Claude Code asks before it runs most shell commands. If the user picks &quot;Yes, and don&#x27;t ask again,&quot; it saves an allow rule in .claude/settings.local.json inside the project, according to its permissions documentation. Matching commands then run without asking in later sessions. The rule covers only what the prompt offered. Sometimes that is a pattern, such as npm test *, and sometimes one exact command. When it is the exact command, any password or token typed into it is saved too, in plain text. In public files, the researchers found saved commands with the secret still inside, and they reproduced the behavior with the latest models, Opus 5.5 and Fable 5.1. Claude Code tries to keep the file out of git. The first time it writes the file in a git repository, it adds the file to the user&#x27;s global git excludes, its settings documentation says. Git on that computer then ignores the file in every repository. That protection stays in one user&#x27;s git settings on one computer. It does nothing for a file that was already committed, the researchers say. Claude Code never adds the file to the project&#x27;s own .gitignore, so the protection does not travel with the project. In 539 of the 1,105 repositories the researchers traced, a commit listing Claude as a co-author changed the file. They take this to mean Claude often commits the file itself. Apiiro&#x27;s search of public GitHub found 104,185 copies of the file in 103,617 repositories, its research write-up shows. About 1.1% of them, or 1,122 copies, hold at least one secret. Together they hold 1,379 different secrets. A value counted as a secret when it matched a known key format, or when a password or token sat beside the address of a public server. An AI reviewer also had to agree. The researchers do not say whether anyone has used these secrets. More than a third of the secrets open a database directly, including 379 database passwords. Others include 43 SSH logins for public servers, 42 tokens for GitHub, GitLab and npm, and 23 AWS keys. Among the owners of these files are 63 organizations, mostly software companies of all sizes. The strongest cases include a database vendor&#x27;s own admin-level cloud key and the owner password of a medical-records database, the researchers say. As of Monday, every file with a secret was still on its repository&#x27;s default branch, and in half of those repositories it had been there for at least 217 days. Older versions of the file contain 734 more secrets across 509 repositories that are not present in any current copy, usually because the file was deleted. Forks spread the files further: 211 forks of 74 repositories carry the same secrets as the originals. Secrets also sit in 298 of 76,011 copies of the shared .claude/settings.json file, which teams commit on purpose, mostly inside allow rules. Including those, the older versions, and saved agent chat logs, the total is 2,539 secrets across 1,994 repositories. Of 16 coding agents whose documentation the researchers compared, Claude Code is the only one confirmed to save the full approved command in a project file by default. For developers, the researchers recommend these steps: search your GitHub organization for .claude/settings.local.json and .claude/settings.json, and check each repository&#x27;s git history for them, even where the files are gone; rotate every password, token and key the files have ever held, before cleaning up; stop tracking the local file with git rm --cached .claude/settings.local.json, and add it to the repository&#x27;s own .gitignore; open the file on your own computer, even if it was never committed, and delete every rule that contains a secret; keep secrets out of commands, referring to them as variables from a secrets manager, such as $DB_URL, so the saved rule holds the variable name and not the secret; approve patterns, such as Bash(npm run:*), instead of single commands. Copies that never reach GitHub still matter, the researchers say. The file is plain JSON in the project folder, and it can also be left inside an npm package, a Docker image, a zip archive, or a synced folder. Malware has previously looked for secrets on developer machines. In September 2025, the Shai-Hulud worm ran the TruffleHog secret scanner over infected computers, and the scanner flagged more than half of the files as secret. Common secret scanners miss many of these files. The researchers ran gitleaks and TruffleHog over every copy, without the tools&#x27; verification step. Of the 1,122 files with a secret, gitleaks flagged 564 and TruffleHog 643, and neither flagged 215. Most misses are passwords typed inside commands. Scanners look for known key formats, and a password after PGPASSWORD=, sshpass -p, or mysql -p looks like an ordinary word in an ordinary command line. For security teams, the researchers recommend: treat agent folders such as .claude/, .cursor/, .gemini/ and .specstory/, and agent memory files, as holding secrets, like .env files, on laptops as well as in repositories; add them to pre-commit and CI secret scanning, including git history, and make sure the scanner catches passwords inside commands, not only known key formats; add .claude/settings.local.json to the organization&#x27;s .gitignore templates; check credentials paired with a public server first, because those are the ones that give access. Claude Code users have reported this behavior before. An earlier bug report, filed on August 11, 2025, said approved commands with API keys and tokens were being stored word for word in settings.local.json. An automated bot closed that report as &quot;not planned&quot; on January 3, after 60 days without activity. As of today, the four related reports the researchers cite have all been closed by the same bot, the most recent yesterday. None got a reply from Anthropic, they say.</p></div></div><div class="d-tags"><span class="d-tag">#AI应用</span><span class="d-tag">#媒体报道</span></div><div class="d-srcline">来源：thehackernews · thehackernews.com</div><section class="d-sec" id="d-why"><h3>推荐理由</h3><div class="d-abstract">与开发工具凭据管理与代码仓库安全工作有关。值得带走的是“智能体工具的本地配置文件也要当作凭据载体来管”的做法：在组织内搜索 .claude/settings.local.json 与 .claude/settings.json（含 git 历史），先轮换再清理，并把凭据改成环境变量引用。适用条件：使用 Claude Code 或其他 AI 编程助手并把代码提交到 GitHub 的组织；该问题是 Claude Code 的默认行为，16 款同类工具中仅其被确认会把完整命令写入项目文件。</div></section><section class="d-sec" id="d-related"><h3>相关新闻</h3><div class="rel-grid"><div class="rel"><div class="r-meta">bleepingcomputer · 11-08 08:39 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/83030c55a0.html">AI 渗透测试智能体逃出沙箱入侵 WorkOS：四处短板让批量下载 10 月 30 日才被发现</a></h4></div><div class="rel"><div class="r-meta">davidnortonconsulting · 11-06 08:39 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/59bba7f941.html">Oracle E-Business Suite 问答助手进入 Teams：只读查询薪资与人事，付款审批仍须人工双人操作</a></h4></div><div class="rel"><div class="r-meta">bleepingcomputer · 11-04 08:46 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/2fe8787088.html">Google 警告 LLM 劫持攻击：被盗 AI 密钥经转售网关刷出单日超 10 万美元账单，个别组织累计近 100 万美元</a></h4></div><div class="rel"><div class="r-meta">itbrief.news · 11-02 12:35 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/2a4628c7fe.html">Oracle NetSuite 推出 AI 实施工具 SuiteExpress：以需求捕获与流程映射缩短上线周期，首批仅面向美国与加拿大软件行业客户</a></h4></div></div></section></div><div class="d-side-r"><div class="d-sticky"><div class="d-card why-card"><h4>推荐理由</h4><p class="why-full">与开发工具凭据管理与代码仓库安全工作有关。值得带走的是“智能体工具的本地配置文件也要当作凭据载体来管”的做法：在组织内搜索 .claude/settings.local.json 与 .claude/settings.json（含 git 历史），先轮换再清理，并把凭据改成环境变量引用。适用条件：使用 Claude Code 或其他 AI 编程助手并把代码提交到 GitHub 的组织；该问题是 Claude Code 的默认行为，16 款同类工具中仅其被确认会把完整命令写入项目文件。</p></div><div class="d-card"><h4>主题</h4><div><span class="ttag" style="color:#8a6414;background:#8a64141a">AI应用</span></div></div><div class="d-card"><h4>标签</h4><div class="d-tags" style="margin:0"><span class=d-tag>#AI应用</span><span class=d-tag>#媒体报道</span></div></div></div></div></div><footer class="pagefoot">正文由 AI 翻译整理，仅供学习参考，关键操作请核对原文。<br><a href="https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html" target="_blank" rel="noopener">打开原文 ↗</a></footer></div></div>
+<script>
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tabpane').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('pane-' + t.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body></html>
