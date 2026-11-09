@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：Ctrl+D 向下填充，公式和格式一步复制到位</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-08</link><guid isPermaLink="false">5551711fcf07e50d8a81e13a8a427a19</guid><pubDate>Sun, 08 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：Ctrl+D 向下填充，公式和格式一步复制到位</b></p><p>同一列要重复填公式或格式——比如每行都要算小计、标同一颜色——不用一行行复制粘贴：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Teams：Ctrl+E 跳到顶部搜索框，找人找消息找文件都快</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-09</link><guid isPermaLink="false">6c8c7597fcdd91940013dfe6d5301966</guid><pubDate>Mon, 09 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：Ctrl+E 跳到顶部搜索框，找人找消息找文件都快</b></p><p>在 Teams 里找人、找一条旧消息、找个文件，不用先点搜索框再打字：</p>
+<ol>
+<li>在 Teams 任意界面按 <b>Ctrl+E</b>，光标立刻跳到顶部的搜索框。</li>
+<li>直接输入人名、关键词或文件名，边输边出结果。</li>
+<li>搜人名可以直接跳到对话；搜关键词能定位到某条消息所在的频道或聊天；搜文件名能找到共享过的文件。</li>
+<li>想回到刚才的界面，按一下 Esc 即可，搜索框会收起来。</li>
+</ol>
+<p><b>English — Teams: Ctrl+E jumps to the search box — find people, messages and files fast</b></p>
+<p>No need to click the search box first when you want to find something in Teams:</p>
+<ol>
+<li>Press <b>Ctrl+E</b> anywhere in Teams — the cursor jumps straight to the search box at the top.</li>
+<li>Just start typing a person&#x27;s name, a keyword or a file name; results appear as you type.</li>
+<li>Search a name to jump to the conversation; search a keyword to find the message in its channel or chat; search a file name to find a shared file.</li>
+<li>Press Esc to leave the search box and go back to where you were.</li>
+</ol>]]></description></item>
+<item><title>Outlook：Ctrl+Q 标为已读，Ctrl+U 标回未读</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-09</link><guid isPermaLink="false">f2dcfeeeb6794933b715ab4be022723a</guid><pubDate>Mon, 09 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：Ctrl+Q 标为已读，Ctrl+U 标回未读</b></p><p>邮件扫一眼就想先标已读、或者想留着稍后处理不用翻右键菜单：</p>
+<ol>
+<li>在邮件列表里选中一封（或几封）邮件。</li>
+<li>按 <b>Ctrl+Q</b>，立刻标为已读，粗体标题变回正常。</li>
+<li>想留着稍后回、怕忘了：选中邮件按 <b>Ctrl+U</b>，标回未读，标题重新变粗，一眼就能找到。</li>
+<li>配合上周的忽略邮件串（Ctrl+Del），收件箱三招就齐了：已读、未读、忽略。</li>
+</ol>
+<p><b>English — Outlook: Ctrl+Q marks as read, Ctrl+U marks as unread</b></p>
+<p>No need for the right-click menu to change a message&#x27;s read status:</p>
+<ol>
+<li>Select one (or several) messages in the list.</li>
+<li>Press <b>Ctrl+Q</b> to mark them as read — the bold title turns normal right away.</li>
+<li>Want to leave one for later so you don&#x27;t forget it? Select it and press <b>Ctrl+U</b> to mark it unread — the title goes bold again so it&#x27;s easy to spot.</li>
+<li>Combined with last week&#x27;s Ignore Conversation (Ctrl+Del), that&#x27;s your inbox trio: read, unread, ignore.</li>
+</ol>]]></description></item>
+<item><title>EBS：请求跑完了，先看 Phase 和 Status 再下结论</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-09</link><guid isPermaLink="false">48a2ed5b9a5eb689f76598f65b7c1cd8</guid><pubDate>Mon, 09 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>报表与请求</category><description><![CDATA[<p><b>EBS：请求跑完了，先看 Phase 和 Status 再下结论</b></p><p>报表请求跑完别只看有没有出结果——状态栏里两个词决定它到底成没成功：</p>
+<ol>
+<li>打开「查看我的请求」（View My Requests），找到刚跑完的那一行。</li>
+<li>看 <b>Phase（阶段）</b>：显示 Completed 才表示跑完了，Running 是还在跑，Pending 是在排队等。</li>
+<li>再看 <b>Status（状态）</b>：Normal 才是真正成功；Warning 表示跑完了但有警告，Error 就是出错了。</li>
+<li>只有 Completed + Normal 才能放心用结果；看到 Warning 或 Error，点 View Log 看报错原因再处理。</li>
+</ol>
+<p><b>English — EBS: Read Phase and Status before trusting a finished request</b></p>
+<p>Don&#x27;t just check whether a report came out — two words in the status bar tell you whether it really succeeded:</p>
+<ol>
+<li>Open View My Requests and find the request you just ran.</li>
+<li>Check <b>Phase</b>: Completed means it finished; Running means it&#x27;s still going; Pending means it&#x27;s waiting in the queue.</li>
+<li>Then check <b>Status</b>: Normal means it truly succeeded; Warning means it finished but with warnings; Error means it failed.</li>
+<li>Only Completed + Normal means you can trust the result. If you see Warning or Error, click View Log to find out what went wrong.</li>
+</ol>]]></description></item>
+<item><title>Excel：Ctrl+D 向下填充，公式和格式一步复制到位</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-08</link><guid isPermaLink="false">5551711fcf07e50d8a81e13a8a427a19</guid><pubDate>Sun, 08 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：Ctrl+D 向下填充，公式和格式一步复制到位</b></p><p>同一列要重复填公式或格式——比如每行都要算小计、标同一颜色——不用一行行复制粘贴：</p>
 <ol>
 <li>先在最上面那一格做好公式或格式。</li>
 <li>选中这一格，再往下选中所有要填的空格（可以按住 Shift 点选）。</li>

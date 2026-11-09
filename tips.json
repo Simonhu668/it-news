@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-09",
+   "idx": 3,
+   "title": "Teams：Ctrl+E 跳到顶部搜索框，找人找消息找文件都快",
+   "tag": "Teams",
+   "topic": "Ctrl+E 跳到顶部搜索框，找人找消息找文件都快",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "6c8c7597fcdd91940013dfe6d5301966",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-09",
+   "html": "<p><b>Teams：Ctrl+E 跳到顶部搜索框，找人找消息找文件都快</b></p><p>在 Teams 里找人、找一条旧消息、找个文件，不用先点搜索框再打字：</p>\n<ol>\n<li>在 Teams 任意界面按 <b>Ctrl+E</b>，光标立刻跳到顶部的搜索框。</li>\n<li>直接输入人名、关键词或文件名，边输边出结果。</li>\n<li>搜人名可以直接跳到对话；搜关键词能定位到某条消息所在的频道或聊天；搜文件名能找到共享过的文件。</li>\n<li>想回到刚才的界面，按一下 Esc 即可，搜索框会收起来。</li>\n</ol>\n<p><b>English — Teams: Ctrl+E jumps to the search box — find people, messages and files fast</b></p>\n<p>No need to click the search box first when you want to find something in Teams:</p>\n<ol>\n<li>Press <b>Ctrl+E</b> anywhere in Teams — the cursor jumps straight to the search box at the top.</li>\n<li>Just start typing a person&#x27;s name, a keyword or a file name; results appear as you type.</li>\n<li>Search a name to jump to the conversation; search a keyword to find the message in its channel or chat; search a file name to find a shared file.</li>\n<li>Press Esc to leave the search box and go back to where you were.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-09",
+   "idx": 2,
+   "title": "Outlook：Ctrl+Q 标为已读，Ctrl+U 标回未读",
+   "tag": "Outlook",
+   "topic": "Ctrl+Q 标为已读，Ctrl+U 标回未读",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "f2dcfeeeb6794933b715ab4be022723a",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-09",
+   "html": "<p><b>Outlook：Ctrl+Q 标为已读，Ctrl+U 标回未读</b></p><p>邮件扫一眼就想先标已读、或者想留着稍后处理不用翻右键菜单：</p>\n<ol>\n<li>在邮件列表里选中一封（或几封）邮件。</li>\n<li>按 <b>Ctrl+Q</b>，立刻标为已读，粗体标题变回正常。</li>\n<li>想留着稍后回、怕忘了：选中邮件按 <b>Ctrl+U</b>，标回未读，标题重新变粗，一眼就能找到。</li>\n<li>配合上周的忽略邮件串（Ctrl+Del），收件箱三招就齐了：已读、未读、忽略。</li>\n</ol>\n<p><b>English — Outlook: Ctrl+Q marks as read, Ctrl+U marks as unread</b></p>\n<p>No need for the right-click menu to change a message&#x27;s read status:</p>\n<ol>\n<li>Select one (or several) messages in the list.</li>\n<li>Press <b>Ctrl+Q</b> to mark them as read — the bold title turns normal right away.</li>\n<li>Want to leave one for later so you don&#x27;t forget it? Select it and press <b>Ctrl+U</b> to mark it unread — the title goes bold again so it&#x27;s easy to spot.</li>\n<li>Combined with last week&#x27;s Ignore Conversation (Ctrl+Del), that&#x27;s your inbox trio: read, unread, ignore.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-09",
+   "idx": 1,
+   "title": "EBS：请求跑完了，先看 Phase 和 Status 再下结论",
+   "tag": "EBS",
+   "topic": "请求跑完了，先看 Phase 和 Status 再下结论",
+   "category": "Oracle EBS",
+   "module": "报表与请求",
+   "guid": "48a2ed5b9a5eb689f76598f65b7c1cd8",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-09",
+   "html": "<p><b>EBS：请求跑完了，先看 Phase 和 Status 再下结论</b></p><p>报表请求跑完别只看有没有出结果——状态栏里两个词决定它到底成没成功：</p>\n<ol>\n<li>打开「查看我的请求」（View My Requests），找到刚跑完的那一行。</li>\n<li>看 <b>Phase（阶段）</b>：显示 Completed 才表示跑完了，Running 是还在跑，Pending 是在排队等。</li>\n<li>再看 <b>Status（状态）</b>：Normal 才是真正成功；Warning 表示跑完了但有警告，Error 就是出错了。</li>\n<li>只有 Completed + Normal 才能放心用结果；看到 Warning 或 Error，点 View Log 看报错原因再处理。</li>\n</ol>\n<p><b>English — EBS: Read Phase and Status before trusting a finished request</b></p>\n<p>Don&#x27;t just check whether a report came out — two words in the status bar tell you whether it really succeeded:</p>\n<ol>\n<li>Open View My Requests and find the request you just ran.</li>\n<li>Check <b>Phase</b>: Completed means it finished; Running means it&#x27;s still going; Pending means it&#x27;s waiting in the queue.</li>\n<li>Then check <b>Status</b>: Normal means it truly succeeded; Warning means it finished but with warnings; Error means it failed.</li>\n<li>Only Completed + Normal means you can trust the result. If you see Warning or Error, click View Log to find out what went wrong.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-08",
    "idx": 3,
    "title": "Excel：Ctrl+D 向下填充，公式和格式一步复制到位",
