@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-10",
+   "idx": 3,
+   "title": "Teams：开会时按 Ctrl+Shift+B，一键模糊背景",
+   "tag": "Teams",
+   "topic": "开会时按 Ctrl+Shift+B，一键模糊背景",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "82aec6a44a1a0a5c9b333f5ba3035306",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-10",
+   "html": "<p><b>Teams：开会时按 Ctrl+Shift+B，一键模糊背景</b></p><p>在家开会、身后有点乱，或者不想让同事看到办公室背景？不用进设置翻菜单：</p>\n<ol>\n<li>会议进行中按 <b>Ctrl+Shift+B</b>，背景立刻模糊，只留你清晰出镜。</li>\n<li>再按一次 <b>Ctrl+Shift+B</b>，恢复原来的背景。</li>\n<li>会议开始前也可以设置：加入会议时点「背景效果」，选「模糊」再加入。</li>\n<li>提醒一句：模糊背景能挡杂物，但挡不住声音——开会前还是先确认麦克风是静音状态。</li>\n</ol>\n<p><b>English — Teams: Press Ctrl+Shift+B in a meeting to blur your background</b></p>\n<p>Working from home with a messy room behind you, or you&#x27;d rather not show the office behind you? No need to dig through settings:</p>\n<ol>\n<li>During a meeting, press <b>Ctrl+Shift+B</b> — your background blurs instantly while you stay in focus.</li>\n<li>Press <b>Ctrl+Shift+B</b> again to bring the background back.</li>\n<li>You can also set it before joining: click &quot;Background effects&quot; on the join screen, choose &quot;Blur&quot;, then join.</li>\n<li>One reminder: blurring hides the clutter, not the noise — still check your mic is muted before the meeting starts.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-10",
+   "idx": 2,
+   "title": "Excel：Ctrl+Home 回到 A1，Ctrl+End 跳到数据末尾",
+   "tag": "Excel",
+   "topic": "Ctrl+Home 回到 A1，Ctrl+End 跳到数据末尾",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "3e909bf2a2e5448f88b1cf456fc6add9",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-10",
+   "html": "<p><b>Excel：Ctrl+Home 回到 A1，Ctrl+End 跳到数据末尾</b></p><p>表格拉得又长又宽，想一下子回到开头、或者跳到最后一行数据，不用拖滚动条：</p>\n<ol>\n<li>在任意单元格按 <b>Ctrl+Home</b>，立刻回到 A1（表格左上角）。</li>\n<li>按 <b>Ctrl+End</b>，跳到有数据的最后一个单元格——也就是数据区域的右下角。</li>\n<li>想选中从当前位置到数据末尾的一大片区域？按 <b>Ctrl+Shift+End</b>，一次选中到位，再复制粘贴都方便。</li>\n<li>配合之前学过的 Ctrl+方向键：方向键是跳到本行/本列的边缘，Ctrl+End 是直接跳到整张表的末尾。</li>\n</ol>\n<p><b>English — Excel: Ctrl+Home jumps back to A1, Ctrl+End jumps to the last cell with data</b></p>\n<p>When a sheet is long and wide, don&#x27;t drag the scrollbar to get back to the start or to the last row of data:</p>\n<ol>\n<li>Press <b>Ctrl+Home</b> in any cell to jump straight back to A1 (the top-left of the sheet).</li>\n<li>Press <b>Ctrl+End</b> to jump to the last cell that contains data — the bottom-right corner of your data range.</li>\n<li>To select a large block from where you are to the end of the data, press <b>Ctrl+Shift+End</b> — selected in one go, ready to copy and paste.</li>\n<li>Combined with the Ctrl+arrow keys from an earlier tip: the arrow keys jump to the edge of the current row or column, while Ctrl+End goes straight to the end of the whole sheet.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-10",
+   "idx": 1,
+   "title": "EBS：填单据时用 Tab 键在字段间移动，不用鼠标一个个点",
+   "tag": "EBS",
+   "topic": "填单据时用 Tab 键在字段间移动，不用鼠标一个个点",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "8947174580cd2e10aefb8a7bcfea8e83",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-10",
+   "html": "<p><b>EBS：填单据时用 Tab 键在字段间移动，不用鼠标一个个点</b></p><p>在 EBS 表单里录入数据，鼠标点来点去又慢又容易点错行——键盘 Tab 键更快：</p>\n<ol>\n<li>在任意表单中填完一个字段，按 <b>Tab</b>，光标自动跳到下一个字段。</li>\n<li>想回到上一个字段改一下，按 <b>Shift+Tab</b>，光标往回跳一个字段。</li>\n<li>填到行尾按 Tab 会自动跳到下一行的第一个字段，连续录入多行不用碰鼠标。</li>\n<li>配合之前学过的 Ctrl+L 打开值列表：Tab 定位、Ctrl+L 选值，整张单据可以全键盘录完。</li>\n</ol>\n<p><b>English — EBS: Use Tab to move between fields instead of clicking with the mouse</b></p>\n<p>Filling in a form in EBS by clicking each field with the mouse is slow and easy to misclick — the Tab key is faster:</p>\n<ol>\n<li>In any form, after finishing a field, press <b>Tab</b> and the cursor jumps to the next field.</li>\n<li>To go back and fix the previous field, press <b>Shift+Tab</b> — the cursor moves back one field.</li>\n<li>Pressing Tab at the end of a row moves to the first field of the next row, so you can enter several rows without touching the mouse.</li>\n<li>Combine it with Ctrl+L from an earlier tip to open the list of values: Tab to move, Ctrl+L to pick a value, and the whole form can be filled in from the keyboard.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-09",
    "idx": 3,
    "title": "Teams：Ctrl+E 跳到顶部搜索框，找人找消息找文件都快",
