@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Windows：Win+数字键，一键打开任务栏上的应用</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-12</link><guid isPermaLink="false">af213d37cb32377e30f6f4481ea34d18</guid><pubDate>Thu, 12 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：Win+数字键，一键打开任务栏上的应用</b></p><p>任务栏上常用的应用（Outlook、Excel、浏览器……）不用鼠标一个个点，键盘一步直达：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：Ctrl+H 查找替换，批量改内容不用一个个改</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-13</link><guid isPermaLink="false">9608680174c7f41a1abff6570ca6ccdf</guid><pubDate>Fri, 13 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：Ctrl+H 查找替换，批量改内容不用一个个改</b></p><p>表格里几十处都要改（比如客户名改了、产品编码换了），一个个点进去改又慢又容易漏——查找替换一次搞定：</p>
+<ol>
+<li>按 <b>Ctrl+H</b> 打开&quot;查找和替换&quot;窗口。</li>
+<li>&quot;查找内容&quot;填旧的，&quot;替换为&quot;填新的，点 <b>全部替换</b>，一秒改完全表。</li>
+<li>只想改某一列或某个区域？先选中那个范围再按 Ctrl+H，替换就只在选中的地方生效。</li>
+<li>改之前建议先按 Ctrl+S 存一份，或点&quot;查找下一个&quot;先看一眼，确认没改错再点全部替换。</li>
+</ol>
+<p><b>English — Excel: Ctrl+H Find &amp; Replace changes dozens of cells at once</b></p>
+<p>When a name or code changes in dozens of places (a renamed customer, a new product code), editing cell by cell is slow and error-prone — Find &amp; Replace does it in one go:</p>
+<ol>
+<li>Press <b>Ctrl+H</b> to open the Find and Replace window.</li>
+<li>Type the old text in &quot;Find what&quot; and the new text in &quot;Replace with&quot;, then click <b>Replace All</b> — the whole sheet is updated in a second.</li>
+<li>To change only one column or area, select that range first, then press Ctrl+H — the replacement stays inside your selection.</li>
+<li>Save a copy with Ctrl+S before you start, or click &quot;Find Next&quot; to preview a match first — then Replace All once you&#x27;re sure it&#x27;s right.</li>
+</ol>]]></description></item>
+<item><title>Outlook：常用文件夹加到收藏夹，置顶一键直达</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-13</link><guid isPermaLink="false">83789747c4af22e1a1e5e14b36ae4b74</guid><pubDate>Fri, 13 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：常用文件夹加到收藏夹，置顶一键直达</b></p><p>天天要看的几个文件夹（比如&quot;待办&quot;&quot;项目 A&quot;&quot;发票&quot;），不用每次在长长的列表里翻找，收藏夹可以把它们置顶：</p>
+<ol>
+<li>在左侧文件夹列表里，找到常用的文件夹，点右键。</li>
+<li>选 <b>Add to Favorites（添加到收藏夹）</b>，它就出现在左侧最顶上的&quot;收藏夹&quot;区域。</li>
+<li>以后点收藏夹里的名字就直接打开，不用再一层层展开找。</li>
+<li>不再常用的话，右键点它选 <b>Remove from Favorites（从收藏夹中删除）</b> 即可，文件夹本身还在原位置，不会删掉邮件。</li>
+</ol>
+<p><b>English — Outlook: Add your most-used folders to Favorites</b></p>
+<p>The folders you open every day (like &quot;To Do&quot;, &quot;Project A&quot;, &quot;Invoices&quot;) don&#x27;t have to be hunted down in a long list — pin them to Favorites at the top:</p>
+<ol>
+<li>In the folder list on the left, right-click the folder you use often.</li>
+<li>Choose <b>Add to Favorites</b> — it appears in the &quot;Favorites&quot; section at the very top of the left pane.</li>
+<li>From then on, one click on its name opens it — no more expanding folders to find it.</li>
+<li>If you stop using it, right-click and choose <b>Remove from Favorites</b>. The folder itself stays where it was — no mail is deleted.</li>
+</ol>]]></description></item>
+<item><title>EBS：通知里点一下，直接打开待办单据</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-13</link><guid isPermaLink="false">0bf37f49ce5fd0eb0c3f3ccc7242fa5f</guid><pubDate>Fri, 13 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>审批与通知</category><description><![CDATA[<p><b>EBS：通知里点一下，直接打开待办单据</b></p><p>收到 EBS 待办通知，不用自己再去对应模块里翻单据——通知本身就带直达链接：</p>
+<ol>
+<li>打开通知列表（个人主页的 Worklist，或右上角铃铛图标），找到要处理的那条通知。</li>
+<li>点通知标题打开详情页，里面通常有直达单据的链接，点一下就直接打开对应的申请单、采购单等。</li>
+<li>审批类通知更省事：详情页里就有 <b>Approve（批准）/ Reject（拒绝）</b> 按钮，不用打开单据也能处理。</li>
+<li>处理完的通知记得关闭或标记，下次打开列表就只剩真正待办的，不容易漏事。</li>
+</ol>
+<p><b>English — EBS: Click a notification to open the document directly</b></p>
+<p>When you get an EBS notification, there&#x27;s no need to hunt for the document in the module yourself — the notification carries a direct link:</p>
+<ol>
+<li>Open your notification list (the Worklist on your homepage, or the bell icon at the top right) and find the item to handle.</li>
+<li>Click the notification subject to open its details — you&#x27;ll usually find a link that opens the requisition, purchase order, or other document directly.</li>
+<li>Approval notifications are even easier: the details page has <b>Approve / Reject</b> buttons, so you can act without opening the document at all.</li>
+<li>Close or mark notifications once handled, so next time your list shows only what&#x27;s truly pending — nothing slips through.</li>
+</ol>]]></description></item>
+<item><title>Windows：Win+数字键，一键打开任务栏上的应用</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-12</link><guid isPermaLink="false">af213d37cb32377e30f6f4481ea34d18</guid><pubDate>Thu, 12 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：Win+数字键，一键打开任务栏上的应用</b></p><p>任务栏上常用的应用（Outlook、Excel、浏览器……）不用鼠标一个个点，键盘一步直达：</p>
 <ol>
 <li>看一眼任务栏：从左往右数，第 1 个应用对应 <b>Win+1</b>，第 2 个对应 <b>Win+2</b>，以此类推。</li>
 <li>按 <b>Win+3</b>，就直接打开（或切换到）任务栏上第 3 个应用——已经打开的会直接跳过去，没打开的会启动它。</li>
