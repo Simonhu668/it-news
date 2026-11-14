@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-14",
+   "idx": 3,
+   "title": "Excel：数据分列，一列拆成多列不用手敲",
+   "tag": "Excel",
+   "topic": "数据分列，一列拆成多列不用手敲",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "015958ca7f2e646be351e4df1b6ed568",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-14",
+   "html": "<p><b>Excel：数据分列，一列拆成多列不用手敲</b></p><p>一列里&quot;姓名-部门&quot;&quot;2026/11/14-广州&quot;这种连在一起的数据，想拆成两列分析？数据分列一次搞定：</p>\n<ol>\n<li>选中要拆的那一列，点 <b>数据（Data）</b> 选项卡 → <b>分列（Text to Columns）</b>。</li>\n<li>选 <b>分隔符号（Delimited）</b>，下一步，勾上实际用的分隔符（比如 <span class=\"code\">-</span> 或 <span class=\"code\">/</span>）。</li>\n<li>预览里确认拆得对，点 <b>完成</b>，一列立刻变成两列或多列。</li>\n<li>拆之前记得在右边留一两列空列，不然分列结果会盖掉旁边已有的数据。</li>\n</ol>\n<p><b>English — Excel: Text to Columns splits one column into several</b></p>\n<p>When one column holds combined values like &quot;Name-Department&quot; or &quot;2026/11/14-Guangzhou&quot; and you need them apart, Text to Columns does it in one go:</p>\n<ol>\n<li>Select the column to split, then go to the <b>Data</b> tab → <b>Text to Columns</b>.</li>\n<li>Choose <b>Delimited</b>, click Next, and tick the separator actually used (e.g. <span class=\"code\">-</span> or <span class=\"code\">/</span>).</li>\n<li>Check the preview to make sure it splits correctly, then click <b>Finish</b> — one column becomes two or more.</li>\n<li>Leave one or two empty columns to the right first, or the split results will overwrite data already there.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-14",
+   "idx": 2,
+   "title": "Teams：设个安静时段，晚上不再被消息打扰",
+   "tag": "Teams",
+   "topic": "设个安静时段，晚上不再被消息打扰",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "6b3ba2fc941bdfd8be1ab5ef638abde2",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-14",
+   "html": "<p><b>Teams：设个安静时段，晚上不再被消息打扰</b></p><p>下班后 Teams 还在响，同事的消息一条条弹出来——设好安静时段，晚上只收消息不提醒：</p>\n<ol>\n<li>点右上角头像 → <b>设置（Settings）</b> → <b>通知（Notifications）</b>。</li>\n<li>找到 <b>安静时段（Quiet hours）</b>，打开开关，设一个每天的时段，比如 22:00–07:00。</li>\n<li>还可以单独设&quot;安静日&quot;，比如周六、周日全天不提醒。</li>\n<li>安静时段里消息照常收到，只是手机和电脑都不再弹窗、震动和响铃，第二天早上再看就行。</li>\n</ol>\n<p><b>English — Teams: Set quiet hours so messages stop buzzing at night</b></p>\n<p>After work, Teams keeps buzzing with every message — set quiet hours so you still receive messages, just without the alerts:</p>\n<ol>\n<li>Click your profile picture at the top right → <b>Settings</b> → <b>Notifications</b>.</li>\n<li>Find <b>Quiet hours</b>, switch it on, and set a daily window, e.g. 22:00–07:00.</li>\n<li>You can also set quiet days, e.g. Saturday and Sunday with no notifications all day.</li>\n<li>During quiet hours messages still arrive — your phone and computer just won&#x27;t pop up, vibrate, or ring. Catch up the next morning.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-14",
+   "idx": 1,
+   "title": "EBS：值列表里输半截 + %，可选值一秒筛出来",
+   "tag": "EBS",
+   "topic": "值列表里输半截 + %，可选值一秒筛出来",
+   "category": "Oracle EBS",
+   "module": "查询与筛选",
+   "guid": "f412d9bc5d925fdbd20625cbf9180817",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-14",
+   "html": "<p><b>EBS：值列表里输半截 + %，可选值一秒筛出来</b></p><p>打开值列表（LOV）选供应商、物料、科目时，几百条选项翻着找很费时间——其实可以直接在列表里筛：</p>\n<ol>\n<li>在字段里按 <b>Ctrl+L</b> 打开值列表（LOV）窗口。</li>\n<li>在窗口顶部的查找框里输入半截内容再加 <b>%</b>，比如输 <span class=\"code\">办公%</span>，点 <b>Find（查找）</b>。</li>\n<li>列表立刻只剩符合条件的值，点中要的，再按 <b>OK</b> 就填回字段了。</li>\n<li>只记得中间几个字也行，<span class=\"code\">%纸%</span> 这样前后都加 %，能找出所有含&quot;纸&quot;的选项。</li>\n</ol>\n<p><b>English — EBS: Filter a long list of values with % in the LOV</b></p>\n<p>When a List of Values (LOV) offers hundreds of suppliers, items, or accounts, don&#x27;t scroll — filter it:</p>\n<ol>\n<li>Press <b>Ctrl+L</b> in the field to open the List of Values (LOV) window.</li>\n<li>In the Find box at the top, type part of the value followed by <b>%</b> — for example <span class=\"code\">办公%</span> — then click <b>Find</b>.</li>\n<li>The list narrows to matching values only; pick the one you want and click <b>OK</b> to fill it into the field.</li>\n<li>If you only remember the middle of a value, put % on both sides, like <span class=\"code\">%纸%</span>, to find everything containing it.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-13",
    "idx": 3,
    "title": "Excel：Ctrl+H 查找替换，批量改内容不用一个个改",
