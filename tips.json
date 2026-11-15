@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-15",
+   "idx": 3,
+   "title": "Windows：双屏办公，Win+Shift+←/→ 一键把窗口挪到另一个显示器",
+   "tag": "Windows",
+   "topic": "双屏办公，Win+Shift+←/→ 一键把窗口挪到另一个显示器",
+   "category": "Windows",
+   "module": "快捷操作",
+   "guid": "5b275333aaeb6bd842ddca01f8455fe9",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-15",
+   "html": "<p><b>Windows：双屏办公，Win+Shift+←/→ 一键把窗口挪到另一个显示器</b></p><p>接了外接显示器，窗口总在主屏上，用鼠标拖过去又慢又容易拖错位置？一个快捷键直接挪：</p>\n<ol>\n<li>先点一下要移动的窗口，让它成为当前活动窗口。</li>\n<li>按 <b>Win+Shift+←</b> 把窗口移到左边的显示器，按 <b>Win+Shift+→</b> 移到右边的显示器。</li>\n<li>窗口会保持原来的大小和位置，直接在新显示器上继续用。</li>\n<li>只有一个显示器时这个快捷键不起作用——先确认显示器已经接好并在设置里设为&quot;扩展这些显示器&quot;。</li>\n</ol>\n<p><b>English — Windows: Win+Shift+←/→ moves a window to your other monitor in one keystroke</b></p>\n<p>With a second monitor connected, dragging a window across screens with the mouse is slow and fiddly. One shortcut moves it instantly:</p>\n<ol>\n<li>Click the window you want to move so it becomes the active window.</li>\n<li>Press <b>Win+Shift+Left Arrow</b> to move it to the left monitor, or <b>Win+Shift+Right Arrow</b> to the right monitor.</li>\n<li>The window keeps its size and position — just continue working on the new screen.</li>\n<li>This only works with two monitors — first make sure the second display is connected and set to &quot;Extend these displays&quot; in Settings.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-15",
+   "idx": 2,
+   "title": "Outlook：约会前先看会议助手，挑个大家都有空的时间",
+   "tag": "Outlook",
+   "topic": "约会前先看会议助手，挑个大家都有空的时间",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "5b82393668115430be0f0f761431e65f",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-15",
+   "html": "<p><b>Outlook：约会前先看会议助手，挑个大家都有空的时间</b></p><p>拉人开会最怕发出去才发现有人撞时间，来回改期。新建会议时先用会议助手看一眼：</p>\n<ol>\n<li>新建会议邀请，填好参会人，点 <b>会议助手（Scheduling Assistant）</b> 选项卡。</li>\n<li>表格里每人一行，绿色是空闲、紫色/蓝色是忙碌，一眼就能看到大家都空着的时段。</li>\n<li>点一下空白的时段，会议时间自动填好，再点 <b>发送</b> 就行。</li>\n<li>有人时间实在凑不上？先约大多数人，备注里写一句&quot;如时间不合适请告诉我&quot;，再单独协调。</li>\n</ol>\n<p><b>English — Outlook: Use Scheduling Assistant to pick a time that works for everyone</b></p>\n<p>Nothing wastes more time than sending a meeting invite, finding someone is busy, and rescheduling back and forth. Check Scheduling Assistant first:</p>\n<ol>\n<li>Create a new meeting invite, add the attendees, then click the <b>Scheduling Assistant</b> tab.</li>\n<li>Each person gets a row — green means free, purple/blue means busy — so the gaps where everyone is free stand out at a glance.</li>\n<li>Click an empty slot and the meeting time fills in automatically, then hit <b>Send</b>.</li>\n<li>If someone just can&#x27;t make it, book the time that suits most people, add a note like &quot;let me know if this doesn&#x27;t work for you,&quot; and coordinate with that person separately.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-15",
+   "idx": 1,
+   "title": "EBS：审批通知里看审批历史，单据批到哪一步一目了然",
+   "tag": "EBS",
+   "topic": "审批通知里看审批历史，单据批到哪一步一目了然",
+   "category": "Oracle EBS",
+   "module": "审批与通知",
+   "guid": "cc347b183d5a13f0254cab17d8df6941",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-15",
+   "html": "<p><b>EBS：审批通知里看审批历史，单据批到哪一步一目了然</b></p><p>提交的采购单、请购单迟迟没批下来，不知道卡在谁手里？不用逐个去问，通知里直接看审批历史：</p>\n<ol>\n<li>打开 EBS 通知（工作清单），点开那条审批通知。</li>\n<li>找到 <b>审批历史（Approval History）</b> 或类似的链接/按钮，点开。</li>\n<li>列表里会显示每一位审批人的名字和状态：已批准、待审批、已拒绝。</li>\n<li>看到&quot;待审批&quot;那一位，直接联系他就行，不用再满世界打听单据卡在哪。</li>\n</ol>\n<p><b>English — EBS: Check the approval history to see exactly where your document is stuck</b></p>\n<p>Your purchase order or requisition has been waiting for approval and you don&#x27;t know whose desk it&#x27;s on? Check the approval history in the notification instead of asking around:</p>\n<ol>\n<li>Open your EBS notifications (Worklist) and click the approval notification.</li>\n<li>Find the <b>Approval History</b> link or button and open it.</li>\n<li>The list shows every approver&#x27;s name and status: Approved, Pending, or Rejected.</li>\n<li>Once you see who is still pending, just contact that person directly — no more guessing where the document is stuck.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-14",
    "idx": 3,
    "title": "Excel：数据分列，一列拆成多列不用手敲",
