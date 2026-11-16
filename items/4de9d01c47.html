@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FBI 警告 AI 渗透框架 ARTEX 已被用于全球自动化入侵：部分入侵三小时内拿到高权限 · IT 资讯速览</title>
+<meta name="description" content="美国联邦调查局 2026 年 11 月 13 日发布通报 FLASH-20261113-001：开源多智能体渗透测试框架 ARTEX 自 2026 年 8 月起被多类攻击者用于自动化入侵，覆盖金融、政府、技术、国防、半导体、能源、医疗、制造…">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IT 资讯速览">
+<meta property="og:title" content="FBI 警告 AI 渗透框架 ARTEX 已被用于全球自动化入侵：部分入侵三小时内拿到高权限 · IT 资讯速览">
+<meta property="og:description" content="美国联邦调查局 2026 年 11 月 13 日发布通报 FLASH-20261113-001：开源多智能体渗透测试框架 ARTEX 自 2026 年 8 月起被多类攻击者用于自动化入侵，覆盖金融、政府、技术、国防、半导体、能源、医疗、制造…">
+<meta property="og:url" content="https://simonhu668.github.io/it-news/items/4de9d01c47.html">
+<link rel="alternate" type="application/rss+xml" title="IT 资讯速览" href="../feed.xml">
+<style>
+:root {
+  --bg:#faf9f6; --bg-sunk:#f3f3ef; --surface:#ffffff; --sidebar:#fdfdfb;
+  --ink:#202a30; --ink-2:#303c42; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --line-strong:#d1d9d5;
+  --accent:#176b75; --accent-ink:#145f68; --note:#4c6468;
+  --amber:#a5761a; --amber-bg:#faf0d7; --mark:#fff3bf;
+  --shadow-card:0 1px 2px #202a3006;
+  --shadow-card-hover:0 3px 12px #202a300e;
+  --ease:cubic-bezier(.1,.7,.2,1);
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --bg-sunk:#1c2224; --surface:#1e2528; --sidebar:#191f22;
+    --ink:#e9edee; --ink-2:#c9d2d5; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --line-strong:#3a4449;
+    --accent:#4fb3bd; --accent-ink:#7ccdd4; --note:#9db8ba;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --mark:#5c4a12;
+    --shadow-card:0 1px 2px #00000040;
+    --shadow-card-hover:0 3px 12px #00000055;
+  }
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); }
+/* ---------- shell: sidebar + full-width content ---------- */
+.shell { display:flex; align-items:stretch; min-height:100dvh; }
+.sidebar { display:none; }
+@media (min-width:1024px) {
+  .sidebar { display:flex; flex-direction:column; position:sticky; top:0; height:100dvh;
+    width:200px; flex-shrink:0; background:var(--sidebar);
+    border-right:1px solid var(--line); padding:24px 12px 14px; }
+}
+.wordmark { display:flex; align-items:center; gap:8px; height:50px; padding:0 4px; margin-bottom:14px;
+  font-size:17px; font-weight:800; letter-spacing:.5px; }
+.wordmark a { color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:8px; }
+.wordmark .wm-icon { font-size:22px; }
+.navsec { font-size:11px; color:var(--ink-4); padding:14px 10px 4px; }
+.sidelink { display:flex; align-items:center; gap:8px; width:100%; height:40px;
+  padding:0 10px; border:0; border-radius:8px; background:transparent; cursor:pointer;
+  font-size:13px; font-weight:500; color:var(--ink-3); transition:background .15s,color .15s;
+  text-decoration:none; font-family:inherit; }
+.sidelink:hover { background:var(--bg-sunk); color:var(--ink); }
+.sidelink .sicon { display:flex; width:22px; justify-content:center; flex-shrink:0; }
+.sidelink .slabel { flex:1; text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidelink .scount { font-size:11.5px; color:var(--ink-4); font-variant-numeric:tabular-nums; }
+.sidelink.active { background:color-mix(in srgb, var(--accent) 10%, transparent);
+  font-weight:600; color:var(--ink); }
+.sidelink.active .sicon { color:var(--accent); }
+.sidelink.active .scount { color:var(--accent-ink); font-weight:600; }
+.sidefoot { margin-top:auto; padding:10px 4px 0; font-size:11px; line-height:1.8; color:var(--ink-4);
+  border-top:1px solid var(--line-soft); }
+.main { flex:1; min-width:0; }
+.content { max-width:1560px; padding:26px 40px 0; margin:0 auto; }
+@media (max-width:640px) { .content { padding:20px 16px 0; } }
+.mast-row { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.mast h1 { margin:0; font-size:24px; font-weight:700; letter-spacing:-.01em; }
+.upd { font-size:12.5px; color:var(--ink-4); }
+.mast-sub { margin:6px 0 0; color:var(--ink-3); font-size:13px; }
+.toolbar { margin-top:16px; display:flex; flex-direction:column; gap:10px; }
+.toolrow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.vbtn, .pbtn { border:1px solid var(--line); background:var(--surface); color:var(--ink-2);
+  border-radius:999px; padding:6px 14px; font-size:13px; cursor:pointer; white-space:nowrap; }
+.vbtn b, .pbtn b { font-weight:600; }
+.vbtn.active, .pbtn.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+.search { margin-left:auto; position:relative; }
+.search input { width:230px; max-width:100%; height:34px; border:1px solid var(--line);
+  border-radius:999px; background:var(--surface); padding:0 14px 0 34px; font-size:13px;
+  color:var(--ink); outline:none; }
+.search input:focus { border-color:var(--accent); }
+.search .sico { position:absolute; left:11px; top:50%; transform:translateY(-50%);
+  color:var(--ink-4); display:flex; pointer-events:none; }
+@media (min-width:1024px) {
+  #viewrow .vbtn { display:none; }
+  #topicrow { display:none; }
+}
+@media (max-width:640px) {
+  .search { margin-left:0; width:100%; }
+  .search input { width:100%; }
+  .toolrow.topics { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }
+}
+.spots { margin-top:18px; }
+.spothead { display:flex; align-items:baseline; gap:8px; padding:4px 2px 10px; }
+.spothead h2 { margin:0; font-size:16px; font-weight:700; }
+.spothead .ssub { font-size:12px; color:var(--ink-4); }
+.spotgrid { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
+@media (max-width:1100px) { .spotgrid { grid-template-columns:1fr; } }
+.psec { margin-top:18px; }
+.psec-h { display:flex; align-items:baseline; gap:10px; margin:0 0 10px; }
+.psec-h h2 { font-size:17px; margin:0; }
+.psec-h .ssub { color:var(--ink-3); font-size:12.5px; }
+.pgrid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+@media (max-width:1100px) { .pgrid2 { grid-template-columns:1fr; } }
+.plist { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:4px 14px; }
+.prow { display:flex; gap:8px; align-items:baseline; padding:9px 0; border-bottom:1px dashed var(--line); font-size:13.5px; }
+.prow:last-child { border-bottom:none; }
+.prow a { color:var(--ink); text-decoration:none; }
+.prow a:hover { text-decoration:underline; }
+.prow .pno { color:var(--ink-3); font-size:12px; min-width:16px; }
+.pempty { color:var(--ink-2); font-size:13.5px; background:var(--surface); border:1px dashed var(--line); border-radius:12px; padding:14px 16px; }
+.ptag { font-size:11px; padding:1px 7px; border-radius:20px; white-space:nowrap; }
+.toolrow.purposes { margin-top:8px; }
+.spot { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:14px 16px;
+  transition:box-shadow .2s var(--ease), border-color .2s, transform .2s var(--ease); }
+.spot:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); transform:translateY(-1px); }
+.spot-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.spot-no { font-size:13px; font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; }
+.spot-title { margin:0 0 8px; font-size:15.5px; font-weight:650; line-height:1.5;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.spot-title a { color:var(--ink); text-decoration:none; }
+.spot-title a:hover { color:var(--accent); }
+.spot-why { margin:0; font-size:12.5px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.dayhead { display:flex; align-items:center; gap:8px; width:100%; background:none; border:0;
+  padding:22px 2px 10px; cursor:pointer; font-family:inherit; text-align:left; color:var(--ink); }
+.dayhead time { font-size:18px; font-weight:600; }
+.dayhead .wday { font-size:13px; color:var(--ink-4); }
+.dayhead .dcount { font-size:12.5px; color:var(--ink-4); }
+.dayhead .dcount b { color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.dayhead .dlink { margin-left:auto; font-size:12.5px; color:var(--accent); text-decoration:none; }
+.dayhead .chev { display:inline-block; font-size:12px; color:var(--ink-4); transition:transform .2s; }
+.day.collapsed .dayhead .chev { transform:rotate(-90deg); }
+.day.collapsed .tlist { display:none; }
+.tlist { display:flex; flex-direction:column; }
+.titem { display:flex; gap:0; position:relative; }
+.trail { display:none; }
+@media (min-width:760px) {
+  .trail { display:flex; flex-direction:column; align-items:center; width:64px; flex-shrink:0;
+    padding-top:20px; position:relative; }
+  .ttime { font-size:12.5px; color:var(--ink-3); font-variant-numeric:tabular-nums; font-weight:500; }
+  .tdot { width:7px; height:7px; border-radius:50%; background:var(--accent); margin-top:7px;
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent); }
+  .titem::before { content:""; position:absolute; left:31.5px; top:0; bottom:0;
+    width:1px; background:var(--line-soft); }
+  .titem:first-child::before { top:26px; }
+  .titem:last-child::before { bottom:auto; height:30px; }
+}
+.card { flex:1; min-width:0; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow-card); padding:16px 20px;
+  margin:0 0 12px; transition:box-shadow .2s var(--ease), border-color .2s; }
+@media (min-width:760px) { .card { margin-left:16px; } }
+.card:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); }
+.card-main { display:flex; gap:14px; align-items:flex-start; }
+.card-text { flex:1; min-width:0; }
+.thumb { width:132px; height:88px; object-fit:cover; border-radius:8px; flex-shrink:0; border:1px solid var(--line); display:block; }
+.thumb-link { flex-shrink:0; }
+@media (max-width:640px) { .thumb { width:96px; height:64px; } }
+.d-hero { margin:0 0 18px; }
+.d-hero img { width:100%; max-height:420px; object-fit:cover; border-radius:12px; border:1px solid var(--line); display:block; }
+.d-hero figcaption { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.chead { display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:8px; }
+.ttag { font-size:11px; font-weight:600; border-radius:999px; padding:2px 10px; }
+.sev { font-size:11px; font-weight:700; border-radius:999px; padding:2px 10px; white-space:nowrap; }
+.fbadge { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-bg);
+  border-radius:4px; padding:2px 7px; }
+.mtime { margin-left:auto; font-variant-numeric:tabular-nums; }
+@media (min-width:760px) { .mtime { display:none; } }
+.title { margin:0; font-size:17px; font-weight:600; line-height:1.55;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.title a { color:var(--ink); text-decoration:none; }
+.title a:hover { color:var(--accent); }
+.summary { margin:8px 0 0; font-size:14.5px; line-height:1.65; color:var(--ink-3);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.summary.open { display:block; }
+.cfoot { margin-top:10px; border-top:1px solid var(--line-soft); padding-top:10px; }
+.why { margin:0; font-size:13px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.why.open { display:block; }
+.whylabel { font-weight:600; }
+.cactions { display:flex; align-items:center; gap:14px; margin-top:8px; }
+.src { font-size:13px; color:var(--accent); text-decoration:none; font-weight:500; }
+.src:hover { text-decoration:underline; }
+.plink { font-size:13px; color:var(--ink-4); text-decoration:none; }
+.plink:hover { color:var(--accent); }
+.xbtn { border:0; background:none; padding:0; font-size:13px; color:var(--ink-4);
+  cursor:pointer; font-family:inherit; }
+.xbtn:hover { color:var(--accent); }
+mark { background:var(--mark); border-radius:2px; padding:0 1px; color:inherit; }
+.empty { display:none; text-align:center; padding:56px 20px; color:var(--ink-3); }
+.empty.show { display:block; }
+.empty p { margin:0 0 14px; font-size:14px; }
+.empty button { border:1px solid var(--line-strong); background:var(--surface); color:var(--ink);
+  border-radius:999px; padding:8px 20px; font-size:13px; cursor:pointer; }
+.empty button:hover { border-color:var(--ink); }
+footer.pagefoot { text-align:center; color:var(--ink-4); font-size:12px; line-height:1.9; padding:30px 0 46px; }
+.hidden { display:none !important; }
+.totop { position:fixed; right:24px; bottom:24px; z-index:30; display:none;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer;
+  box-shadow:0 4px 12px #1c27330f; align-items:center; justify-content:center;
+  transition:opacity .2s, transform .2s; opacity:0; pointer-events:none; transform:translateY(8px); }
+.totop.show { opacity:1; pointer-events:auto; transform:none; }
+@media (min-width:1024px) { .totop { display:flex; } }
+/* ---------- detail page ---------- */
+.d-shell { display:grid; grid-template-columns:230px minmax(0,1fr) 290px; gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1150px) { .d-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .d-side-l, .d-side-r { order:2; } .d-center { order:1; } }
+.d-card { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:16px 18px; margin-bottom:14px; }
+.d-card h4 { margin:0 0 10px; font-size:13px; font-weight:700; color:var(--ink-2); }
+.d-card .krow { display:flex; justify-content:space-between; gap:8px; font-size:13px;
+  padding:7px 0; border-top:1px solid var(--line-soft); color:var(--ink-3); }
+.d-card .krow:first-of-type { border-top:0; }
+.d-card .krow .k { color:var(--ink-4); flex-shrink:0; }
+.d-card .krow .v { text-align:right; word-break:break-all; }
+.d-toc a { display:block; font-size:13.5px; color:var(--ink-3); text-decoration:none;
+  padding:7px 0; border-top:1px solid var(--line-soft); }
+.d-toc a:first-child { border-top:0; }
+.d-toc a:hover { color:var(--accent); }
+.d-sticky { position:sticky; top:24px; }
+.d-topbar { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.d-back { font-size:14px; color:var(--ink-3); text-decoration:none; }
+.d-back:hover { color:var(--accent); }
+.d-open { margin-left:auto; font-size:13.5px; font-weight:600; color:var(--accent);
+  border:1px solid var(--line-strong); background:var(--surface); border-radius:999px;
+  padding:8px 18px; text-decoration:none; }
+.d-open:hover { border-color:var(--accent); }
+.d-title { margin:0 0 10px; font-size:30px; font-weight:750; line-height:1.4; letter-spacing:-.01em; }
+@media (max-width:640px) { .d-title { font-size:22px; } }
+.d-sub { margin:0 0 14px; font-size:15px; color:var(--ink-4); line-height:1.6; }
+.d-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:13px;
+  color:var(--ink-4); margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--line-soft); }
+.tabs { display:flex; gap:0; border-bottom:2px solid var(--line); margin-bottom:6px; }
+.tab { border:0; background:none; font-size:14.5px; font-weight:600; color:var(--ink-4);
+  padding:10px 20px; cursor:pointer; font-family:inherit; border-bottom:2px solid transparent;
+  margin-bottom:-2px; }
+.tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+.tabpane { display:none; padding:18px 2px; }
+.tabpane.active { display:block; }
+.body-label { font-size:12.5px; color:var(--ink-4); margin:0 0 12px; }
+.body-label b { color:var(--accent); }
+.tbody p { font-size:16px; line-height:1.9; color:var(--ink-2); margin:0 0 16px; }
+.d-abstract { background:var(--bg-sunk); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 18px; font-size:14.5px; line-height:1.75; color:var(--ink-3); margin-bottom:14px; }
+.d-note { font-size:13px; color:var(--ink-4); background:var(--surface);
+  border:1px dashed var(--line-strong); border-radius:10px; padding:12px 16px; margin-bottom:14px; }
+.d-tags { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+.d-tag { font-size:12.5px; color:var(--ink-3); background:var(--bg-sunk);
+  border:1px solid var(--line-soft); border-radius:999px; padding:4px 14px; }
+.d-srcline { font-size:13px; color:var(--ink-4); border-top:1px solid var(--line-soft);
+  padding-top:14px; margin-top:8px; }
+.d-sec { margin-top:26px; }
+.d-sec h3 { font-size:17px; font-weight:700; margin:0 0 12px; }
+.rel-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
+@media (max-width:760px) { .rel-grid { grid-template-columns:1fr; } }
+.rel { background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:12px 16px; box-shadow:var(--shadow-card); }
+.rel:hover { border-color:var(--line-strong); }
+.rel .r-meta { font-size:12px; color:var(--ink-4); margin-bottom:6px; }
+.rel .r-title { margin:0; font-size:14px; font-weight:600; line-height:1.5; }
+.rel .r-title a { color:var(--ink); text-decoration:none; }
+.rel .r-title a:hover { color:var(--accent); }
+.why-card .why-full { font-size:14px; line-height:1.75; color:var(--ink-2); margin:0; }
+/* ---------- daily page ---------- */
+.r-shell { display:grid; grid-template-columns:230px minmax(0,1fr); gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1024px) { .r-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .r-arch { display:none; } }
+.r-arch .arch-item { display:flex; gap:10px; align-items:baseline; padding:9px 4px;
+  border-top:1px solid var(--line-soft); text-decoration:none; }
+.r-arch .arch-item:first-of-type { border-top:0; }
+.r-arch .arch-day { font-size:20px; font-weight:800; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+.r-arch .arch-t { font-size:12.5px; color:var(--ink-3); line-height:1.5; }
+.r-arch .arch-item.cur .arch-day { color:var(--accent); }
+.r-mast { text-align:left; border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:6px; }
+.r-mast .r-kicker { font-size:13px; color:var(--ink-4); letter-spacing:2px; }
+.r-mast h1 { margin:6px 0 10px; font-size:44px; font-weight:850; letter-spacing:-.02em; }
+.r-mast h1 .r-accent { color:var(--accent); }
+.r-mast .r-date { font-size:14px; color:var(--ink-3); }
+.r-stats { display:flex; gap:26px; align-items:center; padding:14px 2px; font-size:14px; color:var(--ink-3); }
+.r-stats b { font-size:20px; color:var(--ink); font-variant-numeric:tabular-nums; margin-right:4px; }
+.r-stats .r-time { margin-left:auto; font-size:12.5px; color:var(--ink-4); }
+.r-sec-label { display:flex; align-items:center; gap:10px; margin:26px 0 14px; }
+.r-sec-label::before { content:""; width:22px; height:3px; background:var(--accent); border-radius:2px; }
+.r-sec-label h2 { margin:0; font-size:17px; font-weight:700; }
+.r-headline { background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:22px 26px; box-shadow:var(--shadow-card); }
+.r-headline .r-hl-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:10px; }
+.r-headline h3 { margin:0 0 10px; font-size:22px; font-weight:700; line-height:1.45; }
+.r-headline h3 a { color:var(--ink); text-decoration:none; }
+.r-headline h3 a:hover { color:var(--accent); }
+.r-headline p { margin:0 0 12px; font-size:15px; line-height:1.75; color:var(--ink-3); }
+.r-points { display:flex; flex-direction:column; gap:10px; }
+.r-point { display:flex; gap:14px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:14px 18px; box-shadow:var(--shadow-card); align-items:flex-start; }
+.r-point .r-no { font-size:20px; font-weight:850; color:var(--accent); font-variant-numeric:tabular-nums; }
+.r-point h4 { margin:0 0 6px; font-size:15.5px; font-weight:650; line-height:1.5; }
+.r-point h4 a { color:var(--ink); text-decoration:none; }
+.r-point h4 a:hover { color:var(--accent); }
+.r-point p { margin:0; font-size:13.5px; color:var(--ink-3); line-height:1.65; }
+.r-point .r-pmeta { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.r-board { display:flex; flex-direction:column; gap:18px; }
+.r-topic-sec h3 { margin:0 0 10px; font-size:15px; font-weight:700; display:flex; gap:8px; align-items:center; }
+.r-topic-sec h3 .cnt { font-size:12px; color:var(--ink-4); font-weight:500; }
+.r-item { display:flex; gap:12px; padding:11px 2px; border-top:1px solid var(--line-soft); align-items:baseline; }
+.r-item .r-t { font-size:12.5px; color:var(--ink-4); font-variant-numeric:tabular-nums;
+  flex-shrink:0; width:44px; }
+.r-item .r-b { min-width:0; }
+.r-item .r-b h4 { margin:0 0 4px; font-size:14.5px; font-weight:600; line-height:1.5; }
+.r-item .r-b h4 a { color:var(--ink); text-decoration:none; }
+.r-item .r-b h4 a:hover { color:var(--accent); }
+.r-item .r-b p { margin:0; font-size:13px; color:var(--ink-3); line-height:1.6;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.r-item .r-b .r-s { font-size:12px; color:var(--ink-4); margin-top:3px; }
+</style>
+</head>
+<body><div class="shell"><aside class="sidebar" aria-label="主导航"><div class="wordmark"><a href="../index.html"><span class="wm-icon">📰</span>IT 资讯速览</a></div><nav><div class="navsec">内容</div><a class="sidelink" href="../index.html" data-v="all"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">全部资讯</span><span class="scount">338</span></a><a class="sidelink" href="../index.html#v=featured" data-v="featured"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">精选</span><span class="scount">50</span></a><div class="navsec">日报</div><a class="sidelink" href="../archive.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">日期归档 · 日/周/月/年</span><span class="scount">33 天</span></a><div class="navsec">学习</div><a class="sidelink" href="../learn/ebs-shortcodes.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 短码速查</span></a><a class="sidelink" href="../learn/ebs-finance.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 财务管理</span></a><a class="sidelink" href="../learn/ebs-shortcuts.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 快捷键</span></a><a class="sidelink" href="../learn/ebs-inventory-types.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 库存交易类型</span></a><a class="sidelink" href="../learn/copilot-notebooks-tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Copilot Notebooks 技巧</span></a><a class="sidelink" href="../learn/words.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">背单词</span></a><a class="sidelink" href="../learn/tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">每日技巧</span></a><a class="sidelink" href="../learn/kb-demo.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">知识库 Demo</span></a><a class="sidelink" href="../learn/sql.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">SQL 小课</span></a><a class="sidelink" href="../learn/reading.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">每日精读</span></a><a class="sidelink" href="../learn/itil.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">ITIL 4</span></a><a class="sidelink" href="../learn/powerbi.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Power BI</span></a><div class="navsec">用途</div><a class="sidelink" href="../index.html#p=今日需判断" data-p="今日需判断"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">今日需判断</span><span class="scount">138</span></a><a class="sidelink" href="../index.html#p=近期需计划" data-p="近期需计划"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">近期需计划</span><span class="scount">70</span></a><a class="sidelink" href="../index.html#p=本周学一项" data-p="本周学一项"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">本周学一项</span><span class="scount">37</span></a><a class="sidelink" href="../index.html#p=项目参考" data-p="项目参考"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">项目参考</span><span class="scount">32</span></a><a class="sidelink" href="../index.html#p=行业视野" data-p="行业视野"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业视野</span><span class="scount">61</span></a><div class="navsec">主题</div><a class="sidelink" href="../index.html#t=安全与运维" data-t="安全与运维"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">安全与运维</span><span class="scount">157</span></a><a class="sidelink" href="../index.html#t=Microsoft 365" data-t="Microsoft 365"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Microsoft 365</span><span class="scount">94</span></a><a class="sidelink" href="../index.html#t=AI应用" data-t="AI应用"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">AI应用</span><span class="scount">43</span></a><a class="sidelink" href="../index.html#t=行业动态" data-t="行业动态"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业动态</span><span class="scount">44</span></a></nav></aside><div class="main"><div class="d-shell" id="d-body"><div class="d-side-l"><div class="d-sticky"><div class="d-card"><h4>来源</h4><div class="krow"><span class="k">媒体</span><span class="v">bleepingcomputer</span></div><div class="krow"><span class="k">域名</span><span class="v">bleepingcomputer.com</span></div><div class="krow"><span class="k">类型</span><span class="v">媒体报道</span></div><div class="krow"><span class="k">发布时间</span><span class="v">2026-11-15 13:29</span></div><div class="krow"><span class="k">收录时间</span><span class="v">11-16 08:45</span></div></div><div class="d-card"><h4>本文目录</h4><nav class="d-toc"><a href="#d-body">正文</a><a href="#d-why">推荐理由</a><a href="#d-related">相关新闻</a></nav></div></div></div><div class="d-center"><div class="d-topbar"><a class="d-back" href="../index.html">← 返回全部资讯</a><a class="d-open" href="https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/" target="_blank" rel="noopener">打开原文 ↗</a></div><h1 class="d-title">FBI 警告 AI 渗透框架 ARTEX 已被用于全球自动化入侵：部分入侵三小时内拿到高权限</h1><p class="d-sub">美国联邦调查局 2026 年 11 月 13 日发布通报 FLASH-20261113-001：开源多智能体渗透测试框架 ARTEX 自 2026 年 8 月起被多类攻击者用于自动化入侵，覆盖金融、政府、技术、国防、半导体、能源、医疗、制造…</p><div class="d-meta"><span>bleepingcomputer</span><span>·</span><span>媒体报道</span><span class="ttag" style="color:#b3402a;background:#b3402a1a">安全与运维</span><span class="ptag" style="color:#c0392b;background:#c0392b1a">今日需判断</span><span class="sev" style="color:#b3402a;background:#fdeceb">🔴 在野利用</span><span class="fbadge">精选</span><span style="margin-left:auto">收录 11-16 08:45</span></div><div class="tabs" role="tablist"><button class="tab active" data-tab="zh" role="tab">中文</button><button class="tab" data-tab="en" role="tab">原文</button></div><div class="tabpane active" id="pane-zh"><p class="body-label">正文 · <b>AI 翻译</b></p><div class="tbody"><p>美国联邦调查局警告，攻击者正在使用名为 ARTEX 的 AI 渗透测试框架自动化攻击全球组织，其中包括导致 Microsoft 365 客户环境受损的 ConnectWise 供应链攻击。FBI 在 11 月 13 日发布的 FLASH 通报中称，自 2026 年 8 月起，多个攻击者已把这一开源框架武器化，目标覆盖金融、政府、技术、国防、医疗等行业。</p><p>“ARTEX 大幅缩短了串联攻击技术所需的时间，部分入侵从初始定位到拿到高权限不到三小时，”通报写道。“该框架让技术水平有限的攻击者也能同时开展复杂的多目标行动，从根本上加快了攻击速度、扩大了行动规模。”</p><p>ARTEX 是以 Go 编写的自主渗透测试框架，用 AI 智能体执行侦察、发现漏洞、利用系统、提升权限与窃取数据，人工干预很少。它本身不带模型，而是接入 Anthropic Claude、OpenAI GPT、DeepSeek、GLM、Grok 与 Kimi 等外部大语言模型。攻击者把目标与任务交给 ARTEX，由专业智能体转成命令执行，从而实现入侵自动化并同时攻击多个组织。</p><p>FBI 称，该框架尤其擅长发现被忽视系统中的漏洞，包括合作伙伴门户、员工应用、旧服务与第三方集成。这类自动化攻击会产生大量可疑流量、触发安全告警，但速度之快可能让防守方在攻击者得手前来不及反应。</p><p>ARTEX 最初由化名 Autumn-27 的开发者于 2026 年 7 月在 GitHub 发布，10 月 8 日因被滥用而下架。但 FBI 称，社区分叉、存档副本、本地化版本与商业版 ARTEX PRO 仍在流传。截至 11 月初，研究人员已发现 1,600 多个公开暴露的 ARTEX 控制台，实际部署数量据信更高。</p><p>FBI 的 13 页通报附有已知 ARTEX 攻击活动的入侵指标，包括 IP 地址、命令控制基础设施与可疑网络活动。安全研究员 MalwareMustDie 同日发布了开源 ARTEX 检测签名包，帮助防守方识别相关攻击，覆盖可疑网络请求、身份滥用、云活动、恶意文件与自动化攻击模式。</p><p>FBI 建议组织加固互联网暴露应用、限制云管理界面的访问、复核应用权限与认证日志、对敏感 API 实施限流，并监控异常的自动化请求突发、可疑云活动、意外的凭据或权限变更与大额数据传输。通报提醒，所列 IP 地址可能已变更。发现相关可疑活动的组织可向 FBI 或其互联网犯罪投诉中心（IC3）报告。</p><p>通报点名的已知攻击包括 2026 年 10 月的 ConnectWise 云备份供应链攻击：攻击者盗用 ConnectWise 云备份服务（前身为 SkyKick Cloud Backup）的应用身份，借用此前已授予这些应用的权限登录客户租户。Huntress 当时确认至少 162 个租户受损。微软 10 月的调查将该攻击归因于与中国官方有关联的 Storm-0940，称其用 ARTEX 加速侦察、密码喷洒与云应用权限滥用；攻击者得手后尝试登录 2,250 多个下游 Microsoft 365 租户，部分入侵发展到修改凭据、尝试建立持久访问。</p><p>FBI 还提到针对韩国金融机构的攻击，约 6.7 万人的个人信息被泄露；一个中文攻击者把 ARTEX 与 Claude Code 智能体结合，攻击多家银行。CrowdStrike 在攻击者暴露的基础设施中发现了 ARTEX 配置文件与 Claude Code 会话记录。韩国警方逮捕了与 90 多个组织受袭有关的七名嫌疑人，称该团伙窃取约 820 万条数据记录。CrowdStrike 另报告，Vapor Panda 组织用 ARTEX 对 14 个国家的 200 多个组织发起自动化攻击，至少九个组织被攻破，AI 智能体执行侦察、利用漏洞、部署网页后门、窃取凭据，并在初始路径失败后尝试其他路径。</p></div></div><div class="tabpane" id="pane-en"><p class="body-label">原文</p><div class="tbody"><p>The FBI is warning that hackers are using an AI-powered penetration testing framework called ARTEX to automate cyberattacks against organizations worldwide, including a recent ConnectWise supply-chain breach that compromised Microsoft 365 customer environments.</p><p>In a FLASH advisory released Friday, the agency said multiple threat actors have weaponized the open-source framework since at least August 2026 to target organizations across the financial, government, technology, defense, healthcare, and other sectors.</p><p>&quot;ARTEX significantly reduces the time required to chain attack techniques, with some intrusions progressing from initial targeting to privileged access in under three hours,&quot; reads the FBI advisory.</p><p>&quot;The framework enables threat actors with minimal technical expertise to conduct complex, multi-target operations simultaneously, fundamentally accelerating attack velocity and expanding operational scale.&quot;</p><p>ARTEX is an autonomous penetration testing framework written in Go that uses artificial intelligence agents to perform reconnaissance, discover vulnerabilities, exploit systems, escalate privileges, and steal data with little human intervention.</p><p>Rather than using its own AI model, the framework integrates with external large language models (LLMs), including Anthropic Claude, OpenAI GPT, DeepSeek, GLM, Grok, and Kimi.</p><p>Attackers provide their goals and tasks to ARTEX, which converts them into commands executed by specialized AI agents. This allows them to automate intrusion activities and target multiple organizations simultaneously.</p><p>The FBI says the framework is particularly effective at identifying vulnerabilities in overlooked systems, including partner portals, employee applications, legacy services, and third-party integrations.</p><p>While these automated attacks can generate large volumes of suspicious traffic that trigger security alerts, their speed can leave defenders with little time to respond before attackers breach a system.</p><p>ARTEX was originally released on GitHub in July 2026 by a developer known as Autumn-27, who removed the repository on October 8 after reports emerged that threat actors were abusing the framework.</p><p>However, the FBI says the framework remains available through community forks, archived copies, localized versions, and a commercial edition called ARTEX PRO.</p><p>As of early November, researchers had identified more than 1,600 publicly exposed ARTEX consoles, with the actual number of deployments believed to be significantly higher.</p><p>The FBI&#x27;s 13-page advisory includes indicators of compromise associated with known ARTEX campaigns, including IP addresses, command-and-control infrastructure, and suspicious network activity.</p><p>Separately, cybersecurity researcher MalwareMustDie released an open-source ARTEX detection signature pack on Friday to help defenders identify attacks involving the framework.</p><p>The detection pack includes rules and indicators for various security monitoring and threat detection tools, covering suspicious network requests, identity abuse, cloud activity, malicious files, and automated attack patterns.</p><p>The researcher also published a detection playbook that categorizes indicators by confidence level, warning that IP addresses and other infrastructure indicators can become outdated or generate false positives.</p><p>Organizations are urged to secure internet-facing applications, restrict access to cloud administration interfaces, review application permissions and authentication logs, and implement rate limits on sensitive APIs.</p><p>The bureau also recommends monitoring for unusual bursts of automated requests, suspicious cloud activity, unexpected credential or privilege changes, and large data transfers.</p><p>The FBI cautions that IP addresses listed in the IOCs may have changed since the attacks occurred.</p><p>Organizations that identify suspicious activity associated with ARTEX are encouraged to report their findings to the FBI or its Internet Crime Complaint Center (IC3).</p><p>The advisory highlights several previously reported cyberattacks involving ARTEX, including the October ConnectWise Cloud Backup supply-chain attack that allowed hackers to gain unauthorized access to Microsoft 365 customer environments.</p><p>The attack compromised application identities used by ConnectWise&#x27;s cloud backup service, formerly known as SkyKick Cloud Backup, allowing attackers to authenticate to customer tenants using permissions previously granted to the applications.</p><p>At the time, cybersecurity firm Huntress reported identifying at least 162 compromised tenants.</p><p>In an investigation published in October, Microsoft attributed the campaign to a China-state-aligned threat actor tracked as Storm-0940, which used ARTEX to accelerate reconnaissance, password spraying, and abuse of cloud application permissions.</p><p>After compromising ConnectWise application identities, the attackers used ARTEX to attempt authentication against more than 2,250 downstream Microsoft 365 tenants, with some intrusions progressing to credential modifications and attempts to establish persistent access.</p><p>The FBI also referenced attacks against South Korean financial institutions that exposed personal information belonging to approximately 67,000 people.</p><p>In that campaign, a Chinese-speaking threat actor combined ARTEX with Claude Code agents to attack multiple banks, including Shinhan Bank, KB Kookmin Bank, and Hana Bank.</p><p>Researchers at CrowdStrike discovered the attacker&#x27;s exposed infrastructure, which contained ARTEX configuration files, Claude Code session histories, and other records documenting the intrusions.</p><p>In a separate investigation, South Korean police arrested seven suspects linked to attacks against more than 90 organizations, with ARTEX reportedly used in most of the intrusions.</p><p>Authorities said the gang stole approximately 8.2 million data records from organizations including hospitals, educational institutions, and businesses.</p><p>More recently, CrowdStrike reported that a Chinese cyberespionage group tracked as Vapor Panda used ARTEX in automated attacks targeting more than 200 organizations across 14 countries.</p><p>The campaign compromised at least nine organizations, with AI agents performing reconnaissance, exploiting vulnerabilities, deploying web shells, stealing credentials, and pursuing different attack paths when initial attempts failed.</p></div></div><div class="d-tags"><span class="d-tag">#安全与运维</span><span class="d-tag">#媒体报道</span><span class="d-tag">#在野利用</span></div><div class="d-srcline">来源：bleepingcomputer · bleepingcomputer.com</div><section class="d-sec" id="d-why"><h3>推荐理由</h3><div class="d-abstract">与什么工作有关：云租户权限、供应商应用身份与暴露面的日常管理——ARTEX 专挑合作伙伴门户、旧服务与第三方集成这类容易被忽视的入口，而这类入口正是最难逐一盯住的。值得带走什么：一个判断——入侵速度已从天级压到三小时以内，事后响应窗口大幅缩水，事前收紧权限与暴露面比事后排查更重要；FBI 给出的检查清单（暴露应用、云管理界面、应用权限、认证日志、API 限流）可直接用作自查项。什么条件下适用：使用 Microsoft 365、云管理界面或第三方集成应用的组织；通报中的 IP 地址可能已变更，须先与自身遥测数据核对再封堵。</div></section><section class="d-sec" id="d-related"><h3>相关新闻</h3><div class="rel-grid"><div class="rel"><div class="r-meta">bleepingcomputer · 11-15 08:45 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/f3e35a8714.html">Cursor 确认遭入侵：Fireworks 泄露的密钥被用来在扩展市场投放带后门的 Claude Code 扩展</a></h4></div><div class="rel"><div class="r-meta">bleepingcomputer · 11-14 08:45 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/d7b5ff9bad.html">Check Point 网关遭 PHP2Shell 攻击并部署 ESXi 数据擦除器：11 月 Jumbo 热修复已发布</a></h4></div><div class="rel"><div class="r-meta">bleepingcomputer · 11-14 08:45 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/c177549496.html">Windows 未修复零日 SignDrop 公开概念验证：可借 Defender 拿到 SYSTEM 权限，暂无补丁</a></h4></div><div class="rel"><div class="r-meta">tower-post · 11-13 18:30 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/28a6f4995d.html">Apache HTTP Server 关键 HTTP/2 远程代码执行漏洞 CVE-2026-119618 已修复，概念验证已公开</a></h4></div></div></section></div><div class="d-side-r"><div class="d-sticky"><div class="d-card why-card"><h4>推荐理由 <span class="fbadge">精选</span></h4><p class="why-full">与什么工作有关：云租户权限、供应商应用身份与暴露面的日常管理——ARTEX 专挑合作伙伴门户、旧服务与第三方集成这类容易被忽视的入口，而这类入口正是最难逐一盯住的。值得带走什么：一个判断——入侵速度已从天级压到三小时以内，事后响应窗口大幅缩水，事前收紧权限与暴露面比事后排查更重要；FBI 给出的检查清单（暴露应用、云管理界面、应用权限、认证日志、API 限流）可直接用作自查项。什么条件下适用：使用 Microsoft 365、云管理界面或第三方集成应用的组织；通报中的 IP 地址可能已变更，须先与自身遥测数据核对再封堵。</p></div><div class="d-card"><h4>主题</h4><div><span class="ttag" style="color:#b3402a;background:#b3402a1a">安全与运维</span></div></div><div class="d-card"><h4>标签</h4><div class="d-tags" style="margin:0"><span class=d-tag>#安全与运维</span><span class=d-tag>#媒体报道</span><span class=d-tag>#在野利用</span></div></div></div></div></div><footer class="pagefoot">正文由 AI 翻译整理，仅供学习参考，关键操作请核对原文。<br><a href="https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/" target="_blank" rel="noopener">打开原文 ↗</a></footer></div></div>
+<script>
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tabpane').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('pane-' + t.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body></html>

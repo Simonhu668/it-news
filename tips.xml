@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Windows：双屏办公，Win+Shift+←/→ 一键把窗口挪到另一个显示器</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-15</link><guid isPermaLink="false">5b275333aaeb6bd842ddca01f8455fe9</guid><pubDate>Sun, 15 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：双屏办公，Win+Shift+←/→ 一键把窗口挪到另一个显示器</b></p><p>接了外接显示器，窗口总在主屏上，用鼠标拖过去又慢又容易拖错位置？一个快捷键直接挪：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：F4 一键重复上一步操作，批量改格式不用反复点菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-16</link><guid isPermaLink="false">31b59bc13552019092457346cef5467f</guid><pubDate>Mon, 16 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：F4 一键重复上一步操作，批量改格式不用反复点菜单</b></p><p>要给表格里十几行逐个加粗、标黄或插行，每次都去点菜单实在太慢。做一次，剩下的交给 F4：</p>
+<ol>
+<li>先正常做一次操作，比如给一行标黄、加粗，或插入一行。</li>
+<li>选中下一个要处理的位置，按 <b>F4</b>。</li>
+<li>上一步操作立刻在新位置重复一遍，不用再点菜单、不用再找按钮。</li>
+<li>按错了也不怕，Ctrl+Z 撤销就行；注意在编辑公式时 F4 是切换 $ 绝对引用，别和重复操作混淆。</li>
+</ol>
+<p><b>English — Excel: Press F4 to repeat your last action — no more clicking through menus</b></p>
+<p>Need to bold, highlight, or insert a row in a dozen places? Doing it through the menus every time is slow. Do it once, then let F4 do the rest:</p>
+<ol>
+<li>Do the action once as normal — highlight a row, make it bold, or insert a row.</li>
+<li>Select the next place you want to change and press <b>F4</b>.</li>
+<li>Your last action repeats instantly in the new spot — no menus, no hunting for buttons.</li>
+<li>If you hit it by mistake, just press Ctrl+Z to undo. Note: while you&#x27;re editing a formula, F4 toggles the $ absolute reference instead, so don&#x27;t mix the two up.</li>
+</ol>]]></description></item>
+<item><title>Teams：会议开实时字幕，听不清也能跟上</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-16</link><guid isPermaLink="false">b8631643ef74cf868266fa30b5c11ee9</guid><pubDate>Mon, 16 Nov 2026 01:05:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：会议开实时字幕，听不清也能跟上</b></p><p>跨国会议里对方语速快、口音重，一句话没听清，后面全跟不上？打开实时字幕，发言直接变成屏幕上的文字：</p>
+<ol>
+<li>加入 Teams 会议后，点会议控制栏的 <b>··· 更多</b>。</li>
+<li>选 <b>语言和语音（Language and speech）</b> → <b>打开实时字幕（Turn on live captions）</b>。</li>
+<li>屏幕底部会实时出现发言的文字，听不清、没听懂的地方直接看字幕补上。</li>
+<li>字幕只显示在你自己的屏幕上，不影响其他参会人；想关掉时按同样路径关闭就行。</li>
+</ol>
+<p><b>English — Teams: Turn on live captions and never lose track of a meeting</b></p>
+<p>In a cross-border meeting, one fast or heavily accented sentence can leave you lost for the rest of the call. Turn on live captions and everything said appears as text on your screen:</p>
+<ol>
+<li>Once you&#x27;re in the Teams meeting, click <b>··· More</b> on the meeting controls.</li>
+<li>Choose <b>Language and speech</b> → <b>Turn on live captions</b>.</li>
+<li>Captions appear in real time at the bottom of your screen — read along whenever you miss or don&#x27;t catch something.</li>
+<li>Captions are visible only on your own screen, so other participants aren&#x27;t affected; turn them off from the same menu whenever you like.</li>
+</ol>]]></description></item>
+<item><title>EBS：休假前设好通知代理人，审批不会卡在你手里</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-16</link><guid isPermaLink="false">6501d32ec227935a451dec39e88b73ae</guid><pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>审批与通知</category><description><![CDATA[<p><b>EBS：休假前设好通知代理人，审批不会卡在你手里</b></p><p>要请假、要出差，别人等你批的单据可不会跟着你休假。走之前花一分钟设个通知代理人，审批自动转给同事：</p>
+<ol>
+<li>打开 EBS 通知页面（工作清单），点右上角的 <b>首选项（Preferences）</b>。</li>
+<li>点 <b>休假规则（Vacation Rules）</b> → <b>创建规则（Create Rule）</b>。</li>
+<li>选好开始和结束日期，再选一位同事作为代理人（Reassign to）。</li>
+<li>点保存就行。休假期间发给你的审批通知会自动转给代理人处理；回来后记得把这条规则停用或删除。</li>
+</ol>
+<p><b>English — EBS: Set a notification delegate before your leave, so approvals don&#x27;t wait for you</b></p>
+<p>Your leave is coming up, but the documents waiting for your approval won&#x27;t take a holiday with you. Spend one minute setting a delegate and approvals will go to a colleague automatically:</p>
+<ol>
+<li>Open your EBS notifications (Worklist) and click <b>Preferences</b> in the top right.</li>
+<li>Click <b>Vacation Rules</b> → <b>Create Rule</b>.</li>
+<li>Pick the start and end dates, then choose a colleague to reassign your notifications to.</li>
+<li>Save. While you&#x27;re away, approval notifications sent to you go to your delegate instead; remember to disable or delete the rule when you&#x27;re back.</li>
+</ol>]]></description></item>
+<item><title>Windows：双屏办公，Win+Shift+←/→ 一键把窗口挪到另一个显示器</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-15</link><guid isPermaLink="false">5b275333aaeb6bd842ddca01f8455fe9</guid><pubDate>Sun, 15 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：双屏办公，Win+Shift+←/→ 一键把窗口挪到另一个显示器</b></p><p>接了外接显示器，窗口总在主屏上，用鼠标拖过去又慢又容易拖错位置？一个快捷键直接挪：</p>
 <ol>
 <li>先点一下要移动的窗口，让它成为当前活动窗口。</li>
 <li>按 <b>Win+Shift+←</b> 把窗口移到左边的显示器，按 <b>Win+Shift+→</b> 移到右边的显示器。</li>
