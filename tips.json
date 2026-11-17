@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-17",
+   "idx": 3,
+   "title": "Excel：一键打开\"设置单元格格式\"，改格式不用翻菜单",
+   "tag": "Excel",
+   "topic": "一键打开\"设置单元格格式\"，改格式不用翻菜单",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "61e78d353cd52913b01f2fdf4e569165",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-17",
+   "html": "<p><b>Excel：一键打开&quot;设置单元格格式&quot;，改格式不用翻菜单</b></p><p>想把数字改成百分比、货币，或者调日期格式、字体颜色？</p>\n<ol>\n<li>选中要改格式的单元格。</li>\n<li>按 <b>Ctrl+1</b>，直接打开&quot;设置单元格格式&quot;窗口。</li>\n<li>在&quot;数字/对齐/字体/边框&quot;几个标签页里选好，点确定。</li>\n<p>📌 比右键菜单、再点&quot;设置单元格格式&quot;快一步，改格式的万能入口。<br><b>English — Excel: Open Format Cells with one shortcut</b><br>Select the cells, press <b>Ctrl+1</b> to open the Format Cells dialog, then pick Number, Alignment, Font or Border and click OK. The fastest way to change any cell format.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-17",
+   "idx": 2,
+   "title": "Outlook：一键新建邮件，不用鼠标找按钮",
+   "tag": "Outlook",
+   "topic": "一键新建邮件，不用鼠标找按钮",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "5602a9f317728e8be0e371c899861fc2",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-17",
+   "html": "<p><b>Outlook：一键新建邮件，不用鼠标找按钮</b></p><p>正在看邮件、回邮件时，突然想起要新写一封邮件给别人。</p>\n<ol>\n<li>在 Outlook 任意界面按 <b>Ctrl+Shift+M</b>。</li>\n<li>直接弹出新邮件窗口，写收件人、主题和正文。</li>\n<li>写好点发送，或按 <b>Ctrl+Enter</b> 快速发送。</li>\n<p>📌 不用先回到收件箱再找&quot;新建邮件&quot;，手不离键盘。<br><b>English — Outlook: Start a new email with one shortcut</b><br>Press <b>Ctrl+Shift+M</b> anywhere in Outlook to open a new message window instantly — no need to go back to the inbox and hunt for the New Email button. Press <b>Ctrl+Enter</b> to send.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-17",
+   "idx": 1,
+   "title": "Oracle EBS：改一次偏好设置，日期和数字按你的习惯显示",
+   "tag": "Oracle EBS",
+   "topic": "改一次偏好设置，日期和数字按你的习惯显示",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "3bfa8aa4f30471b68780350582c2354f",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-17",
+   "html": "<p><b>Oracle EBS：改一次偏好设置，日期和数字按你的习惯显示</b></p><p>EBS 里日期、数字的显示格式可以自己调，不用每次都去适应系统默认。</p>\n<ol>\n<li>在 EBS 主界面点菜单 <b>Edit（编辑）&gt; Preferences（首选项）</b>。</li>\n<li>在弹出的窗口里改语言、日期格式、数字格式（比如日期显示为 DD-MON-YYYY 还是 YYYY-MM-DD）。</li>\n<li>点 OK 保存，下次打开表单就按你的设置显示。</li>\n<p>📌 报障或截图给 IT 时，日期格式统一，看着也更顺眼。<br><b>English — EBS: Set your date and number format once</b><br>In EBS, go to <b>Edit &gt; Preferences</b> to choose your language, date format and number format. Click OK — every form will display dates and numbers the way you like.</p>\n</ol>"
+  },
+  {
    "date": "2026-11-16",
    "idx": 3,
    "title": "Excel：F4 一键重复上一步操作，批量改格式不用反复点菜单",

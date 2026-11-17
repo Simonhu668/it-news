@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：F4 一键重复上一步操作，批量改格式不用反复点菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-16</link><guid isPermaLink="false">31b59bc13552019092457346cef5467f</guid><pubDate>Mon, 16 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：F4 一键重复上一步操作，批量改格式不用反复点菜单</b></p><p>要给表格里十几行逐个加粗、标黄或插行，每次都去点菜单实在太慢。做一次，剩下的交给 F4：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：一键打开"设置单元格格式"，改格式不用翻菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-17</link><guid isPermaLink="false">61e78d353cd52913b01f2fdf4e569165</guid><pubDate>Tue, 17 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：一键打开&quot;设置单元格格式&quot;，改格式不用翻菜单</b></p><p>想把数字改成百分比、货币，或者调日期格式、字体颜色？</p>
+<ol>
+<li>选中要改格式的单元格。</li>
+<li>按 <b>Ctrl+1</b>，直接打开&quot;设置单元格格式&quot;窗口。</li>
+<li>在&quot;数字/对齐/字体/边框&quot;几个标签页里选好，点确定。</li>
+<p>📌 比右键菜单、再点&quot;设置单元格格式&quot;快一步，改格式的万能入口。<br><b>English — Excel: Open Format Cells with one shortcut</b><br>Select the cells, press <b>Ctrl+1</b> to open the Format Cells dialog, then pick Number, Alignment, Font or Border and click OK. The fastest way to change any cell format.</p>
+</ol>]]></description></item>
+<item><title>Outlook：一键新建邮件，不用鼠标找按钮</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-17</link><guid isPermaLink="false">5602a9f317728e8be0e371c899861fc2</guid><pubDate>Tue, 17 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：一键新建邮件，不用鼠标找按钮</b></p><p>正在看邮件、回邮件时，突然想起要新写一封邮件给别人。</p>
+<ol>
+<li>在 Outlook 任意界面按 <b>Ctrl+Shift+M</b>。</li>
+<li>直接弹出新邮件窗口，写收件人、主题和正文。</li>
+<li>写好点发送，或按 <b>Ctrl+Enter</b> 快速发送。</li>
+<p>📌 不用先回到收件箱再找&quot;新建邮件&quot;，手不离键盘。<br><b>English — Outlook: Start a new email with one shortcut</b><br>Press <b>Ctrl+Shift+M</b> anywhere in Outlook to open a new message window instantly — no need to go back to the inbox and hunt for the New Email button. Press <b>Ctrl+Enter</b> to send.</p>
+</ol>]]></description></item>
+<item><title>Oracle EBS：改一次偏好设置，日期和数字按你的习惯显示</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-17</link><guid isPermaLink="false">3bfa8aa4f30471b68780350582c2354f</guid><pubDate>Tue, 17 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>导航与帮助</category><description><![CDATA[<p><b>Oracle EBS：改一次偏好设置，日期和数字按你的习惯显示</b></p><p>EBS 里日期、数字的显示格式可以自己调，不用每次都去适应系统默认。</p>
+<ol>
+<li>在 EBS 主界面点菜单 <b>Edit（编辑）&gt; Preferences（首选项）</b>。</li>
+<li>在弹出的窗口里改语言、日期格式、数字格式（比如日期显示为 DD-MON-YYYY 还是 YYYY-MM-DD）。</li>
+<li>点 OK 保存，下次打开表单就按你的设置显示。</li>
+<p>📌 报障或截图给 IT 时，日期格式统一，看着也更顺眼。<br><b>English — EBS: Set your date and number format once</b><br>In EBS, go to <b>Edit &gt; Preferences</b> to choose your language, date format and number format. Click OK — every form will display dates and numbers the way you like.</p>
+</ol>]]></description></item>
+<item><title>Excel：F4 一键重复上一步操作，批量改格式不用反复点菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-16</link><guid isPermaLink="false">31b59bc13552019092457346cef5467f</guid><pubDate>Mon, 16 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：F4 一键重复上一步操作，批量改格式不用反复点菜单</b></p><p>要给表格里十几行逐个加粗、标黄或插行，每次都去点菜单实在太慢。做一次，剩下的交给 F4：</p>
 <ol>
 <li>先正常做一次操作，比如给一行标黄、加粗，或插入一行。</li>
 <li>选中下一个要处理的位置，按 <b>F4</b>。</li>

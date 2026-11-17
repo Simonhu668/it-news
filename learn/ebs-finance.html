@@ -65,7 +65,7 @@ a { color:var(--accent); }
 <div class="card"><div class="title" style="font-size:16.5px;font-weight:700"><a href="ebs-accounting-flexfield.html">会计键（Accounting Flexfield）操作指南</a></div>
 <p>这个模块的地基：段与值集、交叉验证与安全规则两条硬卡控、动态插入、排错四步。先读这篇，再看下面的每日知识会顺很多。</p></div>
 <h2>每日财务知识（给 IT 人）</h2>
-<div class="day"><div class="dh">💰 2026-11-16 · 收货未开票（GRNI）：货到了、发票没来，账上先挂一笔&quot;过渡账&quot;<span class="today">今日</span></div><p><b>一句话</b>：收货未开票（GRNI, Goods Received Not Invoiced）就是&quot;货已经收了、供应商发票还没来&quot;时系统自动记的一笔过渡账——收货那一刻库存增加了，但钱还算不进应付账款，就先挂在 GRNI 科目上；发票一到、匹配上，GRNI 就被冲掉，换成真正的应付账款。</p>
+<div class="day"><div class="dh">💰 2026-11-16 · 收货未开票（GRNI）：货到了、发票没来，账上先挂一笔&quot;过渡账&quot;</div><p><b>一句话</b>：收货未开票（GRNI, Goods Received Not Invoiced）就是&quot;货已经收了、供应商发票还没来&quot;时系统自动记的一笔过渡账——收货那一刻库存增加了，但钱还算不进应付账款，就先挂在 GRNI 科目上；发票一到、匹配上，GRNI 就被冲掉，换成真正的应付账款。</p>
 <p><b>为什么 IT 要懂</b>：最容易被误解的是&quot;GRNI 挂着余额就是账错了&quot;——其实有余额是正常的，它就是用来&quot;等发票&quot;的；真正的问题是余额长期不清、越积越大。用户常问三句话：&quot;GRNI 余额怎么一直消不掉？&quot;&quot;发票都付了，GRNI 怎么还挂着？&quot;&quot;月末 GRNI 怎么对不上？&quot;排错先分清：是发票还没来、发票来了没匹配，还是收货做错了——别先怀疑科目挂错。</p>
 <p><b>在 EBS 里</b>：对应采购收货与 AP 的自动过账：收货时系统按收货价借记库存、贷记 GRNI；发票校验匹配收货后，GRNI 被冲掉、应付账款增加，价差进采购价格差异。常见坑：发票一直不来，GRNI 就一直挂着，月末像一笔&quot;说不清的负债&quot;；发票匹配到错误的收货行，GRNI 冲了别人的账；退货没做，GRNI 就多挂一笔——先查收货事务和发票匹配记录，再查 GRNI 账龄，超一个月的未清项逐笔问业务。</p></div>
 <div class="day"><div class="dh">💰 2026-11-15 · 成本差异分析：标准成本和实际成本的差额，不是一笔&quot;错账&quot;</div><p><b>一句话</b>：成本差异（Variance）就是标准成本和实际成本之间的差——买料比标准贵了、生产用料比标准多了，差出来的数单独记进差异科目，不动标准成本本身；差异不是系统算错了，而是告诉你&quot;实际偏离计划了多少&quot;。</p>
