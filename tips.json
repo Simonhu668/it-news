@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-18",
+   "idx": 3,
+   "title": "Windows：只截当前窗口，不用再裁图",
+   "tag": "Windows",
+   "topic": "只截当前窗口，不用再裁图",
+   "category": "Windows",
+   "module": "快捷操作",
+   "guid": "1b4576c89250308e0ad17fc13010f212",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-18",
+   "html": "<p><b>Windows：只截当前窗口，不用再裁图</b></p><p>想截某个窗口发给同事，却截到整个屏幕，还得再裁掉多余部分？</p>\n<ol>\n<li>先点一下要截的窗口，让它成为当前活动窗口。</li>\n<li>按 <b>Alt+PrtScn</b>，只截取这个窗口。</li>\n<li>到邮件、Word 或 Teams 聊天里按 <b>Ctrl+V</b> 粘贴，干净利落。</li>\n<p>📌 比全屏截图省一步，报错截图、发窗口内容给同事特别顺手。<br><b>English — Windows: Screenshot just the active window</b><br>Click the window you want to capture, then press <b>Alt+PrtScn</b> — only that window is copied. Paste it with <b>Ctrl+V</b> into an email, Word or Teams chat. No cropping needed.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-18",
+   "idx": 2,
+   "title": "Teams：会议里开白板，大家一起画图写字",
+   "tag": "Teams",
+   "topic": "会议里开白板，大家一起画图写字",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "f6656f6a840aa2d707a66dc2ece69c95",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-18",
+   "html": "<p><b>Teams：会议里开白板，大家一起画图写字</b></p><p>电话里讲不清流程图、草图？开会时直接在 Teams 里开一块共享白板。</p>\n<ol>\n<li>会议进行中，点顶部工具栏的 <b>…（更多操作）&gt; Whiteboard（白板）</b>。</li>\n<li>白板自动共享给所有参会人，大家都能同时写字、画图、贴便签。</li>\n<li>会后白板自动保存在会议聊天里，随时可以回去看、继续改。</li>\n<p>📌 画流程、排优先级、头脑风暴，比口头描述快得多。<br><b>English — Teams: Open a Whiteboard in your meeting</b><br>During a meeting, click <b>… &gt; Whiteboard</b>. Everyone can write, draw and stick notes on the same shared canvas at the same time. After the meeting, the board is saved in the meeting chat for later.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-18",
+   "idx": 1,
+   "title": "Oracle EBS：审批通知点\"重新分配\"，休假也不耽误审批",
+   "tag": "Oracle EBS",
+   "topic": "审批通知点\"重新分配\"，休假也不耽误审批",
+   "category": "Oracle EBS",
+   "module": "审批与通知",
+   "guid": "81b2614fae2d00b61e27fa61c26aebaa",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-18",
+   "html": "<p><b>Oracle EBS：审批通知点&quot;重新分配&quot;，休假也不耽误审批</b></p><p>收到审批通知，但这件事该由同事处理，或者你正好要休假？</p>\n<ol>\n<li>在 EBS 首页点 <b>Notifications（通知）</b>，打开那条待处理的审批通知。</li>\n<li>点通知详情里的 <b>Reassign（重新分配）</b>。</li>\n<li>选一位同事，写一句转交说明，点提交——通知就转到他名下，对方收到提醒继续审批。</li>\n<p>📌 不用等你回来再批，也不用抄送邮件口头转交，流程不断档。<br><b>English — EBS: Reassign a notification so approvals never stall</b><br>Open the pending notification in your Worklist and click <b>Reassign</b>. Pick a colleague, add a short note, and submit — the approval moves to them and the workflow keeps going, even while you&#x27;re away.</p>\n</ol>"
+  },
+  {
    "date": "2026-11-17",
    "idx": 3,
    "title": "Excel：一键打开\"设置单元格格式\"，改格式不用翻菜单",
