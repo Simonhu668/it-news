@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-19",
+   "idx": 3,
+   "title": "Excel：打印前设\"缩到一页\"，表格不再被切成两半",
+   "tag": "Excel",
+   "topic": "打印前设\"缩到一页\"，表格不再被切成两半",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "060e31a01198ebddc84ee1488b536d8d",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19",
+   "html": "<p><b>Excel：打印前设&quot;缩到一页&quot;，表格不再被切成两半</b></p><p>表格打印出来总被拦腰截断，第二页只有两三列？</p>\n<ol>\n<li>点 <b>文件 &gt; 打印</b>，在&quot;设置&quot;区找到缩放选项。</li>\n<li>选 <b>将工作表调整为一页</b>（Fit Sheet on One Page）。</li>\n<li>预览确认内容都进了一页，再点打印。</li>\n<p>📌 开会发纸质报表、贴公告栏之前顺手设一下，省纸又好看。<br><b>English — Excel: Fit your sheet on one page before printing</b><br>Tired of tables splitting across pages? Go to <b>File &gt; Print</b>, and under Settings choose <b>Fit Sheet on One Page</b>. Check the preview, then print — the whole table lands on a single page.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-19",
+   "idx": 2,
+   "title": "Teams：共享时选 PowerPoint 文件，翻页更顺滑",
+   "tag": "Teams",
+   "topic": "共享时选 PowerPoint 文件，翻页更顺滑",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "060ca7a1fa31514ba282f998cfb11372",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19",
+   "html": "<p><b>Teams：共享时选 PowerPoint 文件，翻页更顺滑</b></p><p>开会要讲 PPT，别再共享整个屏幕——直接共享文件效果更好。</p>\n<ol>\n<li>会议中点 <b>Share（共享）</b>，在 PowerPoint 一栏里选要讲的文件。</li>\n<li>参会人看到的是高清幻灯片，你在自己屏幕上翻页、看备注，他们只看到当前页。</li>\n<li>讲到一半想切到别的窗口，也不会把桌面内容误播出去。</li>\n<p>📌 幻灯片更清晰，还能防&quot;误共享&quot;，讲 PPT 的首选方式。<br><b>English — Teams: Share the PowerPoint file, not your screen</b><br>In a meeting, click <b>Share</b> and pick your file under PowerPoint. Attendees see crisp slides while you advance them and view your speaker notes privately. Switching windows mid-talk won&#x27;t accidentally broadcast your desktop.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-19",
+   "idx": 1,
+   "title": "Oracle EBS：导航器搜表单名，不用一级一级点菜单",
+   "tag": "Oracle EBS",
+   "topic": "导航器搜表单名，不用一级一级点菜单",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "4af151fb67bbe3c54e916a924273fb9a",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19",
+   "html": "<p><b>Oracle EBS：导航器搜表单名，不用一级一级点菜单</b></p><p>想开某个表单，却在菜单里翻半天找不到？</p>\n<ol>\n<li>在 EBS 首页左侧的 <b>Navigator（导航器）</b>里，找到顶部的搜索框。</li>\n<li>输入表单名里的关键字，比如 &quot;Orders&quot; 或&quot;订单&quot;，点搜索。</li>\n<li>匹配的表单直接列出来，点一下就打开，不用层层展开菜单。</li>\n<p>📌 记不住菜单路径也没关系，搜名字最快，新同事尤其好用。<br><b>English — EBS: Search the Navigator by form name</b><br>Can&#x27;t find a form in the menu? Type a keyword (e.g. &quot;Orders&quot;) into the search box at the top of the <b>Navigator</b> and click Search — matching forms appear in a list, so just click one to open it. No need to remember the menu path.</p>\n</ol>"
+  },
+  {
    "date": "2026-11-18",
    "idx": 3,
    "title": "Windows：只截当前窗口，不用再裁图",

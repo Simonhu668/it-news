@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Windows：只截当前窗口，不用再裁图</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-18</link><guid isPermaLink="false">1b4576c89250308e0ad17fc13010f212</guid><pubDate>Wed, 18 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：只截当前窗口，不用再裁图</b></p><p>想截某个窗口发给同事，却截到整个屏幕，还得再裁掉多余部分？</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：打印前设"缩到一页"，表格不再被切成两半</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19</link><guid isPermaLink="false">060e31a01198ebddc84ee1488b536d8d</guid><pubDate>Thu, 19 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：打印前设&quot;缩到一页&quot;，表格不再被切成两半</b></p><p>表格打印出来总被拦腰截断，第二页只有两三列？</p>
+<ol>
+<li>点 <b>文件 &gt; 打印</b>，在&quot;设置&quot;区找到缩放选项。</li>
+<li>选 <b>将工作表调整为一页</b>（Fit Sheet on One Page）。</li>
+<li>预览确认内容都进了一页，再点打印。</li>
+<p>📌 开会发纸质报表、贴公告栏之前顺手设一下，省纸又好看。<br><b>English — Excel: Fit your sheet on one page before printing</b><br>Tired of tables splitting across pages? Go to <b>File &gt; Print</b>, and under Settings choose <b>Fit Sheet on One Page</b>. Check the preview, then print — the whole table lands on a single page.</p>
+</ol>]]></description></item>
+<item><title>Teams：共享时选 PowerPoint 文件，翻页更顺滑</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19</link><guid isPermaLink="false">060ca7a1fa31514ba282f998cfb11372</guid><pubDate>Thu, 19 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Teams：共享时选 PowerPoint 文件，翻页更顺滑</b></p><p>开会要讲 PPT，别再共享整个屏幕——直接共享文件效果更好。</p>
+<ol>
+<li>会议中点 <b>Share（共享）</b>，在 PowerPoint 一栏里选要讲的文件。</li>
+<li>参会人看到的是高清幻灯片，你在自己屏幕上翻页、看备注，他们只看到当前页。</li>
+<li>讲到一半想切到别的窗口，也不会把桌面内容误播出去。</li>
+<p>📌 幻灯片更清晰，还能防&quot;误共享&quot;，讲 PPT 的首选方式。<br><b>English — Teams: Share the PowerPoint file, not your screen</b><br>In a meeting, click <b>Share</b> and pick your file under PowerPoint. Attendees see crisp slides while you advance them and view your speaker notes privately. Switching windows mid-talk won&#x27;t accidentally broadcast your desktop.</p>
+</ol>]]></description></item>
+<item><title>Oracle EBS：导航器搜表单名，不用一级一级点菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19</link><guid isPermaLink="false">4af151fb67bbe3c54e916a924273fb9a</guid><pubDate>Thu, 19 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>导航与帮助</category><description><![CDATA[<p><b>Oracle EBS：导航器搜表单名，不用一级一级点菜单</b></p><p>想开某个表单，却在菜单里翻半天找不到？</p>
+<ol>
+<li>在 EBS 首页左侧的 <b>Navigator（导航器）</b>里，找到顶部的搜索框。</li>
+<li>输入表单名里的关键字，比如 &quot;Orders&quot; 或&quot;订单&quot;，点搜索。</li>
+<li>匹配的表单直接列出来，点一下就打开，不用层层展开菜单。</li>
+<p>📌 记不住菜单路径也没关系，搜名字最快，新同事尤其好用。<br><b>English — EBS: Search the Navigator by form name</b><br>Can&#x27;t find a form in the menu? Type a keyword (e.g. &quot;Orders&quot;) into the search box at the top of the <b>Navigator</b> and click Search — matching forms appear in a list, so just click one to open it. No need to remember the menu path.</p>
+</ol>]]></description></item>
+<item><title>Windows：只截当前窗口，不用再裁图</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-18</link><guid isPermaLink="false">1b4576c89250308e0ad17fc13010f212</guid><pubDate>Wed, 18 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：只截当前窗口，不用再裁图</b></p><p>想截某个窗口发给同事，却截到整个屏幕，还得再裁掉多余部分？</p>
 <ol>
 <li>先点一下要截的窗口，让它成为当前活动窗口。</li>
 <li>按 <b>Alt+PrtScn</b>，只截取这个窗口。</li>
