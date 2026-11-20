@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：打印前设"缩到一页"，表格不再被切成两半</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19</link><guid isPermaLink="false">060e31a01198ebddc84ee1488b536d8d</guid><pubDate>Thu, 19 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：打印前设&quot;缩到一页&quot;，表格不再被切成两半</b></p><p>表格打印出来总被拦腰截断，第二页只有两三列？</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>SharePoint：点一下"关注"，文档更新自动提醒你</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-20</link><guid isPermaLink="false">8c3e4876983a963194b18e7f5505be9c</guid><pubDate>Fri, 20 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>文件协作（OneDrive / SharePoint）</category><description><![CDATA[<p><b>SharePoint：点一下&quot;关注&quot;，文档更新自动提醒你</b></p><p>等一份共享文档更新，总要隔三岔五点进去看一眼？</p>
+<ol>
+<li>打开那份文档或页面，点右上角的 <b>⋯（更多）</b>，选 <b>关注（Follow）</b>。</li>
+<li>之后有人改了这份文档，你会收到通知，不用反复去刷。</li>
+<li>不想跟了：同样位置点 <b>取消关注（Stop following）</b> 即可。</li>
+<p>📌 等审批文件、等同事更新表格时尤其好用——改动自己找上门。<br><b>English — SharePoint: Follow a file and let updates come to you</b><br>Waiting on a shared document? Open it, click <b>⋯</b> (More) at the top right and choose <b>Follow</b>. You&#x27;ll be notified when someone changes it — no more checking back manually. Unfollow the same way when you&#x27;re done.</p>
+</ol>]]></description></item>
+<item><title>Outlook：按大小排序，大附件一目了然，邮箱清理更快</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-20</link><guid isPermaLink="false">af6bd23e3356a280904e2bc1da1950ee</guid><pubDate>Fri, 20 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：按大小排序，大附件一目了然，邮箱清理更快</b></p><p>邮箱快满了，不知道是哪几封邮件占地方？</p>
+<ol>
+<li>在邮件列表上方点 <b>排序</b>（或点列头），选 <b>按大小排序</b>，最大的邮件排在最前面。</li>
+<li>一眼就能看到带大附件的邮件：确认不需要的，删掉或把附件另存到 OneDrive/SharePoint 后再删。</li>
+<li>想更彻底：<b>文件 &gt; 工具 &gt; 邮箱清理</b>，按大小或日期批量找出旧的大邮件。</li>
+<p>📌 定期清一次大附件，邮箱不爆满，Outlook 跑得也更顺。<br><b>English — Outlook: Sort by size to find space-hogging emails fast</b><br>Mailbox almost full? Sort your inbox <b>by Size</b> — the largest emails (usually big attachments) float to the top. Delete what you don&#x27;t need, or save the attachment to OneDrive/SharePoint first. For a deeper clean, try <b>File &gt; Tools &gt; Mailbox Cleanup</b>.</p>
+</ol>]]></description></item>
+<item><title>Oracle EBS：记下 Request ID，查报表状态不用翻长清单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-20</link><guid isPermaLink="false">c744bac107281d6e38d352867c09373e</guid><pubDate>Fri, 20 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>报表与请求</category><description><![CDATA[<p><b>Oracle EBS：记下 Request ID，查报表状态不用翻长清单</b></p><p>报表提交后想查跑到哪一步了，在请求清单里一页页翻很费时间？</p>
+<ol>
+<li>提交请求后，弹出的确认窗口会显示 <b>Request ID（请求编号）</b>，顺手记下来（或截图）。</li>
+<li>下次要查：打开 <b>View Requests（查看我的请求）</b>，点 <b>Find Requests（查找请求）</b>。</li>
+<li>选 <b>Specific Request（指定请求）</b>，输入那个 Request ID，点查找——直接定位到这一条，看 Phase / Status 就知道跑完没有。</li>
+<p>📌 一个编号直达一条记录，比在几十条请求里翻找快得多。<br><b>English — EBS: Note the Request ID to check a report&#x27;s status instantly</b><br>After submitting a request, note the <b>Request ID</b> shown in the confirmation window. Later, open <b>View Requests</b>, click <b>Find Requests</b>, choose <b>Specific Request</b>, enter the ID, and it jumps straight to that record — no scrolling through a long list.</p>
+</ol>]]></description></item>
+<item><title>Excel：打印前设"缩到一页"，表格不再被切成两半</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-19</link><guid isPermaLink="false">060e31a01198ebddc84ee1488b536d8d</guid><pubDate>Thu, 19 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：打印前设&quot;缩到一页&quot;，表格不再被切成两半</b></p><p>表格打印出来总被拦腰截断，第二页只有两三列？</p>
 <ol>
 <li>点 <b>文件 &gt; 打印</b>，在&quot;设置&quot;区找到缩放选项。</li>
 <li>选 <b>将工作表调整为一页</b>（Fit Sheet on One Page）。</li>
