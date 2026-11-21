@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-21",
+   "idx": 3,
+   "title": "SharePoint：把常用文档库同步到电脑，像本地文件夹一样打开",
+   "tag": "SharePoint",
+   "topic": "把常用文档库同步到电脑，像本地文件夹一样打开",
+   "category": "Microsoft 365",
+   "module": "文件协作（OneDrive / SharePoint）",
+   "guid": "bb6404f6a931c12e91eca65b68dfaebd",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-21",
+   "html": "<p><b>SharePoint：把常用文档库同步到电脑，像本地文件夹一样打开</b></p><p>常用的 SharePoint 文档库，每次都要打开浏览器、点进站点才找得到？</p>\n<ol>\n<li>打开那个文档库，点顶部的 <b>同步（Sync）</b> 按钮。</li>\n<li>按提示确认后，OneDrive 会把这个库同步到你的电脑。</li>\n<li>打开文件资源管理器，在左侧就能看到它（以公司名开头），像本地文件夹一样直接打开、编辑，改完自动同步回 SharePoint。</li>\n<p>📌 高频用的库同步一次，之后双击即开，不用再进浏览器翻站点。<br><b>English — SharePoint: Sync a library to your PC and open it like a local folder</b><br>Tired of opening the browser every time to reach a SharePoint library? Open the library and click <b>Sync</b>. OneDrive adds it to File Explorer (listed under your company name) — open and edit files just like local ones, and changes sync back to SharePoint automatically.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-21",
+   "idx": 2,
+   "title": "Excel：打印长表格，每页都自动带上表头",
+   "tag": "Excel",
+   "topic": "打印长表格，每页都自动带上表头",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "f84ea24cb06c976eee40f6f03253bb0c",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-21",
+   "html": "<p><b>Excel：打印长表格，每页都自动带上表头</b></p><p>表格有几十页，打印出来从第二页起就不知道每列是什么意思了？</p>\n<ol>\n<li>点 <b>页面布局（Page Layout）</b> 选项卡 → <b>打印标题（Print Titles）</b>。</li>\n<li>在&quot;顶端标题行（Rows to repeat at top）&quot;里，点一下表头所在的那一行（比如第 1 行）。</li>\n<li>确定后打印，每一页顶部都会自动印上表头。</li>\n<p>📌 长报表、长清单打印前顺手设一下，纸质版也一眼能看懂。<br><b>English — Excel: Repeat the header row on every printed page</b><br>Long table, but only page 1 shows the headers? Go to <b>Page Layout &gt; Print Titles</b>, and under <b>Rows to repeat at top</b>, select your header row (e.g. row 1). Now every printed page carries the headers — no more guessing what each column means.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-21",
+   "idx": 1,
+   "title": "Oracle EBS：同一表单开两个窗口，两条记录并排对比",
+   "tag": "Oracle EBS",
+   "topic": "同一表单开两个窗口，两条记录并排对比",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "4ae6892a37c03006dd4dd240f2c5777c",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-21",
+   "html": "<p><b>Oracle EBS：同一表单开两个窗口，两条记录并排对比</b></p><p>要核对两张单据、两个物料的差异，来回切换表单总怕看串行？</p>\n<ol>\n<li>在当前表单里点顶部菜单 <b>Window（窗口）</b>，选 <b>New Window（新建窗口）</b>。</li>\n<li>EBS 会再打开一个一模一样的表单窗口，两个窗口可以各查一条记录。</li>\n<li>把两个窗口并排摆放，逐项对照；用完后关掉其中一个即可，另一个不受影响。</li>\n<p>📌 查差异、核对数据时尤其好用——不用反复来回翻。<br><b>English — EBS: Open the same form in two windows to compare records side by side</b><br>Need to compare two orders or two items? In the current form, go to <b>Window &gt; New Window</b> — EBS opens a second copy of the same form. Look up one record in each window and place them side by side. Close one when you&#x27;re done; the other stays open.</p>\n</ol>"
+  },
+  {
    "date": "2026-11-20",
    "idx": 3,
    "title": "SharePoint：点一下\"关注\"，文档更新自动提醒你",
