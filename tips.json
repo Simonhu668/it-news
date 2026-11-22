@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-22",
+   "idx": 3,
+   "title": "Teams：把常用文件钉到频道顶部，一键直达",
+   "tag": "Teams",
+   "topic": "把常用文件钉到频道顶部，一键直达",
+   "category": "Microsoft 365",
+   "module": "Teams 协作",
+   "guid": "03f9b46aeadac60c1c462c1527a59278",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-22",
+   "html": "<p><b>Teams：把常用文件钉到频道顶部，一键直达</b></p><p>频道里常用的表格、文档，每次都要翻聊天记录或去 SharePoint 找？</p>\n<ol>\n<li>打开那个频道，点顶部标签页栏右侧的 <b>+</b> 号。</li>\n<li>选文件类型（Word / Excel / PowerPoint / SharePoint 页面等），挑出要钉的文件。</li>\n<li>点保存，文件就出现在频道顶部标签栏，随时点开。</li>\n<p>📌 部门共用的排班表、模板、操作手册，钉到频道顶部最省事。<br><b>English — Teams: Pin a frequently used file as a tab at the top of a channel</b><br>Always digging through chat history for the same file? In the channel, click <b>+</b> next to the tabs at the top, choose the file type, and pick the file to pin. It stays in the tab bar — one click to open, no more hunting.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-22",
+   "idx": 2,
+   "title": "Outlook：按\"显示为会话\"，同一主题的来往邮件折叠成一组",
+   "tag": "Outlook",
+   "topic": "按\"显示为会话\"，同一主题的来往邮件折叠成一组",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "fa260ec8f168228e49e322c849a68957",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-22",
+   "html": "<p><b>Outlook：按&quot;显示为会话&quot;，同一主题的来往邮件折叠成一组</b></p><p>同一件事来来回回十几封邮件，列表里东一封西一封，找起来费劲？</p>\n<ol>\n<li>在邮件列表上方点 <b>视图（View）</b> 选项卡。</li>\n<li>勾选 <b>显示为会话（Show as Conversations）</b>，弹出提示时选&quot;当前文件夹&quot;即可。</li>\n<li>同一主题的邮件自动折叠成一组，点左侧小三角展开，就能看到完整来往。</li>\n<p>📌 跟进一件事时再也不用翻遍收件箱拼对话了。<br><b>English — Outlook: Show messages as conversations to keep a whole thread together</b><br>One topic, a dozen scattered replies? On the <b>View</b> tab, tick <b>Show as Conversations</b> (apply to the current folder when asked). Messages on the same subject collapse into one group — click the triangle to expand and see the full exchange in order.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-22",
+   "idx": 1,
+   "title": "Oracle EBS：表单一打开先弹出的 Find 窗口，别急着关——直接定位单据",
+   "tag": "Oracle EBS",
+   "topic": "表单一打开先弹出的 Find 窗口，别急着关——直接定位单据",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "ab2a459c05146e9343388f9967cdc958",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-22",
+   "html": "<p><b>Oracle EBS：表单一打开先弹出的 Find 窗口，别急着关——直接定位单据</b></p><p>很多 EBS 表单一打开，就会先弹出 Find（查找）窗口；直接输单据号就能直达记录，比先进表单再查更快：</p>\n<ol>\n<li>表单打开后，在 Find 窗口里输入已知条件，比如单据号、日期、供应商名。</li>\n<li>点 <b>Find（查找）</b>，符合条件的记录直接打开。</li>\n<li>如果条件太宽、结果太多，点 <b>Clear（清除）</b> 改条件再查；如果误关了窗口，关掉表单重进即可。</li>\n<p>📌 只记得单据号、不知道放哪时，用 Find 窗口最快。<br><b>English — EBS: Use the Find window that pops up when a form opens to go straight to a record</b><br>Many EBS forms open with a <b>Find</b> window first — don&#x27;t close it right away. Enter what you know (order number, date, supplier name) and click <b>Find</b> to open the matching record directly, faster than entering the form and querying with F11. Too many results? Click <b>Clear</b> and narrow the criteria.</p>\n</ol>"
+  },
+  {
    "date": "2026-11-21",
    "idx": 3,
    "title": "SharePoint：把常用文档库同步到电脑，像本地文件夹一样打开",
