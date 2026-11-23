@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-23",
+   "idx": 3,
+   "title": "Excel：一组快捷键，选中数字秒变货币、百分比或日期格式",
+   "tag": "Excel",
+   "topic": "一组快捷键，选中数字秒变货币、百分比或日期格式",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "0bbaa62824bf8537f9e932a056431626",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23",
+   "html": "<p><b>Excel：一组快捷键，选中数字秒变货币、百分比或日期格式</b></p><p>一列数字要改成货币、百分比或日期格式，不用一层层点菜单：</p>\n<ol>\n<li>先选中要改格式的单元格区域。</li>\n<li>按 <b>Ctrl+Shift+4</b> 变货币格式，<b>Ctrl+Shift+5</b> 变百分比，<b>Ctrl+Shift+3</b> 变日期。</li>\n<li>想恢复普通数字，按 <b>Ctrl+Shift+1</b>（保留两位小数）或 <b>Ctrl+Shift+~</b>（常规格式）。</li>\n<p>📌 整理报表时，格式切换一键完成。<br><b>English — Excel: One shortcut to turn numbers into currency, percent or date format</b><br>Select the cells, then press <b>Ctrl+Shift+4</b> for currency, <b>Ctrl+Shift+5</b> for percent, or <b>Ctrl+Shift+3</b> for date — no menu digging. To go back to plain numbers, use <b>Ctrl+Shift+1</b> (two decimals) or <b>Ctrl+Shift+~</b> (General).</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-23",
+   "idx": 2,
+   "title": "Outlook：日历上的会议不用打开编辑，直接拖动就能改时间",
+   "tag": "Outlook",
+   "topic": "日历上的会议不用打开编辑，直接拖动就能改时间",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "0fd0d22c3824de5a75925b180d277652",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23",
+   "html": "<p><b>Outlook：日历上的会议不用打开编辑，直接拖动就能改时间</b></p><p>会议要往后挪一小时？不用点开、改时间、再保存：</p>\n<ol>\n<li>打开 Outlook 日历，切换到 <b>日/周视图</b>。</li>\n<li>直接按住那个会议色块，拖到新的时间段松开。</li>\n<li>如果是有参会人的会议，会弹出提示问是否发送更新，点 <b>发送</b> 即可；只是自己的日程则直接生效。</li>\n<p>📌 临时调整会议时间，拖一下就搞定。<br><b>English — Outlook: Reschedule a meeting by dragging it, no need to open it</b><br>To move a meeting, open your calendar in <b>Day or Week view</b>, drag the meeting block to its new time slot and drop it. If it has attendees, Outlook will ask whether to send an update — click <b>Send</b> and you&#x27;re done.</p>\n</ol>"
+  },
+  {
+   "date": "2026-11-23",
+   "idx": 1,
+   "title": "Oracle EBS：列表里的数据不用一行行抄，选中后直接复制到 Excel",
+   "tag": "Oracle EBS",
+   "topic": "列表里的数据不用一行行抄，选中后直接复制到 Excel",
+   "category": "Oracle EBS",
+   "module": "表单录入与维护",
+   "guid": "29e92c1f85dc19340385f45b4d5a69d8",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23",
+   "html": "<p><b>Oracle EBS：列表里的数据不用一行行抄，选中后直接复制到 Excel</b></p><p>EBS 表单里的多行列表（比如查询结果、明细行），可以直接整段复制到 Excel 做汇总、筛查：</p>\n<ol>\n<li>在列表里点第一行，按住 <b>Shift</b> 再点最后一行，选中一段记录；要全选就点菜单 <b>Edit（编辑）&gt; Select All（全选）</b>。</li>\n<li>点 <b>Edit（编辑）&gt; Copy（复制）</b>，或直接按 <b>Ctrl+C</b>。</li>\n<li>切换到 Excel，点一个空白单元格按 <b>Ctrl+V</b> 粘贴，数据按行列整齐落位。</li>\n<p>📌 临时要核对一堆行、做个小统计时，比导出报表快得多。<br><b>English — EBS: Copy list data straight into Excel instead of retyping it</b><br>Need to check or total a set of rows? In any multi-row list, click the first row, hold <b>Shift</b> and click the last row (or <b>Edit &gt; Select All</b> for everything), then <b>Edit &gt; Copy</b> (or <b>Ctrl+C</b>). Paste into Excel with <b>Ctrl+V</b> — the rows land neatly in columns, ready to filter or sum.</p>\n</ol>"
+  },
+  {
    "date": "2026-11-22",
    "idx": 3,
    "title": "Teams：把常用文件钉到频道顶部，一键直达",

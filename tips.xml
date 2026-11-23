@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Teams：把常用文件钉到频道顶部，一键直达</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-22</link><guid isPermaLink="false">03f9b46aeadac60c1c462c1527a59278</guid><pubDate>Sun, 22 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：把常用文件钉到频道顶部，一键直达</b></p><p>频道里常用的表格、文档，每次都要翻聊天记录或去 SharePoint 找？</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：一组快捷键，选中数字秒变货币、百分比或日期格式</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23</link><guid isPermaLink="false">0bbaa62824bf8537f9e932a056431626</guid><pubDate>Mon, 23 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：一组快捷键，选中数字秒变货币、百分比或日期格式</b></p><p>一列数字要改成货币、百分比或日期格式，不用一层层点菜单：</p>
+<ol>
+<li>先选中要改格式的单元格区域。</li>
+<li>按 <b>Ctrl+Shift+4</b> 变货币格式，<b>Ctrl+Shift+5</b> 变百分比，<b>Ctrl+Shift+3</b> 变日期。</li>
+<li>想恢复普通数字，按 <b>Ctrl+Shift+1</b>（保留两位小数）或 <b>Ctrl+Shift+~</b>（常规格式）。</li>
+<p>📌 整理报表时，格式切换一键完成。<br><b>English — Excel: One shortcut to turn numbers into currency, percent or date format</b><br>Select the cells, then press <b>Ctrl+Shift+4</b> for currency, <b>Ctrl+Shift+5</b> for percent, or <b>Ctrl+Shift+3</b> for date — no menu digging. To go back to plain numbers, use <b>Ctrl+Shift+1</b> (two decimals) or <b>Ctrl+Shift+~</b> (General).</p>
+</ol>]]></description></item>
+<item><title>Outlook：日历上的会议不用打开编辑，直接拖动就能改时间</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23</link><guid isPermaLink="false">0fd0d22c3824de5a75925b180d277652</guid><pubDate>Mon, 23 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：日历上的会议不用打开编辑，直接拖动就能改时间</b></p><p>会议要往后挪一小时？不用点开、改时间、再保存：</p>
+<ol>
+<li>打开 Outlook 日历，切换到 <b>日/周视图</b>。</li>
+<li>直接按住那个会议色块，拖到新的时间段松开。</li>
+<li>如果是有参会人的会议，会弹出提示问是否发送更新，点 <b>发送</b> 即可；只是自己的日程则直接生效。</li>
+<p>📌 临时调整会议时间，拖一下就搞定。<br><b>English — Outlook: Reschedule a meeting by dragging it, no need to open it</b><br>To move a meeting, open your calendar in <b>Day or Week view</b>, drag the meeting block to its new time slot and drop it. If it has attendees, Outlook will ask whether to send an update — click <b>Send</b> and you&#x27;re done.</p>
+</ol>]]></description></item>
+<item><title>Oracle EBS：列表里的数据不用一行行抄，选中后直接复制到 Excel</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23</link><guid isPermaLink="false">29e92c1f85dc19340385f45b4d5a69d8</guid><pubDate>Mon, 23 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>表单录入与维护</category><description><![CDATA[<p><b>Oracle EBS：列表里的数据不用一行行抄，选中后直接复制到 Excel</b></p><p>EBS 表单里的多行列表（比如查询结果、明细行），可以直接整段复制到 Excel 做汇总、筛查：</p>
+<ol>
+<li>在列表里点第一行，按住 <b>Shift</b> 再点最后一行，选中一段记录；要全选就点菜单 <b>Edit（编辑）&gt; Select All（全选）</b>。</li>
+<li>点 <b>Edit（编辑）&gt; Copy（复制）</b>，或直接按 <b>Ctrl+C</b>。</li>
+<li>切换到 Excel，点一个空白单元格按 <b>Ctrl+V</b> 粘贴，数据按行列整齐落位。</li>
+<p>📌 临时要核对一堆行、做个小统计时，比导出报表快得多。<br><b>English — EBS: Copy list data straight into Excel instead of retyping it</b><br>Need to check or total a set of rows? In any multi-row list, click the first row, hold <b>Shift</b> and click the last row (or <b>Edit &gt; Select All</b> for everything), then <b>Edit &gt; Copy</b> (or <b>Ctrl+C</b>). Paste into Excel with <b>Ctrl+V</b> — the rows land neatly in columns, ready to filter or sum.</p>
+</ol>]]></description></item>
+<item><title>Teams：把常用文件钉到频道顶部，一键直达</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-22</link><guid isPermaLink="false">03f9b46aeadac60c1c462c1527a59278</guid><pubDate>Sun, 22 Nov 2026 01:10:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：把常用文件钉到频道顶部，一键直达</b></p><p>频道里常用的表格、文档，每次都要翻聊天记录或去 SharePoint 找？</p>
 <ol>
 <li>打开那个频道，点顶部标签页栏右侧的 <b>+</b> 号。</li>
 <li>选文件类型（Word / Excel / PowerPoint / SharePoint 页面等），挑出要钉的文件。</li>
