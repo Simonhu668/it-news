@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：一组快捷键，选中数字秒变货币、百分比或日期格式</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23</link><guid isPermaLink="false">0bbaa62824bf8537f9e932a056431626</guid><pubDate>Mon, 23 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：一组快捷键，选中数字秒变货币、百分比或日期格式</b></p><p>一列数字要改成货币、百分比或日期格式，不用一层层点菜单：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：列宽不用一格格拖，双击列边界自动调到刚好</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-24</link><guid isPermaLink="false">f350f5701342a7e86f8a0e41117f2e84</guid><pubDate>Tue, 24 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：列宽不用一格格拖，双击列边界自动调到刚好</b></p><p>一列内容被截断、或者留白太多，手动拖列宽总调不准：</p>
+<ol>
+<li>把鼠标移到列标交界处（比如 A 列和 B 列之间的竖线），光标变成左右箭头。</li>
+<li><b>双击</b>这条边界，列宽立刻自动缩放到刚好放下最长的内容。</li>
+<li>行高同理：双击行号之间的横线，行高自动适应内容。</li>
+<p>📌 整理报表收尾时，逐列双击一遍，表格立刻整齐。<br><b>English — Excel: Double-click a column border to auto-fit the width</b><br>When a column cuts off content or leaves too much blank space, hover over the border between two column letters until the cursor becomes a double arrow, then <b>double-click</b> — the width snaps to fit the longest entry. Same for row height: double-click the border between row numbers.</p>
+</ol>]]></description></item>
+<item><title>Windows：开会要投屏，不用找线，按 Win+K 就能无线连投影仪</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-24</link><guid isPermaLink="false">d85d06c2d4bdbffa654b6e0eb5b5f2e6</guid><pubDate>Tue, 24 Nov 2026 01:05:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：开会要投屏，不用找线，按 Win+K 就能无线连投影仪</b></p><p>会议室演示，笔记本不用再翻 HDMI 线：</p>
+<ol>
+<li>确保电脑和投影仪/电视连在同一个 Wi-Fi（或投影仪支持 Miracast）。</li>
+<li>按 <b>Win+K</b>，打开&quot;连接&quot;面板，点要连接的设备名称。</li>
+<li>连接成功后画面就投过去了；要断开，再按 <b>Win+K</b> 点&quot;断开连接&quot;即可。</li>
+<p>📌 开会前先连一次，演示时直接投屏，不耽误大家时间。<br><b>English — Windows: Project wirelessly to the meeting-room screen with Win+K</b><br>No cable needed for a presentation: make sure your laptop and the projector/TV are on the same Wi-Fi, press <b>Win+K</b> to open the Connect panel, and click the device name. To stop projecting, press <b>Win+K</b> again and click Disconnect.</p>
+</ol>]]></description></item>
+<item><title>Oracle EBS：常用表单不用每次翻菜单，钉到导航器首页一键打开</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-24</link><guid isPermaLink="false">234cb36ff230722a78d868a25708eca3</guid><pubDate>Tue, 24 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>导航与帮助</category><description><![CDATA[<p><b>Oracle EBS：常用表单不用每次翻菜单，钉到导航器首页一键打开</b></p><p>每天都要进的表单（比如查单据、跑报表），可以把它钉在导航器上，下次一点就进：</p>
+<ol>
+<li>先打开你要常用的那个表单。</li>
+<li>点菜单 <b>File（文件）&gt; Place on Navigator（放置到导航器）</b>。</li>
+<li>回到导航器首页，这个表单就出现在列表里了，双击直接打开。</li>
+<p>📌 高频表单都钉上去，导航器就是你的个人工作台。<br><b>English — EBS: Pin your most-used forms to the Navigator so they&#x27;re one click away</b><br>For a form you open every day, open it once, then choose <b>File &gt; Place on Navigator</b>. It appears on your Navigator home page — just double-click it next time instead of digging through the menu tree.</p>
+</ol>]]></description></item>
+<item><title>Excel：一组快捷键，选中数字秒变货币、百分比或日期格式</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-23</link><guid isPermaLink="false">0bbaa62824bf8537f9e932a056431626</guid><pubDate>Mon, 23 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：一组快捷键，选中数字秒变货币、百分比或日期格式</b></p><p>一列数字要改成货币、百分比或日期格式，不用一层层点菜单：</p>
 <ol>
 <li>先选中要改格式的单元格区域。</li>
 <li>按 <b>Ctrl+Shift+4</b> 变货币格式，<b>Ctrl+Shift+5</b> 变百分比，<b>Ctrl+Shift+3</b> 变日期。</li>
