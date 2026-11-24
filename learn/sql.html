@@ -122,6 +122,12 @@ a { color:var(--accent); }
 <li>查询：SELECT DISTINCT language FROM fnd_responsibility_tl ORDER BY language;</li>
 <li>练习：去掉 DISTINCT 再跑一次，对比两次返回的行数，想一想为什么会差这么多</li>
 </ul>
+<h3>第 10 课（2026-11-24）· CASE WHEN 条件分支</h3>
+<ul>
+<li>知识点：CASE WHEN 给结果加一列&quot;判断后的文字&quot;——按条件逐行判断，命中哪条就显示对应的文字，最后 ELSE 兜底；常用来把日期、状态码翻译成人能看懂的说明</li>
+<li>查询：SELECT user_name, account_status FROM (SELECT user_name, CASE WHEN end_date IS NULL THEN &#x27;长期有效&#x27; WHEN end_date &gt;= SYSDATE THEN &#x27;有效期内&#x27; ELSE &#x27;已过期&#x27; END AS account_status FROM fnd_user ORDER BY user_name) WHERE ROWNUM &lt;= 10;</li>
+<li>练习：数一数返回的 10 行里三种状态各有几个，贴结果或截图；再试着把 &#x27;长期有效&#x27; 换成别的文字跑一次</li>
+</ul>
 <div class="tip">页面由学习材料自动生成，随课程更新同步。</div>
 </div>
 </body>
