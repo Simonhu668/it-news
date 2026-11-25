@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Apps 引入 AI 辅助开发：画布应用创作智能体、行摘要与可接业务逻辑的生成式页面进入公开预览 · IT 资讯速览</title>
+<meta name="description" content="厂商解读：Nimus Technologies 2026-11-25 整理微软最新 Power Platform 更新｜适用产品及版本：Microsoft Power Apps，画布应用创作智能体、Work IQ 中的业务应用处于公开预览阶…">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IT 资讯速览">
+<meta property="og:title" content="Power Apps 引入 AI 辅助开发：画布应用创作智能体、行摘要与可接业务逻辑的生成式页面进入公开预览 · IT 资讯速览">
+<meta property="og:description" content="厂商解读：Nimus Technologies 2026-11-25 整理微软最新 Power Platform 更新｜适用产品及版本：Microsoft Power Apps，画布应用创作智能体、Work IQ 中的业务应用处于公开预览阶…">
+<meta property="og:url" content="https://simonhu668.github.io/it-news/items/1326cdf924.html">
+<link rel="alternate" type="application/rss+xml" title="IT 资讯速览" href="../feed.xml">
+<style>
+:root {
+  --bg:#faf9f6; --bg-sunk:#f3f3ef; --surface:#ffffff; --sidebar:#fdfdfb;
+  --ink:#202a30; --ink-2:#303c42; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --line-strong:#d1d9d5;
+  --accent:#176b75; --accent-ink:#145f68; --note:#4c6468;
+  --amber:#a5761a; --amber-bg:#faf0d7; --mark:#fff3bf;
+  --shadow-card:0 1px 2px #202a3006;
+  --shadow-card-hover:0 3px 12px #202a300e;
+  --ease:cubic-bezier(.1,.7,.2,1);
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --bg-sunk:#1c2224; --surface:#1e2528; --sidebar:#191f22;
+    --ink:#e9edee; --ink-2:#c9d2d5; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --line-strong:#3a4449;
+    --accent:#4fb3bd; --accent-ink:#7ccdd4; --note:#9db8ba;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --mark:#5c4a12;
+    --shadow-card:0 1px 2px #00000040;
+    --shadow-card-hover:0 3px 12px #00000055;
+  }
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); }
+/* ---------- shell: sidebar + full-width content ---------- */
+.shell { display:flex; align-items:stretch; min-height:100dvh; }
+.sidebar { display:none; }
+@media (min-width:1024px) {
+  .sidebar { display:flex; flex-direction:column; position:sticky; top:0; height:100dvh;
+    width:200px; flex-shrink:0; background:var(--sidebar);
+    border-right:1px solid var(--line); padding:24px 12px 14px; }
+}
+.wordmark { display:flex; align-items:center; gap:8px; height:50px; padding:0 4px; margin-bottom:14px;
+  font-size:17px; font-weight:800; letter-spacing:.5px; }
+.wordmark a { color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:8px; }
+.wordmark .wm-icon { font-size:22px; }
+.navsec { font-size:11px; color:var(--ink-4); padding:14px 10px 4px; }
+.sidelink { display:flex; align-items:center; gap:8px; width:100%; height:40px;
+  padding:0 10px; border:0; border-radius:8px; background:transparent; cursor:pointer;
+  font-size:13px; font-weight:500; color:var(--ink-3); transition:background .15s,color .15s;
+  text-decoration:none; font-family:inherit; }
+.sidelink:hover { background:var(--bg-sunk); color:var(--ink); }
+.sidelink .sicon { display:flex; width:22px; justify-content:center; flex-shrink:0; }
+.sidelink .slabel { flex:1; text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidelink .scount { font-size:11.5px; color:var(--ink-4); font-variant-numeric:tabular-nums; }
+.sidelink.active { background:color-mix(in srgb, var(--accent) 10%, transparent);
+  font-weight:600; color:var(--ink); }
+.sidelink.active .sicon { color:var(--accent); }
+.sidelink.active .scount { color:var(--accent-ink); font-weight:600; }
+.sidefoot { margin-top:auto; padding:10px 4px 0; font-size:11px; line-height:1.8; color:var(--ink-4);
+  border-top:1px solid var(--line-soft); }
+.main { flex:1; min-width:0; }
+.content { max-width:1560px; padding:26px 40px 0; margin:0 auto; }
+@media (max-width:640px) { .content { padding:20px 16px 0; } }
+.mast-row { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.mast h1 { margin:0; font-size:24px; font-weight:700; letter-spacing:-.01em; }
+.upd { font-size:12.5px; color:var(--ink-4); }
+.mast-sub { margin:6px 0 0; color:var(--ink-3); font-size:13px; }
+.toolbar { margin-top:16px; display:flex; flex-direction:column; gap:10px; }
+.toolrow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.vbtn, .pbtn { border:1px solid var(--line); background:var(--surface); color:var(--ink-2);
+  border-radius:999px; padding:6px 14px; font-size:13px; cursor:pointer; white-space:nowrap; }
+.vbtn b, .pbtn b { font-weight:600; }
+.vbtn.active, .pbtn.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+.search { margin-left:auto; position:relative; }
+.search input { width:230px; max-width:100%; height:34px; border:1px solid var(--line);
+  border-radius:999px; background:var(--surface); padding:0 14px 0 34px; font-size:13px;
+  color:var(--ink); outline:none; }
+.search input:focus { border-color:var(--accent); }
+.search .sico { position:absolute; left:11px; top:50%; transform:translateY(-50%);
+  color:var(--ink-4); display:flex; pointer-events:none; }
+@media (min-width:1024px) {
+  #viewrow .vbtn { display:none; }
+  #topicrow { display:none; }
+}
+@media (max-width:640px) {
+  .search { margin-left:0; width:100%; }
+  .search input { width:100%; }
+  .toolrow.topics { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }
+}
+.spots { margin-top:18px; }
+.spothead { display:flex; align-items:baseline; gap:8px; padding:4px 2px 10px; }
+.spothead h2 { margin:0; font-size:16px; font-weight:700; }
+.spothead .ssub { font-size:12px; color:var(--ink-4); }
+.spotgrid { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
+@media (max-width:1100px) { .spotgrid { grid-template-columns:1fr; } }
+.psec { margin-top:18px; }
+.psec-h { display:flex; align-items:baseline; gap:10px; margin:0 0 10px; }
+.psec-h h2 { font-size:17px; margin:0; }
+.psec-h .ssub { color:var(--ink-3); font-size:12.5px; }
+.pgrid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+@media (max-width:1100px) { .pgrid2 { grid-template-columns:1fr; } }
+.plist { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:4px 14px; }
+.prow { display:flex; gap:8px; align-items:baseline; padding:9px 0; border-bottom:1px dashed var(--line); font-size:13.5px; }
+.prow:last-child { border-bottom:none; }
+.prow a { color:var(--ink); text-decoration:none; }
+.prow a:hover { text-decoration:underline; }
+.prow .pno { color:var(--ink-3); font-size:12px; min-width:16px; }
+.pempty { color:var(--ink-2); font-size:13.5px; background:var(--surface); border:1px dashed var(--line); border-radius:12px; padding:14px 16px; }
+.ptag { font-size:11px; padding:1px 7px; border-radius:20px; white-space:nowrap; }
+.toolrow.purposes { margin-top:8px; }
+.spot { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:14px 16px;
+  transition:box-shadow .2s var(--ease), border-color .2s, transform .2s var(--ease); }
+.spot:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); transform:translateY(-1px); }
+.spot-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.spot-no { font-size:13px; font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; }
+.spot-title { margin:0 0 8px; font-size:15.5px; font-weight:650; line-height:1.5;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.spot-title a { color:var(--ink); text-decoration:none; }
+.spot-title a:hover { color:var(--accent); }
+.spot-why { margin:0; font-size:12.5px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.dayhead { display:flex; align-items:center; gap:8px; width:100%; background:none; border:0;
+  padding:22px 2px 10px; cursor:pointer; font-family:inherit; text-align:left; color:var(--ink); }
+.dayhead time { font-size:18px; font-weight:600; }
+.dayhead .wday { font-size:13px; color:var(--ink-4); }
+.dayhead .dcount { font-size:12.5px; color:var(--ink-4); }
+.dayhead .dcount b { color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.dayhead .dlink { margin-left:auto; font-size:12.5px; color:var(--accent); text-decoration:none; }
+.dayhead .chev { display:inline-block; font-size:12px; color:var(--ink-4); transition:transform .2s; }
+.day.collapsed .dayhead .chev { transform:rotate(-90deg); }
+.day.collapsed .tlist { display:none; }
+.tlist { display:flex; flex-direction:column; }
+.titem { display:flex; gap:0; position:relative; }
+.trail { display:none; }
+@media (min-width:760px) {
+  .trail { display:flex; flex-direction:column; align-items:center; width:64px; flex-shrink:0;
+    padding-top:20px; position:relative; }
+  .ttime { font-size:12.5px; color:var(--ink-3); font-variant-numeric:tabular-nums; font-weight:500; }
+  .tdot { width:7px; height:7px; border-radius:50%; background:var(--accent); margin-top:7px;
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent); }
+  .titem::before { content:""; position:absolute; left:31.5px; top:0; bottom:0;
+    width:1px; background:var(--line-soft); }
+  .titem:first-child::before { top:26px; }
+  .titem:last-child::before { bottom:auto; height:30px; }
+}
+.card { flex:1; min-width:0; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow-card); padding:16px 20px;
+  margin:0 0 12px; transition:box-shadow .2s var(--ease), border-color .2s; }
+@media (min-width:760px) { .card { margin-left:16px; } }
+.card:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); }
+.card-main { display:flex; gap:14px; align-items:flex-start; }
+.card-text { flex:1; min-width:0; }
+.thumb { width:132px; height:88px; object-fit:cover; border-radius:8px; flex-shrink:0; border:1px solid var(--line); display:block; }
+.thumb-link { flex-shrink:0; }
+@media (max-width:640px) { .thumb { width:96px; height:64px; } }
+.d-hero { margin:0 0 18px; }
+.d-hero img { width:100%; max-height:420px; object-fit:cover; border-radius:12px; border:1px solid var(--line); display:block; }
+.d-hero figcaption { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.chead { display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:8px; }
+.ttag { font-size:11px; font-weight:600; border-radius:999px; padding:2px 10px; }
+.sev { font-size:11px; font-weight:700; border-radius:999px; padding:2px 10px; white-space:nowrap; }
+.fbadge { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-bg);
+  border-radius:4px; padding:2px 7px; }
+.mtime { margin-left:auto; font-variant-numeric:tabular-nums; }
+@media (min-width:760px) { .mtime { display:none; } }
+.title { margin:0; font-size:17px; font-weight:600; line-height:1.55;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.title a { color:var(--ink); text-decoration:none; }
+.title a:hover { color:var(--accent); }
+.summary { margin:8px 0 0; font-size:14.5px; line-height:1.65; color:var(--ink-3);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.summary.open { display:block; }
+.cfoot { margin-top:10px; border-top:1px solid var(--line-soft); padding-top:10px; }
+.why { margin:0; font-size:13px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.why.open { display:block; }
+.whylabel { font-weight:600; }
+.cactions { display:flex; align-items:center; gap:14px; margin-top:8px; }
+.src { font-size:13px; color:var(--accent); text-decoration:none; font-weight:500; }
+.src:hover { text-decoration:underline; }
+.plink { font-size:13px; color:var(--ink-4); text-decoration:none; }
+.plink:hover { color:var(--accent); }
+.xbtn { border:0; background:none; padding:0; font-size:13px; color:var(--ink-4);
+  cursor:pointer; font-family:inherit; }
+.xbtn:hover { color:var(--accent); }
+mark { background:var(--mark); border-radius:2px; padding:0 1px; color:inherit; }
+.empty { display:none; text-align:center; padding:56px 20px; color:var(--ink-3); }
+.empty.show { display:block; }
+.empty p { margin:0 0 14px; font-size:14px; }
+.empty button { border:1px solid var(--line-strong); background:var(--surface); color:var(--ink);
+  border-radius:999px; padding:8px 20px; font-size:13px; cursor:pointer; }
+.empty button:hover { border-color:var(--ink); }
+footer.pagefoot { text-align:center; color:var(--ink-4); font-size:12px; line-height:1.9; padding:30px 0 46px; }
+.hidden { display:none !important; }
+.totop { position:fixed; right:24px; bottom:24px; z-index:30; display:none;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer;
+  box-shadow:0 4px 12px #1c27330f; align-items:center; justify-content:center;
+  transition:opacity .2s, transform .2s; opacity:0; pointer-events:none; transform:translateY(8px); }
+.totop.show { opacity:1; pointer-events:auto; transform:none; }
+@media (min-width:1024px) { .totop { display:flex; } }
+/* ---------- detail page ---------- */
+.d-shell { display:grid; grid-template-columns:230px minmax(0,1fr) 290px; gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1150px) { .d-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .d-side-l, .d-side-r { order:2; } .d-center { order:1; } }
+.d-card { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:16px 18px; margin-bottom:14px; }
+.d-card h4 { margin:0 0 10px; font-size:13px; font-weight:700; color:var(--ink-2); }
+.d-card .krow { display:flex; justify-content:space-between; gap:8px; font-size:13px;
+  padding:7px 0; border-top:1px solid var(--line-soft); color:var(--ink-3); }
+.d-card .krow:first-of-type { border-top:0; }
+.d-card .krow .k { color:var(--ink-4); flex-shrink:0; }
+.d-card .krow .v { text-align:right; word-break:break-all; }
+.d-toc a { display:block; font-size:13.5px; color:var(--ink-3); text-decoration:none;
+  padding:7px 0; border-top:1px solid var(--line-soft); }
+.d-toc a:first-child { border-top:0; }
+.d-toc a:hover { color:var(--accent); }
+.d-sticky { position:sticky; top:24px; }
+.d-topbar { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.d-back { font-size:14px; color:var(--ink-3); text-decoration:none; }
+.d-back:hover { color:var(--accent); }
+.d-open { margin-left:auto; font-size:13.5px; font-weight:600; color:var(--accent);
+  border:1px solid var(--line-strong); background:var(--surface); border-radius:999px;
+  padding:8px 18px; text-decoration:none; }
+.d-open:hover { border-color:var(--accent); }
+.d-title { margin:0 0 10px; font-size:30px; font-weight:750; line-height:1.4; letter-spacing:-.01em; }
+@media (max-width:640px) { .d-title { font-size:22px; } }
+.d-sub { margin:0 0 14px; font-size:15px; color:var(--ink-4); line-height:1.6; }
+.d-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:13px;
+  color:var(--ink-4); margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--line-soft); }
+.tabs { display:flex; gap:0; border-bottom:2px solid var(--line); margin-bottom:6px; }
+.tab { border:0; background:none; font-size:14.5px; font-weight:600; color:var(--ink-4);
+  padding:10px 20px; cursor:pointer; font-family:inherit; border-bottom:2px solid transparent;
+  margin-bottom:-2px; }
+.tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+.tabpane { display:none; padding:18px 2px; }
+.tabpane.active { display:block; }
+.body-label { font-size:12.5px; color:var(--ink-4); margin:0 0 12px; }
+.body-label b { color:var(--accent); }
+.tbody p { font-size:16px; line-height:1.9; color:var(--ink-2); margin:0 0 16px; }
+.d-abstract { background:var(--bg-sunk); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 18px; font-size:14.5px; line-height:1.75; color:var(--ink-3); margin-bottom:14px; }
+.d-note { font-size:13px; color:var(--ink-4); background:var(--surface);
+  border:1px dashed var(--line-strong); border-radius:10px; padding:12px 16px; margin-bottom:14px; }
+.d-tags { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+.d-tag { font-size:12.5px; color:var(--ink-3); background:var(--bg-sunk);
+  border:1px solid var(--line-soft); border-radius:999px; padding:4px 14px; }
+.d-srcline { font-size:13px; color:var(--ink-4); border-top:1px solid var(--line-soft);
+  padding-top:14px; margin-top:8px; }
+.d-sec { margin-top:26px; }
+.d-sec h3 { font-size:17px; font-weight:700; margin:0 0 12px; }
+.rel-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
+@media (max-width:760px) { .rel-grid { grid-template-columns:1fr; } }
+.rel { background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:12px 16px; box-shadow:var(--shadow-card); }
+.rel:hover { border-color:var(--line-strong); }
+.rel .r-meta { font-size:12px; color:var(--ink-4); margin-bottom:6px; }
+.rel .r-title { margin:0; font-size:14px; font-weight:600; line-height:1.5; }
+.rel .r-title a { color:var(--ink); text-decoration:none; }
+.rel .r-title a:hover { color:var(--accent); }
+.why-card .why-full { font-size:14px; line-height:1.75; color:var(--ink-2); margin:0; }
+/* ---------- daily page ---------- */
+.r-shell { display:grid; grid-template-columns:230px minmax(0,1fr); gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1024px) { .r-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .r-arch { display:none; } }
+.r-arch .arch-item { display:flex; gap:10px; align-items:baseline; padding:9px 4px;
+  border-top:1px solid var(--line-soft); text-decoration:none; }
+.r-arch .arch-item:first-of-type { border-top:0; }
+.r-arch .arch-day { font-size:20px; font-weight:800; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+.r-arch .arch-t { font-size:12.5px; color:var(--ink-3); line-height:1.5; }
+.r-arch .arch-item.cur .arch-day { color:var(--accent); }
+.r-mast { text-align:left; border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:6px; }
+.r-mast .r-kicker { font-size:13px; color:var(--ink-4); letter-spacing:2px; }
+.r-mast h1 { margin:6px 0 10px; font-size:44px; font-weight:850; letter-spacing:-.02em; }
+.r-mast h1 .r-accent { color:var(--accent); }
+.r-mast .r-date { font-size:14px; color:var(--ink-3); }
+.r-stats { display:flex; gap:26px; align-items:center; padding:14px 2px; font-size:14px; color:var(--ink-3); }
+.r-stats b { font-size:20px; color:var(--ink); font-variant-numeric:tabular-nums; margin-right:4px; }
+.r-stats .r-time { margin-left:auto; font-size:12.5px; color:var(--ink-4); }
+.r-sec-label { display:flex; align-items:center; gap:10px; margin:26px 0 14px; }
+.r-sec-label::before { content:""; width:22px; height:3px; background:var(--accent); border-radius:2px; }
+.r-sec-label h2 { margin:0; font-size:17px; font-weight:700; }
+.r-headline { background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:22px 26px; box-shadow:var(--shadow-card); }
+.r-headline .r-hl-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:10px; }
+.r-headline h3 { margin:0 0 10px; font-size:22px; font-weight:700; line-height:1.45; }
+.r-headline h3 a { color:var(--ink); text-decoration:none; }
+.r-headline h3 a:hover { color:var(--accent); }
+.r-headline p { margin:0 0 12px; font-size:15px; line-height:1.75; color:var(--ink-3); }
+.r-points { display:flex; flex-direction:column; gap:10px; }
+.r-point { display:flex; gap:14px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:14px 18px; box-shadow:var(--shadow-card); align-items:flex-start; }
+.r-point .r-no { font-size:20px; font-weight:850; color:var(--accent); font-variant-numeric:tabular-nums; }
+.r-point h4 { margin:0 0 6px; font-size:15.5px; font-weight:650; line-height:1.5; }
+.r-point h4 a { color:var(--ink); text-decoration:none; }
+.r-point h4 a:hover { color:var(--accent); }
+.r-point p { margin:0; font-size:13.5px; color:var(--ink-3); line-height:1.65; }
+.r-point .r-pmeta { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.r-board { display:flex; flex-direction:column; gap:18px; }
+.r-topic-sec h3 { margin:0 0 10px; font-size:15px; font-weight:700; display:flex; gap:8px; align-items:center; }
+.r-topic-sec h3 .cnt { font-size:12px; color:var(--ink-4); font-weight:500; }
+.r-item { display:flex; gap:12px; padding:11px 2px; border-top:1px solid var(--line-soft); align-items:baseline; }
+.r-item .r-t { font-size:12.5px; color:var(--ink-4); font-variant-numeric:tabular-nums;
+  flex-shrink:0; width:44px; }
+.r-item .r-b { min-width:0; }
+.r-item .r-b h4 { margin:0 0 4px; font-size:14.5px; font-weight:600; line-height:1.5; }
+.r-item .r-b h4 a { color:var(--ink); text-decoration:none; }
+.r-item .r-b h4 a:hover { color:var(--accent); }
+.r-item .r-b p { margin:0; font-size:13px; color:var(--ink-3); line-height:1.6;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.r-item .r-b .r-s { font-size:12px; color:var(--ink-4); margin-top:3px; }
+</style>
+</head>
+<body><div class="shell"><aside class="sidebar" aria-label="主导航"><div class="wordmark"><a href="../index.html"><span class="wm-icon">📰</span>IT 资讯速览</a></div><nav><div class="navsec">内容</div><a class="sidelink" href="../index.html" data-v="all"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">全部资讯</span><span class="scount">415</span></a><a class="sidelink" href="../index.html#v=featured" data-v="featured"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">精选</span><span class="scount">62</span></a><div class="navsec">日报</div><a class="sidelink" href="../archive.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">日期归档 · 日/周/月/年</span><span class="scount">42 天</span></a><div class="navsec">学习</div><a class="sidelink" href="../learn/ebs-shortcodes.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 短码速查</span></a><a class="sidelink" href="../learn/ebs-finance.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 财务管理</span></a><a class="sidelink" href="../learn/ebs-shortcuts.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 快捷键</span></a><a class="sidelink" href="../learn/ebs-inventory-types.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 库存交易类型</span></a><a class="sidelink" href="../learn/copilot-notebooks-tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Copilot Notebooks 技巧</span></a><a class="sidelink" href="../learn/words.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">背单词</span></a><a class="sidelink" href="../learn/tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">每日技巧</span></a><a class="sidelink" href="../learn/kb-demo.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">知识库 Demo</span></a><a class="sidelink" href="../learn/sql.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">SQL 小课</span></a><a class="sidelink" href="../learn/reading.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">每日精读</span></a><a class="sidelink" href="../learn/itil.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">ITIL 4</span></a><a class="sidelink" href="../learn/powerbi.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Power BI</span></a><div class="navsec">用途</div><a class="sidelink" href="../index.html#p=今日需判断" data-p="今日需判断"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">今日需判断</span><span class="scount">172</span></a><a class="sidelink" href="../index.html#p=近期需计划" data-p="近期需计划"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">近期需计划</span><span class="scount">96</span></a><a class="sidelink" href="../index.html#p=本周学一项" data-p="本周学一项"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">本周学一项</span><span class="scount">43</span></a><a class="sidelink" href="../index.html#p=项目参考" data-p="项目参考"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">项目参考</span><span class="scount">34</span></a><a class="sidelink" href="../index.html#p=行业视野" data-p="行业视野"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业视野</span><span class="scount">70</span></a><div class="navsec">主题</div><a class="sidelink" href="../index.html#t=安全与运维" data-t="安全与运维"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">安全与运维</span><span class="scount">200</span></a><a class="sidelink" href="../index.html#t=Microsoft 365" data-t="Microsoft 365"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Microsoft 365</span><span class="scount">112</span></a><a class="sidelink" href="../index.html#t=AI应用" data-t="AI应用"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">AI应用</span><span class="scount">53</span></a><a class="sidelink" href="../index.html#t=行业动态" data-t="行业动态"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业动态</span><span class="scount">50</span></a></nav></aside><div class="main"><div class="d-shell" id="d-body"><div class="d-side-l"><div class="d-sticky"><div class="d-card"><h4>来源</h4><div class="krow"><span class="k">媒体</span><span class="v">nimustech.com</span></div><div class="krow"><span class="k">域名</span><span class="v">nimustech.com</span></div><div class="krow"><span class="k">类型</span><span class="v">厂商案例</span></div><div class="krow"><span class="k">发布时间</span><span class="v">2026-11-25 14:51</span></div><div class="krow"><span class="k">收录时间</span><span class="v">11-25 18:35</span></div></div><div class="d-card"><h4>本文目录</h4><nav class="d-toc"><a href="#d-body">正文</a><a href="#d-why">推荐理由</a><a href="#d-related">相关新闻</a></nav></div></div></div><div class="d-center"><div class="d-topbar"><a class="d-back" href="../index.html">← 返回全部资讯</a><a class="d-open" href="https://nimustech.com/2026/11/25/ai-powered-power-apps-microsoft-new-capabilities/" target="_blank" rel="noopener">打开原文 ↗</a></div><h1 class="d-title">Power Apps 引入 AI 辅助开发：画布应用创作智能体、行摘要与可接业务逻辑的生成式页面进入公开预览</h1><p class="d-sub">厂商解读：Nimus Technologies 2026-11-25 整理微软最新 Power Platform 更新｜适用产品及版本：Microsoft Power Apps，画布应用创作智能体、Work IQ 中的业务应用处于公开预览阶…</p><div class="d-meta"><span>nimustech.com</span><span>·</span><span>厂商案例</span><span class="ttag" style="color:#8a6414;background:#8a64141a">AI应用</span><span class="ptag" style="color:#6b7684;background:#6b76841a">行业视野</span><span style="margin-left:auto">收录 11-25 18:35</span></div><div class="tabs" role="tablist"><button class="tab active" data-tab="zh" role="tab">中文</button><button class="tab" data-tab="en" role="tab">原文</button></div><div class="tabpane active" id="pane-zh"><p class="body-label">正文 · <b>AI 翻译</b></p><div class="tbody"><p>搭建业务应用传统上遵循一个可预测的流程：理解需求、设计应用、搭建逻辑、连接数据、测试全部内容并维护。Microsoft Power Apps 等平台已通过减少传统编码量简化了这一流程；现在，AI 开始改变应用本身的搭建与使用方式。</p><p>微软最新的 Power Platform 更新把 AI 带入 Power Apps 体验的更多环节：帮助制作者搭建与修改应用、汇总业务记录、允许用户用自然语言与业务数据交互。值得注意的是，AI 不再只是应用内部附加的功能，正在成为应用创建、维护与使用方式的一部分。</p><p>传统上，把业务需求变成应用意味着将其翻译为屏幕、公式、数据连接、工作流与其他技术组件；低代码开发简化了大部分工作，AI 辅助开发则更进一步：制作者无需手动完成每处修改，可以描述想要实现的目标，让 AI 协助完成部分开发工作。工作流正逐步从“需求 → 开发 → 测试 → 部署”变为“业务需求 → AI 辅助开发 → 人工审核 → 测试 → 部署”。关键在于 AI 是在协助工作，而非为最终应用负责；人们仍需审核输出、做决策、测试应用，并确保其符合组织的安全与业务要求。</p><p>本次更新包含四项值得关注的能力。</p><p>第一，AI 可协助搭建与维护画布应用。Power Apps Canvas Studio 中的创作智能体进入公开预览：结合 GitHub 集成，制作者可用自然语言描述应用或说明想要的修改，智能体随后提出方案，经批准后搭建或编辑画布应用的部分内容。它可用于现有应用、数据源、连接器与治理体系，无需从零开始。当团队需要在一个应用的多个屏幕上做类似修改时尤其有用；应用仍是普通的 Power Apps 画布应用，人们可继续审核与完善。</p><p>第二，业务数据更易理解。业务应用常包含大量信息，一条客户记录可能包括联系方式、活动、备注、任务等，员工需要翻阅多个字段才能抓住重点。AI 行摘要可在使用现代数据网格时，直接为符合条件的 Dataverse 记录生成简明摘要，每天处理数百条记录的员工可更快抓住重要信息。</p><p>第三，AI 生成式页面现可连接业务逻辑。生成式页面现可使用 Dataverse 自定义 API，AI 生成的体验不再止于展示信息，还可连接服务端业务逻辑，支持审批订单、重算价格、验证交易、触发业务操作、应用已有业务逻辑等操作。交互方式由此从“提问 → 阅读”变为“提问 → 理解 → 执行”。对企业而言，区别在于：能回答问题的 AI 界面有用，能安全连接已有业务流程的 AI 体验可能更有价值；这些操作仍受 Dataverse 安全机制约束，在当前登录用户的上下文中运行。</p><p>第四，业务应用可通过自然语言访问。Work IQ 中的业务应用目前处于公开预览：用户无需先打开业务应用，即可通过自然语言对话与受支持的 Power Apps 模型驱动应用数据交互。例如项目经理可以问“哪些项目目前被阻塞了”，随后浏览相关信息，并在支持的情况下通过对话创建或更新记录。微软表示，Work IQ 使用已有的应用视图、表单、Dataverse 数据、权限与受支持的业务规则，用户在提交前会审核并明确确认变更。</p><p>Power Apps 传统上与低代码开发相关，如今 AI 又增加了一层体验：低代码应用开发、AI 辅助开发、业务数据、自动化、自然语言交互与智能用户体验正在汇合。这并不意味着专业开发者不再必要；他们的时间可转向架构、集成、安全、治理、测试与复杂业务需求等更需要人类专业判断的领域，而制作者与业务用户可把更多时间花在表述需求与完善方案上，而非手动处理每个细小开发任务。微软同时强调，制作者须审核并批准拟议方案与生成的应用，AI 生成内容仍可能出错。</p><p>对企业而言，更有用的问题可能不是“AI 能搭建应用吗”，而是“AI 能在哪些环节改善已有的应用开发与业务流程”。可探索的场景包括员工运营（入职、员工请求、审批与任务跟踪类内部应用）、销售（查找客户信息并在不切换多个屏幕的情况下采取支持的操作）、客户服务（用 AI 摘要更快理解客户记录）、财务（涉及审批、验证或计算的应用）与运营（管理库存、项目、请求或内部流程的团队）。当然，合适的用例取决于组织自身的流程、数据、集成与治理。</p><p>随着 AI 更多参与应用开发，治理变得更加重要。组织应能明确回答：谁可使用 AI 辅助开发工具、哪些环境可用于试验、AI 功能可访问哪些数据、哪些连接器与 API 已批准、谁审核 AI 生成的变更、哪些操作需要人工批准、应用投产前如何测试、AI 生成功能如何被监控。目标不是让 AI 不受控地变更，而是建立受控环境，让 AI 减少重复工作，同时人继续对业务决策、安全、质量与治理负责。</p><p>务实的起点是审视团队已在使用的应用与流程，找出人们在重复开发或信息查找上花费大量时间的环节，然后：选定一个合适的 Power Apps 用例；审视现有应用与流程；探索 AI 协助可减少重复工作的环节；在扩大使用前建立治理；让人工审核留在开发与审批流程中；衡量变更是否真正提升生产力或用户体验。从受控用例起步，可在扩大 AI 辅助开发前先理解其价值。</p><p>最值得注意的变化或许不是某一项具体功能，而是人们开始思考应用开发的方式：从“怎么搭建”转向“要解决什么业务问题”，AI 再协助完成从需求到可用应用的部分旅程。但这不意味着一个提示就能立即出现应用；良好的数据、清晰的流程、安全、集成、测试与人类决策仍然必不可少，只是业务想法与可用数字方案之间的距离正在变小。</p></div></div><div class="tabpane" id="pane-en"><p class="body-label">原文</p><div class="tbody"><p>Building a business application has traditionally involved a fairly predictable process: understand the requirement, design the application, build the logic, connect the data, test everything, and then maintain it.</p><p>Platforms like Microsoft Power Apps have already made this process easier by reducing the amount of traditional coding needed.</p><p>Now, AI is starting to change how the applications themselves are built and used.</p><p>Microsoft&#x27;s latest Power Platform updates bring AI into more parts of the Power Apps experience — from helping makers build and modify applications to summarizing business records and allowing users to interact with business data using natural language.</p><p>The interesting part is that AI is no longer just something businesses add inside an application. It is becoming part of how the application is created, maintained, and used.</p><p>Traditionally, turning a business requirement into an application meant translating that requirement into screens, formulas, data connections, workflows, and other technical components. Low-code development simplified much of this work. AI-assisted development takes that idea a step further. Instead of manually making every change, makers can increasingly describe what they want to achieve and use AI to help with parts of the development process. The workflow is gradually moving from Requirement → Development → Testing → Deployment toward Business requirement → AI-assisted development → Human review → Testing → Deployment. The important point is that AI is helping with the work, not taking responsibility for the final application. People still need to review the output, make decisions, test the application, and ensure that it follows the organization&#x27;s security and business requirements.</p><p>One of the notable updates is the public preview of an authoring agent in Power Apps Canvas Studio. With GitHub integration, makers can describe an application or explain the changes they want to make using natural language. The agent can then propose a plan and, after approval, build or edit parts of the canvas app. It can work with existing apps, data sources, connectors, and governance rather than requiring businesses to start from scratch. This could be useful when teams need to make similar changes across an existing application. For example, imagine a sales application with several screens that all need a similar update. Instead of making every change manually, a maker could describe the requirement to the agent and then review the changes it proposes. The application remains a normal Power Apps canvas app, so people can continue to review and refine it.</p><p>AI-powered row summaries are designed to make business data easier to understand. Users can generate a concise summary of an eligible Dataverse record directly from the modern data grid. For someone working with hundreds of records, being able to quickly understand the important information could save time during everyday work.</p><p>Generative Pages are another interesting part of these updates. They can now work with Dataverse custom APIs, which means an AI-generated experience does not have to stop at showing information. It can connect to server-side business logic and support operations such as approving an order, recalculating a price, validating a transaction, triggering a business operation, and applying existing business logic. This changes the type of interaction that AI-powered business applications can provide. Instead of Ask → Read, the experience can move toward Ask → Understand → Take Action. These operations remain subject to Dataverse security and operate in the context of the signed-in user.</p><p>Another notable capability is Business Applications in Work IQ, currently in public preview. Instead of opening a business application first, users can interact with supported Power Apps model-driven app data through natural-language conversations. For example, a project manager could ask: &quot;Which projects are currently blocked?&quot; They could then explore the relevant information and, where supported, create or update records through the conversation. Microsoft says Work IQ uses existing app views, forms, Dataverse data, permissions, and supported business rules. Users also review and explicitly confirm changes before they are submitted.</p><p>Power Apps is increasingly bringing together low-code application development, AI-assisted development, business data, automation, natural-language interaction, and intelligent user experiences. This does not mean professional developers become unnecessary. Instead, their time can shift toward areas where human expertise is especially important — architecture, integrations, security, governance, testing, and complex business requirements. At the same time, makers and business users can spend more time explaining what they need and refining the solution rather than manually handling every small development task. Microsoft also emphasizes that makers review and approve the proposed plan and generated application, and that AI-generated content can still be incorrect.</p><p>For business leaders, the more useful question may not be: &quot;Can AI build an app?&quot; It may be: &quot;Where could AI make our existing application development and business processes better?&quot; Areas organizations could explore include employee operations (internal applications for onboarding, employee requests, approvals, and task tracking), sales (using AI-assisted experiences to find customer information and take supported actions without moving through multiple screens), customer service (AI-generated summaries to understand customer records more quickly), finance (applications involving approvals, validations, or calculations), and operations (teams managing inventory, projects, requests, or internal processes).</p><p>As AI becomes more involved in application development, governance becomes even more important. Organizations should have clear answers to questions such as: Who can use AI-assisted development tools? Which environments can be used for experimentation? What data can AI features access? Which connectors and APIs are approved? Who reviews AI-generated changes? Which actions require human approval? How are applications tested before production? How is AI-generated functionality monitored? The goal should not be to let AI make uncontrolled changes. The better approach is to create a controlled environment where AI can reduce repetitive work while people remain responsible for business decisions, security, and quality.</p><p>Businesses do not need to change every application at once. A practical starting point is to look at the applications and processes teams already use and identify where people spend a lot of time on repetitive development or information-search tasks. Organizations can then: identify one suitable Power Apps use case; review existing applications and processes; explore where AI assistance could reduce repetitive work; establish governance before expanding usage; keep human review in the development and approval process; and measure whether the change actually improves productivity or user experience. Starting with a controlled use case allows businesses to understand the value before expanding AI-assisted development across larger environments.</p><p>Perhaps the most interesting change is not one specific Power Apps feature. It is the way people may start thinking about application development. Instead of beginning with: &quot;How do I build this?&quot; teams can increasingly begin with: &quot;What business problem are we trying to solve?&quot; AI can then assist with parts of the journey from that requirement toward a working digital solution. That does not mean applications will appear instantly from a single prompt. Good data, clear processes, security, integrations, testing, and human decision-making are still essential. But the distance between a business idea and a working digital solution is becoming smaller.</p></div></div><div class="d-tags"><span class="d-tag">#AI应用</span><span class="d-tag">#厂商案例</span></div><div class="d-srcline">来源：nimustech.com · nimustech.com</div><section class="d-sec" id="d-why"><h3>推荐理由</h3><div class="d-abstract">与什么工作有关：Power Platform 低代码应用的搭建方式、业务流程自动化与审批流的选型。值得带走什么：“从问答到可执行操作”的分界——生成式页面接上 Dataverse 自定义 API 后，AI 界面不再只读信息，还能触发已有业务逻辑，但权限仍沿用 Dataverse 安全模型与当前登录用户上下文。什么条件下适用：已使用 Power Apps、Dataverse 或正在评估 AI 辅助开发的组织；各功能多为公开预览，生产使用前须核对租户是否已获得该功能及治理要求。</div></section><section class="d-sec" id="d-related"><h3>相关新闻</h3><div class="rel-grid"><div class="rel"><div class="r-meta">thehackernews · 11-23 08:39 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/36d68a8224.html">研究演示：一个恶意网页可劫持 Meta Muse 智能体，窃取对话记录与记忆，官方称已修复</a></h4></div><div class="rel"><div class="r-meta">thehackernews · 11-22 12:30 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/a4674d569e.html">OpenRouter 下架三家推理服务商：研究证实提示词遭窃数月，零数据保留标志未起作用</a></h4></div><div class="rel"><div class="r-meta">azure.microsoft.com · 11-19 08:39 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/06b41c600b.html">微软 Ignite 发布 Microsoft IQ：企业上下文管理平台，Work/Fabric/Foundry/Web 四层上下文合一</a></h4></div><div class="rel"><div class="r-meta">salesforce.com · 11-18 08:39 · <span style="color:#8a6414;font-weight:600">AI应用</span></div><h4 class="r-title"><a href="../items/9a0cb27c96.html">Salesforce 与微软发布 Copilotforce：Salesforce 插件进 Copilot 公开预览，Fabric 与 Data 360 零复制互联</a></h4></div></div></section></div><div class="d-side-r"><div class="d-sticky"><div class="d-card why-card"><h4>推荐理由</h4><p class="why-full">与什么工作有关：Power Platform 低代码应用的搭建方式、业务流程自动化与审批流的选型。值得带走什么：“从问答到可执行操作”的分界——生成式页面接上 Dataverse 自定义 API 后，AI 界面不再只读信息，还能触发已有业务逻辑，但权限仍沿用 Dataverse 安全模型与当前登录用户上下文。什么条件下适用：已使用 Power Apps、Dataverse 或正在评估 AI 辅助开发的组织；各功能多为公开预览，生产使用前须核对租户是否已获得该功能及治理要求。</p></div><div class="d-card"><h4>主题</h4><div><span class="ttag" style="color:#8a6414;background:#8a64141a">AI应用</span></div></div><div class="d-card"><h4>标签</h4><div class="d-tags" style="margin:0"><span class=d-tag>#AI应用</span><span class=d-tag>#厂商案例</span></div></div></div></div></div><footer class="pagefoot">正文由 AI 翻译整理，仅供学习参考，关键操作请核对原文。<br><a href="https://nimustech.com/2026/11/25/ai-powered-power-apps-microsoft-new-capabilities/" target="_blank" rel="noopener">打开原文 ↗</a></footer></div></div>
+<script>
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tabpane').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('pane-' + t.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body></html>
