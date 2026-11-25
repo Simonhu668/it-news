@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-25",
+   "idx": 3,
+   "title": "Windows：Win + X，一键打开快捷菜单",
+   "tag": "Windows",
+   "topic": "Win + X，一键打开快捷菜单",
+   "category": "Windows",
+   "module": "快捷操作",
+   "guid": "043fee6ac94d3a086b7d67f29ecc4c0e",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25",
+   "html": "<p><b>Windows：Win + X，一键打开快捷菜单</b></p><ol>\n<li>同时按 Win + X，屏幕左下角弹出一个快捷菜单。</li>\n<li>直接点：设置、任务管理器、文件资源管理器、关机或注销……</li>\n<li>不用再去开始菜单里一层层找，常用系统功能都在这里。</li>\n<li>小提示：菜单里的字母带下划线，再按对应字母就能直接打开。</li>\n</ol>\n<p><b>Win + X opens the Windows quick menu</b></p>\n<ol>\n<li>Press Win + X and a shortcut menu pops up at the bottom-left corner.</li>\n<li>Click straight to Settings, Task Manager, File Explorer, Shut down or sign out, and more.</li>\n<li>No more digging through the Start menu — the everyday system tools are all here.</li>\n<li>Tip: each item shows an underlined letter — press that letter to open it instantly.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-25",
+   "idx": 2,
+   "title": "Outlook：邮件先\"稍后提醒\"，到点它自己回来",
+   "tag": "Outlook",
+   "topic": "邮件先\"稍后提醒\"，到点它自己回来",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "8b72c4300b7fb10d6efe7a539a3a3548",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25",
+   "html": "<p><b>Outlook：邮件先&quot;稍后提醒&quot;，到点它自己回来</b></p><ol>\n<li>在新版 Outlook 或网页版 Outlook 里，右键点一封现在没空处理的邮件。</li>\n<li>选&quot;稍后提醒&quot;（Snooze），挑一个时间，比如&quot;今天下午 3 点&quot;。</li>\n<li>邮件会暂时离开收件箱，到点自动回到顶部，还带小铃铛提醒。</li>\n<li>比&quot;标为未读&quot;更保险：未读容易淹没在新邮件里，稍后提醒不会忘。</li>\n</ol>\n<p><b>Snooze an email and let it come back to you</b></p>\n<ol>\n<li>In the new Outlook or Outlook on the web, right-click a message you can&#x27;t deal with right now.</li>\n<li>Choose &quot;Snooze&quot; and pick a time, e.g. &quot;Today at 3:00 PM&quot;.</li>\n<li>The email leaves your inbox and pops back to the top at that time, with a reminder.</li>\n<li>Safer than just marking it unread — unread mail gets buried, a snoozed one won&#x27;t be forgotten.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-25",
+   "idx": 1,
+   "title": "Oracle EBS：定期改密码，Edit > Preferences 里就能改",
+   "tag": "Oracle EBS",
+   "topic": "定期改密码，Edit > Preferences 里就能改",
+   "category": "Oracle EBS",
+   "module": "导航与帮助",
+   "guid": "e4c664ed18faf04eff1b5bdb7aca7988",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25",
+   "html": "<p><b>Oracle EBS：定期改密码，Edit &gt; Preferences 里就能改</b></p><ol>\n<li>打开任意 EBS 表单，点顶部菜单 Edit &gt; Preferences。</li>\n<li>点 Change Password 按钮。</li>\n<li>输入旧密码，再输两遍新密码，点 OK。</li>\n<li>下次登录就用新密码；密码别写在便利贴上，记在密码管理器里。</li>\n</ol>\n<p><b>Change your EBS password in Preferences</b></p>\n<ol>\n<li>In any EBS form, click Edit &gt; Preferences.</li>\n<li>Click the Change Password button.</li>\n<li>Enter your old password, then type the new one twice, and click OK.</li>\n<li>Use the new password next time you sign in — and store it in a password manager, not on a sticky note.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-24",
    "idx": 3,
    "title": "Excel：列宽不用一格格拖，双击列边界自动调到刚好",

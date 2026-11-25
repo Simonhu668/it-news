@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：列宽不用一格格拖，双击列边界自动调到刚好</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-24</link><guid isPermaLink="false">f350f5701342a7e86f8a0e41117f2e84</guid><pubDate>Tue, 24 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：列宽不用一格格拖，双击列边界自动调到刚好</b></p><p>一列内容被截断、或者留白太多，手动拖列宽总调不准：</p>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Windows：Win + X，一键打开快捷菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25</link><guid isPermaLink="false">043fee6ac94d3a086b7d67f29ecc4c0e</guid><pubDate>Wed, 25 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：Win + X，一键打开快捷菜单</b></p><ol>
+<li>同时按 Win + X，屏幕左下角弹出一个快捷菜单。</li>
+<li>直接点：设置、任务管理器、文件资源管理器、关机或注销……</li>
+<li>不用再去开始菜单里一层层找，常用系统功能都在这里。</li>
+<li>小提示：菜单里的字母带下划线，再按对应字母就能直接打开。</li>
+</ol>
+<p><b>Win + X opens the Windows quick menu</b></p>
+<ol>
+<li>Press Win + X and a shortcut menu pops up at the bottom-left corner.</li>
+<li>Click straight to Settings, Task Manager, File Explorer, Shut down or sign out, and more.</li>
+<li>No more digging through the Start menu — the everyday system tools are all here.</li>
+<li>Tip: each item shows an underlined letter — press that letter to open it instantly.</li>
+</ol>]]></description></item>
+<item><title>Outlook：邮件先"稍后提醒"，到点它自己回来</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25</link><guid isPermaLink="false">8b72c4300b7fb10d6efe7a539a3a3548</guid><pubDate>Wed, 25 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：邮件先&quot;稍后提醒&quot;，到点它自己回来</b></p><ol>
+<li>在新版 Outlook 或网页版 Outlook 里，右键点一封现在没空处理的邮件。</li>
+<li>选&quot;稍后提醒&quot;（Snooze），挑一个时间，比如&quot;今天下午 3 点&quot;。</li>
+<li>邮件会暂时离开收件箱，到点自动回到顶部，还带小铃铛提醒。</li>
+<li>比&quot;标为未读&quot;更保险：未读容易淹没在新邮件里，稍后提醒不会忘。</li>
+</ol>
+<p><b>Snooze an email and let it come back to you</b></p>
+<ol>
+<li>In the new Outlook or Outlook on the web, right-click a message you can&#x27;t deal with right now.</li>
+<li>Choose &quot;Snooze&quot; and pick a time, e.g. &quot;Today at 3:00 PM&quot;.</li>
+<li>The email leaves your inbox and pops back to the top at that time, with a reminder.</li>
+<li>Safer than just marking it unread — unread mail gets buried, a snoozed one won&#x27;t be forgotten.</li>
+</ol>]]></description></item>
+<item><title>Oracle EBS：定期改密码，Edit &gt; Preferences 里就能改</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25</link><guid isPermaLink="false">e4c664ed18faf04eff1b5bdb7aca7988</guid><pubDate>Wed, 25 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>导航与帮助</category><description><![CDATA[<p><b>Oracle EBS：定期改密码，Edit &gt; Preferences 里就能改</b></p><ol>
+<li>打开任意 EBS 表单，点顶部菜单 Edit &gt; Preferences。</li>
+<li>点 Change Password 按钮。</li>
+<li>输入旧密码，再输两遍新密码，点 OK。</li>
+<li>下次登录就用新密码；密码别写在便利贴上，记在密码管理器里。</li>
+</ol>
+<p><b>Change your EBS password in Preferences</b></p>
+<ol>
+<li>In any EBS form, click Edit &gt; Preferences.</li>
+<li>Click the Change Password button.</li>
+<li>Enter your old password, then type the new one twice, and click OK.</li>
+<li>Use the new password next time you sign in — and store it in a password manager, not on a sticky note.</li>
+</ol>]]></description></item>
+<item><title>Excel：列宽不用一格格拖，双击列边界自动调到刚好</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-24</link><guid isPermaLink="false">f350f5701342a7e86f8a0e41117f2e84</guid><pubDate>Tue, 24 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：列宽不用一格格拖，双击列边界自动调到刚好</b></p><p>一列内容被截断、或者留白太多，手动拖列宽总调不准：</p>
 <ol>
 <li>把鼠标移到列标交界处（比如 A 列和 B 列之间的竖线），光标变成左右箭头。</li>
 <li><b>双击</b>这条边界，列宽立刻自动缩放到刚好放下最长的内容。</li>
