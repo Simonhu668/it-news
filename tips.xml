@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Windows：Win + X，一键打开快捷菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25</link><guid isPermaLink="false">043fee6ac94d3a086b7d67f29ecc4c0e</guid><pubDate>Wed, 25 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：Win + X，一键打开快捷菜单</b></p><ol>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：给单元格加下拉列表，别人填表只能选不能乱填</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26</link><guid isPermaLink="false">fde24b99b79f60f4341eb936bcd5a12e</guid><pubDate>Thu, 26 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：给单元格加下拉列表，别人填表只能选不能乱填</b></p><ol>
+<li>选中要限制输入的单元格区域，比如一列&quot;状态&quot;。</li>
+<li>点数据（Data）&gt; 数据验证（Data Validation），&quot;允许&quot;选&quot;序列&quot;（List）。</li>
+<li>在&quot;来源&quot;里输入选项，用英文逗号隔开，比如：进行中,已完成,待确认。</li>
+<li>点确定，单元格右边出现小箭头，点箭头选一个就行——拼写统一了，筛选统计也不出错。</li>
+</ol>
+<p><b>Add a dropdown list so others can only pick, not mistype</b></p>
+<ol>
+<li>Select the cells you want to restrict, e.g. a &quot;Status&quot; column.</li>
+<li>Click Data &gt; Data Validation, and set &quot;Allow&quot; to &quot;List&quot;.</li>
+<li>In &quot;Source&quot;, type the options separated by commas, e.g. In Progress, Done, Pending.</li>
+<li>Click OK — a small arrow appears next to each cell. Pick from the list and the spelling stays consistent, so filtering and counting won&#x27;t go wrong.</li>
+</ol>]]></description></item>
+<item><title>Outlook：设一个邮件签名，每封邮件自动带上名字和电话</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26</link><guid isPermaLink="false">60fde5b9e0bc429b9821b50b6fceb3c0</guid><pubDate>Thu, 26 Nov 2026 01:05:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：设一个邮件签名，每封邮件自动带上名字和电话</b></p><ol>
+<li>点文件（File）&gt; 选项（Options）&gt; 邮件（Mail）&gt; 签名（Signatures）。</li>
+<li>点&quot;新建&quot;，给签名起个名字，比如&quot;工作签名&quot;。</li>
+<li>在下方编辑框里写上姓名、职位、电话，再点&quot;确定&quot;。</li>
+<li>回到签名设置，选&quot;新邮件使用这个签名&quot;和&quot;回复/转发也用它&quot;，以后写邮件不用每次手动敲。</li>
+</ol>
+<p><b>Set up an email signature once and forget about it</b></p>
+<ol>
+<li>Click File &gt; Options &gt; Mail &gt; Signatures.</li>
+<li>Click &quot;New&quot; and name your signature, e.g. &quot;Work signature&quot;.</li>
+<li>Type your name, job title, and phone number in the editor, then click OK.</li>
+<li>Back in the signature settings, choose this signature for new messages and for replies/forwards — no more typing it by hand.</li>
+</ol>]]></description></item>
+<item><title>Oracle EBS：报表跑错了时间？先暂停请求，不用取消重跑</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26</link><guid isPermaLink="false">095343c71b689bc8341811d234db0ad6</guid><pubDate>Thu, 26 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>报表与请求</category><description><![CDATA[<p><b>Oracle EBS：报表跑错了时间？先暂停请求，不用取消重跑</b></p><ol>
+<li>打开&quot;查看我的请求&quot;（View Requests），找到正在排队或运行的那条请求。</li>
+<li>选中它，点 Hold Request 按钮，请求会暂停，等你确认好再继续。</li>
+<li>确认无误后，选中同一条请求点 Release，报表会从暂停处接着跑。</li>
+<li>比直接取消划算：取消要重新排队，暂停只是按一下暂停键。</li>
+</ol>
+<p><b>Pause a request instead of cancelling it</b></p>
+<ol>
+<li>Open View Requests and find the request that is pending or running.</li>
+<li>Select it and click Hold Request — the request pauses while you double-check.</li>
+<li>Once everything looks right, select the same request and click Release — it resumes from where it stopped.</li>
+<li>Cheaper than cancelling: a cancelled request has to queue all over again, a paused one just waits.</li>
+</ol>]]></description></item>
+<item><title>Windows：Win + X，一键打开快捷菜单</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-25</link><guid isPermaLink="false">043fee6ac94d3a086b7d67f29ecc4c0e</guid><pubDate>Wed, 25 Nov 2026 01:10:00 GMT</pubDate><category>Windows</category><category>快捷操作</category><description><![CDATA[<p><b>Windows：Win + X，一键打开快捷菜单</b></p><ol>
 <li>同时按 Win + X，屏幕左下角弹出一个快捷菜单。</li>
 <li>直接点：设置、任务管理器、文件资源管理器、关机或注销……</li>
 <li>不用再去开始菜单里一层层找，常用系统功能都在这里。</li>

@@ -2,6 +2,42 @@
  "generated_from": "daily-teams-tips-briefing/briefs",
  "items": [
   {
+   "date": "2026-11-26",
+   "idx": 3,
+   "title": "Excel：给单元格加下拉列表，别人填表只能选不能乱填",
+   "tag": "Excel",
+   "topic": "给单元格加下拉列表，别人填表只能选不能乱填",
+   "category": "Office 365",
+   "module": "Excel",
+   "guid": "fde24b99b79f60f4341eb936bcd5a12e",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26",
+   "html": "<p><b>Excel：给单元格加下拉列表，别人填表只能选不能乱填</b></p><ol>\n<li>选中要限制输入的单元格区域，比如一列&quot;状态&quot;。</li>\n<li>点数据（Data）&gt; 数据验证（Data Validation），&quot;允许&quot;选&quot;序列&quot;（List）。</li>\n<li>在&quot;来源&quot;里输入选项，用英文逗号隔开，比如：进行中,已完成,待确认。</li>\n<li>点确定，单元格右边出现小箭头，点箭头选一个就行——拼写统一了，筛选统计也不出错。</li>\n</ol>\n<p><b>Add a dropdown list so others can only pick, not mistype</b></p>\n<ol>\n<li>Select the cells you want to restrict, e.g. a &quot;Status&quot; column.</li>\n<li>Click Data &gt; Data Validation, and set &quot;Allow&quot; to &quot;List&quot;.</li>\n<li>In &quot;Source&quot;, type the options separated by commas, e.g. In Progress, Done, Pending.</li>\n<li>Click OK — a small arrow appears next to each cell. Pick from the list and the spelling stays consistent, so filtering and counting won&#x27;t go wrong.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-26",
+   "idx": 2,
+   "title": "Outlook：设一个邮件签名，每封邮件自动带上名字和电话",
+   "tag": "Outlook",
+   "topic": "设一个邮件签名，每封邮件自动带上名字和电话",
+   "category": "Office 365",
+   "module": "Outlook",
+   "guid": "60fde5b9e0bc429b9821b50b6fceb3c0",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26",
+   "html": "<p><b>Outlook：设一个邮件签名，每封邮件自动带上名字和电话</b></p><ol>\n<li>点文件（File）&gt; 选项（Options）&gt; 邮件（Mail）&gt; 签名（Signatures）。</li>\n<li>点&quot;新建&quot;，给签名起个名字，比如&quot;工作签名&quot;。</li>\n<li>在下方编辑框里写上姓名、职位、电话，再点&quot;确定&quot;。</li>\n<li>回到签名设置，选&quot;新邮件使用这个签名&quot;和&quot;回复/转发也用它&quot;，以后写邮件不用每次手动敲。</li>\n</ol>\n<p><b>Set up an email signature once and forget about it</b></p>\n<ol>\n<li>Click File &gt; Options &gt; Mail &gt; Signatures.</li>\n<li>Click &quot;New&quot; and name your signature, e.g. &quot;Work signature&quot;.</li>\n<li>Type your name, job title, and phone number in the editor, then click OK.</li>\n<li>Back in the signature settings, choose this signature for new messages and for replies/forwards — no more typing it by hand.</li>\n</ol>"
+  },
+  {
+   "date": "2026-11-26",
+   "idx": 1,
+   "title": "Oracle EBS：报表跑错了时间？先暂停请求，不用取消重跑",
+   "tag": "Oracle EBS",
+   "topic": "报表跑错了时间？先暂停请求，不用取消重跑",
+   "category": "Oracle EBS",
+   "module": "报表与请求",
+   "guid": "095343c71b689bc8341811d234db0ad6",
+   "link": "https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26",
+   "html": "<p><b>Oracle EBS：报表跑错了时间？先暂停请求，不用取消重跑</b></p><ol>\n<li>打开&quot;查看我的请求&quot;（View Requests），找到正在排队或运行的那条请求。</li>\n<li>选中它，点 Hold Request 按钮，请求会暂停，等你确认好再继续。</li>\n<li>确认无误后，选中同一条请求点 Release，报表会从暂停处接着跑。</li>\n<li>比直接取消划算：取消要重新排队，暂停只是按一下暂停键。</li>\n</ol>\n<p><b>Pause a request instead of cancelling it</b></p>\n<ol>\n<li>Open View Requests and find the request that is pending or running.</li>\n<li>Select it and click Hold Request — the request pauses while you double-check.</li>\n<li>Once everything looks right, select the same request and click Release — it resumes from where it stopped.</li>\n<li>Cheaper than cancelling: a cancelled request has to queue all over again, a paused one just waits.</li>\n</ol>"
+  },
+  {
    "date": "2026-11-25",
    "idx": 3,
    "title": "Windows：Win + X，一键打开快捷菜单",
