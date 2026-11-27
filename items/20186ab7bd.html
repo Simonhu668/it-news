@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PolinRider 供应链攻击波及 7600 多个 GitHub 仓库：伪造提交植入加载器，构建时即触发 · IT 资讯速览</title>
+<meta name="description" content="官方依据：SafeDep 本周发布的报告，经 The Hacker News 2026 年 11 月 27 日报道；Apiiro 2026 年 11 月 9 日的统计｜适用产品及版本：托管在 GitHub 上的开源项目与使用其代码的组织，涉…">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IT 资讯速览">
+<meta property="og:title" content="PolinRider 供应链攻击波及 7600 多个 GitHub 仓库：伪造提交植入加载器，构建时即触发 · IT 资讯速览">
+<meta property="og:description" content="官方依据：SafeDep 本周发布的报告，经 The Hacker News 2026 年 11 月 27 日报道；Apiiro 2026 年 11 月 9 日的统计｜适用产品及版本：托管在 GitHub 上的开源项目与使用其代码的组织，涉…">
+<meta property="og:url" content="https://simonhu668.github.io/it-news/items/20186ab7bd.html">
+<link rel="alternate" type="application/rss+xml" title="IT 资讯速览" href="../feed.xml">
+<style>
+:root {
+  --bg:#faf9f6; --bg-sunk:#f3f3ef; --surface:#ffffff; --sidebar:#fdfdfb;
+  --ink:#202a30; --ink-2:#303c42; --ink-3:#444e55; --ink-4:#7d888e;
+  --line:#dfe4e1; --line-soft:#ecefe9; --line-strong:#d1d9d5;
+  --accent:#176b75; --accent-ink:#145f68; --note:#4c6468;
+  --amber:#a5761a; --amber-bg:#faf0d7; --mark:#fff3bf;
+  --shadow-card:0 1px 2px #202a3006;
+  --shadow-card-hover:0 3px 12px #202a300e;
+  --ease:cubic-bezier(.1,.7,.2,1);
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg:#14181a; --bg-sunk:#1c2224; --surface:#1e2528; --sidebar:#191f22;
+    --ink:#e9edee; --ink-2:#c9d2d5; --ink-3:#a9b4b8; --ink-4:#758086;
+    --line:#2c3438; --line-soft:#232a2e; --line-strong:#3a4449;
+    --accent:#4fb3bd; --accent-ink:#7ccdd4; --note:#9db8ba;
+    --amber:#d3a94e; --amber-bg:#3a2f14; --mark:#5c4a12;
+    --shadow-card:0 1px 2px #00000040;
+    --shadow-card-hover:0 3px 12px #00000055;
+  }
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); }
+/* ---------- shell: sidebar + full-width content ---------- */
+.shell { display:flex; align-items:stretch; min-height:100dvh; }
+.sidebar { display:none; }
+@media (min-width:1024px) {
+  .sidebar { display:flex; flex-direction:column; position:sticky; top:0; height:100dvh;
+    width:200px; flex-shrink:0; background:var(--sidebar);
+    border-right:1px solid var(--line); padding:24px 12px 14px; }
+}
+.wordmark { display:flex; align-items:center; gap:8px; height:50px; padding:0 4px; margin-bottom:14px;
+  font-size:17px; font-weight:800; letter-spacing:.5px; }
+.wordmark a { color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:8px; }
+.wordmark .wm-icon { font-size:22px; }
+.navsec { font-size:11px; color:var(--ink-4); padding:14px 10px 4px; }
+.sidelink { display:flex; align-items:center; gap:8px; width:100%; height:40px;
+  padding:0 10px; border:0; border-radius:8px; background:transparent; cursor:pointer;
+  font-size:13px; font-weight:500; color:var(--ink-3); transition:background .15s,color .15s;
+  text-decoration:none; font-family:inherit; }
+.sidelink:hover { background:var(--bg-sunk); color:var(--ink); }
+.sidelink .sicon { display:flex; width:22px; justify-content:center; flex-shrink:0; }
+.sidelink .slabel { flex:1; text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidelink .scount { font-size:11.5px; color:var(--ink-4); font-variant-numeric:tabular-nums; }
+.sidelink.active { background:color-mix(in srgb, var(--accent) 10%, transparent);
+  font-weight:600; color:var(--ink); }
+.sidelink.active .sicon { color:var(--accent); }
+.sidelink.active .scount { color:var(--accent-ink); font-weight:600; }
+.sidefoot { margin-top:auto; padding:10px 4px 0; font-size:11px; line-height:1.8; color:var(--ink-4);
+  border-top:1px solid var(--line-soft); }
+.main { flex:1; min-width:0; }
+.content { max-width:1560px; padding:26px 40px 0; margin:0 auto; }
+@media (max-width:640px) { .content { padding:20px 16px 0; } }
+.mast-row { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.mast h1 { margin:0; font-size:24px; font-weight:700; letter-spacing:-.01em; }
+.upd { font-size:12.5px; color:var(--ink-4); }
+.mast-sub { margin:6px 0 0; color:var(--ink-3); font-size:13px; }
+.toolbar { margin-top:16px; display:flex; flex-direction:column; gap:10px; }
+.toolrow { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.vbtn, .pbtn { border:1px solid var(--line); background:var(--surface); color:var(--ink-2);
+  border-radius:999px; padding:6px 14px; font-size:13px; cursor:pointer; white-space:nowrap; }
+.vbtn b, .pbtn b { font-weight:600; }
+.vbtn.active, .pbtn.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+.search { margin-left:auto; position:relative; }
+.search input { width:230px; max-width:100%; height:34px; border:1px solid var(--line);
+  border-radius:999px; background:var(--surface); padding:0 14px 0 34px; font-size:13px;
+  color:var(--ink); outline:none; }
+.search input:focus { border-color:var(--accent); }
+.search .sico { position:absolute; left:11px; top:50%; transform:translateY(-50%);
+  color:var(--ink-4); display:flex; pointer-events:none; }
+@media (min-width:1024px) {
+  #viewrow .vbtn { display:none; }
+  #topicrow { display:none; }
+}
+@media (max-width:640px) {
+  .search { margin-left:0; width:100%; }
+  .search input { width:100%; }
+  .toolrow.topics { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }
+}
+.spots { margin-top:18px; }
+.spothead { display:flex; align-items:baseline; gap:8px; padding:4px 2px 10px; }
+.spothead h2 { margin:0; font-size:16px; font-weight:700; }
+.spothead .ssub { font-size:12px; color:var(--ink-4); }
+.spotgrid { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
+@media (max-width:1100px) { .spotgrid { grid-template-columns:1fr; } }
+.psec { margin-top:18px; }
+.psec-h { display:flex; align-items:baseline; gap:10px; margin:0 0 10px; }
+.psec-h h2 { font-size:17px; margin:0; }
+.psec-h .ssub { color:var(--ink-3); font-size:12.5px; }
+.pgrid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+@media (max-width:1100px) { .pgrid2 { grid-template-columns:1fr; } }
+.plist { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:4px 14px; }
+.prow { display:flex; gap:8px; align-items:baseline; padding:9px 0; border-bottom:1px dashed var(--line); font-size:13.5px; }
+.prow:last-child { border-bottom:none; }
+.prow a { color:var(--ink); text-decoration:none; }
+.prow a:hover { text-decoration:underline; }
+.prow .pno { color:var(--ink-3); font-size:12px; min-width:16px; }
+.pempty { color:var(--ink-2); font-size:13.5px; background:var(--surface); border:1px dashed var(--line); border-radius:12px; padding:14px 16px; }
+.ptag { font-size:11px; padding:1px 7px; border-radius:20px; white-space:nowrap; }
+.toolrow.purposes { margin-top:8px; }
+.spot { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:14px 16px;
+  transition:box-shadow .2s var(--ease), border-color .2s, transform .2s var(--ease); }
+.spot:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); transform:translateY(-1px); }
+.spot-top { display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.spot-no { font-size:13px; font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; }
+.spot-title { margin:0 0 8px; font-size:15.5px; font-weight:650; line-height:1.5;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.spot-title a { color:var(--ink); text-decoration:none; }
+.spot-title a:hover { color:var(--accent); }
+.spot-why { margin:0; font-size:12.5px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.dayhead { display:flex; align-items:center; gap:8px; width:100%; background:none; border:0;
+  padding:22px 2px 10px; cursor:pointer; font-family:inherit; text-align:left; color:var(--ink); }
+.dayhead time { font-size:18px; font-weight:600; }
+.dayhead .wday { font-size:13px; color:var(--ink-4); }
+.dayhead .dcount { font-size:12.5px; color:var(--ink-4); }
+.dayhead .dcount b { color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.dayhead .dlink { margin-left:auto; font-size:12.5px; color:var(--accent); text-decoration:none; }
+.dayhead .chev { display:inline-block; font-size:12px; color:var(--ink-4); transition:transform .2s; }
+.day.collapsed .dayhead .chev { transform:rotate(-90deg); }
+.day.collapsed .tlist { display:none; }
+.tlist { display:flex; flex-direction:column; }
+.titem { display:flex; gap:0; position:relative; }
+.trail { display:none; }
+@media (min-width:760px) {
+  .trail { display:flex; flex-direction:column; align-items:center; width:64px; flex-shrink:0;
+    padding-top:20px; position:relative; }
+  .ttime { font-size:12.5px; color:var(--ink-3); font-variant-numeric:tabular-nums; font-weight:500; }
+  .tdot { width:7px; height:7px; border-radius:50%; background:var(--accent); margin-top:7px;
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent); }
+  .titem::before { content:""; position:absolute; left:31.5px; top:0; bottom:0;
+    width:1px; background:var(--line-soft); }
+  .titem:first-child::before { top:26px; }
+  .titem:last-child::before { bottom:auto; height:30px; }
+}
+.card { flex:1; min-width:0; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow-card); padding:16px 20px;
+  margin:0 0 12px; transition:box-shadow .2s var(--ease), border-color .2s; }
+@media (min-width:760px) { .card { margin-left:16px; } }
+.card:hover { box-shadow:var(--shadow-card-hover); border-color:var(--line-strong); }
+.card-main { display:flex; gap:14px; align-items:flex-start; }
+.card-text { flex:1; min-width:0; }
+.thumb { width:132px; height:88px; object-fit:cover; border-radius:8px; flex-shrink:0; border:1px solid var(--line); display:block; }
+.thumb-link { flex-shrink:0; }
+@media (max-width:640px) { .thumb { width:96px; height:64px; } }
+.d-hero { margin:0 0 18px; }
+.d-hero img { width:100%; max-height:420px; object-fit:cover; border-radius:12px; border:1px solid var(--line); display:block; }
+.d-hero figcaption { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.chead { display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:8px; }
+.ttag { font-size:11px; font-weight:600; border-radius:999px; padding:2px 10px; }
+.sev { font-size:11px; font-weight:700; border-radius:999px; padding:2px 10px; white-space:nowrap; }
+.fbadge { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-bg);
+  border-radius:4px; padding:2px 7px; }
+.mtime { margin-left:auto; font-variant-numeric:tabular-nums; }
+@media (min-width:760px) { .mtime { display:none; } }
+.title { margin:0; font-size:17px; font-weight:600; line-height:1.55;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.title a { color:var(--ink); text-decoration:none; }
+.title a:hover { color:var(--accent); }
+.summary { margin:8px 0 0; font-size:14.5px; line-height:1.65; color:var(--ink-3);
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.summary.open { display:block; }
+.cfoot { margin-top:10px; border-top:1px solid var(--line-soft); padding-top:10px; }
+.why { margin:0; font-size:13px; line-height:1.65; color:var(--note);
+  display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.why.open { display:block; }
+.whylabel { font-weight:600; }
+.cactions { display:flex; align-items:center; gap:14px; margin-top:8px; }
+.src { font-size:13px; color:var(--accent); text-decoration:none; font-weight:500; }
+.src:hover { text-decoration:underline; }
+.plink { font-size:13px; color:var(--ink-4); text-decoration:none; }
+.plink:hover { color:var(--accent); }
+.xbtn { border:0; background:none; padding:0; font-size:13px; color:var(--ink-4);
+  cursor:pointer; font-family:inherit; }
+.xbtn:hover { color:var(--accent); }
+mark { background:var(--mark); border-radius:2px; padding:0 1px; color:inherit; }
+.empty { display:none; text-align:center; padding:56px 20px; color:var(--ink-3); }
+.empty.show { display:block; }
+.empty p { margin:0 0 14px; font-size:14px; }
+.empty button { border:1px solid var(--line-strong); background:var(--surface); color:var(--ink);
+  border-radius:999px; padding:8px 20px; font-size:13px; cursor:pointer; }
+.empty button:hover { border-color:var(--ink); }
+footer.pagefoot { text-align:center; color:var(--ink-4); font-size:12px; line-height:1.9; padding:30px 0 46px; }
+.hidden { display:none !important; }
+.totop { position:fixed; right:24px; bottom:24px; z-index:30; display:none;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); cursor:pointer;
+  box-shadow:0 4px 12px #1c27330f; align-items:center; justify-content:center;
+  transition:opacity .2s, transform .2s; opacity:0; pointer-events:none; transform:translateY(8px); }
+.totop.show { opacity:1; pointer-events:auto; transform:none; }
+@media (min-width:1024px) { .totop { display:flex; } }
+/* ---------- detail page ---------- */
+.d-shell { display:grid; grid-template-columns:230px minmax(0,1fr) 290px; gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1150px) { .d-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .d-side-l, .d-side-r { order:2; } .d-center { order:1; } }
+.d-card { background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-card); padding:16px 18px; margin-bottom:14px; }
+.d-card h4 { margin:0 0 10px; font-size:13px; font-weight:700; color:var(--ink-2); }
+.d-card .krow { display:flex; justify-content:space-between; gap:8px; font-size:13px;
+  padding:7px 0; border-top:1px solid var(--line-soft); color:var(--ink-3); }
+.d-card .krow:first-of-type { border-top:0; }
+.d-card .krow .k { color:var(--ink-4); flex-shrink:0; }
+.d-card .krow .v { text-align:right; word-break:break-all; }
+.d-toc a { display:block; font-size:13.5px; color:var(--ink-3); text-decoration:none;
+  padding:7px 0; border-top:1px solid var(--line-soft); }
+.d-toc a:first-child { border-top:0; }
+.d-toc a:hover { color:var(--accent); }
+.d-sticky { position:sticky; top:24px; }
+.d-topbar { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.d-back { font-size:14px; color:var(--ink-3); text-decoration:none; }
+.d-back:hover { color:var(--accent); }
+.d-open { margin-left:auto; font-size:13.5px; font-weight:600; color:var(--accent);
+  border:1px solid var(--line-strong); background:var(--surface); border-radius:999px;
+  padding:8px 18px; text-decoration:none; }
+.d-open:hover { border-color:var(--accent); }
+.d-title { margin:0 0 10px; font-size:30px; font-weight:750; line-height:1.4; letter-spacing:-.01em; }
+@media (max-width:640px) { .d-title { font-size:22px; } }
+.d-sub { margin:0 0 14px; font-size:15px; color:var(--ink-4); line-height:1.6; }
+.d-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:13px;
+  color:var(--ink-4); margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--line-soft); }
+.tabs { display:flex; gap:0; border-bottom:2px solid var(--line); margin-bottom:6px; }
+.tab { border:0; background:none; font-size:14.5px; font-weight:600; color:var(--ink-4);
+  padding:10px 20px; cursor:pointer; font-family:inherit; border-bottom:2px solid transparent;
+  margin-bottom:-2px; }
+.tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+.tabpane { display:none; padding:18px 2px; }
+.tabpane.active { display:block; }
+.body-label { font-size:12.5px; color:var(--ink-4); margin:0 0 12px; }
+.body-label b { color:var(--accent); }
+.tbody p { font-size:16px; line-height:1.9; color:var(--ink-2); margin:0 0 16px; }
+.d-abstract { background:var(--bg-sunk); border:1px solid var(--line-soft); border-radius:10px;
+  padding:14px 18px; font-size:14.5px; line-height:1.75; color:var(--ink-3); margin-bottom:14px; }
+.d-note { font-size:13px; color:var(--ink-4); background:var(--surface);
+  border:1px dashed var(--line-strong); border-radius:10px; padding:12px 16px; margin-bottom:14px; }
+.d-tags { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+.d-tag { font-size:12.5px; color:var(--ink-3); background:var(--bg-sunk);
+  border:1px solid var(--line-soft); border-radius:999px; padding:4px 14px; }
+.d-srcline { font-size:13px; color:var(--ink-4); border-top:1px solid var(--line-soft);
+  padding-top:14px; margin-top:8px; }
+.d-sec { margin-top:26px; }
+.d-sec h3 { font-size:17px; font-weight:700; margin:0 0 12px; }
+.rel-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
+@media (max-width:760px) { .rel-grid { grid-template-columns:1fr; } }
+.rel { background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:12px 16px; box-shadow:var(--shadow-card); }
+.rel:hover { border-color:var(--line-strong); }
+.rel .r-meta { font-size:12px; color:var(--ink-4); margin-bottom:6px; }
+.rel .r-title { margin:0; font-size:14px; font-weight:600; line-height:1.5; }
+.rel .r-title a { color:var(--ink); text-decoration:none; }
+.rel .r-title a:hover { color:var(--accent); }
+.why-card .why-full { font-size:14px; line-height:1.75; color:var(--ink-2); margin:0; }
+/* ---------- daily page ---------- */
+.r-shell { display:grid; grid-template-columns:230px minmax(0,1fr); gap:30px;
+  max-width:1560px; margin:0 auto; padding:26px 40px 0; }
+@media (max-width:1024px) { .r-shell { grid-template-columns:minmax(0,1fr); padding:20px 16px 0; } .r-arch { display:none; } }
+.r-arch .arch-item { display:flex; gap:10px; align-items:baseline; padding:9px 4px;
+  border-top:1px solid var(--line-soft); text-decoration:none; }
+.r-arch .arch-item:first-of-type { border-top:0; }
+.r-arch .arch-day { font-size:20px; font-weight:800; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+.r-arch .arch-t { font-size:12.5px; color:var(--ink-3); line-height:1.5; }
+.r-arch .arch-item.cur .arch-day { color:var(--accent); }
+.r-mast { text-align:left; border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:6px; }
+.r-mast .r-kicker { font-size:13px; color:var(--ink-4); letter-spacing:2px; }
+.r-mast h1 { margin:6px 0 10px; font-size:44px; font-weight:850; letter-spacing:-.02em; }
+.r-mast h1 .r-accent { color:var(--accent); }
+.r-mast .r-date { font-size:14px; color:var(--ink-3); }
+.r-stats { display:flex; gap:26px; align-items:center; padding:14px 2px; font-size:14px; color:var(--ink-3); }
+.r-stats b { font-size:20px; color:var(--ink); font-variant-numeric:tabular-nums; margin-right:4px; }
+.r-stats .r-time { margin-left:auto; font-size:12.5px; color:var(--ink-4); }
+.r-sec-label { display:flex; align-items:center; gap:10px; margin:26px 0 14px; }
+.r-sec-label::before { content:""; width:22px; height:3px; background:var(--accent); border-radius:2px; }
+.r-sec-label h2 { margin:0; font-size:17px; font-weight:700; }
+.r-headline { background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:22px 26px; box-shadow:var(--shadow-card); }
+.r-headline .r-hl-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+  font-size:12.5px; color:var(--ink-4); margin-bottom:10px; }
+.r-headline h3 { margin:0 0 10px; font-size:22px; font-weight:700; line-height:1.45; }
+.r-headline h3 a { color:var(--ink); text-decoration:none; }
+.r-headline h3 a:hover { color:var(--accent); }
+.r-headline p { margin:0 0 12px; font-size:15px; line-height:1.75; color:var(--ink-3); }
+.r-points { display:flex; flex-direction:column; gap:10px; }
+.r-point { display:flex; gap:14px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:14px 18px; box-shadow:var(--shadow-card); align-items:flex-start; }
+.r-point .r-no { font-size:20px; font-weight:850; color:var(--accent); font-variant-numeric:tabular-nums; }
+.r-point h4 { margin:0 0 6px; font-size:15.5px; font-weight:650; line-height:1.5; }
+.r-point h4 a { color:var(--ink); text-decoration:none; }
+.r-point h4 a:hover { color:var(--accent); }
+.r-point p { margin:0; font-size:13.5px; color:var(--ink-3); line-height:1.65; }
+.r-point .r-pmeta { font-size:12px; color:var(--ink-4); margin-top:6px; }
+.r-board { display:flex; flex-direction:column; gap:18px; }
+.r-topic-sec h3 { margin:0 0 10px; font-size:15px; font-weight:700; display:flex; gap:8px; align-items:center; }
+.r-topic-sec h3 .cnt { font-size:12px; color:var(--ink-4); font-weight:500; }
+.r-item { display:flex; gap:12px; padding:11px 2px; border-top:1px solid var(--line-soft); align-items:baseline; }
+.r-item .r-t { font-size:12.5px; color:var(--ink-4); font-variant-numeric:tabular-nums;
+  flex-shrink:0; width:44px; }
+.r-item .r-b { min-width:0; }
+.r-item .r-b h4 { margin:0 0 4px; font-size:14.5px; font-weight:600; line-height:1.5; }
+.r-item .r-b h4 a { color:var(--ink); text-decoration:none; }
+.r-item .r-b h4 a:hover { color:var(--accent); }
+.r-item .r-b p { margin:0; font-size:13px; color:var(--ink-3); line-height:1.6;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.r-item .r-b .r-s { font-size:12px; color:var(--ink-4); margin-top:3px; }
+</style>
+</head>
+<body><div class="shell"><aside class="sidebar" aria-label="主导航"><div class="wordmark"><a href="../index.html"><span class="wm-icon">📰</span>IT 资讯速览</a></div><nav><div class="navsec">内容</div><a class="sidelink" href="../index.html" data-v="all"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">全部资讯</span><span class="scount">431</span></a><a class="sidelink" href="../index.html#v=featured" data-v="featured"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">精选</span><span class="scount">63</span></a><div class="navsec">日报</div><a class="sidelink" href="../archive.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">日期归档 · 日/周/月/年</span><span class="scount">44 天</span></a><div class="navsec">学习</div><a class="sidelink" href="../learn/ebs-shortcodes.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 短码速查</span></a><a class="sidelink" href="../learn/ebs-finance.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 财务管理</span></a><a class="sidelink" href="../learn/ebs-shortcuts.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 快捷键</span></a><a class="sidelink" href="../learn/ebs-inventory-types.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">EBS 库存交易类型</span></a><a class="sidelink" href="../learn/copilot-notebooks-tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Copilot Notebooks 技巧</span></a><a class="sidelink" href="../learn/words.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">背单词</span></a><a class="sidelink" href="../learn/tips.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">每日技巧</span></a><a class="sidelink" href="../learn/kb-demo.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">知识库 Demo</span></a><a class="sidelink" href="../learn/sql.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">SQL 小课</span></a><a class="sidelink" href="../learn/reading.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">每日精读</span></a><a class="sidelink" href="../learn/itil.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">ITIL 4</span></a><a class="sidelink" href="../learn/powerbi.html"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Power BI</span></a><div class="navsec">用途</div><a class="sidelink" href="../index.html#p=今日需判断" data-p="今日需判断"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="slabel">今日需判断</span><span class="scount">182</span></a><a class="sidelink" href="../index.html#p=近期需计划" data-p="近期需计划"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="slabel">近期需计划</span><span class="scount">97</span></a><a class="sidelink" href="../index.html#p=本周学一项" data-p="本周学一项"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="slabel">本周学一项</span><span class="scount">44</span></a><a class="sidelink" href="../index.html#p=项目参考" data-p="项目参考"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">项目参考</span><span class="scount">37</span></a><a class="sidelink" href="../index.html#p=行业视野" data-p="行业视野"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业视野</span><span class="scount">71</span></a><div class="navsec">主题</div><a class="sidelink" href="../index.html#t=安全与运维" data-t="安全与运维"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="slabel">安全与运维</span><span class="scount">213</span></a><a class="sidelink" href="../index.html#t=Microsoft 365" data-t="Microsoft 365"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span class="slabel">Microsoft 365</span><span class="scount">115</span></a><a class="sidelink" href="../index.html#t=AI应用" data-t="AI应用"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="slabel">AI应用</span><span class="scount">53</span></a><a class="sidelink" href="../index.html#t=行业动态" data-t="行业动态"><span class="sicon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="slabel">行业动态</span><span class="scount">50</span></a></nav></aside><div class="main"><div class="d-shell" id="d-body"><div class="d-side-l"><div class="d-sticky"><div class="d-card"><h4>来源</h4><div class="krow"><span class="k">媒体</span><span class="v">thehackernews</span></div><div class="krow"><span class="k">域名</span><span class="v">thehackernews.com</span></div><div class="krow"><span class="k">类型</span><span class="v">媒体报道</span></div><div class="krow"><span class="k">发布时间</span><span class="v">—</span></div><div class="krow"><span class="k">收录时间</span><span class="v">11-27 18:30</span></div></div><div class="d-card"><h4>本文目录</h4><nav class="d-toc"><a href="#d-body">正文</a><a href="#d-why">推荐理由</a><a href="#d-related">相关新闻</a></nav></div></div></div><div class="d-center"><div class="d-topbar"><a class="d-back" href="../index.html">← 返回全部资讯</a><a class="d-open" href="https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html" target="_blank" rel="noopener">打开原文 ↗</a></div><h1 class="d-title">PolinRider 供应链攻击波及 7600 多个 GitHub 仓库：伪造提交植入加载器，构建时即触发</h1><p class="d-sub">官方依据：SafeDep 本周发布的报告，经 The Hacker News 2026 年 11 月 27 日报道；Apiiro 2026 年 11 月 9 日的统计｜适用产品及版本：托管在 GitHub 上的开源项目与使用其代码的组织，涉…</p><div class="d-meta"><span>thehackernews</span><span>·</span><span>媒体报道</span><span class="ttag" style="color:#b3402a;background:#b3402a1a">安全与运维</span><span class="ptag" style="color:#6b7684;background:#6b76841a">行业视野</span><span style="margin-left:auto">收录 11-27 18:30</span></div><figure class="d-hero"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDMmvUWQdPy-szNqvZUrij9zE5cD15oEo9jQTapTl6rul69GxiYciMec7HWm-S_6MBkMtdTlb5DXXZ5LVljF57kO49PUQP2_hYB0o9kZJmf7d7ozn3LStuJJOrTcgEUsDOYSJVu_NXW_I1Ta93nLqLZBCV19-0-R6Rca3Kr1ntJ0FK3MV8h1Fv8uMDtuM5/s1600/polin-2.png" alt="" referrerpolicy="no-referrer"><figcaption>图片来源：thehackernews，版权归原站所有</figcaption></figure><div class="tabs" role="tablist"><button class="tab active" data-tab="zh" role="tab">中文</button><button class="tab" data-tab="en" role="tab">原文</button></div><div class="tabpane active" id="pane-zh"><p class="body-label">正文 · <b>AI 翻译</b></p><div class="tbody"><p>代号为 PolinRider 的攻击活动被发现向 GitHub 仓库植入 Python 加载器，有证据表明该活动最早可追溯到 2025 年 2 月。</p><p>“加载器藏在一个小的 utils 包或 conftest.py 文件中，”SafeDep 在本周发布的报告中表示。“当 Python 导入该文件时，加载器读取某个以太坊钱包向自身发送的最新一笔交易，将交易输入数据解码为 JavaScript，再用 Node.js 执行。”</p><p>随后 JavaScript 代码读取第二个钱包以定位命令与控制（C2）服务器，并通过 node -i 进程把下一阶段交给一个分离的交互式 Node.js 环境。</p><p>这家软件供应链安全公司表示，已在属于 260 个账号的 375 个公开仓库中发现该加载器。目前没有证据表明加载器通过 PyPI 或 npm 分发。</p><p>PolinRider 是被归因于朝鲜威胁行为者的恶意活动的名称。近期报告显示，该活动通过多种渠道分发恶意软件，包括：利用钓鱼邮件与 BlockNovas、AccuraSoftHire（accurasofthire[.]com）、HuntRole（huntrole[.]org）等虚假招聘门户的欺诈招聘活动，诱使求职者以完成带回家的评估为名运行夹带恶意软件的项目；通过劫持维护者账号，在开源生态中发布恶意包，以虚假字体文件、Visual Studio Code（VS Code）自动运行任务与 Git 历史重写植入经过混淆的恶意软件；利用已被入侵的开发者机器窃取 GitHub 令牌，向其有权限的开源仓库强制推送恶意提交。</p><p>PolinRider 加载器取回加密的第二阶段 Node.js 有效载荷，扫描受感染主机上已安装的开发者应用（如 GitHub Desktop、Cursor、VS Code 与 Google Antigravity），篡改最常用的工具以执行攻击者控制的代码并投递信息窃取恶意软件。</p><p>PolinRider 被评估为与长期活动 Contagious Interview 并行运行的子集群：后者以社会工程入侵开发者系统，PolinRider 则滥用已获得的访问权限修改仓库，把它们变成恶意软件分发渠道。</p><p>Palo Alto Networks Unit 42 在上月发布的报告中表示，网络犯罪团伙部署供应链蠕虫是为了伺机窃取，而朝鲜国家支持的威胁行为者把开源软件注册库作为针对企业环境的主要初始访问向量；入侵单个维护者账号或注册库范围，就能把开源依赖变成波及广泛的受影响云环境。</p><p>JavaScript 恶意软件按以下步骤执行：读取某个以太坊钱包的最新交易；用被称为 NullReceiver 的技术，从目标钱包地址前 8 个字节两次提取 C2 服务器地址（103.179.142[.]155），而最后 12 个字节代表 ASCII 字符串“helloipbot!!”；用该 IP 地址通过 443 端口获取两个有效载荷“0x/cls”与“0x/ls”。</p><p>SafeDep 的最新发现显示，这些仓库被注入了一个 58 行的 Python 加载器，它从一个以太坊钱包提取 JavaScript 代码，再联系第二个钱包解析出 C2 服务器（95.135.181[.]84）。NullReceiver 技术的一个决定性特征是，人为构造的目标钱包地址中包含标记“68656c6c6f6970626f742121”，它始终转译为“helloipbot!!”。</p><p>“/0x/cls 脚本运行两次，一次在当前进程中用 eval 执行，一次在新进程中执行，”SafeDep 表示。“/0x/ls 脚本只在新进程中运行。”这些有效载荷的确切性质仍不清楚。不过，此前的攻击波次被观察到安装窃取器，窃取环境机密、浏览器密码、Cookie 与钱包数据。值得注意的是，同一钱包地址已在其他攻击波次中被重复使用，包括推送合法 npm 包的受损版本、HuntRole 虚假招聘活动，以及使用名为 Eternity0207 的 GitHub 账号向 AsyncAPI Generator、CircuitVerse 与 Open Food Facts 等开源项目提交 200 多个拉取请求，随后强制推送包含经过混淆的加载器的修改提交。</p><p>AsyncAPI Generator 的一位维护者称，每次有效载荷在分支上停留 30 至 40 分钟后又被强制推送走，最终差异看起来是干净的。加载器在开发者运行“npm run build”（AsyncAPI Generator）、加载测试配置（Open Food Facts）或在 VS Code 中打开文件夹（CircuitVerse）时执行。该 GitHub 账号已被封停。</p><p>Apiiro 估计，PolinRider 已在至少 7,609 个 GitHub 仓库中被发现，这些仓库属于 2,330 个账号，其中大多数属于开发者。受害者包括 Neutralinojs、InstaWP Connect 与 fxhash。2026 年 10 月 27 日至 11 月 6 日期间，加载器被推送到 2,040 个仓库。</p><p>“该蠕虫利用窃取的 GitHub 访问权限重写开发者已经提交的提交，保留作者、信息与日期，并在构建配置中数百个空格之后添加加载器，”Apiiro 研究员 Shmulik Cohen 表示。“构建项目时它就会运行。在最新一波攻击中，在 VS Code 中打开文件夹就足够了。加载器从以太坊钱包读取它的服务器，因此拿掉一台服务器毫无作用：一笔交易就能把每个加载器转移到下一个服务器。”</p><p>这一进展出现之际，OpenSourceMalware 表示发现了一起 2025 年 5 月的 PolinRider 攻击，比最早有记录的受害者早了 8 个月。该攻击针对 9 个包，在 90 分钟内利用被劫持的维护者账号推送了投毒版本：itsa-utils@1.4.2、itsa-jsext@2.0.3、itsa-react-docviewer@16.1.2、itsa-cli@16.5.3、itsa-react-button@16.0.11、itsa-react-maskedinput@16.1.2、itsa-react-checkbox@16.0.5、itsa-react-focuscontainer@16.0.10、itsa-react-input@16.1.2。这些包均被发现利用 EtherHiding（NullReceiver 的前身）取回名为 JADESNOW 的 JavaScript 下载器，进而投递 Contagious Interview 活动中使用的基于 Python 的后门 InvisibleFerret，以及 Socket.IO RAT 与基于 Python 的窃取器。</p><p>“2025 年的样本带有 PolinRider 的有效载荷，但没有其有记录的传播行为，”安全研究员 Paul McCarty 与 Jenn Gile 表示。“区块链记录把攻击者活动的源头追溯到 2025 年 2 月。感染可能自 2025 年起一直持续在维护者的机器上，因为 2026 年的推送就是从那台机器发起的。”</p></div></div><div class="tabpane" id="pane-en"><p class="body-label">原文</p><div class="tbody"><p>The threat actors behind the PolinRider campaign have been observed planting a Python loader in GitHub repositories, as evidence emerges that the activity may have started as far back as February 2025.</p><p>&quot;The loader hides in a small utils package or in conftest.py,&quot; SafeDep said in a report published this week. &quot;When Python imports the file, the loader reads the newest transaction that an Ethereum wallet sent to itself. It decodes the input data of that transaction as JavaScript and runs it with Node.js.&quot;</p><p>The JavaScript code, for its part, reads a second wallet to locate the command-and-control (C2) server and then passes the next stage to a detached interactive Node.js environment by means of a node -i process.</p><p>The software supply chain security company said it identified the loader in 375 public repositories that belong to 260 accounts. There is no evidence that the loader has been distributed via PyPI or npm.</p><p>PolinRider is the name assigned to a malicious campaign linked to North Korean threat actors. Recent reports indicate that the activity employs various channels to distribute malware, including fraudulent recruitment campaigns that make use of phishing emails and fake hiring portals like BlockNovas, AccuraSoftHire (&quot;accurasofthire[.]com&quot;), and HuntRole (&quot;huntrole[.]org&quot;) to trick prospective targets into running malware-laced projects under the pretext of a take-home assessment; publishing malicious packages across open-source ecosystems by hijacking maintainer accounts to plant obfuscated malware through fake font files (fa-solid-400.woff2, fa-solid-500.woff2, or fa-solid-300.llf), Visual Studio Code (VS Code) auto-run tasks, and Git history rewriting; and using compromised developer machines to steal their GitHub tokens and force-push malicious commits into open-source repositories they have access to.</p><p>At a high level, the PolinRider loader retrieves an encrypted second-stage Node.js payload that scans the infected host for installed developer applications, such as GitHub Desktop, Cursor, VS Code, and Google Antigravity, and tampers with the most frequently used tools to execute attacker-controlled code and deliver infostealer malware.</p><p>It&#x27;s worth noting here that PolinRider is assessed to be a sub-cluster operating in parallel with a long-running campaign codenamed Contagious Interview. While the latter is more of a social-engineering entry point that&#x27;s used to compromise developer systems, PolinRider abuses the access to modify repositories and turn them into a distribution channel for malware.</p><p>&quot;Cybercriminal groups deploy supply chain worms for opportunistic theft. On the other hand, North Korean state-sponsored threat actors use open-source software registries as a primary initial access vector targeting corporate environments,&quot; Palo Alto Networks Unit 42 said in a report published last month. &quot;Threat actors demonstrate how compromising a single maintainer account or registry scope converts open-source dependencies, resulting in widespread affected cloud environments.&quot;</p><p>The JavaScript malware is designed to perform the following steps: read the latest transaction associated with an Ethereum wallet (&quot;0xa322E5f3D311D3080e6f0121063e9aDC2490Ef1a&quot;); get its destination wallet address (&quot;0x67B38e9b67B38E9b68656c6C6f6970626f742121&quot;); extract the C2 server address twice (&quot;103.179.142[.]155&quot;) from the first eight bytes (&quot;67B38e9b&quot; and &quot;67B38E9b&quot;) of the wallet address, using a technique referred to as NullReceiver, while the last 12 bytes represent the ASCII string &quot;helloipbot!!.&quot;; and use the IP address to fetch two payloads, &quot;0x/cls&quot; and &quot;0x/ls,&quot; over port 443.</p><p>The latest findings from SafeDep show that the repositories are injected with a 58-line Python loader that reads the &quot;0x3b1574417524c11a7403c4b232CAcBb320CceBC6&quot; wallet to extract JavaScript code that then reaches out to a second wallet (&quot;0x1eEf0849EDa15d87f64e51C73C8442Cf3c8bCEF3&quot;) to obtain the destination wallet associated with the latest transaction (&quot;0x5F87b5545F87b55468656C6C6f6970626f742121&quot;), which is then used to parse the C2 server (&quot;95.135.181[.]84&quot;). A defining aspect of NullReceiver is the marker &quot;68656c6c6f6970626f742121&quot; in the made-up destination wallet address that consistently translates to &quot;helloipbot!!.&quot;</p><p>&quot;The /0x/cls script runs twice, once with eval in the current process and once in a new process,&quot; SafeDep said. &quot;The /0x/ls script runs only in a new process.&quot; The exact nature of these payloads remains unknown. However, prior waves have been observed installing a stealer that harvests environment secrets, browser passwords, cookies, and wallet data. Interestingly, the wallet address &quot;0x1eef0849eda15d87f64e51c73c8442cf3c8bcef3&quot; has been reused by the threat actors across other attack waves: pushing compromised versions of legitimate npm packages such as @adminide-stack/utils, @adminide-stack/health-api-server, @adminide-stack/user-activity-browser, @adminide-stack/forms-core, @adminide-stack/yantra-help-browser, server-hemera-mongo, cdeops, @cdmbase/wiki-browser, and @pubngo-stack/help-browser that use the same wallet address to fetch /0x/cls and /0x/ls from &quot;95.135.181[.]151&quot;; a fake recruitment campaign from HuntRole that convinces victims to complete a coding assessment, which uses a VS Code extension named &quot;huntrole.assessment-tool&quot; from the Visual Studio Marketplace to send system information and fetch and run a malicious JavaScript payload; and using a GitHub account named &quot;Eternity0207&quot; to open over 200 pull requests targeting open-source projects like AsyncAPI Generator, CircuitVerse, and Open Food Facts, and subsequently force-push a modified commit containing an obfuscated loader that uses the same wallet address to fetch /0x/cls and /0x/ls from &quot;95.135.181[.]84.&quot;</p><p>According to one of the maintainers of AsyncAPI Generator, &quot;Each time, the payload stayed on the branch for 30-40 minutes and was then force-pushed away, so the final diff looked clean.&quot; The unauthorized modifications allowed the loader to run when an unsuspecting developer runs &quot;npm run build&quot; (for AsyncAPI Generator), loads the test configuration (for Open Food Facts), or opens the folder in VS Code (for CircuitVerse). The GitHub account has since been suspended.</p><p>According to estimates from Apiiro, PolinRider has been detected in at least 7,609 GitHub repos owned by 2,330 accounts, most of them belonging to developers. Some of the victims include Neutralinojs, InstaWP Connect, and fxhash. The loader has been pushed to 2,040 repositories between October 27 and November 6, 2026.</p><p>&quot;The worm uses stolen GitHub access to rewrite commits the developer already made, keeping the author, message and date, and adds a loader hidden after hundreds of spaces in a build config,&quot; Apiiro researcher Shmulik Cohen said. &quot;Building the project runs it. In the newest wave, opening the folder in VS Code is enough. The loader reads its server from an Ethereum wallet, so taking a server down changes nothing: one transaction moves every loader to the next.&quot;</p><p>The development comes as OpenSourceMalware said it discovered a PolinRider attack from May 2025, predating the earliest documented victims by eight months. The attack targeted nine packages, using a hijacked maintainer account to push poisoned versions within a span of 90 minutes: itsa-utils@1.4.2, itsa-jsext@2.0.3, itsa-react-docviewer@16.1.2, itsa-cli@16.5.3, itsa-react-button@16.0.11, itsa-react-maskedinput@16.1.2, itsa-react-checkbox@16.0.5, itsa-react-focuscontainer@16.0.10, and itsa-react-input@16.1.2. Each of these packages have been found to leverage EtherHiding, a precursor to NullReceiver, to retrieve a JavaScript downloader called JADESNOW, which is then used to deliver InvisibleFerret, a Python-based backdoor used in Contagious Interview campaigns, along with a Socket.IO RAT and a Python-based stealer.</p><p>&quot;The 2025 sample carries PolinRider&#x27;s payload but not its documented spread behavior, which appears in the same maintainer&#x27;s GitHub repositories in four windows between January and July 2026,&quot; security researchers Paul McCarty and Jenn Gile said. &quot;The blockchain records behind it date attacker activity back to February 2025.&quot; &quot;The infection likely persisted on the maintainer&#x27;s machine from 2025, because the 2026 pushes ran from it. That matches PolinRider&#x27;s documented propagation script, which rolls back the clock, folds the payload into the tip commit, and force-pushes with the developer&#x27;s own credentials.&quot;</p></div></div><div class="d-tags"><span class="d-tag">#安全与运维</span><span class="d-tag">#媒体报道</span></div><div class="d-srcline">来源：thehackernews · thehackernews.com</div><section class="d-sec" id="d-why"><h3>推荐理由</h3><div class="d-abstract">与软件供应链安全有关：攻击者用被盗的开发者凭证重写已有提交，加载器藏在数百个制表符之后，最终差异看起来是干净的，常规代码评审难以发现。值得带走什么：一个判断方法——提交记录干净不等于仓库干净，强制推送记录与构建时行为才是核查点；以及 C2 地址藏在区块链交易里、封服务器无用的新型指挥方式。什么条件下适用：组织使用 GitHub 开源依赖或自行维护代码仓库的场景；即便不直接开发，也可作为第三方代码与构建流程管控的案例参考。</div></section><section class="d-sec" id="d-related"><h3>相关新闻</h3><div class="rel-grid"><div class="rel"><div class="r-meta">theregister · 11-27 18:30 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/d11c8cc36c.html">备份做了三年仍被一锅端：汽车零部件厂备份服务器与生产同域、密码复用，还原点全被删</a></h4></div><div class="rel"><div class="r-meta">theregister · 11-27 12:30 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/ea4233032d.html">微软发布 KB5138318 热补丁：修复 11 月热补丁引发的 Windows Server 2025 崩溃</a></h4></div><div class="rel"><div class="r-meta">bleepingcomputer · 11-27 12:30 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/69e5fcbc53.html">“GoodGuys”钓鱼活动冒充大品牌发付费专家访谈邀请，窃取企业 Google 与 Okta 账号</a></h4></div><div class="rel"><div class="r-meta">bleepingcomputer · 11-27 08:39 · <span style="color:#b3402a;font-weight:600">安全与运维</span></div><h4 class="r-title"><a href="../items/7a2232c2e2.html">1Password 后端遭入侵：员工 GitHub 账号被盗，部分客户姓名与邮箱外泄，密码库未受影响</a></h4></div></div></section></div><div class="d-side-r"><div class="d-sticky"><div class="d-card why-card"><h4>推荐理由</h4><p class="why-full">与软件供应链安全有关：攻击者用被盗的开发者凭证重写已有提交，加载器藏在数百个制表符之后，最终差异看起来是干净的，常规代码评审难以发现。值得带走什么：一个判断方法——提交记录干净不等于仓库干净，强制推送记录与构建时行为才是核查点；以及 C2 地址藏在区块链交易里、封服务器无用的新型指挥方式。什么条件下适用：组织使用 GitHub 开源依赖或自行维护代码仓库的场景；即便不直接开发，也可作为第三方代码与构建流程管控的案例参考。</p></div><div class="d-card"><h4>主题</h4><div><span class="ttag" style="color:#b3402a;background:#b3402a1a">安全与运维</span></div></div><div class="d-card"><h4>标签</h4><div class="d-tags" style="margin:0"><span class=d-tag>#安全与运维</span><span class=d-tag>#媒体报道</span></div></div></div></div></div><footer class="pagefoot">正文由 AI 翻译整理，仅供学习参考，关键操作请核对原文。<br><a href="https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html" target="_blank" rel="noopener">打开原文 ↗</a></footer></div></div>
+<script>
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tabpane').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('pane-' + t.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body></html>
