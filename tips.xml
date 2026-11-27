@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Excel：给单元格加下拉列表，别人填表只能选不能乱填</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26</link><guid isPermaLink="false">fde24b99b79f60f4341eb936bcd5a12e</guid><pubDate>Thu, 26 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：给单元格加下拉列表，别人填表只能选不能乱填</b></p><ol>
+<rss version="2.0"><channel><title>ECN 每日小技巧</title><link>https://simonhu668.github.io/it-news/learn/tips.html</link><description>每天 1–3 条中英双语办公提效技巧，一条一帖供 Power Automate 自动发布到 Teams。</description><item><title>Outlook：重要邮件钉在收件箱顶部，不会被新邮件淹没</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-27</link><guid isPermaLink="false">44c0e24adfd1860cab0c083d2bfc507d</guid><pubDate>Fri, 27 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Outlook</category><description><![CDATA[<p><b>Outlook：重要邮件钉在收件箱顶部，不会被新邮件淹没</b></p><ol>
+<li>在收件箱里找到那封重要邮件，点右键。</li>
+<li>选&quot;固定&quot;（Pin），邮件就会钉在收件箱最上方。</li>
+<li>新邮件再多，它也一直待在顶部，随时找得到。</li>
+<li>事情办完后，同样右键点它，选&quot;取消固定&quot;（Unpin），它就回到原来的位置。</li>
+</ol>
+<p><b>Pin an important email to the top of your inbox</b></p>
+<ol>
+<li>In your inbox, right-click the important message.</li>
+<li>Choose &quot;Pin&quot; — it sticks to the top of your inbox.</li>
+<li>No matter how many new messages arrive, it stays right there, easy to find.</li>
+<li>When you&#x27;re done with it, right-click it again and choose &quot;Unpin&quot; to send it back to its place.</li>
+</ol>]]></description></item>
+<item><title>Teams：开会开累了，换个"一起模式"，大家坐进同一个虚拟场景</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-27</link><guid isPermaLink="false">6e668c6f835934c7828bca44fb5a278d</guid><pubDate>Fri, 27 Nov 2026 01:05:00 GMT</pubDate><category>Microsoft 365</category><category>Teams 协作</category><description><![CDATA[<p><b>Teams：开会开累了，换个&quot;一起模式&quot;，大家坐进同一个虚拟场景</b></p><ol>
+<li>加入会议后，点屏幕上方的 ···（更多操作）。</li>
+<li>选&quot;一起模式&quot;（Together mode），再挑一个场景，比如礼堂或咖啡厅。</li>
+<li>所有人的头像会一起&quot;坐&quot;进这个场景里，看起来像真的坐在一间房里开会。</li>
+<li>开长会、团队周会时换一下，气氛轻松不少；想换回来，同样在 ··· 里选回&quot;库&quot;（Gallery）视图。</li>
+</ol>
+<p><b>Try Together mode — sit in the same virtual room</b></p>
+<ol>
+<li>Once you&#x27;re in a meeting, click the ··· (More actions) at the top of the screen.</li>
+<li>Choose &quot;Together mode&quot;, then pick a scene — an auditorium, a coffee shop, and more.</li>
+<li>Everyone&#x27;s video appears seated together in that scene, like you&#x27;re really in the same room.</li>
+<li>Great for long meetings or the weekly team call when the mood needs a lift; switch back to Gallery view from the same ··· menu.</li>
+</ol>]]></description></item>
+<item><title>Oracle EBS：一个表单好几个区块？按 F6 快速切换，不用鼠标点</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-27</link><guid isPermaLink="false">92be842568c887b3815c008413d738dd</guid><pubDate>Fri, 27 Nov 2026 01:00:00 GMT</pubDate><category>Oracle EBS</category><category>导航与帮助</category><description><![CDATA[<p><b>Oracle EBS：一个表单好几个区块？按 F6 快速切换，不用鼠标点</b></p><ol>
+<li>有些表单分上下几块，比如订单表头一块、明细行一块，光标一次只能待在一块里。</li>
+<li>按 F6，光标直接跳到下一块；再按 F6，继续往下一块跳。</li>
+<li>想往回跳，按 Shift+F6。</li>
+<li>手不用离开键盘，填表头、核明细来回切换快很多。</li>
+</ol>
+<p><b>Jump between blocks in a form with F6</b></p>
+<ol>
+<li>Some forms are split into blocks — e.g. an order header block and a lines block — and the cursor can only be in one block at a time.</li>
+<li>Press F6 and the cursor jumps straight to the next block; press it again to move on.</li>
+<li>To go back, press Shift+F6.</li>
+<li>Your hands stay on the keyboard, so switching between the header and the lines is much faster.</li>
+</ol>]]></description></item>
+<item><title>Excel：给单元格加下拉列表，别人填表只能选不能乱填</title><link>https://simonhu668.github.io/it-news/learn/tips.html#tips-2026-11-26</link><guid isPermaLink="false">fde24b99b79f60f4341eb936bcd5a12e</guid><pubDate>Thu, 26 Nov 2026 01:10:00 GMT</pubDate><category>Office 365</category><category>Excel</category><description><![CDATA[<p><b>Excel：给单元格加下拉列表，别人填表只能选不能乱填</b></p><ol>
 <li>选中要限制输入的单元格区域，比如一列&quot;状态&quot;。</li>
 <li>点数据（Data）&gt; 数据验证（Data Validation），&quot;允许&quot;选&quot;序列&quot;（List）。</li>
 <li>在&quot;来源&quot;里输入选项，用英文逗号隔开，比如：进行中,已完成,待确认。</li>
